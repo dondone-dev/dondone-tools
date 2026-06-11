@@ -28,21 +28,21 @@ function AppLayout() {
       <Header breadcrumbs={breadcrumbs} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/aes" element={<AesPage />} />
-        <Route path="/md5" element={<Md5Page />} />
-        <Route path="/sha2" element={<Sha2Page />} />
-        <Route path="/sha3" element={<Sha3Page />} />
-        <Route path="/blake" element={<BlakePage />} />
-        <Route path="/xxhash3" element={<Xxhash3Page />} />
-        <Route path="/base64" element={<Base64Page />} />
-        <Route path="/base64-image" element={<Base64ImagePage />} />
-        <Route path="/base58" element={<Base58Page />} />
-        <Route path="/qrcode" element={<QrCodePage />} />
-        <Route path="/string-length" element={<StringLengthPage />} />
-        <Route path="/password-strength" element={<PasswordStrengthPage />} />
-        <Route path="/ugly-avatar" element={<UglyAvatarPage />} />
-        <Route path="/bp-jwt" element={<BpJwtPage />} />
-        <Route path="/bp-sign" element={<BpSignPage />} />
+        <Route path="/crypto/aes" element={<AesPage />} />
+        <Route path="/hash/md5" element={<Md5Page />} />
+        <Route path="/hash/sha2" element={<Sha2Page />} />
+        <Route path="/hash/sha3" element={<Sha3Page />} />
+        <Route path="/hash/blake" element={<BlakePage />} />
+        <Route path="/hash/xxhash3" element={<Xxhash3Page />} />
+        <Route path="/encoding/base64" element={<Base64Page />} />
+        <Route path="/encoding/base64-image" element={<Base64ImagePage />} />
+        <Route path="/encoding/base58" element={<Base58Page />} />
+        <Route path="/encoding/qrcode" element={<QrCodePage />} />
+        <Route path="/text/string-length" element={<StringLengthPage />} />
+        <Route path="/security/password-strength" element={<PasswordStrengthPage />} />
+        <Route path="/fun/ugly-avatar" element={<UglyAvatarPage />} />
+        <Route path="/bp/jwt" element={<BpJwtPage />} />
+        <Route path="/bp/sign" element={<BpSignPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </div>

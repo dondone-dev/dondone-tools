@@ -1,0 +1,40 @@
+import { Link } from 'react-router-dom'
+import { type LucideIcon } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+
+interface ToolCardProps {
+  title: string
+  description: string
+  href: string
+  icon: LucideIcon
+  category: string
+  className?: string
+}
+
+export function ToolCard({ title, description, href, icon: Icon, category, className }: ToolCardProps) {
+  return (
+    <Link
+      to={href}
+      className={cn(
+        'group block rounded-lg border border-border bg-card p-5 hover:border-foreground/20 hover:shadow-sm transition-all duration-150',
+        className
+      )}
+    >
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="p-2 rounded-md bg-muted group-hover:bg-muted/80 transition-colors">
+          <Icon className="h-4 w-4 text-foreground/70" />
+        </div>
+        <Badge variant="outline" className="text-xs font-normal shrink-0">
+          {category}
+        </Badge>
+      </div>
+      <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
+        {title}
+      </h3>
+      <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+        {description}
+      </p>
+    </Link>
+  )
+}

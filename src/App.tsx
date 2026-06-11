@@ -12,6 +12,7 @@ import { Base64ImagePage } from '@/pages/Base64ImagePage'
 import { Base58Page } from '@/pages/Base58Page'
 import { QrCodePage } from '@/pages/QrCodePage'
 import { StringLengthPage } from '@/pages/StringLengthPage'
+import { PasswordStrengthPage } from '@/pages/PasswordStrengthPage'
 import { UglyAvatarPage } from '@/pages/UglyAvatarPage'
 import { BpJwtPage } from '@/pages/BpJwtPage'
 import { BpSignPage } from '@/pages/BpSignPage'
@@ -38,6 +39,7 @@ function AppLayout() {
         <Route path="/base58" element={<Base58Page />} />
         <Route path="/qrcode" element={<QrCodePage />} />
         <Route path="/string-length" element={<StringLengthPage />} />
+        <Route path="/password-strength" element={<PasswordStrengthPage />} />
         <Route path="/ugly-avatar" element={<UglyAvatarPage />} />
         <Route path="/bp-jwt" element={<BpJwtPage />} />
         <Route path="/bp-sign" element={<BpSignPage />} />

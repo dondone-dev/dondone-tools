@@ -19,7 +19,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -111,6 +111,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'Text',
   },
   {
+    id: 'password-strength',
+    title: 'Password Strength',
+    description: '检查密码是否命中常见弱密码库，并根据长度、字符类型和常见模式评估强度。',
+    href: '/password-strength',
+    icon: ShieldCheck,
+    category: 'Security',
+  },
+  {
     id: 'ugly-avatar',
     title: 'Ugly Avatar',
     description: '随机生成丑萌风格头像，可自定义颜色，支持下载 SVG。',
@@ -136,7 +144,7 @@ export const TOOLS: ToolConfig[] = [
   },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Cryptography', 'Hash', 'Encoding', 'Text', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Cryptography', 'Security', 'Hash', 'Encoding', 'Text', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

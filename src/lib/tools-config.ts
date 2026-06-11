@@ -9,12 +9,13 @@ import {
   ShieldCheck,
   type LucideIcon,
 } from 'lucide-react'
+import { type ToolRoute } from '@/lib/routes'
 
 export interface ToolConfig {
   id: string
   title: string
   description: string
-  href: string
+  href: ToolRoute
   icon: LucideIcon
   category: ToolCategory
 }

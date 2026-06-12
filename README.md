@@ -1,43 +1,42 @@
 # dondone tools
 
-一组轻量的浏览器端工具。所有计算均在本地完成，不上传用户输入的数据。
+[中文](README.zh.md)
 
-## 功能
+A collection of lightweight browser-side tools. All computation runs locally — no user input is ever uploaded.
 
-- 加密与签名：AES、Server JWT Token、Client Sign
-- 哈希计算：MD5、SHA-2、SHA-3、BLAKE、xxHash3
-- 编码转换：Base64、Base64 Image、Base58、QR Code
-- 安全检查：Password Strength
-- 文本与生成：String Length、Ugly Avatar
+## Tools
 
-## 技术栈
+- **Cryptography & Auth**: AES, Server JWT Token, Client Sign
+- **Hashing**: MD5, SHA-2, SHA-3, BLAKE, xxHash3
+- **Encoding**: Base64, Base64 Image, Base58, QR Code
+- **Security**: Password Strength
+- **Text & Fun**: String Length, Ugly Avatar
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Radix UI
+## Stack
+
+- React · TypeScript · Vite
+- Tailwind CSS · Radix UI
 - Vitest
 
-## 本地开发
+## Development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## 常用命令
+## Commands
 
 ```bash
-pnpm test:run
-pnpm build
-pnpm lint
+pnpm test:run   # run tests
+pnpm build      # production build
+pnpm lint       # lint
 ```
 
-## 数据说明
+## Data
 
-密码强度检测使用 SecLists `10k-most-common.txt` 与 SplashData 年度弱密码榜单作为本地弱密码库。数据随前端资源一起加载，仅用于浏览器内匹配。
+Password strength detection uses a bundled weak-password list derived from SecLists `10k-most-common.txt` and SplashData annual rankings. The list is loaded with the frontend bundle and matched entirely in the browser.
 
-## 隐私
+## Privacy
 
-本项目不包含后端服务。工具输入、文件处理和密码检测均在浏览器本地执行。
+No backend. All tool input, file processing, and password checking runs locally in the browser.

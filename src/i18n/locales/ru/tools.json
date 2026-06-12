@@ -191,6 +191,14 @@
     "unified": "Единый",
     "identical": "Тексты идентичны"
   },
+  "url-encode": {
+    "title": "URL Encode",
+    "description": "Кодирование и декодирование URL-компонентов через encodeURIComponent / decodeURIComponent. Локальные вычисления.",
+    "inputPlaceholder": "Введите текст для кодирования или декодирования...",
+    "encode": "Кодировать",
+    "decode": "Декодировать",
+    "outputPlaceholder": "Результат"
+  },
   "timestamp": {
     "title": "Метка времени",
     "description": "Конвертация между Unix-таймстампами и датами. Автоопределение секунд/миллисекунд. Вычисления локальные.",

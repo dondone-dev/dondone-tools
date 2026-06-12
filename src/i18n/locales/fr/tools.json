@@ -191,6 +191,14 @@
     "unified": "Unifié",
     "identical": "Les textes sont identiques"
   },
+  "url-encode": {
+    "title": "URL Encode",
+    "description": "Encodez et décodez les composants URL avec encodeURIComponent / decodeURIComponent. Calcul local.",
+    "inputPlaceholder": "Entrez le texte à encoder ou décoder...",
+    "encode": "Encoder",
+    "decode": "Décoder",
+    "outputPlaceholder": "Résultat"
+  },
   "timestamp": {
     "title": "Horodatage",
     "description": "Convertissez entre les timestamps Unix et les dates lisibles. Détecte automatiquement secondes/millisecondes. Calcul local.",

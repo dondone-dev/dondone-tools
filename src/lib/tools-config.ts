@@ -10,6 +10,7 @@ import {
   KeyRound,
   ShieldCheck,
   Clock,
+  Link,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -104,6 +105,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'qrcode.description',
     href: '/encoding/qrcode',
     icon: QrCode,
+    category: 'Encoding',
+  },
+  {
+    id: 'url-encode',
+    title: 'URL Encode',
+    descriptionKey: 'url-encode.description',
+    href: '/encoding/url',
+    icon: Link,
     category: 'Encoding',
   },
   {

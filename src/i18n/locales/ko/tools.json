@@ -191,6 +191,14 @@
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다"
   },
+  "url-encode": {
+    "title": "URL 인코드",
+    "description": "encodeURIComponent / decodeURIComponent로 URL을 인코딩/디코딩합니다. 로컬 계산.",
+    "inputPlaceholder": "인코딩 또는 디코딩할 텍스트 입력...",
+    "encode": "인코딩",
+    "decode": "디코딩",
+    "outputPlaceholder": "출력"
+  },
   "timestamp": {
     "title": "타임스탬프",
     "description": "Unix 타임스탬프와 날짜를 상호 변환합니다. 초/밀리초를 자동으로 감지합니다. 모든 계산은 로컬에서 실행됩니다.",

@@ -191,6 +191,14 @@
     "unified": "Unificado",
     "identical": "Los textos son idénticos"
   },
+  "url-encode": {
+    "title": "URL Encode",
+    "description": "Codifica y decodifica componentes URL con encodeURIComponent / decodeURIComponent. Cálculo local.",
+    "inputPlaceholder": "Ingresa texto para codificar o decodificar...",
+    "encode": "Codificar",
+    "decode": "Decodificar",
+    "outputPlaceholder": "Salida"
+  },
   "timestamp": {
     "title": "Marca de tiempo",
     "description": "Convierte entre timestamps Unix y fechas legibles. Detecta segundos/milisegundos automáticamente. Cálculo local.",

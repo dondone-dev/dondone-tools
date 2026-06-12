@@ -191,6 +191,14 @@
     "unified": "統合",
     "identical": "テキストは同一です"
   },
+  "url-encode": {
+    "title": "URLエンコード",
+    "description": "encodeURIComponent / decodeURIComponentでURLをエンコード・デコードします。ローカル計算。",
+    "inputPlaceholder": "エンコードまたはデコードするテキストを入力...",
+    "encode": "エンコード",
+    "decode": "デコード",
+    "outputPlaceholder": "出力"
+  },
   "timestamp": {
     "title": "タイムスタンプ",
     "description": "UnixタイムスタンプとISO日付を相互変換。秒/ミリ秒を自動判定。すべての計算はローカルで実行されます。",

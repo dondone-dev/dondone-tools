@@ -191,6 +191,14 @@
     "unified": "Unified",
     "identical": "Texts are identical"
   },
+  "url-encode": {
+    "title": "URL Encode",
+    "description": "Encode and decode URL components using encodeURIComponent / decodeURIComponent. All computation runs locally.",
+    "inputPlaceholder": "Enter text to encode or decode...",
+    "encode": "Encode",
+    "decode": "Decode",
+    "outputPlaceholder": "Output"
+  },
   "timestamp": {
     "title": "Timestamp",
     "description": "Convert between Unix timestamps and human-readable dates. Auto-detects seconds vs milliseconds. All computation runs locally.",

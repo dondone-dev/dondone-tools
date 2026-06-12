@@ -191,6 +191,14 @@
     "unified": "Einheitlich",
     "identical": "Texte sind identisch"
   },
+  "url-encode": {
+    "title": "URL Encode",
+    "description": "URL-Komponenten mit encodeURIComponent / decodeURIComponent kodieren und dekodieren. Lokale Berechnung.",
+    "inputPlaceholder": "Text zum Kodieren oder Dekodieren eingeben...",
+    "encode": "Kodieren",
+    "decode": "Dekodieren",
+    "outputPlaceholder": "Ausgabe"
+  },
   "timestamp": {
     "title": "Zeitstempel",
     "description": "Unix-Zeitstempel und menschenlesbare Daten konvertieren. Erkennt Sekunden/Millisekunden automatisch. Lokale Berechnung.",

@@ -191,6 +191,14 @@
     "unified": "统一",
     "identical": "两段文本完全相同"
   },
+  "url-encode": {
+    "title": "URL 编解码",
+    "description": "使用 encodeURIComponent / decodeURIComponent 对 URL 进行编码和解码。所有计算在本地完成。",
+    "inputPlaceholder": "输入要编码或解码的文本...",
+    "encode": "编码",
+    "decode": "解码",
+    "outputPlaceholder": "输出"
+  },
   "timestamp": {
     "title": "时间戳",
     "description": "在 Unix 时间戳与人类可读日期之间互转，自动识别秒/毫秒。所有计算在本地完成。",

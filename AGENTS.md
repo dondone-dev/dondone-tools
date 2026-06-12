@@ -67,6 +67,20 @@ Tests live alongside source in `src/lib/tools/*.test.ts`. Write tests for all pu
 
 Run before committing: `pnpm test:run`
 
+## UI/UX Review
+
+When designing a new page, modifying an existing layout, or accepting code that touches UI components, run `/taste-skill` to audit the result before committing.
+
+Things to check with `/taste-skill`:
+
+- Visual hierarchy and spacing — do headings, labels, and content feel proportional?
+- Interaction feedback — do buttons, copy actions, and loading states communicate clearly?
+- Consistency — do new components match the patterns already established in the codebase (copy button style, result field layout, error display)?
+- Accessibility — are interactive elements reachable by keyboard, do icons have labels or `aria-label`?
+- Dark mode — does the page look correct with the dark theme toggled on?
+
+Do not mark a UI task as done without running `/taste-skill` first.
+
 ## Style
 
 - No comments unless the *why* is non-obvious

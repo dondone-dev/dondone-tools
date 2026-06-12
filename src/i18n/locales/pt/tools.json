@@ -170,5 +170,13 @@
     "generateSign": "Gerar assinatura",
     "signResult": "Assinatura",
     "signFormat": "Formato: <code>digest,timestamp,keyId</code>"
+  },
+  "json-format": {
+    "title": "JSON Format",
+    "description": "Formate e minimize JSON. Cole seu JSON, clique em Formatar para embeleza-lo ou em Minimizar para comprimi-lo em uma linha.",
+    "inputPlaceholder": "Cole seu JSON aqui...",
+    "format": "Formatar",
+    "minify": "Minimizar",
+    "outputPlaceholder": "O resultado aparecerá aqui..."
   }
 }

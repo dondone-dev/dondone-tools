@@ -170,5 +170,13 @@
     "generateSign": "서명 생성",
     "signResult": "서명",
     "signFormat": "형식: <code>digest,timestamp,keyId</code>"
+  },
+  "json-format": {
+    "title": "JSON Format",
+    "description": "JSON을 정렬하거나 압축합니다. JSON을 붙여넣고 서식 지정으로 보기 좋게 정리하거나, 최소화로 한 줄로 압축합니다.",
+    "inputPlaceholder": "여기에 JSON을 붙여넣으세요...",
+    "format": "서식 지정",
+    "minify": "최소화",
+    "outputPlaceholder": "출력 결과가 여기에 표시됩니다..."
   }
 }

@@ -170,5 +170,13 @@
     "generateSign": "生成签名",
     "signResult": "签名结果",
     "signFormat": "格式：<code>digest,timestamp,keyId</code>"
+  },
+  "json-format": {
+    "title": "JSON Format",
+    "description": "JSON 格式化与压缩。粘贴 JSON 后，点击「格式化」美化输出，或点击「压缩」将其压为一行。",
+    "inputPlaceholder": "在此粘贴 JSON...",
+    "format": "格式化",
+    "minify": "压缩为一行",
+    "outputPlaceholder": "输出结果将显示在这里..."
   }
 }

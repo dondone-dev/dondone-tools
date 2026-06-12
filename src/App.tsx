@@ -11,6 +11,7 @@ import { Base64Page } from '@/pages/Base64Page'
 import { Base64ImagePage } from '@/pages/Base64ImagePage'
 import { Base58Page } from '@/pages/Base58Page'
 import { QrCodePage } from '@/pages/QrCodePage'
+import { JsonFormatPage } from '@/pages/JsonFormatPage'
 import { StringLengthPage } from '@/pages/StringLengthPage'
 import { PasswordStrengthPage } from '@/pages/PasswordStrengthPage'
 import { UglyAvatarPage } from '@/pages/UglyAvatarPage'
@@ -30,6 +31,7 @@ function toolRoutes() {
       <Route path="encoding/base64-image" element={<Base64ImagePage />} />
       <Route path="encoding/base58" element={<Base58Page />} />
       <Route path="encoding/qrcode" element={<QrCodePage />} />
+      <Route path="text/json-format" element={<JsonFormatPage />} />
       <Route path="text/string-length" element={<StringLengthPage />} />
       <Route path="security/password-strength" element={<PasswordStrengthPage />} />
       <Route path="fun/ugly-avatar" element={<UglyAvatarPage />} />

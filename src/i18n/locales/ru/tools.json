@@ -170,5 +170,13 @@
     "generateSign": "Сгенерировать подпись",
     "signResult": "Подпись",
     "signFormat": "Формат: <code>digest,timestamp,keyId</code>"
+  },
+  "json-format": {
+    "title": "JSON Format",
+    "description": "Форматирование и минификация JSON. Вставьте JSON, нажмите «Форматировать» для красивого вывода или «Минифицировать» для сжатия в одну строку.",
+    "inputPlaceholder": "Вставьте JSON сюда...",
+    "format": "Форматировать",
+    "minify": "Минифицировать",
+    "outputPlaceholder": "Результат появится здесь..."
   }
 }

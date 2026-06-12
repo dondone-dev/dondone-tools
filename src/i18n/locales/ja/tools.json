@@ -170,5 +170,13 @@
     "generateSign": "署名を生成",
     "signResult": "署名",
     "signFormat": "形式: <code>digest,timestamp,keyId</code>"
+  },
+  "json-format": {
+    "title": "JSON Format",
+    "description": "JSON の整形と圧縮。JSON を貼り付けて「整形」で見やすく表示、または「圧縮」で1行に変換します。",
+    "inputPlaceholder": "ここに JSON を貼り付けてください...",
+    "format": "整形",
+    "minify": "圧縮",
+    "outputPlaceholder": "出力結果がここに表示されます..."
   }
 }

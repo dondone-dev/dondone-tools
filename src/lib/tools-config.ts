@@ -4,6 +4,7 @@ import {
   FileCode,
   QrCode,
   Type,
+  Braces,
   Smile,
   KeyRound,
   ShieldCheck,
@@ -102,6 +103,14 @@ export const TOOLS: ToolConfig[] = [
     href: '/encoding/qrcode',
     icon: QrCode,
     category: 'Encoding',
+  },
+  {
+    id: 'json-format',
+    title: 'JSON Format',
+    descriptionKey: 'json-format.description',
+    href: '/text/json-format',
+    icon: Braces,
+    category: 'Text',
   },
   {
     id: 'string-length',

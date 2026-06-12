@@ -178,5 +178,17 @@
     "format": "Formatieren",
     "minify": "Minimieren",
     "outputPlaceholder": "Ausgabe erscheint hier..."
+  },
+  "text-diff": {
+    "title": "Text Diff",
+    "description": "Vergleichen Sie zwei Texte und markieren Sie Unterschiede. Unterstützt geteilte und einheitliche Ansicht mit wortgenauem Hervorheben.",
+    "original": "Original",
+    "modified": "Geändert",
+    "originalPlaceholder": "Originaltext hier einfügen...",
+    "modifiedPlaceholder": "Geänderten Text hier einfügen...",
+    "compare": "Vergleichen",
+    "split": "Geteilt",
+    "unified": "Einheitlich",
+    "identical": "Texte sind identisch"
   }
 }

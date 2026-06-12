@@ -178,5 +178,17 @@
     "format": "格式化",
     "minify": "压缩为一行",
     "outputPlaceholder": "输出结果将显示在这里..."
+  },
+  "text-diff": {
+    "title": "Text Diff",
+    "description": "对比两段文本并高亮差异，支持左右分栏和统一视图，提供行内词级高亮。",
+    "original": "原始文本",
+    "modified": "修改后文本",
+    "originalPlaceholder": "在此粘贴原始文本...",
+    "modifiedPlaceholder": "在此粘贴修改后的文本...",
+    "compare": "对比",
+    "split": "分栏",
+    "unified": "统一",
+    "identical": "两段文本完全相同"
   }
 }

@@ -178,5 +178,17 @@
     "format": "整形",
     "minify": "圧縮",
     "outputPlaceholder": "出力結果がここに表示されます..."
+  },
+  "text-diff": {
+    "title": "Text Diff",
+    "description": "2つのテキストを比較して差分をハイライト表示します。分割ビューと統合ビュー、単語レベルのハイライトに対応。",
+    "original": "元のテキスト",
+    "modified": "変更後テキスト",
+    "originalPlaceholder": "元のテキストをここに貼り付けてください...",
+    "modifiedPlaceholder": "変更後のテキストをここに貼り付けてください...",
+    "compare": "比較",
+    "split": "分割",
+    "unified": "統合",
+    "identical": "テキストは同一です"
   }
 }

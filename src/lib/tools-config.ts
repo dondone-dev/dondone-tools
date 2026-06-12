@@ -4,6 +4,7 @@ import {
   FileCode,
   QrCode,
   Type,
+  ArrowLeftRight,
   Braces,
   Smile,
   KeyRound,
@@ -103,6 +104,14 @@ export const TOOLS: ToolConfig[] = [
     href: '/encoding/qrcode',
     icon: QrCode,
     category: 'Encoding',
+  },
+  {
+    id: 'text-diff',
+    title: 'Text Diff',
+    descriptionKey: 'text-diff.description',
+    href: '/text/diff',
+    icon: ArrowLeftRight,
+    category: 'Text',
   },
   {
     id: 'json-format',

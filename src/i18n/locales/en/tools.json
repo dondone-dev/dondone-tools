@@ -178,5 +178,17 @@
     "format": "Format",
     "minify": "Minify",
     "outputPlaceholder": "Output will appear here..."
+  },
+  "text-diff": {
+    "title": "Text Diff",
+    "description": "Compare two texts and highlight differences. Supports split and unified views with inline word-level highlighting.",
+    "original": "Original",
+    "modified": "Modified",
+    "originalPlaceholder": "Paste original text here...",
+    "modifiedPlaceholder": "Paste modified text here...",
+    "compare": "Compare",
+    "split": "Split",
+    "unified": "Unified",
+    "identical": "Texts are identical"
   }
 }

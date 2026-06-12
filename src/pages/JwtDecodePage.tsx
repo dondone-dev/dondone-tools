@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { Copy, Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { decodeJwt, formatTimestamp, type JwtParts } from '@/lib/tools/jwt-decode'
+import { useClipboard } from '@/hooks/useClipboard'
 
 const TIME_FIELDS = ['exp', 'iat', 'nbf'] as const
 
@@ -13,6 +15,7 @@ export function JwtDecodePage() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<JwtParts | null>(null)
   const [error, setError] = useState('')
+  const { copiedText, copy } = useClipboard()
 
   function handleDecode() {
     setError('')
@@ -47,9 +50,9 @@ export function JwtDecodePage() {
 
         {result && (
           <div className="space-y-2">
-            <JwtSection title={t('jwt-decode.header')} data={result.header} />
-            <JwtSection title={t('jwt-decode.payload')} data={result.payload} timeFields />
-            <SignatureSection title={t('jwt-decode.signature')} value={result.signature} note={t('jwt-decode.noVerification')} />
+            <JwtSection title={t('jwt-decode.header')} data={result.header} copiedText={copiedText} onCopy={copy} />
+            <JwtSection title={t('jwt-decode.payload')} data={result.payload} timeFields copiedText={copiedText} onCopy={copy} />
+            <SignatureSection title={t('jwt-decode.signature')} value={result.signature} note={t('jwt-decode.noVerification')} copiedText={copiedText} onCopy={copy} />
           </div>
         )}
       </div>
@@ -57,8 +60,10 @@ export function JwtDecodePage() {
   )
 }
 
-function JwtSection({ title, data, timeFields }: { title: string; data: Record<string, unknown>; timeFields?: boolean }) {
-  const { t } = useTranslation('tools')
+function JwtSection({ title, data, timeFields, copiedText, onCopy }: { title: string; data: Record<string, unknown>; timeFields?: boolean; copiedText: string | null; onCopy: (text: string) => void }) {
+  const { t } = useTranslation(['tools', 'common'])
+  const json = JSON.stringify(data, null, 2)
+  const isCopied = copiedText === json
 
   return (
     <details open className="border rounded-lg">
@@ -66,8 +71,14 @@ function JwtSection({ title, data, timeFields }: { title: string; data: Record<s
         {title}
       </summary>
       <div className="px-4 pb-3 pt-1 space-y-1">
+        <div className="flex justify-end">
+          <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(json)}>
+            {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            {isCopied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
+          </Button>
+        </div>
         <pre className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 overflow-x-auto whitespace-pre-wrap break-all">
-          {JSON.stringify(data, null, 2)}
+          {json}
         </pre>
         {timeFields && (
           <div className="space-y-1 pt-1">
@@ -93,13 +104,21 @@ function JwtSection({ title, data, timeFields }: { title: string; data: Record<s
   )
 }
 
-function SignatureSection({ title, value, note }: { title: string; value: string; note: string }) {
+function SignatureSection({ title, value, note, copiedText, onCopy }: { title: string; value: string; note: string; copiedText: string | null; onCopy: (text: string) => void }) {
+  const { t } = useTranslation('common')
+  const isCopied = copiedText === value
   return (
     <details open className="border rounded-lg">
       <summary className="px-4 py-2 text-sm font-medium cursor-pointer select-none hover:bg-muted/50 rounded-lg">
         {title}
       </summary>
       <div className="px-4 pb-3 pt-1 space-y-2">
+        <div className="flex justify-end">
+          <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
+            {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            {isCopied ? t('ui.copied') : t('ui.copy')}
+          </Button>
+        </div>
         <pre className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 overflow-x-auto whitespace-pre-wrap break-all">
           {value}
         </pre>

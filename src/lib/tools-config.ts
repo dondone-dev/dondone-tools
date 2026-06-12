@@ -1,6 +1,10 @@
 import {
   Lock,
   Hash,
+  Binary,
+  Layers,
+  Zap,
+  Cpu,
   FileCode,
   QrCode,
   Type,
@@ -60,7 +64,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'SHA-2',
     descriptionKey: 'sha2.description',
     href: '/hash/sha2',
-    icon: Hash,
+    icon: Binary,
     category: 'Hash',
   },
   {
@@ -68,7 +72,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'SHA-3',
     descriptionKey: 'sha3.description',
     href: '/hash/sha3',
-    icon: Hash,
+    icon: Layers,
     category: 'Hash',
   },
   {
@@ -76,7 +80,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'BLAKE',
     descriptionKey: 'blake.description',
     href: '/hash/blake',
-    icon: Hash,
+    icon: Zap,
     category: 'Hash',
   },
   {
@@ -84,7 +88,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'xxHash3',
     descriptionKey: 'xxhash3.description',
     href: '/hash/xxhash3',
-    icon: Hash,
+    icon: Cpu,
     category: 'Hash',
   },
   {

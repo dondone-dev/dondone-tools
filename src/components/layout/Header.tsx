@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Wrench, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher'
+import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { localeHref } from '@/i18n/utils'
 import { type LocaleCode, DEFAULT_LOCALE } from '@/i18n/config'
 
@@ -64,7 +65,8 @@ export function Header({ breadcrumbs, currentLocale = DEFAULT_LOCALE, currentPat
           </>
         )}
 
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
           <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
         </div>
       </div>

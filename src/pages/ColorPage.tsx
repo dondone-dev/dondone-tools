@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { useClipboard } from '@/hooks/useClipboard'
-import { hexToRgb, rgbToHex, rgbToHsl, hslToRgb, parseAnyColor } from '@/lib/tools/color'
+import { hexToRgb, rgbToHex, rgbToHsl, parseAnyColor } from '@/lib/tools/color'
 
 interface ColorState {
   hex: string

@@ -32,7 +32,8 @@ export function JsonFormatPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('json-format.inputPlaceholder')}
-          className="font-mono text-sm min-h-[240px] resize-y"
+          rows={10}
+          className="font-mono text-sm resize-y"
           spellCheck={false}
         />
 
@@ -68,7 +69,8 @@ export function JsonFormatPage() {
             <Textarea
               value={output}
               readOnly
-              className="font-mono text-sm min-h-[240px] resize-y bg-muted/50"
+              rows={10}
+              className="font-mono text-sm resize-y bg-muted/50"
               spellCheck={false}
             />
           </div>

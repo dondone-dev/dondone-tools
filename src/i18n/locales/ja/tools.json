@@ -85,6 +85,21 @@
     "dropQr": "QR コード画像をドロップまたはクリックして選択",
     "decodeResult": "デコード結果"
   },
+  "qrcode-decode": {
+    "title": "QR Code Decoder",
+    "description": "ローカル画像から QR コードをデコードします。結果はブラウザ内で抽出され、アップロードされません。",
+    "dropImage": "QR コード画像をドロップまたはクリックして選択",
+    "preview": "プレビュー",
+    "result": "デコード結果",
+    "openUrl": "URL を開く",
+    "imageOnly": "画像ファイルを選択してください",
+    "loadFailed": "画像の読み込みに失敗しました",
+    "canvasUnavailable": "このブラウザでは Canvas を使用できません",
+    "type": {
+      "url": "URL",
+      "text": "テキスト"
+    }
+  },
   "string-length": {
     "title": "String Length",
     "description": "文字数、バイト数、行数、全角/半角文字の統計を含む文字列長を計算します。リアルタイム更新。",

@@ -85,6 +85,21 @@
     "dropQr": "Drop QR code image or click to select",
     "decodeResult": "Decoded Result"
   },
+  "qrcode-decode": {
+    "title": "QR Code Decoder",
+    "description": "Decode QR code images from local files. Results are extracted in your browser and never uploaded.",
+    "dropImage": "Drop QR code image or click to select",
+    "preview": "Preview",
+    "result": "Decoded Result",
+    "openUrl": "Open URL",
+    "imageOnly": "Please select an image file",
+    "loadFailed": "Failed to load the image",
+    "canvasUnavailable": "Canvas is unavailable in this browser",
+    "type": {
+      "url": "URL",
+      "text": "Text"
+    }
+  },
   "string-length": {
     "title": "String Length",
     "description": "Count string length including character count, byte count, lines, and full/half-width stats. Calculates in real time.",

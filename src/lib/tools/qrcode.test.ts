@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest'
 import QRCode from 'qrcode'
 import jsQR from 'jsqr'
-import { generateQrCode, decodeImageData } from './qrcode'
+import { generateQrCode, decodeImageData, classifyQrCodeText } from './qrcode'
 
 function renderQrToImageData(text: string, { size = 256, margin = 4 } = {}) {
   const qr = QRCode.create(text, { errorCorrectionLevel: 'M' })
@@ -59,4 +59,9 @@ test('decodeImageData throws on zero dimensions', () => {
 test('decodeImageData throws when no QR code is found', () => {
   expect(() => decodeImageData({ data: new Uint8ClampedArray(32 * 32 * 4), width: 32, height: 32 }))
     .toThrow(/未识别到二维码/)
+})
+
+test('classifyQrCodeText identifies url and text payloads', () => {
+  expect(classifyQrCodeText('https://tools.dondone.dev/encoding/qrcode')).toBe('url')
+  expect(classifyQrCodeText('plain text payload')).toBe('text')
 })

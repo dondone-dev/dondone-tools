@@ -10,6 +10,7 @@ export const TOOL_ROUTES = [
   '/encoding/base64-image',
   '/encoding/base58',
   '/encoding/qrcode',
+  '/encoding/qrcode-decode',
   '/encoding/url',
   '/text/diff',
   '/text/json-format',

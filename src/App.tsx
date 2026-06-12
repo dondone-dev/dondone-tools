@@ -11,6 +11,7 @@ import { Base64Page } from '@/pages/Base64Page'
 import { Base64ImagePage } from '@/pages/Base64ImagePage'
 import { Base58Page } from '@/pages/Base58Page'
 import { QrCodePage } from '@/pages/QrCodePage'
+import { QrCodeDecodePage } from '@/pages/QrCodeDecodePage'
 import { TextDiffPage } from '@/pages/TextDiffPage'
 import { JsonFormatPage } from '@/pages/JsonFormatPage'
 import { StringLengthPage } from '@/pages/StringLengthPage'
@@ -38,6 +39,7 @@ function toolRoutes() {
       <Route path="encoding/base64-image" element={<Base64ImagePage />} />
       <Route path="encoding/base58" element={<Base58Page />} />
       <Route path="encoding/qrcode" element={<QrCodePage />} />
+      <Route path="encoding/qrcode-decode" element={<QrCodeDecodePage />} />
       <Route path="text/diff" element={<TextDiffPage />} />
       <Route path="text/json-format" element={<JsonFormatPage />} />
       <Route path="text/string-length" element={<StringLengthPage />} />

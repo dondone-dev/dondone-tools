@@ -85,6 +85,21 @@
     "dropQr": "Suelta la imagen del código QR o haz clic para seleccionar",
     "decodeResult": "Resultado decodificado"
   },
+  "qrcode-decode": {
+    "title": "QR Code Decoder",
+    "description": "Decodifica imágenes de código QR desde archivos locales. Los resultados se extraen en tu navegador y nunca se suben.",
+    "dropImage": "Suelta la imagen del código QR o haz clic para seleccionar",
+    "preview": "Vista previa",
+    "result": "Resultado decodificado",
+    "openUrl": "Abrir URL",
+    "imageOnly": "Selecciona un archivo de imagen",
+    "loadFailed": "No se pudo cargar la imagen",
+    "canvasUnavailable": "Canvas no está disponible en este navegador",
+    "type": {
+      "url": "URL",
+      "text": "Texto"
+    }
+  },
   "string-length": {
     "title": "String Length",
     "description": "Cuenta la longitud de cadenas incluyendo caracteres, bytes, líneas y estadísticas de ancho completo/medio.",

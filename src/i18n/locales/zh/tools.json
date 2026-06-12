@@ -85,6 +85,21 @@
     "dropQr": "拖放二维码图片或点击选择",
     "decodeResult": "识别结果"
   },
+  "qrcode-decode": {
+    "title": "QR Code Decoder",
+    "description": "识别本地图片中的二维码内容。所有处理都在浏览器内完成，不会上传文件。",
+    "dropImage": "拖放二维码图片或点击选择",
+    "preview": "预览",
+    "result": "识别结果",
+    "openUrl": "打开链接",
+    "imageOnly": "请选择图片文件",
+    "loadFailed": "图片加载失败",
+    "canvasUnavailable": "当前浏览器无法使用 Canvas",
+    "type": {
+      "url": "URL",
+      "text": "文本"
+    }
+  },
   "string-length": {
     "title": "String Length",
     "description": "统计字符串长度，包括字符数、字节数、行数、全角/半角字符统计。实时计算，无需点击。",

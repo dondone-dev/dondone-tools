@@ -120,6 +120,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'Encoding',
   },
   {
+    id: 'qrcode-decode',
+    title: 'QR Code Decoder',
+    descriptionKey: 'qrcode-decode.description',
+    href: '/encoding/qrcode-decode',
+    icon: QrCode,
+    category: 'Encoding',
+  },
+  {
     id: 'url-encode',
     title: 'URL Encode',
     descriptionKey: 'url-encode.description',

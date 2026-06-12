@@ -7,7 +7,6 @@ import { TOOL_ROUTES } from './src/lib/routes'
 import { LOCALES, DEFAULT_LOCALE } from './src/i18n/config'
 
 const allRoutes = [
-  '/',
   ...TOOL_ROUTES,
   ...LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((locale) => [
     `/${locale}`,
@@ -22,6 +21,7 @@ export default defineConfig({
     sitemap({
       hostname: 'https://tools.dondone.dev',
       dynamicRoutes: allRoutes,
+      exclude: ['/google08f6db448c5f7f9f'],
     }),
   ],
   resolve: {

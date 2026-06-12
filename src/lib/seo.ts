@@ -204,7 +204,7 @@ interface BreadcrumbListSchema {
     '@type': 'ListItem'
     position: number
     name: string
-    item: string
+    item?: string
   }>
 }
 
@@ -241,7 +241,7 @@ export function getJsonLd(pathname: string, locale: LocaleCode): JsonLdSchema[] 
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: SITE_NAME, item: HOSTNAME + '/' },
-      { '@type': 'ListItem', position: 2, name: tool.category, item: HOSTNAME + '/' },
+      { '@type': 'ListItem', position: 2, name: tool.category },
       { '@type': 'ListItem', position: 3, name: tool.title, item: seo.canonicalUrl },
     ],
   }

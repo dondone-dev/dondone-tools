@@ -202,7 +202,11 @@
     "invalidPattern": "Motif invalide",
     "matchIndex": "#",
     "position": "pos",
-    "groups": "groupes"
+    "groups": "groupes",
+    "flagDescG": "Global — toutes les correspondances",
+    "flagDescI": "Insensible à la casse",
+    "flagDescM": "Multiligne — ^ et $ correspondent aux débuts/fins de ligne",
+    "flagDescS": "Point universel — . correspond aussi aux sauts de ligne"
   },
   "color": {
     "title": "Sélecteur de couleur",

@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { HelpCircle } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 
 const FLAGS = ['g', 'i', 'm', 's'] as const
@@ -96,7 +98,7 @@ export function RegexPage() {
               className={cn('font-mono text-sm', error && 'border-destructive focus-visible:ring-destructive')}
               spellCheck={false}
             />
-            <div className="flex gap-1 shrink-0">
+            <div className="flex gap-1 shrink-0 items-center">
               {FLAGS.map((flag) => (
                 <Button
                   key={flag}
@@ -104,11 +106,28 @@ export function RegexPage() {
                   variant={activeFlags.has(flag) ? 'default' : 'outline'}
                   className="h-9 w-9 p-0 font-mono text-xs"
                   onClick={() => toggleFlag(flag)}
-                  title={`${t('regex.flags')}: ${flag}`}
                 >
                   {flag}
                 </Button>
               ))}
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button className="ml-1 text-muted-foreground hover:text-foreground transition-colors">
+                      <HelpCircle className="h-4 w-4" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="space-y-1">
+                    {FLAGS.map((flag) => (
+                      <div key={flag}>
+                        <span className="font-mono font-semibold">{flag}</span>
+                        {' — '}
+                        {t(`regex.flagDesc${flag.toUpperCase()}`)}
+                      </div>
+                    ))}
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </div>
           {error && (
@@ -116,6 +135,7 @@ export function RegexPage() {
               {t('regex.invalidPattern')}: {error}
             </p>
           )}
+
         </div>
 
         <Textarea

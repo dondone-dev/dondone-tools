@@ -202,7 +202,11 @@
     "invalidPattern": "Patrón inválido",
     "matchIndex": "#",
     "position": "pos",
-    "groups": "grupos"
+    "groups": "grupos",
+    "flagDescG": "Global — todas las coincidencias",
+    "flagDescI": "Sin distinción de mayúsculas",
+    "flagDescM": "Multilínea — ^ y $ coinciden con inicio/fin de línea",
+    "flagDescS": "Punto total — . también coincide con saltos de línea"
   },
   "color": {
     "title": "Selector de color",

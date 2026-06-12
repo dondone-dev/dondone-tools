@@ -202,7 +202,11 @@
     "invalidPattern": "잘못된 패턴",
     "matchIndex": "#",
     "position": "위치",
-    "groups": "그룹"
+    "groups": "그룹",
+    "flagDescG": "전체 — 모든 일치 항목 찾기",
+    "flagDescI": "대소문자 무시",
+    "flagDescM": "여러 줄 — ^ 와 $ 가 줄 경계에 일치",
+    "flagDescS": "점 전체 — . 이 줄바꿈에도 일치"
   },
   "color": {
     "title": "컬러 피커",

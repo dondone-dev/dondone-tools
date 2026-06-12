@@ -202,7 +202,11 @@
     "invalidPattern": "無効なパターン",
     "matchIndex": "#",
     "position": "位置",
-    "groups": "グループ"
+    "groups": "グループ",
+    "flagDescG": "グローバル — すべての一致を検索",
+    "flagDescI": "大文字小文字を区別しない",
+    "flagDescM": "複数行 — ^ と $ が行頭・行末にマッチ",
+    "flagDescS": "ドット全一致 — . が改行にもマッチ"
   },
   "color": {
     "title": "カラーピッカー",

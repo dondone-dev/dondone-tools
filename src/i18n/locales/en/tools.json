@@ -202,7 +202,11 @@
     "invalidPattern": "Invalid pattern",
     "matchIndex": "#",
     "position": "pos",
-    "groups": "groups"
+    "groups": "groups",
+    "flagDescG": "Global — find all matches",
+    "flagDescI": "Case-insensitive",
+    "flagDescM": "Multiline — ^ and $ match line boundaries",
+    "flagDescS": "Dot All — . also matches newlines"
   },
   "color": {
     "title": "Color Picker",

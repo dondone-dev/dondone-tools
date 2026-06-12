@@ -202,7 +202,11 @@
     "invalidPattern": "无效正则",
     "matchIndex": "#",
     "position": "位置",
-    "groups": "捕获组"
+    "groups": "捕获组",
+    "flagDescG": "全局 — 匹配所有结果",
+    "flagDescI": "忽略大小写",
+    "flagDescM": "多行 — ^ 和 $ 匹配行首行尾",
+    "flagDescS": "点号全匹配 — . 也匹配换行符"
   },
   "color": {
     "title": "颜色选择器",

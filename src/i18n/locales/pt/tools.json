@@ -202,7 +202,11 @@
     "invalidPattern": "Padrão inválido",
     "matchIndex": "#",
     "position": "pos",
-    "groups": "grupos"
+    "groups": "grupos",
+    "flagDescG": "Global — todas as correspondências",
+    "flagDescI": "Sem distinção de maiúsculas",
+    "flagDescM": "Multilinha — ^ e $ correspondem ao início/fim de linha",
+    "flagDescS": "Ponto total — . também corresponde a quebras de linha"
   },
   "color": {
     "title": "Seletor de cor",

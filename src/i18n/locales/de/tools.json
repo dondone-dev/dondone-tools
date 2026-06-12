@@ -202,7 +202,11 @@
     "invalidPattern": "Ungültiges Muster",
     "matchIndex": "#",
     "position": "Pos.",
-    "groups": "Gruppen"
+    "groups": "Gruppen",
+    "flagDescG": "Global — alle Treffer finden",
+    "flagDescI": "Groß-/Kleinschreibung ignorieren",
+    "flagDescM": "Mehrzeilig — ^ und $ treffen Zeilenanfang/-ende",
+    "flagDescS": "Punkt alle — . trifft auch Zeilenumbrüche"
   },
   "color": {
     "title": "Farbwähler",

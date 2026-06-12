@@ -225,7 +225,7 @@ export const TOOLS: ToolConfig[] = [
   },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Cryptography', 'Security', 'Hash', 'Encoding', 'Text', 'Fun', 'BP Authentication', 'Design']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'Security', 'Design', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

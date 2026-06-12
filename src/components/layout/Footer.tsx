@@ -9,12 +9,15 @@ function GithubIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const year = new Date().getFullYear()
   return (
     <footer className="border-t border-border mt-auto">
       <div className="max-w-5xl mx-auto px-4 h-12 flex items-center justify-between">
         <span className="flex items-center gap-2 text-xs text-muted-foreground">
           <Wrench className="h-3.5 w-3.5" />
-          dondone tools is open source
+          <span>© {year} dondone tools</span>
+          <span className="text-border">·</span>
+          <span>All computation runs locally in your browser</span>
         </span>
         <a
           href="https://github.com/dondone-dev/dondone-tools"

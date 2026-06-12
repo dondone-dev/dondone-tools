@@ -29,7 +29,10 @@ export function LanguageSwitcher({ currentLocale, currentPath }: LanguageSwitche
       <SelectTrigger className="w-[110px] h-8 text-xs">
         <SelectValue />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent
+        position="popper"
+        className="max-h-none [&_[data-slot=select-viewport]]:h-auto [&_[data-slot=select-scroll-up-button]]:hidden [&_[data-slot=select-scroll-down-button]]:hidden"
+      >
         {LOCALES.map((locale) => (
           <SelectItem key={locale} value={locale} className="text-xs">
             {LOCALE_LABELS[locale]}

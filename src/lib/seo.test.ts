@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { LOCALES, DEFAULT_LOCALE } from '@/i18n/config'
 import { TOOL_ROUTES } from '@/lib/routes'
+import { TOOLS } from '@/lib/tools-config'
 import { getPathWithoutLocale, getSeoMetadata, getAllSeoRoutes, getJsonLd } from '@/lib/seo'
 
 const HOSTNAME = 'https://tools.dondone.dev'
@@ -147,6 +148,55 @@ describe('getAllSeoRoutes', () => {
     const nonDefaultLocaleCount = LOCALES.length - 1
     const expected = 1 + TOOL_ROUTES.length + nonDefaultLocaleCount * (1 + TOOL_ROUTES.length)
     expect(getAllSeoRoutes().length).toBe(expected)
+  })
+})
+
+describe('route–tool registry integrity', () => {
+  it('every TOOL_ROUTES entry resolves to a TOOLS config', () => {
+    for (const route of TOOL_ROUTES) {
+      const found = TOOLS.find((t) => t.href === route)
+      expect(found, `No TOOLS entry for route ${route}`).toBeDefined()
+    }
+  })
+
+  it('every TOOLS.href exists in TOOL_ROUTES', () => {
+    const routeSet = new Set<string>(TOOL_ROUTES)
+    for (const tool of TOOLS) {
+      expect(routeSet.has(tool.href), `Tool ${tool.id} href ${tool.href} not in TOOL_ROUTES`).toBe(true)
+    }
+  })
+
+  it('getSeoMetadata returns non-empty title and description for every TOOL_ROUTES in every locale', () => {
+    for (const locale of LOCALES) {
+      for (const route of TOOL_ROUTES) {
+        const path = locale === DEFAULT_LOCALE ? route : `/${locale}${route}`
+        const meta = getSeoMetadata(path, locale)
+        expect(meta.title.length, `title empty for ${path}`).toBeGreaterThan(0)
+        expect(meta.description.length, `description empty for ${path}`).toBeGreaterThan(0)
+      }
+    }
+  })
+
+  it('non-default locale canonical always includes locale prefix', () => {
+    for (const locale of LOCALES.filter((l) => l !== DEFAULT_LOCALE)) {
+      const meta = getSeoMetadata(`/${locale}/hash/md5`, locale)
+      expect(meta.canonicalUrl).toContain(`/${locale}/`)
+    }
+  })
+
+  it('default locale canonical never includes /en prefix', () => {
+    for (const route of TOOL_ROUTES) {
+      const meta = getSeoMetadata(route, 'en')
+      expect(meta.canonicalUrl).not.toContain('/en/')
+    }
+  })
+
+  it('canonical URL matches the pathname locale pattern', () => {
+    const enMeta = getSeoMetadata('/hash/md5', 'en')
+    expect(enMeta.canonicalUrl).toBe(`${HOSTNAME}/hash/md5`)
+
+    const zhMeta = getSeoMetadata('/zh/hash/md5', 'zh')
+    expect(zhMeta.canonicalUrl).toBe(`${HOSTNAME}/zh/hash/md5`)
   })
 })
 

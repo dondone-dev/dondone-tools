@@ -1,5 +1,6 @@
 export const TOOL_ROUTES = [
   '/crypto/aes',
+  '/crypto/jwt',
   '/hash/md5',
   '/hash/sha2',
   '/hash/sha3',

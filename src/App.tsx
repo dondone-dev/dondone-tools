@@ -20,6 +20,7 @@ import { BpJwtPage } from '@/pages/BpJwtPage'
 import { BpSignPage } from '@/pages/BpSignPage'
 import { TimestampPage } from '@/pages/TimestampPage'
 import { UrlEncodePage } from '@/pages/UrlEncodePage'
+import { JwtDecodePage } from '@/pages/JwtDecodePage'
 
 function toolRoutes() {
   return (
@@ -43,6 +44,7 @@ function toolRoutes() {
       <Route path="bp/sign" element={<BpSignPage />} />
       <Route path="text/timestamp" element={<TimestampPage />} />
       <Route path="encoding/url" element={<UrlEncodePage />} />
+      <Route path="crypto/jwt" element={<JwtDecodePage />} />
     </>
   )
 }

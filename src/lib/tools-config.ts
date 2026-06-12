@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Clock,
   Link,
+  KeySquare,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -33,6 +34,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'aes.description',
     href: '/crypto/aes',
     icon: Lock,
+    category: 'Cryptography',
+  },
+  {
+    id: 'jwt-decode',
+    title: 'JWT Decoder',
+    descriptionKey: 'jwt-decode.description',
+    href: '/crypto/jwt',
+    icon: KeySquare,
     category: 'Cryptography',
   },
   {

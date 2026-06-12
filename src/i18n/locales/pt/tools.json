@@ -191,6 +191,19 @@
     "unified": "Unificado",
     "identical": "Os textos são idênticos"
   },
+  "jwt-decode": {
+    "title": "Decodificador JWT",
+    "description": "Decodifique e inspecione tokens JWT. Exibe cabeçalho, payload e assinatura. Destaca campos de expiração. Sem verificação de assinatura.",
+    "inputPlaceholder": "Cole o token JWT aqui...",
+    "decode": "Decodificar",
+    "header": "Cabeçalho",
+    "payload": "Payload",
+    "signature": "Assinatura",
+    "noVerification": "A assinatura não é verificada — esta ferramenta apenas decodifica o token.",
+    "expiresAt": "Expira em",
+    "issuedAt": "Emitido em",
+    "notBefore": "Não antes de"
+  },
   "url-encode": {
     "title": "URL Encode",
     "description": "Codifique e decodifique componentes URL com encodeURIComponent / decodeURIComponent. Cálculo local.",

@@ -191,6 +191,19 @@
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다"
   },
+  "jwt-decode": {
+    "title": "JWT 디코더",
+    "description": "JWT 토큰을 디코딩하고 검사합니다. 헤더, 페이로드, 서명을 표시하며 만료 필드를 강조합니다. 서명 검증은 수행하지 않습니다.",
+    "inputPlaceholder": "JWT 토큰을 붙여넣기...",
+    "decode": "디코딩",
+    "header": "헤더",
+    "payload": "페이로드",
+    "signature": "서명",
+    "noVerification": "서명은 검증되지 않습니다 — 이 도구는 토큰만 디코딩합니다.",
+    "expiresAt": "만료 시간",
+    "issuedAt": "발행 시간",
+    "notBefore": "유효 시작"
+  },
   "url-encode": {
     "title": "URL 인코드",
     "description": "encodeURIComponent / decodeURIComponent로 URL을 인코딩/디코딩합니다. 로컬 계산.",

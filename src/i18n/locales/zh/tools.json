@@ -191,6 +191,19 @@
     "unified": "统一",
     "identical": "两段文本完全相同"
   },
+  "jwt-decode": {
+    "title": "JWT 解码",
+    "description": "解码并检查 JWT Token，展示 Header、Payload 和 Signature，高亮过期字段，不执行签名验证。所有计算在本地完成。",
+    "inputPlaceholder": "粘贴 JWT Token...",
+    "decode": "解码",
+    "header": "Header",
+    "payload": "Payload",
+    "signature": "Signature",
+    "noVerification": "不验证签名——此工具仅解码 Token。",
+    "expiresAt": "过期时间",
+    "issuedAt": "签发时间",
+    "notBefore": "生效时间"
+  },
   "url-encode": {
     "title": "URL 编解码",
     "description": "使用 encodeURIComponent / decodeURIComponent 对 URL 进行编码和解码。所有计算在本地完成。",

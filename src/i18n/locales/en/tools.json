@@ -191,6 +191,19 @@
     "unified": "Unified",
     "identical": "Texts are identical"
   },
+  "jwt-decode": {
+    "title": "JWT Decoder",
+    "description": "Decode and inspect JWT tokens. Displays header, payload, and signature. Highlights expiry fields. Verification is not performed. All computation runs locally.",
+    "inputPlaceholder": "Paste JWT token here...",
+    "decode": "Decode",
+    "header": "Header",
+    "payload": "Payload",
+    "signature": "Signature",
+    "noVerification": "Signature is not verified — this tool only decodes the token.",
+    "expiresAt": "Expires at",
+    "issuedAt": "Issued at",
+    "notBefore": "Not before"
+  },
   "url-encode": {
     "title": "URL Encode",
     "description": "Encode and decode URL components using encodeURIComponent / decodeURIComponent. All computation runs locally.",

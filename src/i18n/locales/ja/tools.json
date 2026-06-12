@@ -191,6 +191,19 @@
     "unified": "統合",
     "identical": "テキストは同一です"
   },
+  "jwt-decode": {
+    "title": "JWTデコーダー",
+    "description": "JWTトークンをデコードして検査します。ヘッダー、ペイロード、署名を表示。有効期限フィールドを強調表示。署名検証は行いません。",
+    "inputPlaceholder": "JWTトークンを貼り付け...",
+    "decode": "デコード",
+    "header": "ヘッダー",
+    "payload": "ペイロード",
+    "signature": "署名",
+    "noVerification": "署名は検証されません — このツールはトークンをデコードするだけです。",
+    "expiresAt": "有効期限",
+    "issuedAt": "発行日時",
+    "notBefore": "有効開始"
+  },
   "url-encode": {
     "title": "URLエンコード",
     "description": "encodeURIComponent / decodeURIComponentでURLをエンコード・デコードします。ローカル計算。",

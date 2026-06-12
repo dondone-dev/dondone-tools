@@ -191,6 +191,19 @@
     "unified": "Einheitlich",
     "identical": "Texte sind identisch"
   },
+  "jwt-decode": {
+    "title": "JWT Decoder",
+    "description": "JWT-Token dekodieren und prüfen. Zeigt Header, Payload und Signatur an. Hebt Ablauffelder hervor. Keine Signaturprüfung.",
+    "inputPlaceholder": "JWT-Token hier einfügen...",
+    "decode": "Dekodieren",
+    "header": "Header",
+    "payload": "Payload",
+    "signature": "Signatur",
+    "noVerification": "Die Signatur wird nicht verifiziert — dieses Tool dekodiert nur den Token.",
+    "expiresAt": "Läuft ab am",
+    "issuedAt": "Ausgestellt am",
+    "notBefore": "Nicht vor"
+  },
   "url-encode": {
     "title": "URL Encode",
     "description": "URL-Komponenten mit encodeURIComponent / decodeURIComponent kodieren und dekodieren. Lokale Berechnung.",

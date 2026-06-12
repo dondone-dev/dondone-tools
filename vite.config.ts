@@ -7,10 +7,12 @@ import { TOOL_ROUTES } from './src/lib/routes'
 import { LOCALES, DEFAULT_LOCALE } from './src/i18n/config'
 
 const allRoutes = [
+  '/',
   ...TOOL_ROUTES,
-  ...LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((locale) =>
-    TOOL_ROUTES.map((r) => `/${locale}${r}`)
-  ),
+  ...LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((locale) => [
+    `/${locale}`,
+    ...TOOL_ROUTES.map((r) => `/${locale}${r}`),
+  ]),
 ]
 
 export default defineConfig({

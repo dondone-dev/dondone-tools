@@ -191,6 +191,19 @@
     "unified": "統合",
     "identical": "テキストは同一です"
   },
+  "regex": {
+    "title": "正規表現テスター",
+    "description": "正規表現をリアルタイムでテストします。マッチをハイライト表示し、位置とキャプチャグループを一覧表示します。",
+    "patternPlaceholder": "正規表現を入力...",
+    "testInputPlaceholder": "テスト文字列を入力...",
+    "flags": "フラグ",
+    "matches": "件一致",
+    "noMatches": "一致なし",
+    "invalidPattern": "無効なパターン",
+    "matchIndex": "#",
+    "position": "位置",
+    "groups": "グループ"
+  },
   "color": {
     "title": "カラーピッカー",
     "description": "色を選択し、HEX・RGB・HSL形式で相互変換します。どの形式でも入力可能。ローカル計算。",

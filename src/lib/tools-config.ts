@@ -13,6 +13,7 @@ import {
   Link,
   KeySquare,
   Palette,
+  Regex,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -155,6 +156,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'timestamp.description',
     href: '/text/timestamp',
     icon: Clock,
+    category: 'Text',
+  },
+  {
+    id: 'regex',
+    title: 'Regex Tester',
+    descriptionKey: 'regex.description',
+    href: '/text/regex',
+    icon: Regex,
     category: 'Text',
   },
   {

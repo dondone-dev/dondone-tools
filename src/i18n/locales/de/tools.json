@@ -191,6 +191,19 @@
     "unified": "Einheitlich",
     "identical": "Texte sind identisch"
   },
+  "regex": {
+    "title": "Regex Tester",
+    "description": "Testen Sie reguläre Ausdrücke in Echtzeit. Hebt Treffer hervor und listet Positionen und Gruppen auf. Lokale Berechnung.",
+    "patternPlaceholder": "Regex-Muster eingeben...",
+    "testInputPlaceholder": "Testzeichenkette eingeben...",
+    "flags": "Flags",
+    "matches": "Treffer",
+    "noMatches": "Keine Treffer",
+    "invalidPattern": "Ungültiges Muster",
+    "matchIndex": "#",
+    "position": "Pos.",
+    "groups": "Gruppen"
+  },
   "color": {
     "title": "Farbwähler",
     "description": "Farbe auswählen und zwischen HEX, RGB und HSL konvertieren. In jedem Format eingeben, um die anderen zu aktualisieren. Lokale Berechnung.",

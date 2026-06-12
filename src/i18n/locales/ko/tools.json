@@ -191,6 +191,19 @@
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다"
   },
+  "regex": {
+    "title": "정규식 테스터",
+    "description": "정규식을 실시간으로 테스트합니다. 일치 항목을 강조 표시하고 위치 및 캡처 그룹을 나열합니다. 로컬 계산.",
+    "patternPlaceholder": "정규식 패턴 입력...",
+    "testInputPlaceholder": "테스트 문자열 입력...",
+    "flags": "플래그",
+    "matches": "개 일치",
+    "noMatches": "일치 없음",
+    "invalidPattern": "잘못된 패턴",
+    "matchIndex": "#",
+    "position": "위치",
+    "groups": "그룹"
+  },
   "color": {
     "title": "컬러 피커",
     "description": "색상을 선택하고 HEX, RGB, HSL 형식 간에 변환합니다. 어떤 형식이든 입력하면 다른 형식이 업데이트됩니다. 로컬 계산.",

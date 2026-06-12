@@ -22,6 +22,7 @@ import { TimestampPage } from '@/pages/TimestampPage'
 import { UrlEncodePage } from '@/pages/UrlEncodePage'
 import { JwtDecodePage } from '@/pages/JwtDecodePage'
 import { ColorPage } from '@/pages/ColorPage'
+import { RegexPage } from '@/pages/RegexPage'
 
 function toolRoutes() {
   return (
@@ -47,6 +48,7 @@ function toolRoutes() {
       <Route path="encoding/url" element={<UrlEncodePage />} />
       <Route path="crypto/jwt" element={<JwtDecodePage />} />
       <Route path="design/color" element={<ColorPage />} />
+      <Route path="text/regex" element={<RegexPage />} />
     </>
   )
 }

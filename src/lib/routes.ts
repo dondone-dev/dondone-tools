@@ -15,6 +15,7 @@ export const TOOL_ROUTES = [
   '/text/json-format',
   '/text/string-length',
   '/text/timestamp',
+  '/text/regex',
   '/security/password-strength',
   '/design/color',
   '/fun/ugly-avatar',

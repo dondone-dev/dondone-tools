@@ -191,6 +191,19 @@
     "unified": "Unified",
     "identical": "Texts are identical"
   },
+  "regex": {
+    "title": "Regex Tester",
+    "description": "Test regular expressions in real time. Highlights matches inline, lists match positions and capture groups. All computation runs locally.",
+    "patternPlaceholder": "Enter regex pattern...",
+    "testInputPlaceholder": "Enter test string...",
+    "flags": "Flags",
+    "matches": "matches",
+    "noMatches": "No matches",
+    "invalidPattern": "Invalid pattern",
+    "matchIndex": "#",
+    "position": "pos",
+    "groups": "groups"
+  },
   "color": {
     "title": "Color Picker",
     "description": "Pick a color and convert between HEX, RGB, and HSL formats. Bidirectional — type in any format to update the others. All computation runs locally.",

@@ -191,6 +191,19 @@
     "unified": "统一",
     "identical": "两段文本完全相同"
   },
+  "regex": {
+    "title": "正则测试",
+    "description": "实时测试正则表达式，高亮显示匹配结果，列出匹配位置和捕获组。所有计算在本地完成。",
+    "patternPlaceholder": "输入正则表达式...",
+    "testInputPlaceholder": "输入测试字符串...",
+    "flags": "标志",
+    "matches": "处匹配",
+    "noMatches": "无匹配",
+    "invalidPattern": "无效正则",
+    "matchIndex": "#",
+    "position": "位置",
+    "groups": "捕获组"
+  },
   "color": {
     "title": "颜色选择器",
     "description": "选取颜色并在 HEX、RGB、HSL 格式间互转，任意格式输入即可联动更新。所有计算在本地完成。",

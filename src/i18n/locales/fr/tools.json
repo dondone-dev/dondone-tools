@@ -191,6 +191,19 @@
     "unified": "Unifié",
     "identical": "Les textes sont identiques"
   },
+  "regex": {
+    "title": "Testeur de regex",
+    "description": "Testez des expressions régulières en temps réel. Met en évidence les correspondances, liste les positions et groupes de capture. Calcul local.",
+    "patternPlaceholder": "Entrez le motif regex...",
+    "testInputPlaceholder": "Entrez la chaîne de test...",
+    "flags": "Options",
+    "matches": "correspondances",
+    "noMatches": "Aucune correspondance",
+    "invalidPattern": "Motif invalide",
+    "matchIndex": "#",
+    "position": "pos",
+    "groups": "groupes"
+  },
   "color": {
     "title": "Sélecteur de couleur",
     "description": "Choisissez une couleur et convertissez entre HEX, RGB et HSL. Entrez dans n'importe quel format pour mettre à jour les autres. Calcul local.",

@@ -14,14 +14,17 @@ Types: `feat` `fix` `refactor` `chore` `docs` `test` `perf` `style` `ci`
 
 Stage only the files relevant to the change — never `git add .`.
 
-If the commit was implemented by an AI agent, append a `Co-Authored-By` trailer with the agent name and model version:
+If the commit was implemented by an AI agent, append a `Co-Authored-By` trailer so GitHub surfaces the agent in the Contributors list.
 
-```
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
-Co-authored-by: Cursor <cursoragent@cursor.com>
-```
+| Agent | Trailer (copy exactly) | Verified |
+|---|---|---|
+| Claude Code (Anthropic) | `Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>` | ✓ |
+| Cursor | `Co-authored-by: Cursor <cursoragent@cursor.com>` | ✓ |
+| OpenAI Codex | `Co-authored-by: openai-codex[bot] <openai-codex[bot]@users.noreply.github.com>` | — verify from first commit |
+| Google Jules / Gemini | `Co-authored-by: google-labs-jules[bot] <google-labs-jules[bot]@users.noreply.github.com>` | — verify from first commit |
+| opencode (sst) | `Co-authored-by: opencode[bot] <opencode[bot]@users.noreply.github.com>` | — verify from first commit |
 
-GitHub resolves these emails to registered accounts and surfaces them in the Contributors list.
+For unverified agents: run `git log --format="%B" -1` after the tool's first commit to get the exact trailer it injected, then update this table.
 
 ## Architecture
 

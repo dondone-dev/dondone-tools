@@ -39,7 +39,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
   const [progress, setProgress] = useState(0)
   const [dragOver, setDragOver] = useState(false)
   const abortRef = useRef<AbortController | null>(null)
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const handleTextDigest = useCallback(async () => {
     if (!textInput.trim()) { setError(t('_hash.emptyText')); return }
@@ -160,10 +160,10 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
       {result && (
         <div className="space-y-2">
           {singleResult ? (
-            <ResultField label={resultRows[0]?.label ?? 'Result'} value={singleValue ?? ''} copied={copied} onCopy={copy} />
+            <ResultField label={resultRows[0]?.label ?? 'Result'} value={singleValue ?? ''} copiedText={copiedText} onCopy={copy} />
           ) : (
             resultRows.map((row) => (
-              <ResultField key={row.key} label={row.label} value={result[row.key] ?? ''} copied={copied} onCopy={copy} />
+              <ResultField key={row.key} label={row.label} value={result[row.key] ?? ''} copiedText={copiedText} onCopy={copy} />
             ))
           )}
         </div>
@@ -172,15 +172,16 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
   )
 }
 
-function ResultField({ label, value, copied, onCopy }: { label: string; value: string; copied: boolean; onCopy: (text: string) => void }) {
+function ResultField({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
   const { t } = useTranslation()
+  const isCopied = copiedText === value
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? t('ui.copied') : t('ui.copy')}
+          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {isCopied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
       <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{value}</div>

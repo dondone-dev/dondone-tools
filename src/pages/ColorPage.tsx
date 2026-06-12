@@ -29,7 +29,7 @@ export function ColorPage() {
   const { t } = useTranslation(['tools', 'common'])
   const [pickerValue, setPickerValue] = useState('#6366f1')
   const [fields, setFields] = useState<ColorState>(DEFAULT_COLOR)
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const applyRgb = useCallback((r: number, g: number, b: number) => {
     setFields(rgbToState(r, g, b))
@@ -76,21 +76,21 @@ export function ColorPage() {
             label={t('color.hex', { ns: 'tools' })}
             value={fields.hex}
             onChange={(v) => handleFieldChange('hex', v)}
-            copied={copied}
+            copiedText={copiedText}
             onCopy={copy}
           />
           <ColorField
             label={t('color.rgb', { ns: 'tools' })}
             value={fields.rgb}
             onChange={(v) => handleFieldChange('rgb', v)}
-            copied={copied}
+            copiedText={copiedText}
             onCopy={copy}
           />
           <ColorField
             label={t('color.hsl', { ns: 'tools' })}
             value={fields.hsl}
             onChange={(v) => handleFieldChange('hsl', v)}
-            copied={copied}
+            copiedText={copiedText}
             onCopy={copy}
           />
         </div>
@@ -103,36 +103,32 @@ function ColorField({
   label,
   value,
   onChange,
-  copied,
+  copiedText,
   onCopy,
 }: {
   label: string
   value: string
   onChange: (v: string) => void
-  copied: boolean
+  copiedText: string | null
   onCopy: (text: string) => void
 }) {
   const { t } = useTranslation('common')
+  const isCopied = copiedText === value
   return (
     <div className="space-y-1">
-      <Label className="text-xs text-muted-foreground">{label}</Label>
-      <div className="flex gap-2">
-        <Input
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="font-mono text-sm"
-          spellCheck={false}
-        />
-        <Button
-          variant="outline"
-          size="sm"
-          className="shrink-0 gap-1"
-          onClick={() => onCopy(value)}
-        >
-          {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? t('ui.copied') : t('ui.copy')}
+      <div className="flex items-center justify-between">
+        <Label className="text-xs text-muted-foreground">{label}</Label>
+        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
+          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {isCopied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
+      <Input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="font-mono text-sm"
+        spellCheck={false}
+      />
     </div>
   )
 }

@@ -1,22 +1,17 @@
-/**
- * Build-time prerender script.
- *
- * Run after `vite build` via `vite-node scripts/prerender.ts`.
- * For each route in getAllSeoRoutes(), injects route-specific SEO tags
- * into a copy of dist/index.html and writes the result to
- * dist/<route>/index.html, making metadata visible to crawlers
- * without adding a server-side runtime.
- */
-
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
-import { getAllSeoRoutes, getSeoMetadata, getJsonLd, type SeoMetadata } from '@/lib/seo'
+import { TOOL_ROUTES } from '@/lib/routes'
+import { getAllSeoRoutes, getSeoMetadata, getJsonLd, getPathWithoutLocale, type SeoMetadata } from '@/lib/seo'
 
 const __filename = fileURLToPath(import.meta.url)
 const rootDir = join(dirname(__filename), '..')
 const distDir = join(rootDir, 'dist')
+
+function escapeHtml(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
 
 function escapeAttr(str: string): string {
   return str
@@ -24,6 +19,23 @@ function escapeAttr(str: string): string {
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
+}
+
+function buildBodyHtml(route: string, locale: LocaleCode, seo: SeoMetadata): string {
+  const toolPath = getPathWithoutLocale(route, locale)
+  const isTool = (TOOL_ROUTES as readonly string[]).includes(toolPath)
+  const displayTitle = isTool ? seo.title.split(' | ')[0] : seo.title
+
+  return (
+    '<div class="min-h-screen bg-background flex flex-col">' +
+    '<main class="max-w-5xl mx-auto px-4 py-8 flex-1">' +
+    '<div class="mb-8">' +
+    `<h1 class="text-2xl font-semibold tracking-tight mb-1">${escapeHtml(displayTitle)}</h1>` +
+    `<p class="text-sm text-muted-foreground">${escapeHtml(seo.description)}</p>` +
+    '</div>' +
+    '</main>' +
+    '</div>'
+  )
 }
 
 function buildSeoTags(route: string, locale: LocaleCode, seo: SeoMetadata): string {
@@ -54,15 +66,21 @@ function buildSeoTags(route: string, locale: LocaleCode, seo: SeoMetadata): stri
   return lines.map((l) => `    ${l}`).join('\n')
 }
 
-function injectSeoIntoTemplate(template: string, route: string, locale: LocaleCode, seo: SeoMetadata): string {
-  // Remove static title, description, and canonical from the template;
-  // SeoHead re-injects the correct values at runtime, we inject here for crawlers.
-  let html = template
+function injectIntoTemplate(
+  template: string,
+  route: string,
+  locale: LocaleCode,
+  seo: SeoMetadata,
+): string {
+  const body = buildBodyHtml(route, locale, seo)
+  const html = template
+    .replace(/<html lang="[^"]*"/, `<html lang="${locale}"`)
     .replace(/<title>[^<]*<\/title>/, '')
     .replace(/<meta name="description"[^>]*\/>/, '')
     .replace(/<link rel="canonical"[^>]*\/>/, '')
-
-  return html.replace('</head>', `${buildSeoTags(route, locale, seo)}\n  </head>`)
+    .replace('</head>', `${buildSeoTags(route, locale, seo)}\n  </head>`)
+    .replace('<div id="root"></div>', `<div id="root">${body}</div>`)
+  return html
 }
 
 function detectLocale(route: string): LocaleCode {
@@ -87,7 +105,7 @@ console.log(`Prerendering ${routes.length} routes...`)
 for (const route of routes) {
   const locale = detectLocale(route)
   const seo = getSeoMetadata(route, locale)
-  const html = injectSeoIntoTemplate(template, route, locale, seo)
+  const html = injectIntoTemplate(template, route, locale, seo)
   const outputPath = routeToOutputPath(route)
 
   mkdirSync(dirname(outputPath), { recursive: true })

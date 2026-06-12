@@ -22,32 +22,37 @@ import ptTools from './locales/pt/tools.json'
 import ruCommon from './locales/ru/common.json'
 import ruTools from './locales/ru/tools.json'
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: { common: enCommon, tools: enTools },
-      zh: { common: zhCommon, tools: zhTools },
-      ja: { common: jaCommon, tools: jaTools },
-      fr: { common: frCommon, tools: frTools },
-      ko: { common: koCommon, tools: koTools },
-      es: { common: esCommon, tools: esTools },
-      de: { common: deCommon, tools: deTools },
-      pt: { common: ptCommon, tools: ptTools },
-      ru: { common: ruCommon, tools: ruTools },
-    },
-    fallbackLng: DEFAULT_LOCALE,
-    supportedLngs: LOCALES,
-    defaultNS: 'common',
-    interpolation: {
-      escapeValue: false,
-    },
+const isBrowser = typeof window !== 'undefined'
+
+if (isBrowser) {
+  i18n.use(LanguageDetector)
+}
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: { common: enCommon, tools: enTools },
+    zh: { common: zhCommon, tools: zhTools },
+    ja: { common: jaCommon, tools: jaTools },
+    fr: { common: frCommon, tools: frTools },
+    ko: { common: koCommon, tools: koTools },
+    es: { common: esCommon, tools: esTools },
+    de: { common: deCommon, tools: deTools },
+    pt: { common: ptCommon, tools: ptTools },
+    ru: { common: ruCommon, tools: ruTools },
+  },
+  fallbackLng: DEFAULT_LOCALE,
+  supportedLngs: LOCALES,
+  defaultNS: 'common',
+  interpolation: {
+    escapeValue: false,
+  },
+  ...(isBrowser && {
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
       lookupLocalStorage: 'preferred-locale',
     },
-  })
+  }),
+})
 
 export default i18n

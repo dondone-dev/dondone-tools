@@ -13,7 +13,7 @@ export function UrlEncodePage() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
   const [error, setError] = useState('')
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   function run(fn: (s: string) => string) {
     setError('')
@@ -64,8 +64,8 @@ export function UrlEncodePage() {
                 className="h-6 px-2 text-xs gap-1"
                 onClick={() => copy(output)}
               >
-                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
+                {copiedText === output ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copiedText === output ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
             </div>
             <Textarea

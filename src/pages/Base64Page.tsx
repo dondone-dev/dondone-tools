@@ -14,7 +14,7 @@ export function Base64Page() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<{ base64?: string; base64url?: string; text?: string } | null>(null)
   const [error, setError] = useState('')
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const handleEncode = () => {
     setError(''); setResult(null)
@@ -47,24 +47,25 @@ export function Base64Page() {
 
       {result && (
         <div className="space-y-2">
-          {result.base64 && <ResultField label="Base64" value={result.base64} copied={copied} onCopy={copy} />}
-          {result.base64url && <ResultField label="Base64URL" value={result.base64url} copied={copied} onCopy={copy} />}
-          {result.text !== undefined && <ResultField label={t('base64.decodeResult', { ns: 'tools' })} value={result.text} copied={copied} onCopy={copy} />}
+          {result.base64 && <ResultField label="Base64" value={result.base64} copiedText={copiedText} onCopy={copy} />}
+          {result.base64url && <ResultField label="Base64URL" value={result.base64url} copiedText={copiedText} onCopy={copy} />}
+          {result.text !== undefined && <ResultField label={t('base64.decodeResult', { ns: 'tools' })} value={result.text} copiedText={copiedText} onCopy={copy} />}
         </div>
       )}
     </ToolLayout>
   )
 }
 
-function ResultField({ label, value, copied, onCopy }: { label: string; value: string; copied: boolean; onCopy: (text: string) => void }) {
+function ResultField({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
   const { t } = useTranslation()
+  const isCopied = copiedText === value
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? t('ui.copied') : t('ui.copy')}
+          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {isCopied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
       <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all whitespace-pre-wrap">{value}</div>

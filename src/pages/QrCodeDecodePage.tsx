@@ -22,7 +22,7 @@ export function QrCodeDecodePage() {
   const [result, setResult] = useState<DecodeResult | null>(null)
   const [error, setError] = useState('')
   const [dragOver, setDragOver] = useState(false)
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   useEffect(() => {
     return () => {
@@ -127,8 +127,8 @@ export function QrCodeDecodePage() {
                 </Button>
               )}
               <Button variant="outline" size="sm" className="h-7 px-2 gap-1 text-xs" onClick={() => copy(result.text)}>
-                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
+                {copiedText === result.text ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copiedText === result.text ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
             </div>
           </div>

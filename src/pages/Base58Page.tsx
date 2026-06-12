@@ -14,7 +14,7 @@ export function Base58Page() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<{ encoded?: string; text?: string; hex?: string; hasText?: boolean } | null>(null)
   const [error, setError] = useState('')
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const handleEncode = () => {
     setError(''); setResult(null)
@@ -47,9 +47,9 @@ export function Base58Page() {
 
       {result && (
         <div className="space-y-2">
-          {result.encoded && <ResultField label="Base58" value={result.encoded} copied={copied} onCopy={copy} />}
-          {result.hasText && result.text && <ResultField label={t('base58.textUtf8', { ns: 'tools' })} value={result.text} copied={copied} onCopy={copy} />}
-          {result.hex && <ResultField label="Hex" value={result.hex} copied={copied} onCopy={copy} />}
+          {result.encoded && <ResultField label="Base58" value={result.encoded} copiedText={copiedText} onCopy={copy} />}
+          {result.hasText && result.text && <ResultField label={t('base58.textUtf8', { ns: 'tools' })} value={result.text} copiedText={copiedText} onCopy={copy} />}
+          {result.hex && <ResultField label="Hex" value={result.hex} copiedText={copiedText} onCopy={copy} />}
           {result.hasText === false && <p className="text-xs text-muted-foreground">{t('base58.invalidUtf8', { ns: 'tools' })}</p>}
         </div>
       )}
@@ -57,15 +57,16 @@ export function Base58Page() {
   )
 }
 
-function ResultField({ label, value, copied, onCopy }: { label: string; value: string; copied: boolean; onCopy: (text: string) => void }) {
+function ResultField({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
   const { t } = useTranslation()
+  const isCopied = copiedText === value
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? t('ui.copied') : t('ui.copy')}
+          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {isCopied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
       <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{value}</div>

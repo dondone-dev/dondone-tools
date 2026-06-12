@@ -18,7 +18,7 @@ export function Base64ImagePage() {
   const [error, setError] = useState('')
   const [dragOver, setDragOver] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const handleDecodeB64 = () => {
     setError(''); setResult(null)
@@ -81,8 +81,8 @@ export function Base64ImagePage() {
               <div className="flex items-center justify-between">
                 <Label className="text-xs text-muted-foreground">Base64</Label>
                 <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => copy(result.base64!)}>
-                  {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                  {copied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
+                  {copiedText === result.base64 ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  {copiedText === result.base64 ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
                 </Button>
               </div>
               <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all max-h-40 overflow-y-auto">{result.base64}</div>

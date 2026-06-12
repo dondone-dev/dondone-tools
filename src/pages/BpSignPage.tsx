@@ -19,7 +19,7 @@ export function BpSignPage() {
   const [method, setMethod] = useState<'get' | 'post'>('get')
   const [result, setResult] = useState('')
   const [error, setError] = useState('')
-  const { copied, copy } = useClipboard()
+  const { copiedText, copy } = useClipboard()
 
   const handleGenerate = () => {
     setError('')
@@ -107,8 +107,8 @@ export function BpSignPage() {
                 className="h-6 px-2 text-xs gap-1"
                 onClick={() => copy(result)}
               >
-                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
+                {copiedText === result ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copiedText === result ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
             </div>
             <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all leading-relaxed">

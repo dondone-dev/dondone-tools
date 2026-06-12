@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "Herramientas ligeras en el navegador. Todo el cómputo se ejecuta localmente — ningún dato se sube."
+    "tagline": "Herramientas ligeras en el navegador. Todo el cómputo se ejecuta localmente — ningún dato se sube.",
+    "seoTitle": "dondone tools - Utilidades de desarrollo en el navegador",
+    "seoDescription": "Herramientas locales para hash, codificación, texto, colores, QR codes y JWT. Todo se ejecuta en tu navegador, sin subir datos."
+  },
+  "home": {
+    "title": "Herramientas",
+    "searchPlaceholder": "Buscar herramientas...",
+    "noMatches": "No hay herramientas que coincidan con \"{{query}}\""
   },
   "categories": {
     "Cryptography": "Criptografía",

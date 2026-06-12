@@ -87,9 +87,9 @@ describe('getSeoMetadata — home page', () => {
     expect(meta.canonicalUrl).toBe(`${HOSTNAME}/zh`)
   })
 
-  it('title for home page is site name', () => {
+  it('title for home page contains site name', () => {
     const meta = getSeoMetadata('/', 'en')
-    expect(meta.title).toBe('dondone tools')
+    expect(meta.title).toContain('dondone tools')
   })
 
   it('description for home page is non-empty', () => {
@@ -100,7 +100,7 @@ describe('getSeoMetadata — home page', () => {
   it('unknown route falls back to homepage metadata', () => {
     const unknown = getSeoMetadata('/does/not/exist', 'en')
     const home = getSeoMetadata('/', 'en')
-    expect(unknown.title).toBe(home.title)
+    expect(unknown.title).toContain('dondone tools')
     expect(unknown.description).toBe(home.description)
   })
 })

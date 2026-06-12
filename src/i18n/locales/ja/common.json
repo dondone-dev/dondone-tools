@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "軽量なブラウザツール集。すべての計算はローカルで実行され、データはアップロードされません。"
+    "tagline": "軽量なブラウザツール集。すべての計算はローカルで実行され、データはアップロードされません。",
+    "seoTitle": "dondone tools - ブラウザで動く開発者ユーティリティ",
+    "seoDescription": "ハッシュ・エンコード・テキスト処理・カラー・QRコード・JWTなどをローカルで処理。データは一切アップロードされません。"
+  },
+  "home": {
+    "title": "ツール",
+    "searchPlaceholder": "ツールを検索...",
+    "noMatches": "\"{{query}}\" に一致するツールがありません"
   },
   "categories": {
     "Cryptography": "暗号",

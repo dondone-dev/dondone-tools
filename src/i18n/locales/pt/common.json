@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "Ferramentas leves no navegador. Todo o processamento ocorre localmente — nenhum dado é enviado."
+    "tagline": "Ferramentas leves no navegador. Todo o processamento ocorre localmente — nenhum dado é enviado.",
+    "seoTitle": "dondone tools - Utilitários de desenvolvedor no navegador",
+    "seoDescription": "Ferramentas locais para hash, codificação, texto, cores, QR codes e JWT. Tudo roda no navegador, sem envio de dados."
+  },
+  "home": {
+    "title": "Ferramentas",
+    "searchPlaceholder": "Pesquisar ferramentas...",
+    "noMatches": "Nenhuma ferramenta corresponde a \"{{query}}\""
   },
   "categories": {
     "Cryptography": "Criptografia",

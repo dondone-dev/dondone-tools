@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "경량 브라우저 기반 도구 모음. 모든 계산은 로컬에서 실행되며 데이터는 업로드되지 않습니다."
+    "tagline": "경량 브라우저 기반 도구 모음. 모든 계산은 로컬에서 실행되며 데이터는 업로드되지 않습니다.",
+    "seoTitle": "dondone tools - 브라우저 기반 개발자 유틸리티",
+    "seoDescription": "해시, 인코딩, 텍스트 처리, 색상, QR 코드, JWT 등 로컬 실행 도구. 모든 계산은 브라우저에서 실행되며 데이터는 업로드되지 않습니다."
+  },
+  "home": {
+    "title": "도구",
+    "searchPlaceholder": "도구 검색...",
+    "noMatches": "\"{{query}}\"와 일치하는 도구가 없습니다"
   },
   "categories": {
     "Cryptography": "암호화",

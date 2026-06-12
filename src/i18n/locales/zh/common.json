@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "一组轻量的浏览器端工具，所有计算均在本地完成，不上传任何数据。"
+    "tagline": "一组轻量的浏览器端工具，所有计算均在本地完成，不上传任何数据。",
+    "seoTitle": "dondone tools - 浏览器端开发者工具集",
+    "seoDescription": "本地运行的哈希、编解码、文本处理、颜色、QR 码、JWT 等开发工具，所有计算在浏览器完成，不上传任何数据。"
+  },
+  "home": {
+    "title": "工具",
+    "searchPlaceholder": "搜索工具...",
+    "noMatches": "没有匹配 \"{{query}}\" 的工具"
   },
   "categories": {
     "Cryptography": "密码学",

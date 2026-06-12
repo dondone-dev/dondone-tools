@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "Outils légers côté navigateur. Tous les calculs s'exécutent localement — aucune donnée n'est envoyée."
+    "tagline": "Outils légers côté navigateur. Tous les calculs s'exécutent localement — aucune donnée n'est envoyée.",
+    "seoTitle": "dondone tools - Utilitaires développeur côté navigateur",
+    "seoDescription": "Outils locaux pour le hachage, l'encodage, le texte, les couleurs, les QR codes et les JWT. Aucune donnée envoyée — tout tourne dans votre navigateur."
+  },
+  "home": {
+    "title": "Outils",
+    "searchPlaceholder": "Rechercher des outils...",
+    "noMatches": "Aucun outil ne correspond à \"{{query}}\""
   },
   "categories": {
     "Cryptography": "Cryptographie",

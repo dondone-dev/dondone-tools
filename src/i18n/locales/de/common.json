@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "Leichtgewichtige Browser-Tools. Alle Berechnungen laufen lokal — keine Daten werden hochgeladen."
+    "tagline": "Leichtgewichtige Browser-Tools. Alle Berechnungen laufen lokal — keine Daten werden hochgeladen.",
+    "seoTitle": "dondone tools - Browser-seitige Entwicklerwerkzeuge",
+    "seoDescription": "Lokale Werkzeuge für Hashing, Kodierung, Textverarbeitung, Farben, QR-Codes und JWT. Alles läuft im Browser, keine Daten werden hochgeladen."
+  },
+  "home": {
+    "title": "Werkzeuge",
+    "searchPlaceholder": "Werkzeuge suchen...",
+    "noMatches": "Keine Werkzeuge entsprechen \"{{query}}\""
   },
   "categories": {
     "Cryptography": "Kryptographie",

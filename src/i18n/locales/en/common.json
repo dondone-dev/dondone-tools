@@ -1,7 +1,14 @@
 {
   "site": {
     "name": "dondone tools",
-    "tagline": "Lightweight browser-side tools. All computations run locally — no data is uploaded."
+    "tagline": "Lightweight browser-side tools. All computations run locally — no data is uploaded.",
+    "seoTitle": "dondone tools - Browser-Side Developer Utilities",
+    "seoDescription": "Fast local tools for hashing, encoding, text processing, colors, QR codes, JWTs, and more. All computations run in your browser — no data uploaded."
+  },
+  "home": {
+    "title": "Tools",
+    "searchPlaceholder": "Search tools...",
+    "noMatches": "No tools match \"{{query}}\""
   },
   "categories": {
     "Cryptography": "Cryptography",

@@ -29,7 +29,7 @@ export function Home() {
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
       <div className="mb-6">
-        <h1 className="text-3xl font-semibold tracking-tight mb-2">Tools</h1>
+        <h1 className="text-3xl font-semibold tracking-tight mb-2">{t('home.title', { ns: 'common' })}</h1>
         <p className="text-muted-foreground text-sm">{t('site.tagline', { ns: 'common' })}</p>
       </div>
 
@@ -38,7 +38,8 @@ export function Home() {
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search tools..."
+          placeholder={t('home.searchPlaceholder', { ns: 'common' })}
+          aria-label={t('home.searchPlaceholder', { ns: 'common' })}
           className="pl-8 pr-8 h-9 text-sm"
         />
         {query && (
@@ -67,7 +68,7 @@ export function Home() {
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">
-            No tools match &ldquo;{query.trim()}&rdquo;
+            {t('home.noMatches', { ns: 'common', query: query.trim() })}
           </p>
         )
       ) : (

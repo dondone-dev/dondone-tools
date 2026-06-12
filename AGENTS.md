@@ -67,6 +67,20 @@ Tests live alongside source in `src/lib/tools/*.test.ts`. Write tests for all pu
 
 Run before committing: `pnpm test:run`
 
+## Build Verification
+
+Always verify the build passes locally before committing. The CI pipeline runs `pnpm build` (which includes `tsc -b` type-checking, Vite bundling, and the prerender script) — a failure there blocks deployment and is harder to debug than catching it locally.
+
+```bash
+pnpm build
+```
+
+Do not commit if this command exits with a non-zero code. Common causes of silent build failures:
+
+- Renaming a hook return value (e.g. `copied` → `copiedText`) without updating all consumers
+- Adding a new import that doesn't resolve
+- A TypeScript error that only surfaces when all files are checked together
+
 ## UI/UX Review
 
 When designing a new page, modifying an existing layout, or accepting code that touches UI components, run `/taste-skill` to audit the result before committing.

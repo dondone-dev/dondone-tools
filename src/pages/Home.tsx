@@ -2,9 +2,12 @@ import { useTranslation } from 'react-i18next'
 import { ToolCard } from '@/components/layout/ToolCard'
 import { CATEGORIES, getToolsByCategory } from '@/lib/tools-config'
 import { Separator } from '@/components/ui/separator'
+import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
+import { localeHref } from '@/i18n/utils'
 
 export function Home() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const locale = (LOCALES.includes(i18n.language as LocaleCode) ? i18n.language : DEFAULT_LOCALE) as LocaleCode
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
@@ -31,7 +34,7 @@ export function Home() {
                     key={tool.id}
                     title={tool.title}
                     descriptionKey={tool.descriptionKey}
-                    href={tool.href}
+                    href={localeHref(locale, tool.href)}
                     icon={tool.icon}
                     category={tool.category}
                   />

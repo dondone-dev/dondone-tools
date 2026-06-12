@@ -14,7 +14,7 @@ import { type ToolRoute } from '@/lib/routes'
 export interface ToolConfig {
   id: string
   title: string
-  description: string
+  descriptionKey: string
   href: ToolRoute
   icon: LucideIcon
   category: ToolCategory
@@ -26,7 +26,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'aes',
     title: 'AES',
-    description: '使用 AES 算法对文本进行加密和解密，支持 ECB/CBC/CTR 模式和 PKCS7/Zero/None 填充。',
+    descriptionKey: 'aes.description',
     href: '/crypto/aes',
     icon: Lock,
     category: 'Cryptography',
@@ -34,7 +34,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'md5',
     title: 'MD5',
-    description: '计算文本或文件的 MD5 哈希值，支持 UTF-8/GBK 编码和分块文件处理。',
+    descriptionKey: 'md5.description',
     href: '/hash/md5',
     icon: Hash,
     category: 'Hash',
@@ -42,7 +42,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'sha2',
     title: 'SHA-2',
-    description: '计算 SHA-224、SHA-256、SHA-384、SHA-512 哈希值，支持文本和文件输入。',
+    descriptionKey: 'sha2.description',
     href: '/hash/sha2',
     icon: Hash,
     category: 'Hash',
@@ -50,7 +50,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'sha3',
     title: 'SHA-3',
-    description: '计算 SHA3-224、SHA3-256、SHA3-384、SHA3-512 哈希值。',
+    descriptionKey: 'sha3.description',
     href: '/hash/sha3',
     icon: Hash,
     category: 'Hash',
@@ -58,7 +58,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'blake',
     title: 'BLAKE',
-    description: '计算 BLAKE2b 和 BLAKE3 哈希值，支持文本和文件输入。',
+    descriptionKey: 'blake.description',
     href: '/hash/blake',
     icon: Hash,
     category: 'Hash',
@@ -66,7 +66,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'xxhash3',
     title: 'xxHash3',
-    description: '计算 xxHash3-64 和 xxHash3-128 哈希值，高速非加密哈希算法。',
+    descriptionKey: 'xxhash3.description',
     href: '/hash/xxhash3',
     icon: Hash,
     category: 'Hash',
@@ -74,7 +74,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'base64',
     title: 'Base64',
-    description: '对文本进行 Base64 编码和解码，同时输出 Base64URL 格式。',
+    descriptionKey: 'base64.description',
     href: '/encoding/base64',
     icon: FileCode,
     category: 'Encoding',
@@ -82,7 +82,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'base64-image',
     title: 'Base64 Image',
-    description: '图片与 Base64 字符串互转，支持 PNG、JPEG、GIF、WebP 等格式。',
+    descriptionKey: 'base64-image.description',
     href: '/encoding/base64-image',
     icon: FileCode,
     category: 'Encoding',
@@ -90,7 +90,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'base58',
     title: 'Base58',
-    description: '使用 Bitcoin 字母表进行 Base58 编码和解码。',
+    descriptionKey: 'base58.description',
     href: '/encoding/base58',
     icon: FileCode,
     category: 'Encoding',
@@ -98,7 +98,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'qrcode',
     title: 'QR Code',
-    description: '将文本生成二维码，或识别图片中的二维码内容。',
+    descriptionKey: 'qrcode.description',
     href: '/encoding/qrcode',
     icon: QrCode,
     category: 'Encoding',
@@ -106,7 +106,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'string-length',
     title: 'String Length',
-    description: '统计字符串长度，包括字符数、字节数、行数、全角/半角字符统计。',
+    descriptionKey: 'string-length.description',
     href: '/text/string-length',
     icon: Type,
     category: 'Text',
@@ -114,7 +114,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'password-strength',
     title: 'Password Strength',
-    description: '检查密码是否命中常见弱密码库，并根据长度、字符类型和常见模式评估强度。',
+    descriptionKey: 'password-strength.description',
     href: '/security/password-strength',
     icon: ShieldCheck,
     category: 'Security',
@@ -122,7 +122,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'ugly-avatar',
     title: 'Ugly Avatar',
-    description: '随机生成丑萌风格头像，可自定义颜色，支持下载 SVG。',
+    descriptionKey: 'ugly-avatar.description',
     href: '/fun/ugly-avatar',
     icon: Smile,
     category: 'Fun',
@@ -130,7 +130,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'bp-jwt',
     title: 'Server JWT Token',
-    description: '生成 Server API 鉴权用的 HS256 JWT Token，payload 包含毫秒时间戳 iat 和 key_name 字段。',
+    descriptionKey: 'bp-jwt.description',
     href: '/bp/jwt',
     icon: KeyRound,
     category: 'BP Authentication',
@@ -138,7 +138,7 @@ export const TOOLS: ToolConfig[] = [
   {
     id: 'bp-sign',
     title: 'Client Sign',
-    description: '使用 HmacSHA256 生成 Client API 请求签名，格式为 digest,timestamp,keyId。',
+    descriptionKey: 'bp-sign.description',
     href: '/bp/sign',
     icon: ShieldCheck,
     category: 'BP Authentication',

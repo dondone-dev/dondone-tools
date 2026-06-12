@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Eye, EyeOff, ShieldCheck } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Badge } from '@/components/ui/badge'
@@ -8,14 +9,6 @@ import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 import { evaluatePasswordStrength, type PasswordStrengthLevel } from '@/lib/tools/password-strength'
 
-const LEVEL_LABELS: Record<PasswordStrengthLevel, string> = {
-  empty: '待输入',
-  weak: '弱',
-  medium: '中',
-  strong: '强',
-  'very-strong': '很强',
-}
-
 const LEVEL_STYLES: Record<PasswordStrengthLevel, string> = {
   empty: 'bg-muted',
   weak: 'bg-red-500',
@@ -24,14 +17,18 @@ const LEVEL_STYLES: Record<PasswordStrengthLevel, string> = {
   'very-strong': 'bg-green-600',
 }
 
-const CHECK_LABELS = [
-  { key: 'lowercase', label: '小写字母' },
-  { key: 'uppercase', label: '大写字母' },
-  { key: 'digit', label: '数字' },
-  { key: 'symbol', label: '特殊符号' },
-] as const
+const LEVEL_LABEL_KEYS: Record<PasswordStrengthLevel, string> = {
+  empty: 'password-strength.levelEmpty',
+  weak: 'password-strength.levelWeak',
+  medium: 'password-strength.levelMedium',
+  strong: 'password-strength.levelStrong',
+  'very-strong': 'password-strength.levelVeryStrong',
+}
+
+const CHECK_KEYS = ['lowercase', 'uppercase', 'digit', 'symbol'] as const
 
 export function PasswordStrengthPage() {
+  const { t } = useTranslation('tools')
   const [password, setPassword] = useState('')
   const [visible, setVisible] = useState(false)
   const result = useMemo(() => evaluatePasswordStrength(password), [password])
@@ -39,20 +36,16 @@ export function PasswordStrengthPage() {
   const match = result.datasetMatches[0]
 
   return (
-    <ToolLayout
-      title="Password Strength"
-      description="检查密码是否命中常见弱密码库，并根据长度、字符类型和常见模式评估强度。所有计算在浏览器本地完成。"
-      category="Security"
-    >
+    <ToolLayout toolId="password-strength" category="Security">
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label className="text-xs">密码</Label>
+          <Label className="text-xs">{t('password-strength.password')}</Label>
           <div className="flex gap-2">
             <Input
               type={visible ? 'text' : 'password'}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              placeholder="输入密码..."
+              placeholder={t('password-strength.passwordPlaceholder')}
               className="font-mono text-sm"
               autoComplete="new-password"
             />
@@ -61,7 +54,7 @@ export function PasswordStrengthPage() {
               variant="outline"
               size="icon"
               onClick={() => setVisible((value) => !value)}
-              aria-label={visible ? '隐藏密码' : '显示密码'}
+              aria-label={visible ? t('password-strength.hidePassword') : t('password-strength.showPassword')}
             >
               {visible ? <EyeOff /> : <Eye />}
             </Button>
@@ -72,7 +65,7 @@ export function PasswordStrengthPage() {
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">{LEVEL_LABELS[result.level]}</span>
+              <span className="text-sm font-medium">{t(LEVEL_LABEL_KEYS[result.level])}</span>
             </div>
             <span className="text-xs text-muted-foreground tabular-nums">{result.score}/100</span>
           </div>
@@ -87,13 +80,15 @@ export function PasswordStrengthPage() {
               />
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">{result.summary}</p>
+          <p className="text-sm text-muted-foreground">
+            {t(`password-strength.summary.${result.summary}`)}
+          </p>
         </div>
 
         {match && (
           <div className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="destructive">弱密码库命中</Badge>
+              <Badge variant="destructive">{t('password-strength.weakPasswordHit')}</Badge>
               <span className="text-sm font-medium">{match.dataset}</span>
               {match.rank ? <span className="text-xs text-muted-foreground">#{match.rank}</span> : null}
             </div>
@@ -111,14 +106,16 @@ export function PasswordStrengthPage() {
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-md bg-muted/50 px-3 py-2">
-            <div className="text-xs text-muted-foreground mb-2">字符组成</div>
+            <div className="text-xs text-muted-foreground mb-2">{t('password-strength.charComposition')}</div>
             <div className="grid grid-cols-2 gap-2">
-              {CHECK_LABELS.map((item) => {
-                const passed = result.characterClasses[item.key]
+              {CHECK_KEYS.map((key) => {
+                const passed = result.characterClasses[key]
                 return (
-                  <div key={item.key} className="flex items-center gap-2 text-sm">
+                  <div key={key} className="flex items-center gap-2 text-sm">
                     <span className={cn('h-2 w-2 rounded-full', passed ? 'bg-emerald-500' : 'bg-muted-foreground/30')} />
-                    <span className={passed ? 'text-foreground' : 'text-muted-foreground'}>{item.label}</span>
+                    <span className={passed ? 'text-foreground' : 'text-muted-foreground'}>
+                      {t(`password-strength.${key}`)}
+                    </span>
                   </div>
                 )
               })}
@@ -126,16 +123,20 @@ export function PasswordStrengthPage() {
           </div>
 
           <div className="rounded-md bg-muted/50 px-3 py-2">
-            <div className="text-xs text-muted-foreground mb-2">检查结果</div>
+            <div className="text-xs text-muted-foreground mb-2">{t('password-strength.checkResults')}</div>
             <div className="space-y-1.5">
               {result.passedChecks.length === 0 && result.warnings.length === 0 ? (
-                <p className="text-sm text-muted-foreground">输入后显示检查项</p>
+                <p className="text-sm text-muted-foreground">{t('password-strength.enterToSeeChecks')}</p>
               ) : null}
-              {result.passedChecks.map((item) => (
-                <p key={item} className="text-sm text-emerald-700 dark:text-emerald-400">{item}</p>
+              {result.passedChecks.map((key) => (
+                <p key={key} className="text-sm text-emerald-700 dark:text-emerald-400">
+                  {t(`password-strength.check.${key}`)}
+                </p>
               ))}
-              {result.warnings.map((item) => (
-                <p key={item} className="text-sm text-amber-700 dark:text-amber-400">{item}</p>
+              {result.warnings.map((key) => (
+                <p key={key} className="text-sm text-amber-700 dark:text-amber-400">
+                  {t(`password-strength.warn.${key}`)}
+                </p>
               ))}
             </div>
           </div>

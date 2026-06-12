@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
@@ -29,6 +30,7 @@ interface DigestResult {
 }
 
 export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleResult }: HashToolLayoutProps) {
+  const { t } = useTranslation('tools')
   const [textInput, setTextInput] = useState('')
   const [outputEncoding, setOutputEncoding] = useState<'hex' | 'base64'>('hex')
   const [result, setResult] = useState<DigestResult | null>(null)
@@ -40,7 +42,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
   const { copied, copy } = useClipboard()
 
   const handleTextDigest = useCallback(async () => {
-    if (!textInput.trim()) { setError('请输入文本'); return }
+    if (!textInput.trim()) { setError(t('_hash.emptyText')); return }
     setError(''); setLoading(true); setResult(null)
     try {
       const res = await onDigestText(textInput, outputEncoding)
@@ -49,7 +51,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
     } catch (e) {
       setError((e as Error).message)
     } finally { setLoading(false) }
-  }, [textInput, outputEncoding, onDigestText])
+  }, [textInput, outputEncoding, onDigestText, t])
 
   const handleFileDigest = useCallback(async (file: File) => {
     setError(''); setLoading(true); setResult(null); setProgress(0)
@@ -79,7 +81,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
     <div className="space-y-4">
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <Label className="text-sm text-muted-foreground shrink-0">输出格式</Label>
+          <Label className="text-sm text-muted-foreground shrink-0">{t('_hash.outputFormat')}</Label>
           <Select value={outputEncoding} onValueChange={(v) => setOutputEncoding(v as 'hex' | 'base64')}>
             <SelectTrigger className="w-24 h-8 text-xs">
               <SelectValue />
@@ -94,20 +96,20 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
 
       <Tabs defaultValue="text">
         <TabsList className="h-8">
-          <TabsTrigger value="text" className="text-xs h-7">文本</TabsTrigger>
-          <TabsTrigger value="file" className="text-xs h-7">文件</TabsTrigger>
+          <TabsTrigger value="text" className="text-xs h-7">{t('_hash.text')}</TabsTrigger>
+          <TabsTrigger value="file" className="text-xs h-7">{t('_hash.file')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="text" className="space-y-3 mt-3">
           <Textarea
-            placeholder="输入需要计算哈希的文本..."
+            placeholder={t('_hash.textPlaceholder')}
             value={textInput}
             onChange={(e) => setTextInput(e.target.value)}
             className="font-mono text-sm min-h-[120px] resize-none"
           />
           <Button onClick={handleTextDigest} disabled={loading} size="sm">
             {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
-            计算
+            {t('_hash.compute')}
           </Button>
         </TabsContent>
 
@@ -131,16 +133,16 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
             }}
           >
             <Upload className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">拖放文件或点击选择</p>
-            <p className="text-xs text-muted-foreground/70 mt-1">文件在本地处理，不会上传</p>
+            <p className="text-sm text-muted-foreground">{t('_hash.dropFile')}</p>
+            <p className="text-xs text-muted-foreground/70 mt-1">{t('_hash.fileLocal')}</p>
           </div>
 
           {loading && (
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>计算中... {progress}%</span>
+                <span>{t('_hash.computing', { progress })}</span>
                 <Button variant="ghost" size="sm" onClick={handleAbort} className="h-6 px-2 text-xs">
-                  <X className="h-3 w-3 mr-1" />取消
+                  <X className="h-3 w-3 mr-1" />{t('_hash.cancel')}
                 </Button>
               </div>
               <div className="h-1.5 bg-muted rounded-full overflow-hidden">
@@ -171,13 +173,14 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
 }
 
 function ResultField({ label, value, copied, onCopy }: { label: string; value: string; copied: boolean; onCopy: (text: string) => void }) {
+  const { t } = useTranslation()
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
           {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? 'Copied' : 'Copy'}
+          {copied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
       <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{value}</div>

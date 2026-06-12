@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -9,6 +10,7 @@ import { generateAvatar, BACKGROUND_PRESETS } from '@/lib/tools/ugly-avatar'
 type Background = 'auto' | string
 
 export function UglyAvatarPage() {
+  const { t } = useTranslation('tools')
   const [background, setBackground] = useState<Background>('auto')
   const [avatar, setAvatar] = useState(() => generateAvatar({ size: 256, background: 'auto' }))
 
@@ -25,11 +27,11 @@ export function UglyAvatarPage() {
   }
 
   return (
-    <ToolLayout title="Ugly Avatar" description="随机生成丑萌风格头像，可自定义背景色，支持下载 SVG。所有生成在浏览器本地完成。" category="Fun">
+    <ToolLayout toolId="ugly-avatar" category="Fun">
       <div className="space-y-4">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
-            <Label className="text-xs text-muted-foreground shrink-0">背景</Label>
+            <Label className="text-xs text-muted-foreground shrink-0">{t('ugly-avatar.background')}</Label>
             <Select value={background} onValueChange={setBackground}>
               <SelectTrigger className="w-40 h-8 text-xs">
                 <SelectValue />
@@ -48,7 +50,7 @@ export function UglyAvatarPage() {
             </Select>
           </div>
           <Button onClick={handleGenerate} size="sm" variant="outline" className="gap-1.5 text-xs">
-            <RefreshCw className="h-3.5 w-3.5" />重新生成
+            <RefreshCw className="h-3.5 w-3.5" />{t('ugly-avatar.regenerate')}
           </Button>
         </div>
 
@@ -56,13 +58,13 @@ export function UglyAvatarPage() {
           <div
             className="border border-border rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
             onClick={handleGenerate}
-            title="点击重新生成"
+            title={t('ugly-avatar.clickToRegenerate')}
           >
             <div dangerouslySetInnerHTML={{ __html: avatar.svg }} />
           </div>
           <div className="space-y-2 pt-1">
             <Button onClick={handleDownload} size="sm" variant="outline" className="gap-1.5 text-xs">
-              <Download className="h-3.5 w-3.5" />下载 SVG
+              <Download className="h-3.5 w-3.5" />{t('ugly-avatar.downloadSvg')}
             </Button>
             <div className="space-y-1 text-xs text-muted-foreground">
               <p>Face: {avatar.state.faceGeometry.kind}</p>

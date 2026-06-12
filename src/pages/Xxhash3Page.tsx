@@ -4,7 +4,7 @@ import { digestText, digestFile } from '@/lib/tools/xxhash3'
 
 export function Xxhash3Page() {
   return (
-    <ToolLayout title="xxHash3" description="计算 xxHash3-64 和 xxHash3-128 哈希值。高速非加密哈希算法，所有计算在浏览器本地完成。" category="Hash">
+    <ToolLayout toolId="xxhash3" category="Hash">
       <HashToolLayout
         title="xxHash3"
         description=""

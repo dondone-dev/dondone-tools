@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -9,6 +10,7 @@ import { Copy, Check } from 'lucide-react'
 import { encodeText, decodeText } from '@/lib/tools/base58'
 
 export function Base58Page() {
+  const { t } = useTranslation(['tools', 'common'])
   const [input, setInput] = useState('')
   const [result, setResult] = useState<{ encoded?: string; text?: string; hex?: string; hasText?: boolean } | null>(null)
   const [error, setError] = useState('')
@@ -25,19 +27,19 @@ export function Base58Page() {
   }
 
   return (
-    <ToolLayout title="Base58" description="使用 Bitcoin 字母表进行 Base58 编码和解码。所有计算在浏览器本地完成。" category="Encoding">
+    <ToolLayout toolId="base58" category="Encoding">
       <Tabs defaultValue="encode">
         <TabsList className="h-8">
-          <TabsTrigger value="encode" className="text-xs h-7">编码</TabsTrigger>
-          <TabsTrigger value="decode" className="text-xs h-7">解码</TabsTrigger>
+          <TabsTrigger value="encode" className="text-xs h-7">{t('base58.encode', { ns: 'tools' })}</TabsTrigger>
+          <TabsTrigger value="decode" className="text-xs h-7">{t('base58.decode', { ns: 'tools' })}</TabsTrigger>
         </TabsList>
         <TabsContent value="encode" className="space-y-3 mt-3">
-          <Textarea placeholder="输入需要编码的文本..." value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
-          <Button onClick={handleEncode} size="sm">编码</Button>
+          <Textarea placeholder={t('base58.encodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
+          <Button onClick={handleEncode} size="sm">{t('base58.encode', { ns: 'tools' })}</Button>
         </TabsContent>
         <TabsContent value="decode" className="space-y-3 mt-3">
-          <Textarea placeholder="输入 Base58 内容..." value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
-          <Button onClick={handleDecode} size="sm">解码</Button>
+          <Textarea placeholder={t('base58.decodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
+          <Button onClick={handleDecode} size="sm">{t('base58.decode', { ns: 'tools' })}</Button>
         </TabsContent>
       </Tabs>
 
@@ -46,9 +48,9 @@ export function Base58Page() {
       {result && (
         <div className="space-y-2">
           {result.encoded && <ResultField label="Base58" value={result.encoded} copied={copied} onCopy={copy} />}
-          {result.hasText && result.text && <ResultField label="文本（UTF-8）" value={result.text} copied={copied} onCopy={copy} />}
+          {result.hasText && result.text && <ResultField label={t('base58.textUtf8', { ns: 'tools' })} value={result.text} copied={copied} onCopy={copy} />}
           {result.hex && <ResultField label="Hex" value={result.hex} copied={copied} onCopy={copy} />}
-          {result.hasText === false && <p className="text-xs text-muted-foreground">解码结果不是有效 UTF-8 文本，仅显示 Hex。</p>}
+          {result.hasText === false && <p className="text-xs text-muted-foreground">{t('base58.invalidUtf8', { ns: 'tools' })}</p>}
         </div>
       )}
     </ToolLayout>
@@ -56,13 +58,14 @@ export function Base58Page() {
 }
 
 function ResultField({ label, value, copied, onCopy }: { label: string; value: string; copied: boolean; onCopy: (text: string) => void }) {
+  const { t } = useTranslation()
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
         <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
           {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {copied ? 'Copied' : 'Copy'}
+          {copied ? t('ui.copied') : t('ui.copy')}
         </Button>
       </div>
       <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{value}</div>

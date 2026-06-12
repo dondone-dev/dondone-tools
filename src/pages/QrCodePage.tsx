@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -9,6 +10,7 @@ import { generateQrCode, decodeImageData } from '@/lib/tools/qrcode'
 import { cn } from '@/lib/utils'
 
 export function QrCodePage() {
+  const { t } = useTranslation('tools')
   const [text, setText] = useState('')
   const [size] = useState(256)
   const [qrResult, setQrResult] = useState<{ dataUrl: string; text: string } | null>(null)
@@ -46,23 +48,23 @@ export function QrCodePage() {
   }
 
   return (
-    <ToolLayout title="QR Code" description="将文本生成二维码，或识别图片中的二维码内容。所有处理在浏览器本地完成。" category="Encoding">
+    <ToolLayout toolId="qrcode" category="Encoding">
       <Tabs defaultValue="generate">
         <TabsList className="h-8">
-          <TabsTrigger value="generate" className="text-xs h-7">生成</TabsTrigger>
-          <TabsTrigger value="decode" className="text-xs h-7">识别</TabsTrigger>
+          <TabsTrigger value="generate" className="text-xs h-7">{t('qrcode.generate')}</TabsTrigger>
+          <TabsTrigger value="decode" className="text-xs h-7">{t('qrcode.decode')}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="generate" className="space-y-3 mt-3">
           <div className="flex gap-2">
-            <Input placeholder="输入文本内容..." value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleGenerate()} className="font-mono text-sm h-8" />
-            <Button onClick={handleGenerate} size="sm" className="shrink-0">生成</Button>
+            <Input placeholder={t('qrcode.textPlaceholder')} value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleGenerate()} className="font-mono text-sm h-8" />
+            <Button onClick={handleGenerate} size="sm" className="shrink-0">{t('qrcode.generate')}</Button>
           </div>
           {qrResult && (
             <div className="space-y-2">
               <img src={qrResult.dataUrl} alt="QR Code" className="w-48 h-48 border border-border rounded-md" />
               <Button variant="outline" size="sm" onClick={downloadQr} className="gap-1.5 text-xs">
-                <Download className="h-3.5 w-3.5" />下载 PNG
+                <Download className="h-3.5 w-3.5" />{t('qrcode.downloadPng')}
               </Button>
             </div>
           )}
@@ -77,11 +79,11 @@ export function QrCodePage() {
             onClick={() => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.onchange = (e) => { const f = (e.target as HTMLInputElement).files?.[0]; if (f) handleDecodeFile(f) }; i.click() }}
           >
             <Upload className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">拖放二维码图片或点击选择</p>
+            <p className="text-sm text-muted-foreground">{t('qrcode.dropQr')}</p>
           </div>
           {decodeResult && (
             <div className="space-y-1">
-              <Label className="text-xs text-muted-foreground">识别结果</Label>
+              <Label className="text-xs text-muted-foreground">{t('qrcode.decodeResult')}</Label>
               <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{decodeResult}</div>
             </div>
           )}

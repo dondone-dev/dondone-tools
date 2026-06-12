@@ -4,7 +4,7 @@ import { digestText, digestFile } from '@/lib/tools/sha3'
 
 export function Sha3Page() {
   return (
-    <ToolLayout title="SHA-3" description="计算 SHA3-224、SHA3-256、SHA3-384、SHA3-512 哈希值。所有计算在浏览器本地完成。" category="Hash">
+    <ToolLayout toolId="sha3" category="Hash">
       <HashToolLayout
         title="SHA-3"
         description=""

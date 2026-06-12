@@ -35,21 +35,21 @@ describe('evaluatePasswordStrength', () => {
     const result = evaluatePasswordStrength('password')
     expect(result.level).toBe('weak')
     expect(result.datasetMatches[0]?.dataset).toBe('SecLists 10k-most-common.txt')
-    expect(result.summary).toMatch(/常见密码库/)
+    expect(result.summary).toBe('compromised')
   })
 
   test('rates short mixed passwords as medium when not in datasets', () => {
     const result = evaluatePasswordStrength('Az9#kL')
     expect(result.level).toBe('medium')
     expect(result.segmentCount).toBe(2)
-    expect(result.warnings).toContain('长度少于 8 位')
+    expect(result.warnings).toContain('too-short')
   })
 
   test('rates long passwords with varied character classes as strong', () => {
     const result = evaluatePasswordStrength('CorrectHorse_42')
     expect(result.level).toBe('strong')
     expect(result.segmentCount).toBe(3)
-    expect(result.passedChecks).toContain('包含特殊符号')
+    expect(result.passedChecks).toContain('symbol')
   })
 
   test('rates very long varied passwords as very strong', () => {
@@ -61,7 +61,7 @@ describe('evaluatePasswordStrength', () => {
   test('penalizes obvious sequences and repeated characters', () => {
     const result = evaluatePasswordStrength('Aaaa1234!')
     expect(result.level).toBe('medium')
-    expect(result.warnings).toContain('包含常见连续序列')
-    expect(result.warnings).toContain('包含连续重复字符')
+    expect(result.warnings).toContain('sequential')
+    expect(result.warnings).toContain('repeated')
   })
 })

@@ -4,7 +4,7 @@ import { digestText, digestFile } from '@/lib/tools/md5'
 
 export function Md5Page() {
   return (
-    <ToolLayout title="MD5" description="计算文本或文件的 MD5 哈希值。所有计算在浏览器本地完成，文件不会上传。" category="Hash">
+    <ToolLayout toolId="md5" category="Hash">
       <HashToolLayout
         title="MD5"
         description=""

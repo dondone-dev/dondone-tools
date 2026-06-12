@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -8,6 +9,7 @@ import { Copy, Check, RefreshCw } from 'lucide-react'
 import { generateJwtToken } from '@/lib/tools/bp-jwt'
 
 export function BpJwtPage() {
+  const { t } = useTranslation(['tools', 'common'])
   const [keyId, setKeyId] = useState('')
   const [keySecret, setKeySecret] = useState('')
   const [result, setResult] = useState('')
@@ -25,11 +27,7 @@ export function BpJwtPage() {
   }
 
   return (
-    <ToolLayout
-      title="Server JWT Token"
-      description="生成 Server API 鉴权用的 JWT Token（HS256），payload 包含毫秒时间戳 iat 和 key_name 字段。所有计算在浏览器本地完成。"
-      category="BP Authentication"
-    >
+    <ToolLayout toolId="bp-jwt" category="BP Authentication">
       <div className="grid gap-4">
         <div className="grid sm:grid-cols-2 gap-3">
           <div className="space-y-1.5">
@@ -37,7 +35,7 @@ export function BpJwtPage() {
             <Input
               value={keyId}
               onChange={(e) => setKeyId(e.target.value)}
-              placeholder="API Key ID（server_key 类型）"
+              placeholder={t('bp-jwt.keyIdPlaceholder', { ns: 'tools' })}
               className="font-mono text-xs h-8"
             />
           </div>
@@ -47,21 +45,25 @@ export function BpJwtPage() {
               type="password"
               value={keySecret}
               onChange={(e) => setKeySecret(e.target.value)}
-              placeholder="API Key Secret"
+              placeholder={t('bp-jwt.keySecretPlaceholder', { ns: 'tools' })}
               className="font-mono text-xs h-8"
             />
           </div>
         </div>
 
         <p className="text-xs text-muted-foreground">
-          payload 包含 <code className="bg-muted px-1 rounded">iat</code>（毫秒时间戳）和{' '}
-          <code className="bg-muted px-1 rounded">key_name</code>（Key ID），每次点击生成新的时间戳。
+          <Trans
+            t={t}
+            i18nKey="bp-jwt.payloadNote"
+            ns="tools"
+            components={{ code: <code className="bg-muted px-1 rounded" /> }}
+          />
         </p>
 
         <div>
           <Button onClick={handleGenerate} size="sm" className="gap-1.5">
             <RefreshCw className="h-3.5 w-3.5" />
-            生成 Token
+            {t('bp-jwt.generateToken', { ns: 'tools' })}
           </Button>
         </div>
 
@@ -80,7 +82,7 @@ export function BpJwtPage() {
                 onClick={() => copy(result)}
               >
                 {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copied ? 'Copied' : 'Copy'}
+                {copied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
             </div>
             <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all leading-relaxed">

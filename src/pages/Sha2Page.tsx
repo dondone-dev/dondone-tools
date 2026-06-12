@@ -4,7 +4,7 @@ import { digestText, digestFile } from '@/lib/tools/sha2'
 
 export function Sha2Page() {
   return (
-    <ToolLayout title="SHA-2" description="计算 SHA-224、SHA-256、SHA-384、SHA-512 哈希值。所有计算在浏览器本地完成。" category="Hash">
+    <ToolLayout toolId="sha2" category="Hash">
       <HashToolLayout
         title="SHA-2"
         description=""

@@ -1,18 +1,21 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { type LucideIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
 interface ToolCardProps {
   title: string
-  description: string
+  descriptionKey: string
   href: string
   icon: LucideIcon
   category: string
   className?: string
 }
 
-export function ToolCard({ title, description, href, icon: Icon, category, className }: ToolCardProps) {
+export function ToolCard({ title, descriptionKey, href, icon: Icon, category, className }: ToolCardProps) {
+  const { t } = useTranslation(['tools', 'common'])
+
   return (
     <Link
       to={href}
@@ -26,14 +29,14 @@ export function ToolCard({ title, description, href, icon: Icon, category, class
           <Icon className="h-4 w-4 text-foreground/70" />
         </div>
         <Badge variant="outline" className="text-xs font-normal shrink-0">
-          {category}
+          {t(`categories.${category}`, { ns: 'common' })}
         </Badge>
       </div>
       <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
         {title}
       </h3>
       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-        {description}
+        {t(descriptionKey, { ns: 'tools' })}
       </p>
     </Link>
   )

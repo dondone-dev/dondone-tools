@@ -190,5 +190,20 @@
     "split": "分栏",
     "unified": "统一",
     "identical": "两段文本完全相同"
+  },
+  "timestamp": {
+    "title": "时间戳",
+    "description": "在 Unix 时间戳与人类可读日期之间互转，自动识别秒/毫秒。所有计算在本地完成。",
+    "unixToHuman": "Unix → 时间",
+    "humanToUnix": "时间 → Unix",
+    "current": "当前时间戳",
+    "iso": "ISO 8601",
+    "local": "本地时间",
+    "utc": "UTC",
+    "relative": "相对时间",
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "convert": "转换",
+    "placeholder": "例如 1700000000"
   }
 }

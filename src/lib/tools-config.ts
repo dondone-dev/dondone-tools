@@ -9,6 +9,7 @@ import {
   Smile,
   KeyRound,
   ShieldCheck,
+  Clock,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -127,6 +128,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'string-length.description',
     href: '/text/string-length',
     icon: Type,
+    category: 'Text',
+  },
+  {
+    id: 'timestamp',
+    title: 'Timestamp',
+    descriptionKey: 'timestamp.description',
+    href: '/text/timestamp',
+    icon: Clock,
     category: 'Text',
   },
   {

@@ -18,6 +18,7 @@ import { PasswordStrengthPage } from '@/pages/PasswordStrengthPage'
 import { UglyAvatarPage } from '@/pages/UglyAvatarPage'
 import { BpJwtPage } from '@/pages/BpJwtPage'
 import { BpSignPage } from '@/pages/BpSignPage'
+import { TimestampPage } from '@/pages/TimestampPage'
 
 function toolRoutes() {
   return (
@@ -39,6 +40,7 @@ function toolRoutes() {
       <Route path="fun/ugly-avatar" element={<UglyAvatarPage />} />
       <Route path="bp/jwt" element={<BpJwtPage />} />
       <Route path="bp/sign" element={<BpSignPage />} />
+      <Route path="text/timestamp" element={<TimestampPage />} />
     </>
   )
 }

@@ -190,5 +190,20 @@
     "split": "분할",
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다"
+  },
+  "timestamp": {
+    "title": "타임스탬프",
+    "description": "Unix 타임스탬프와 날짜를 상호 변환합니다. 초/밀리초를 자동으로 감지합니다. 모든 계산은 로컬에서 실행됩니다.",
+    "unixToHuman": "Unix → 날짜",
+    "humanToUnix": "날짜 → Unix",
+    "current": "현재 타임스탬프",
+    "iso": "ISO 8601",
+    "local": "로컬",
+    "utc": "UTC",
+    "relative": "상대 시간",
+    "seconds": "초",
+    "milliseconds": "밀리초",
+    "convert": "변환",
+    "placeholder": "예: 1700000000"
   }
 }

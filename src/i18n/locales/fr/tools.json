@@ -190,5 +190,20 @@
     "split": "Côte à côte",
     "unified": "Unifié",
     "identical": "Les textes sont identiques"
+  },
+  "timestamp": {
+    "title": "Horodatage",
+    "description": "Convertissez entre les timestamps Unix et les dates lisibles. Détecte automatiquement secondes/millisecondes. Calcul local.",
+    "unixToHuman": "Unix → Date",
+    "humanToUnix": "Date → Unix",
+    "current": "Timestamp actuel",
+    "iso": "ISO 8601",
+    "local": "Local",
+    "utc": "UTC",
+    "relative": "Relatif",
+    "seconds": "Secondes",
+    "milliseconds": "Millisecondes",
+    "convert": "Convertir",
+    "placeholder": "ex. 1700000000"
   }
 }

@@ -12,6 +12,7 @@ export const TOOL_ROUTES = [
   '/text/diff',
   '/text/json-format',
   '/text/string-length',
+  '/text/timestamp',
   '/security/password-strength',
   '/fun/ugly-avatar',
   '/bp/jwt',

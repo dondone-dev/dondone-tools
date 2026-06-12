@@ -190,5 +190,20 @@
     "split": "Split",
     "unified": "Unified",
     "identical": "Texts are identical"
+  },
+  "timestamp": {
+    "title": "Timestamp",
+    "description": "Convert between Unix timestamps and human-readable dates. Auto-detects seconds vs milliseconds. All computation runs locally.",
+    "unixToHuman": "Unix → Human",
+    "humanToUnix": "Human → Unix",
+    "current": "Current timestamp",
+    "iso": "ISO 8601",
+    "local": "Local",
+    "utc": "UTC",
+    "relative": "Relative",
+    "seconds": "Seconds",
+    "milliseconds": "Milliseconds",
+    "convert": "Convert",
+    "placeholder": "e.g. 1700000000"
   }
 }

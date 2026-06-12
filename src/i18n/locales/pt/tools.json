@@ -190,5 +190,20 @@
     "split": "Dividido",
     "unified": "Unificado",
     "identical": "Os textos são idênticos"
+  },
+  "timestamp": {
+    "title": "Timestamp",
+    "description": "Converta entre timestamps Unix e datas legíveis. Detecta segundos/milissegundos automaticamente. Cálculo local.",
+    "unixToHuman": "Unix → Data",
+    "humanToUnix": "Data → Unix",
+    "current": "Timestamp atual",
+    "iso": "ISO 8601",
+    "local": "Local",
+    "utc": "UTC",
+    "relative": "Relativo",
+    "seconds": "Segundos",
+    "milliseconds": "Milissegundos",
+    "convert": "Converter",
+    "placeholder": "ex. 1700000000"
   }
 }

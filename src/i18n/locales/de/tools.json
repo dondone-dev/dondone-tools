@@ -190,5 +190,20 @@
     "split": "Geteilt",
     "unified": "Einheitlich",
     "identical": "Texte sind identisch"
+  },
+  "timestamp": {
+    "title": "Zeitstempel",
+    "description": "Unix-Zeitstempel und menschenlesbare Daten konvertieren. Erkennt Sekunden/Millisekunden automatisch. Lokale Berechnung.",
+    "unixToHuman": "Unix → Datum",
+    "humanToUnix": "Datum → Unix",
+    "current": "Aktueller Zeitstempel",
+    "iso": "ISO 8601",
+    "local": "Lokal",
+    "utc": "UTC",
+    "relative": "Relativ",
+    "seconds": "Sekunden",
+    "milliseconds": "Millisekunden",
+    "convert": "Konvertieren",
+    "placeholder": "z.B. 1700000000"
   }
 }

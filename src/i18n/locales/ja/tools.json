@@ -190,5 +190,20 @@
     "split": "分割",
     "unified": "統合",
     "identical": "テキストは同一です"
+  },
+  "timestamp": {
+    "title": "タイムスタンプ",
+    "description": "UnixタイムスタンプとISO日付を相互変換。秒/ミリ秒を自動判定。すべての計算はローカルで実行されます。",
+    "unixToHuman": "Unix → 日時",
+    "humanToUnix": "日時 → Unix",
+    "current": "現在のタイムスタンプ",
+    "iso": "ISO 8601",
+    "local": "ローカル",
+    "utc": "UTC",
+    "relative": "相対時間",
+    "seconds": "秒",
+    "milliseconds": "ミリ秒",
+    "convert": "変換",
+    "placeholder": "例: 1700000000"
   }
 }

@@ -251,5 +251,15 @@
     "milliseconds": "밀리초",
     "convert": "변환",
     "placeholder": "예: 1700000000"
+  },
+  "uuid": {
+    "title": "UUID 생성기",
+    "description": "UUID v4(무작위) 생성 — 최대 1000개 일괄 생성 지원",
+    "count": "개수",
+    "generate": "생성",
+    "generated": "개 UUID 생성됨",
+    "copyAll": "전체 복사",
+    "copied": "복사됨!",
+    "downloadCSV": "CSV 다운로드"
   }
 }

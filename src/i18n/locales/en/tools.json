@@ -251,5 +251,15 @@
     "milliseconds": "Milliseconds",
     "convert": "Convert",
     "placeholder": "e.g. 1700000000"
+  },
+  "uuid": {
+    "title": "UUID Generator",
+    "description": "Generate UUID v4 (random) — single or batch up to 1000",
+    "count": "Count",
+    "generate": "Generate",
+    "generated": "UUIDs generated",
+    "copyAll": "Copy All",
+    "copied": "Copied!",
+    "downloadCSV": "Download CSV"
   }
 }

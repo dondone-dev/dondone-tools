@@ -251,5 +251,15 @@
     "milliseconds": "毫秒",
     "convert": "转换",
     "placeholder": "例如 1700000000"
+  },
+  "uuid": {
+    "title": "UUID 生成器",
+    "description": "生成 UUID v4（随机），支持批量生成，最多 1000 个",
+    "count": "数量",
+    "generate": "生成",
+    "generated": "个 UUID 已生成",
+    "copyAll": "复制全部",
+    "copied": "已复制！",
+    "downloadCSV": "下载 CSV"
   }
 }

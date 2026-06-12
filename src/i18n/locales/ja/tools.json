@@ -251,5 +251,15 @@
     "milliseconds": "ミリ秒",
     "convert": "変換",
     "placeholder": "例: 1700000000"
+  },
+  "uuid": {
+    "title": "UUID ジェネレーター",
+    "description": "UUID v4（ランダム）を生成 — 最大 1000 件のバッチ生成に対応",
+    "count": "個数",
+    "generate": "生成",
+    "generated": "件の UUID を生成しました",
+    "copyAll": "すべてコピー",
+    "copied": "コピーしました！",
+    "downloadCSV": "CSV ダウンロード"
   }
 }

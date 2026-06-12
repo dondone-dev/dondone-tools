@@ -18,6 +18,7 @@ export const TOOL_ROUTES = [
   '/text/regex',
   '/security/password-strength',
   '/design/color',
+  '/fun/uuid',
   '/fun/ugly-avatar',
   '/bp/jwt',
   '/bp/sign',

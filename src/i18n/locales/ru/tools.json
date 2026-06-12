@@ -251,5 +251,15 @@
     "milliseconds": "Миллисекунды",
     "convert": "Конвертировать",
     "placeholder": "напр. 1700000000"
+  },
+  "uuid": {
+    "title": "Генератор UUID",
+    "description": "Генерация UUID v4 (случайных) — до 1000 за раз",
+    "count": "Количество",
+    "generate": "Сгенерировать",
+    "generated": "UUID сгенерировано",
+    "copyAll": "Копировать все",
+    "copied": "Скопировано!",
+    "downloadCSV": "Скачать CSV"
   }
 }

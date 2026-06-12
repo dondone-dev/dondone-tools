@@ -14,6 +14,7 @@ import {
   KeySquare,
   Palette,
   Regex,
+  Fingerprint,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -181,6 +182,14 @@ export const TOOLS: ToolConfig[] = [
     href: '/design/color',
     icon: Palette,
     category: 'Design',
+  },
+  {
+    id: 'uuid',
+    title: 'UUID Generator',
+    descriptionKey: 'uuid.description',
+    href: '/fun/uuid',
+    icon: Fingerprint,
+    category: 'Fun',
   },
   {
     id: 'ugly-avatar',

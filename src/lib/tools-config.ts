@@ -12,6 +12,7 @@ import {
   Clock,
   Link,
   KeySquare,
+  Palette,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -25,7 +26,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -165,6 +166,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'Security',
   },
   {
+    id: 'color',
+    title: 'Color Picker',
+    descriptionKey: 'color.description',
+    href: '/design/color',
+    icon: Palette,
+    category: 'Design',
+  },
+  {
     id: 'ugly-avatar',
     title: 'Ugly Avatar',
     descriptionKey: 'ugly-avatar.description',
@@ -190,7 +199,7 @@ export const TOOLS: ToolConfig[] = [
   },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Cryptography', 'Security', 'Hash', 'Encoding', 'Text', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Cryptography', 'Security', 'Hash', 'Encoding', 'Text', 'Fun', 'BP Authentication', 'Design']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

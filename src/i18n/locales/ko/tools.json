@@ -191,6 +191,14 @@
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다"
   },
+  "color": {
+    "title": "컬러 피커",
+    "description": "색상을 선택하고 HEX, RGB, HSL 형식 간에 변환합니다. 어떤 형식이든 입력하면 다른 형식이 업데이트됩니다. 로컬 계산.",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "pickColor": "색상 선택"
+  },
   "jwt-decode": {
     "title": "JWT 디코더",
     "description": "JWT 토큰을 디코딩하고 검사합니다. 헤더, 페이로드, 서명을 표시하며 만료 필드를 강조합니다. 서명 검증은 수행하지 않습니다.",

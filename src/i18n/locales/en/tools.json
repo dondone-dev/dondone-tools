@@ -191,6 +191,14 @@
     "unified": "Unified",
     "identical": "Texts are identical"
   },
+  "color": {
+    "title": "Color Picker",
+    "description": "Pick a color and convert between HEX, RGB, and HSL formats. Bidirectional — type in any format to update the others. All computation runs locally.",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "pickColor": "Pick a color"
+  },
   "jwt-decode": {
     "title": "JWT Decoder",
     "description": "Decode and inspect JWT tokens. Displays header, payload, and signature. Highlights expiry fields. Verification is not performed. All computation runs locally.",

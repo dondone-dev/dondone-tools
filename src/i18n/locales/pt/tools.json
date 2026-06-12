@@ -191,6 +191,14 @@
     "unified": "Unificado",
     "identical": "Os textos são idênticos"
   },
+  "color": {
+    "title": "Seletor de cor",
+    "description": "Escolha uma cor e converta entre HEX, RGB e HSL. Digite em qualquer formato para atualizar os outros. Cálculo local.",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "pickColor": "Escolher cor"
+  },
   "jwt-decode": {
     "title": "Decodificador JWT",
     "description": "Decodifique e inspecione tokens JWT. Exibe cabeçalho, payload e assinatura. Destaca campos de expiração. Sem verificação de assinatura.",

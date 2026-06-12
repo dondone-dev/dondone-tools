@@ -191,6 +191,14 @@
     "unified": "Einheitlich",
     "identical": "Texte sind identisch"
   },
+  "color": {
+    "title": "Farbwähler",
+    "description": "Farbe auswählen und zwischen HEX, RGB und HSL konvertieren. In jedem Format eingeben, um die anderen zu aktualisieren. Lokale Berechnung.",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "pickColor": "Farbe auswählen"
+  },
   "jwt-decode": {
     "title": "JWT Decoder",
     "description": "JWT-Token dekodieren und prüfen. Zeigt Header, Payload und Signatur an. Hebt Ablauffelder hervor. Keine Signaturprüfung.",

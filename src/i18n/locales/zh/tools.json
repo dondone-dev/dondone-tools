@@ -191,6 +191,14 @@
     "unified": "统一",
     "identical": "两段文本完全相同"
   },
+  "color": {
+    "title": "颜色选择器",
+    "description": "选取颜色并在 HEX、RGB、HSL 格式间互转，任意格式输入即可联动更新。所有计算在本地完成。",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "pickColor": "选取颜色"
+  },
   "jwt-decode": {
     "title": "JWT 解码",
     "description": "解码并检查 JWT Token，展示 Header、Payload 和 Signature，高亮过期字段，不执行签名验证。所有计算在本地完成。",

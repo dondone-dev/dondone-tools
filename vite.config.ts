@@ -4,6 +4,14 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import sitemap from 'vite-plugin-sitemap'
 import { TOOL_ROUTES } from './src/lib/routes'
+import { LOCALES, DEFAULT_LOCALE } from './src/i18n/config'
+
+const allRoutes = [
+  ...TOOL_ROUTES,
+  ...LOCALES.filter((l) => l !== DEFAULT_LOCALE).flatMap((locale) =>
+    TOOL_ROUTES.map((r) => `/${locale}${r}`)
+  ),
+]
 
 export default defineConfig({
   plugins: [
@@ -11,7 +19,7 @@ export default defineConfig({
     tailwindcss(),
     sitemap({
       hostname: 'https://tools.dondone.dev',
-      dynamicRoutes: [...TOOL_ROUTES],
+      dynamicRoutes: allRoutes,
     }),
   ],
   resolve: {

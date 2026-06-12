@@ -3,6 +3,7 @@ import { Outlet, useNavigate, useParams, useLocation } from 'react-router-dom'
 import i18n from '@/i18n'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
+import { LocaleHead } from '@/components/layout/LocaleHead'
 import { TOOLS } from '@/lib/tools-config'
 
 interface LocaleLayoutProps {
@@ -34,6 +35,7 @@ export function LocaleLayout({ locale: propLocale }: LocaleLayoutProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocaleHead currentLocale={locale} currentPath={pathname} />
       <Header breadcrumbs={breadcrumbs} currentLocale={locale} currentPath={pathname} />
       <Outlet />
     </div>

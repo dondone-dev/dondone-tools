@@ -1,0 +1,174 @@
+{
+  "aes": {
+    "title": "AES",
+    "description": "AES でテキストを暗号化・復号します。ECB/CBC/CTR モードと PKCS7/Zero/None パディングをサポート。",
+    "mode": "モード",
+    "padding": "パディング",
+    "inputEncoding": "入力エンコード",
+    "outputEncoding": "出力エンコード",
+    "key": "キー",
+    "iv": "初期化ベクター IV",
+    "keyPlaceholder": "キーを入力...",
+    "ivPlaceholder": "IV を入力...",
+    "plaintextPlaceholder": "平文を入力...",
+    "ciphertextPlaceholder": "暗号文を入力..."
+  },
+  "md5": {
+    "title": "MD5",
+    "description": "テキストまたはファイルの MD5 ハッシュを計算します。UTF-8/GBK エンコードと分割ファイル処理をサポート。"
+  },
+  "sha2": {
+    "title": "SHA-2",
+    "description": "SHA-224、SHA-256、SHA-384、SHA-512 ハッシュを計算します。テキストとファイル入力をサポート。"
+  },
+  "sha3": {
+    "title": "SHA-3",
+    "description": "SHA3-224、SHA3-256、SHA3-384、SHA3-512 ハッシュを計算します。"
+  },
+  "blake": {
+    "title": "BLAKE",
+    "description": "BLAKE2b と BLAKE3 ハッシュを計算します。テキストとファイル入力をサポート。",
+    "algorithm": "アルゴリズム"
+  },
+  "xxhash3": {
+    "title": "xxHash3",
+    "description": "xxHash3-64 と xxHash3-128 ハッシュを計算します。高速な非暗号化ハッシュアルゴリズム。"
+  },
+  "_hash": {
+    "outputFormat": "出力形式",
+    "text": "テキスト",
+    "file": "ファイル",
+    "textPlaceholder": "ハッシュするテキストを入力...",
+    "compute": "計算",
+    "dropFile": "ファイルをドロップまたはクリックして選択",
+    "fileLocal": "ファイルはローカルで処理され、アップロードされません",
+    "computing": "計算中... {{progress}}%",
+    "cancel": "キャンセル",
+    "emptyText": "テキストを入力してください"
+  },
+  "base64": {
+    "title": "Base64",
+    "description": "テキストを Base64 でエンコード・デコードします。Base64URL 形式も出力します。",
+    "encode": "エンコード",
+    "decode": "デコード",
+    "encodePlaceholder": "エンコードするテキストを入力...",
+    "decodePlaceholder": "Base64 コンテンツを入力...",
+    "decodeResult": "デコード結果"
+  },
+  "base64-image": {
+    "title": "Base64 Image",
+    "description": "画像と Base64 文字列を相互変換します。PNG、JPEG、GIF、WebP などをサポート。",
+    "imageToB64": "画像 → Base64",
+    "b64ToImage": "Base64 → 画像",
+    "dropImage": "画像をドロップまたはクリックして選択",
+    "b64Placeholder": "Base64 文字列または Data URL を貼り付け...",
+    "decode": "デコード",
+    "preview": "プレビュー"
+  },
+  "base58": {
+    "title": "Base58",
+    "description": "Bitcoin アルファベットを使用した Base58 でエンコード・デコードします。",
+    "encode": "エンコード",
+    "decode": "デコード",
+    "encodePlaceholder": "エンコードするテキストを入力...",
+    "decodePlaceholder": "Base58 コンテンツを入力...",
+    "textUtf8": "テキスト (UTF-8)",
+    "invalidUtf8": "デコード結果は有効な UTF-8 テキストではありません。Hex のみ表示します。"
+  },
+  "qrcode": {
+    "title": "QR Code",
+    "description": "テキストから QR コードを生成、または QR コード画像をデコードします。",
+    "generate": "生成",
+    "decode": "デコード",
+    "textPlaceholder": "テキストを入力...",
+    "downloadPng": "PNG ダウンロード",
+    "dropQr": "QR コード画像をドロップまたはクリックして選択",
+    "decodeResult": "デコード結果"
+  },
+  "string-length": {
+    "title": "String Length",
+    "description": "文字数、バイト数、行数、全角/半角文字の統計を含む文字列長を計算します。リアルタイム更新。",
+    "placeholder": "ここにテキストを入力すると統計がリアルタイムで更新されます...",
+    "lengthExclNewlines": "文字数（改行を除く）",
+    "length": "文字数（全角・半角共に1）",
+    "chineseChars": "CJK 文字",
+    "letters": "アルファベット",
+    "digits": "数字",
+    "spaces": "スペース",
+    "halfWidth": "半角文字",
+    "fullWidth": "全角文字",
+    "newlines": "改行数",
+    "totalLines": "総行数"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "description": "パスワードが一般的な弱いパスワードのデータベースに一致するか確認し、強度を評価します。",
+    "password": "パスワード",
+    "passwordPlaceholder": "パスワードを入力...",
+    "showPassword": "パスワードを表示",
+    "hidePassword": "パスワードを非表示",
+    "charComposition": "文字構成",
+    "checkResults": "チェック結果",
+    "enterToSeeChecks": "入力後にチェック項目を表示",
+    "weakPasswordHit": "一般的なパスワードに一致",
+    "levelEmpty": "入力待ち",
+    "levelWeak": "弱い",
+    "levelMedium": "普通",
+    "levelStrong": "強い",
+    "levelVeryStrong": "非常に強い",
+    "lowercase": "小文字",
+    "uppercase": "大文字",
+    "digit": "数字",
+    "symbol": "特殊記号",
+    "summary": {
+      "pending": "パスワードを入力して強度を確認",
+      "compromised": "一般的なパスワードデータベースに一致 — すぐに変更してください",
+      "weak": "弱いパスワードです。推測やブルートフォースに脆弱です",
+      "medium": "普通の強度です。長さを増やすか文字種を追加してください",
+      "strong": "強いパスワードです。良い長さと文字の多様性があります",
+      "very-strong": "非常に強いパスワードです。優れた長さと複雑さを持っています"
+    },
+    "check": {
+      "len12": "12文字以上",
+      "lowercase": "小文字を含む",
+      "uppercase": "大文字を含む",
+      "digit": "数字を含む",
+      "symbol": "特殊記号を含む"
+    },
+    "warn": {
+      "too-short": "8文字未満",
+      "not-min-len": "12文字未満",
+      "few-types": "文字種が少ない",
+      "repeated": "連続した繰り返し文字を含む",
+      "sequential": "一般的な連続パターンを含む",
+      "year": "一般的な年号を含む"
+    }
+  },
+  "ugly-avatar": {
+    "title": "Ugly Avatar",
+    "description": "ランダムなユニークなアバターを生成します。背景色をカスタマイズでき、SVG ダウンロードをサポート。",
+    "background": "背景",
+    "regenerate": "再生成",
+    "downloadSvg": "SVG ダウンロード",
+    "clickToRegenerate": "クリックして再生成"
+  },
+  "bp-jwt": {
+    "title": "Server JWT Token",
+    "description": "Server API 認証用の HS256 JWT Token を生成します。payload にはミリ秒タイムスタンプ iat と key_name が含まれます。",
+    "keyIdPlaceholder": "API Key ID（server_key タイプ）",
+    "keySecretPlaceholder": "API Key Secret",
+    "payloadNote": "payload には <code>iat</code>（ミリ秒タイムスタンプ）と <code>key_name</code>（Key ID）が含まれます。クリックするたびに新しいタイムスタンプが生成されます。",
+    "generateToken": "Token を生成"
+  },
+  "bp-sign": {
+    "title": "Client Sign",
+    "description": "HmacSHA256 を使用して Client API リクエスト署名を生成します。形式: digest,timestamp,keyId。",
+    "appIdPlaceholder": "アプリ App ID",
+    "getNote": "GET リクエストは空の body 文字列で署名します。アルゴリズム: HmacSHA256(appId + timestamp + \"\", keySecret)",
+    "requestBody": "リクエスト Body（JSON）",
+    "bodyRaw": "署名には書式なしの生の JSON 文字列を使用します。",
+    "generateSign": "署名を生成",
+    "signResult": "署名",
+    "signFormat": "形式: <code>digest,timestamp,keyId</code>"
+  }
+}

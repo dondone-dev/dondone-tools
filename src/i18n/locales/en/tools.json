@@ -1,0 +1,174 @@
+{
+  "aes": {
+    "title": "AES",
+    "description": "Encrypt and decrypt text with AES. Supports ECB/CBC/CTR modes and PKCS7/Zero/None padding. All computation runs locally.",
+    "mode": "Mode",
+    "padding": "Padding",
+    "inputEncoding": "Input Encoding",
+    "outputEncoding": "Output Encoding",
+    "key": "Key",
+    "iv": "IV",
+    "keyPlaceholder": "Enter key...",
+    "ivPlaceholder": "Enter IV...",
+    "plaintextPlaceholder": "Enter plaintext...",
+    "ciphertextPlaceholder": "Enter ciphertext..."
+  },
+  "md5": {
+    "title": "MD5",
+    "description": "Compute MD5 hash of text or files. Supports UTF-8/GBK encoding and chunked file processing. All computation runs locally."
+  },
+  "sha2": {
+    "title": "SHA-2",
+    "description": "Compute SHA-224, SHA-256, SHA-384, SHA-512 hashes. Supports text and file input. All computation runs locally."
+  },
+  "sha3": {
+    "title": "SHA-3",
+    "description": "Compute SHA3-224, SHA3-256, SHA3-384, SHA3-512 hashes. All computation runs locally."
+  },
+  "blake": {
+    "title": "BLAKE",
+    "description": "Compute BLAKE2b and BLAKE3 hashes. Supports text and file input. All computation runs locally.",
+    "algorithm": "Algorithm"
+  },
+  "xxhash3": {
+    "title": "xxHash3",
+    "description": "Compute xxHash3-64 and xxHash3-128 hashes. High-speed non-cryptographic hash algorithm. All computation runs locally."
+  },
+  "_hash": {
+    "outputFormat": "Output Format",
+    "text": "Text",
+    "file": "File",
+    "textPlaceholder": "Enter text to hash...",
+    "compute": "Compute",
+    "dropFile": "Drop file or click to select",
+    "fileLocal": "File is processed locally, not uploaded",
+    "computing": "Computing... {{progress}}%",
+    "cancel": "Cancel",
+    "emptyText": "Please enter text"
+  },
+  "base64": {
+    "title": "Base64",
+    "description": "Encode and decode text with Base64. Also outputs Base64URL format. All computation runs locally.",
+    "encode": "Encode",
+    "decode": "Decode",
+    "encodePlaceholder": "Enter text to encode...",
+    "decodePlaceholder": "Enter Base64 content...",
+    "decodeResult": "Decoded Result"
+  },
+  "base64-image": {
+    "title": "Base64 Image",
+    "description": "Convert between images and Base64 strings. Supports PNG, JPEG, GIF, WebP and more. All processing runs locally.",
+    "imageToB64": "Image → Base64",
+    "b64ToImage": "Base64 → Image",
+    "dropImage": "Drop image or click to select",
+    "b64Placeholder": "Paste Base64 string or Data URL...",
+    "decode": "Decode",
+    "preview": "Preview"
+  },
+  "base58": {
+    "title": "Base58",
+    "description": "Encode and decode with Base58 (Bitcoin alphabet). All computation runs locally.",
+    "encode": "Encode",
+    "decode": "Decode",
+    "encodePlaceholder": "Enter text to encode...",
+    "decodePlaceholder": "Enter Base58 content...",
+    "textUtf8": "Text (UTF-8)",
+    "invalidUtf8": "Decoded result is not valid UTF-8 text, showing Hex only."
+  },
+  "qrcode": {
+    "title": "QR Code",
+    "description": "Generate QR codes from text, or decode QR code images. All processing runs locally.",
+    "generate": "Generate",
+    "decode": "Decode",
+    "textPlaceholder": "Enter text content...",
+    "downloadPng": "Download PNG",
+    "dropQr": "Drop QR code image or click to select",
+    "decodeResult": "Decoded Result"
+  },
+  "string-length": {
+    "title": "String Length",
+    "description": "Count string length including character count, byte count, lines, and full/half-width stats. Calculates in real time.",
+    "placeholder": "Enter text here, statistics update in real time...",
+    "lengthExclNewlines": "Chars (excl. newlines)",
+    "length": "Chars (full/half = 1)",
+    "chineseChars": "CJK Chars",
+    "letters": "Letters",
+    "digits": "Digits",
+    "spaces": "Spaces",
+    "halfWidth": "Half-width",
+    "fullWidth": "Full-width",
+    "newlines": "Newlines",
+    "totalLines": "Total Lines"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "description": "Check if a password matches common weak password databases, and evaluate strength based on length, character types, and patterns. All computation runs locally.",
+    "password": "Password",
+    "passwordPlaceholder": "Enter password...",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "charComposition": "Character Types",
+    "checkResults": "Check Results",
+    "enterToSeeChecks": "Enter password to see checks",
+    "weakPasswordHit": "Common Password Match",
+    "levelEmpty": "Pending",
+    "levelWeak": "Weak",
+    "levelMedium": "Medium",
+    "levelStrong": "Strong",
+    "levelVeryStrong": "Very Strong",
+    "lowercase": "Lowercase",
+    "uppercase": "Uppercase",
+    "digit": "Digits",
+    "symbol": "Special Symbols",
+    "summary": {
+      "pending": "Enter a password to check its strength",
+      "compromised": "Found in common password database — change immediately",
+      "weak": "Weak password, easily guessed or brute-forced",
+      "medium": "Medium strength — increase length or add more character types",
+      "strong": "Strong password with good length and character variety",
+      "very-strong": "Very strong password with excellent length and complexity"
+    },
+    "check": {
+      "len12": "At least 12 characters",
+      "lowercase": "Contains lowercase letters",
+      "uppercase": "Contains uppercase letters",
+      "digit": "Contains digits",
+      "symbol": "Contains special symbols"
+    },
+    "warn": {
+      "too-short": "Fewer than 8 characters",
+      "not-min-len": "Fewer than 12 characters",
+      "few-types": "Too few character types",
+      "repeated": "Contains consecutive repeated characters",
+      "sequential": "Contains common sequential patterns",
+      "year": "Contains a common year"
+    }
+  },
+  "ugly-avatar": {
+    "title": "Ugly Avatar",
+    "description": "Generate random quirky avatars with customizable background color. Supports SVG download. All generation runs locally.",
+    "background": "Background",
+    "regenerate": "Regenerate",
+    "downloadSvg": "Download SVG",
+    "clickToRegenerate": "Click to regenerate"
+  },
+  "bp-jwt": {
+    "title": "Server JWT Token",
+    "description": "Generate a HS256 JWT Token for Server API authentication. Payload includes millisecond timestamp iat and key_name fields. All computation runs locally.",
+    "keyIdPlaceholder": "API Key ID (server_key type)",
+    "keySecretPlaceholder": "API Key Secret",
+    "payloadNote": "Payload includes <code>iat</code> (ms timestamp) and <code>key_name</code> (Key ID). Each click generates a new timestamp.",
+    "generateToken": "Generate Token"
+  },
+  "bp-sign": {
+    "title": "Client Sign",
+    "description": "Generate Client API request signature using HmacSHA256. Format: digest,timestamp,keyId. All computation runs locally.",
+    "appIdPlaceholder": "App ID",
+    "getNote": "GET request signs with empty body string. Algorithm: HmacSHA256(appId + timestamp + \"\", keySecret)",
+    "requestBody": "Request Body (JSON)",
+    "bodyRaw": "Signature uses the raw JSON string without any formatting.",
+    "generateSign": "Generate Signature",
+    "signResult": "Signature",
+    "signFormat": "Format: <code>digest,timestamp,keyId</code>"
+  }
+}

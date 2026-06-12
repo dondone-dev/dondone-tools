@@ -1,0 +1,174 @@
+{
+  "aes": {
+    "title": "AES",
+    "description": "Chiffrez et déchiffrez du texte avec AES. Supporte les modes ECB/CBC/CTR et les rembourrages PKCS7/Zero/None.",
+    "mode": "Mode",
+    "padding": "Rembourrage",
+    "inputEncoding": "Encodage entrée",
+    "outputEncoding": "Encodage sortie",
+    "key": "Clé",
+    "iv": "IV",
+    "keyPlaceholder": "Entrez la clé...",
+    "ivPlaceholder": "Entrez l'IV...",
+    "plaintextPlaceholder": "Entrez le texte en clair...",
+    "ciphertextPlaceholder": "Entrez le texte chiffré..."
+  },
+  "md5": {
+    "title": "MD5",
+    "description": "Calculez le hash MD5 de texte ou de fichiers. Supporte l'encodage UTF-8/GBK et le traitement de fichiers par blocs."
+  },
+  "sha2": {
+    "title": "SHA-2",
+    "description": "Calculez les hashes SHA-224, SHA-256, SHA-384, SHA-512. Supporte le texte et les fichiers."
+  },
+  "sha3": {
+    "title": "SHA-3",
+    "description": "Calculez les hashes SHA3-224, SHA3-256, SHA3-384, SHA3-512."
+  },
+  "blake": {
+    "title": "BLAKE",
+    "description": "Calculez les hashes BLAKE2b et BLAKE3. Supporte le texte et les fichiers.",
+    "algorithm": "Algorithme"
+  },
+  "xxhash3": {
+    "title": "xxHash3",
+    "description": "Calculez les hashes xxHash3-64 et xxHash3-128. Algorithme de hachage non cryptographique haute vitesse."
+  },
+  "_hash": {
+    "outputFormat": "Format de sortie",
+    "text": "Texte",
+    "file": "Fichier",
+    "textPlaceholder": "Entrez le texte à hacher...",
+    "compute": "Calculer",
+    "dropFile": "Déposez un fichier ou cliquez pour sélectionner",
+    "fileLocal": "Le fichier est traité localement, non téléchargé",
+    "computing": "Calcul en cours... {{progress}}%",
+    "cancel": "Annuler",
+    "emptyText": "Veuillez entrer du texte"
+  },
+  "base64": {
+    "title": "Base64",
+    "description": "Encodez et décodez du texte en Base64. Produit également le format Base64URL.",
+    "encode": "Encoder",
+    "decode": "Décoder",
+    "encodePlaceholder": "Entrez le texte à encoder...",
+    "decodePlaceholder": "Entrez le contenu Base64...",
+    "decodeResult": "Résultat décodé"
+  },
+  "base64-image": {
+    "title": "Base64 Image",
+    "description": "Convertissez entre images et chaînes Base64. Supporte PNG, JPEG, GIF, WebP et plus.",
+    "imageToB64": "Image → Base64",
+    "b64ToImage": "Base64 → Image",
+    "dropImage": "Déposez une image ou cliquez pour sélectionner",
+    "b64Placeholder": "Collez une chaîne Base64 ou une Data URL...",
+    "decode": "Décoder",
+    "preview": "Aperçu"
+  },
+  "base58": {
+    "title": "Base58",
+    "description": "Encodez et décodez avec Base58 (alphabet Bitcoin).",
+    "encode": "Encoder",
+    "decode": "Décoder",
+    "encodePlaceholder": "Entrez le texte à encoder...",
+    "decodePlaceholder": "Entrez le contenu Base58...",
+    "textUtf8": "Texte (UTF-8)",
+    "invalidUtf8": "Le résultat décodé n'est pas un texte UTF-8 valide, affichage Hex uniquement."
+  },
+  "qrcode": {
+    "title": "QR Code",
+    "description": "Générez des QR codes à partir de texte, ou décodez des images QR code.",
+    "generate": "Générer",
+    "decode": "Décoder",
+    "textPlaceholder": "Entrez le contenu texte...",
+    "downloadPng": "Télécharger PNG",
+    "dropQr": "Déposez l'image QR code ou cliquez pour sélectionner",
+    "decodeResult": "Résultat décodé"
+  },
+  "string-length": {
+    "title": "String Length",
+    "description": "Comptez la longueur des chaînes incluant le nombre de caractères, octets, lignes et statistiques pleine/demi-largeur.",
+    "placeholder": "Entrez le texte ici, les statistiques se mettent à jour en temps réel...",
+    "lengthExclNewlines": "Caractères (sans retours à la ligne)",
+    "length": "Caractères (pleine/demi = 1)",
+    "chineseChars": "Caractères CJC",
+    "letters": "Lettres",
+    "digits": "Chiffres",
+    "spaces": "Espaces",
+    "halfWidth": "Demi-largeur",
+    "fullWidth": "Pleine largeur",
+    "newlines": "Retours à la ligne",
+    "totalLines": "Lignes totales"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "description": "Vérifiez si un mot de passe correspond à des bases de données de mots de passe faibles courants et évaluez sa force.",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez le mot de passe...",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "charComposition": "Types de caractères",
+    "checkResults": "Résultats de vérification",
+    "enterToSeeChecks": "Entrez un mot de passe pour voir les vérifications",
+    "weakPasswordHit": "Mot de passe commun détecté",
+    "levelEmpty": "En attente",
+    "levelWeak": "Faible",
+    "levelMedium": "Moyen",
+    "levelStrong": "Fort",
+    "levelVeryStrong": "Très fort",
+    "lowercase": "Minuscules",
+    "uppercase": "Majuscules",
+    "digit": "Chiffres",
+    "symbol": "Symboles spéciaux",
+    "summary": {
+      "pending": "Entrez un mot de passe pour vérifier sa force",
+      "compromised": "Trouvé dans une base de mots de passe courants — changez-le immédiatement",
+      "weak": "Mot de passe faible, facilement devinable ou attaquable par force brute",
+      "medium": "Force moyenne — augmentez la longueur ou ajoutez des types de caractères",
+      "strong": "Mot de passe fort avec bonne longueur et variété de caractères",
+      "very-strong": "Mot de passe très fort avec excellente longueur et complexité"
+    },
+    "check": {
+      "len12": "Au moins 12 caractères",
+      "lowercase": "Contient des minuscules",
+      "uppercase": "Contient des majuscules",
+      "digit": "Contient des chiffres",
+      "symbol": "Contient des symboles spéciaux"
+    },
+    "warn": {
+      "too-short": "Moins de 8 caractères",
+      "not-min-len": "Moins de 12 caractères",
+      "few-types": "Trop peu de types de caractères",
+      "repeated": "Contient des caractères répétés consécutifs",
+      "sequential": "Contient des séquences courantes",
+      "year": "Contient une année courante"
+    }
+  },
+  "ugly-avatar": {
+    "title": "Ugly Avatar",
+    "description": "Générez des avatars originaux aléatoires avec couleur de fond personnalisable. Supporte le téléchargement SVG.",
+    "background": "Fond",
+    "regenerate": "Régénérer",
+    "downloadSvg": "Télécharger SVG",
+    "clickToRegenerate": "Cliquez pour régénérer"
+  },
+  "bp-jwt": {
+    "title": "Server JWT Token",
+    "description": "Générez un JWT Token HS256 pour l'authentification Server API. Le payload inclut le timestamp en ms iat et le champ key_name.",
+    "keyIdPlaceholder": "API Key ID (type server_key)",
+    "keySecretPlaceholder": "API Key Secret",
+    "payloadNote": "Le payload inclut <code>iat</code> (timestamp ms) et <code>key_name</code> (Key ID). Chaque clic génère un nouveau timestamp.",
+    "generateToken": "Générer le Token"
+  },
+  "bp-sign": {
+    "title": "Client Sign",
+    "description": "Générez une signature de requête Client API avec HmacSHA256. Format : digest,timestamp,keyId.",
+    "appIdPlaceholder": "App ID",
+    "getNote": "La requête GET signe avec une chaîne body vide. Algorithme : HmacSHA256(appId + timestamp + \"\", keySecret)",
+    "requestBody": "Corps de la requête (JSON)",
+    "bodyRaw": "La signature utilise la chaîne JSON brute sans formatage.",
+    "generateSign": "Générer la signature",
+    "signResult": "Signature",
+    "signFormat": "Format : <code>digest,timestamp,keyId</code>"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "site": {
+    "name": "dondone tools",
+    "tagline": "一组轻量的浏览器端工具，所有计算均在本地完成，不上传任何数据。"
+  },
+  "categories": {
+    "Cryptography": "密码学",
+    "Security": "安全",
+    "Hash": "哈希",
+    "Encoding": "编解码",
+    "Text": "文本",
+    "Fun": "趣味",
+    "BP Authentication": "BP 鉴权"
+  },
+  "ui": {
+    "result": "结果",
+    "copy": "Copy",
+    "copied": "Copied"
+  }
+}

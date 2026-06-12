@@ -1,0 +1,20 @@
+{
+  "site": {
+    "name": "dondone tools",
+    "tagline": "軽量なブラウザツール集。すべての計算はローカルで実行され、データはアップロードされません。"
+  },
+  "categories": {
+    "Cryptography": "暗号",
+    "Security": "セキュリティ",
+    "Hash": "ハッシュ",
+    "Encoding": "エンコード",
+    "Text": "テキスト",
+    "Fun": "エンタメ",
+    "BP Authentication": "BP 認証"
+  },
+  "ui": {
+    "result": "結果",
+    "copy": "Copy",
+    "copied": "Copied"
+  }
+}

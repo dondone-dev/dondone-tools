@@ -14,6 +14,15 @@ Types: `feat` `fix` `refactor` `chore` `docs` `test` `perf` `style` `ci`
 
 Stage only the files relevant to the change — never `git add .`.
 
+If the commit was implemented by an AI agent, append a `Co-Authored-By` trailer with the agent name and model version:
+
+```
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
+
+GitHub resolves these emails to registered accounts and surfaces them in the Contributors list.
+
 ## Architecture
 
 ```
@@ -33,7 +42,7 @@ New tool checklist:
 2. Add page to `src/pages/`
 3. Register in `src/lib/routes.ts` and `src/lib/tools-config.ts`
 4. Add route in `src/App.tsx`
-5. Add translation keys to all 5 locale files
+5. Add translation keys to all 9 locale files
 
 ## i18n
 
@@ -42,7 +51,7 @@ All user-facing strings must go through `useTranslation`. Never hardcode UI text
 - `common.json` — navigation, categories, site-wide copy
 - `tools.json` — per-tool title, description, and UI labels
 
-Supported locales: `en` (default, no URL prefix) · `zh` · `ja` · `fr` · `ko`
+Supported locales: `en` (default, no URL prefix) · `zh` · `ja` · `fr` · `ko` · `de` · `es` · `pt` · `ru`
 
 When adding a new string:
 1. Add the key to `en` first

@@ -4,8 +4,9 @@ import i18n from '@/i18n'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { LocaleHead } from '@/components/layout/LocaleHead'
+import { SeoHead } from '@/components/layout/SeoHead'
 import { TOOLS } from '@/lib/tools-config'
+import { getPathWithoutLocale } from '@/lib/seo'
 
 interface LocaleLayoutProps {
   locale?: LocaleCode
@@ -30,13 +31,13 @@ export function LocaleLayout({ locale: propLocale }: LocaleLayoutProps) {
     i18n.changeLanguage(locale)
   }, [locale])
 
-  const toolPath = locale === DEFAULT_LOCALE ? pathname : pathname.replace(`/${locale}`, '') || '/'
+  const toolPath = getPathWithoutLocale(pathname, locale)
   const tool = TOOLS.find((t) => t.href === toolPath)
   const breadcrumbs = tool ? [{ label: tool.category }, { label: tool.title }] : undefined
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <LocaleHead currentLocale={locale} currentPath={pathname} />
+      <SeoHead currentLocale={locale} currentPath={pathname} />
       <Header breadcrumbs={breadcrumbs} currentLocale={locale} currentPath={pathname} />
       <div className="flex-1">
         <Outlet />

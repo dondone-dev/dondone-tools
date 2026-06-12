@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Copy, Check } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { fromUnix, toUnix, isMilliseconds } from '@/lib/tools/timestamp'
+import { useClipboard } from '@/hooks/useClipboard'
 
 export function TimestampPage() {
   const { t } = useTranslation('tools')
+  const { copiedText, copy } = useClipboard()
   const [now, setNow] = useState(() => Date.now())
   const [unixInput, setUnixInput] = useState('')
   const [unixResult, setUnixResult] = useState<ReturnType<typeof fromUnix> | null>(null)
@@ -68,10 +71,10 @@ export function TimestampPage() {
           )}
           {unixResult && (
             <div className="space-y-2 text-sm">
-              <ResultRow label={t('timestamp.iso')} value={unixResult.iso} />
-              <ResultRow label={t('timestamp.local')} value={unixResult.local} />
-              <ResultRow label={t('timestamp.utc')} value={unixResult.utc} />
-              <ResultRow label={t('timestamp.relative')} value={unixResult.relative} />
+              <ResultRow label={t('timestamp.iso')} value={unixResult.iso} copiedText={copiedText} onCopy={copy} />
+              <ResultRow label={t('timestamp.local')} value={unixResult.local} copiedText={copiedText} onCopy={copy} />
+              <ResultRow label={t('timestamp.utc')} value={unixResult.utc} copiedText={copiedText} onCopy={copy} />
+              <ResultRow label={t('timestamp.relative')} value={unixResult.relative} copiedText={copiedText} onCopy={copy} />
               <p className="text-xs text-muted-foreground">
                 {isMilliseconds(Number(unixInput)) ? 'ms' : 's'}
               </p>
@@ -96,8 +99,8 @@ export function TimestampPage() {
           )}
           {humanResult && (
             <div className="space-y-2 text-sm">
-              <ResultRow label={t('timestamp.seconds')} value={String(humanResult.seconds)} />
-              <ResultRow label={t('timestamp.milliseconds')} value={String(humanResult.milliseconds)} />
+              <ResultRow label={t('timestamp.seconds')} value={String(humanResult.seconds)} copiedText={copiedText} onCopy={copy} />
+              <ResultRow label={t('timestamp.milliseconds')} value={String(humanResult.milliseconds)} copiedText={copiedText} onCopy={copy} />
             </div>
           )}
         </div>
@@ -106,11 +109,19 @@ export function TimestampPage() {
   )
 }
 
-function ResultRow({ label, value }: { label: string; value: string }) {
+function ResultRow({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
+  const { t } = useTranslation('common')
+  const isCopied = copiedText === value
   return (
-    <div className="flex flex-col gap-0.5">
-      <Label className="text-xs text-muted-foreground">{label}</Label>
-      <span className="font-mono text-xs bg-muted/50 rounded px-2 py-1 select-all">{value}</span>
+    <div className="space-y-0.5">
+      <div className="flex items-center justify-between">
+        <Label className="text-xs text-muted-foreground">{label}</Label>
+        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
+          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+          {isCopied ? t('ui.copied') : t('ui.copy')}
+        </Button>
+      </div>
+      <span className="font-mono text-xs bg-muted/50 rounded px-2 py-1 select-all block">{value}</span>
     </div>
   )
 }

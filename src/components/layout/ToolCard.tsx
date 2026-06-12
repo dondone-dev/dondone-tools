@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { type LucideIcon } from 'lucide-react'
+import { ChevronRight, type LucideIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
@@ -32,9 +32,12 @@ export function ToolCard({ title, descriptionKey, href, icon: Icon, category, cl
           {t(`categories.${category}`, { ns: 'common' })}
         </Badge>
       </div>
-      <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
-        {title}
-      </h3>
+      <div className="flex items-start justify-between gap-2">
+        <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
+          {title}
+        </h3>
+        <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/50 shrink-0 mt-0.5 group-hover:text-muted-foreground transition-colors" />
+      </div>
       <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
         {t(descriptionKey, { ns: 'tools' })}
       </p>

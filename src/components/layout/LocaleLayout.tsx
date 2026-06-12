@@ -3,6 +3,7 @@ import { Outlet, useNavigate, useParams, useLocation } from 'react-router-dom'
 import i18n from '@/i18n'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 import { LocaleHead } from '@/components/layout/LocaleHead'
 import { TOOLS } from '@/lib/tools-config'
 
@@ -34,10 +35,13 @@ export function LocaleLayout({ locale: propLocale }: LocaleLayoutProps) {
   const breadcrumbs = tool ? [{ label: tool.category }, { label: tool.title }] : undefined
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <LocaleHead currentLocale={locale} currentPath={pathname} />
       <Header breadcrumbs={breadcrumbs} currentLocale={locale} currentPath={pathname} />
-      <Outlet />
+      <div className="flex-1">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,20 @@
+{
+  "site": {
+    "name": "dondone tools",
+    "tagline": "Лёгкие инструменты в браузере. Все вычисления выполняются локально — данные не загружаются."
+  },
+  "categories": {
+    "Cryptography": "Криптография",
+    "Security": "Безопасность",
+    "Hash": "Хеш",
+    "Encoding": "Кодирование",
+    "Text": "Текст",
+    "Fun": "Развлечения",
+    "BP Authentication": "Аутентификация BP"
+  },
+  "ui": {
+    "result": "Результат",
+    "copy": "Copy",
+    "copied": "Copied"
+  }
+}

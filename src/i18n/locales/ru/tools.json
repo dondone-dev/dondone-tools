@@ -1,0 +1,174 @@
+{
+  "aes": {
+    "title": "AES",
+    "description": "Шифрует и дешифрует текст с помощью AES. Поддерживает режимы ECB/CBC/CTR и набивку PKCS7/Zero/None.",
+    "mode": "Режим",
+    "padding": "Набивка",
+    "inputEncoding": "Кодировка входа",
+    "outputEncoding": "Кодировка выхода",
+    "key": "Ключ",
+    "iv": "IV",
+    "keyPlaceholder": "Введите ключ...",
+    "ivPlaceholder": "Введите IV...",
+    "plaintextPlaceholder": "Введите открытый текст...",
+    "ciphertextPlaceholder": "Введите зашифрованный текст..."
+  },
+  "md5": {
+    "title": "MD5",
+    "description": "Вычисляет MD5-хеш текста или файлов. Поддерживает кодировку UTF-8/GBK и блочную обработку файлов."
+  },
+  "sha2": {
+    "title": "SHA-2",
+    "description": "Вычисляет хеши SHA-224, SHA-256, SHA-384, SHA-512. Поддерживает текст и файлы."
+  },
+  "sha3": {
+    "title": "SHA-3",
+    "description": "Вычисляет хеши SHA3-224, SHA3-256, SHA3-384, SHA3-512."
+  },
+  "blake": {
+    "title": "BLAKE",
+    "description": "Вычисляет хеши BLAKE2b и BLAKE3. Поддерживает текст и файлы.",
+    "algorithm": "Алгоритм"
+  },
+  "xxhash3": {
+    "title": "xxHash3",
+    "description": "Вычисляет хеши xxHash3-64 и xxHash3-128. Высокоскоростной некриптографический алгоритм хеширования."
+  },
+  "_hash": {
+    "outputFormat": "Формат вывода",
+    "text": "Текст",
+    "file": "Файл",
+    "textPlaceholder": "Введите текст для хеширования...",
+    "compute": "Вычислить",
+    "dropFile": "Перетащите файл или нажмите для выбора",
+    "fileLocal": "Файл обрабатывается локально, не загружается",
+    "computing": "Вычисление... {{progress}}%",
+    "cancel": "Отмена",
+    "emptyText": "Пожалуйста, введите текст"
+  },
+  "base64": {
+    "title": "Base64",
+    "description": "Кодирует и декодирует текст в Base64. Также выводит формат Base64URL.",
+    "encode": "Кодировать",
+    "decode": "Декодировать",
+    "encodePlaceholder": "Введите текст для кодирования...",
+    "decodePlaceholder": "Введите содержимое Base64...",
+    "decodeResult": "Декодированный результат"
+  },
+  "base64-image": {
+    "title": "Base64 Image",
+    "description": "Конвертирует между изображениями и строками Base64. Поддерживает PNG, JPEG, GIF, WebP и другие форматы.",
+    "imageToB64": "Изображение → Base64",
+    "b64ToImage": "Base64 → Изображение",
+    "dropImage": "Перетащите изображение или нажмите для выбора",
+    "b64Placeholder": "Вставьте строку Base64 или Data URL...",
+    "decode": "Декодировать",
+    "preview": "Предварительный просмотр"
+  },
+  "base58": {
+    "title": "Base58",
+    "description": "Кодирует и декодирует в Base58 (алфавит Bitcoin).",
+    "encode": "Кодировать",
+    "decode": "Декодировать",
+    "encodePlaceholder": "Введите текст для кодирования...",
+    "decodePlaceholder": "Введите содержимое Base58...",
+    "textUtf8": "Текст (UTF-8)",
+    "invalidUtf8": "Декодированный результат не является допустимым текстом UTF-8, отображается только Hex."
+  },
+  "qrcode": {
+    "title": "QR Code",
+    "description": "Генерирует QR-коды из текста или декодирует изображения QR-кода.",
+    "generate": "Генерировать",
+    "decode": "Декодировать",
+    "textPlaceholder": "Введите текстовое содержимое...",
+    "downloadPng": "Скачать PNG",
+    "dropQr": "Перетащите изображение QR-кода или нажмите для выбора",
+    "decodeResult": "Декодированный результат"
+  },
+  "string-length": {
+    "title": "String Length",
+    "description": "Подсчитывает длину строк, включая символы, байты, строки и статистику полной/половинной ширины.",
+    "placeholder": "Введите текст здесь, статистика обновляется в реальном времени...",
+    "lengthExclNewlines": "Символы (без переносов строк)",
+    "length": "Символы (полная/половинная = 1)",
+    "chineseChars": "Символы CJK",
+    "letters": "Буквы",
+    "digits": "Цифры",
+    "spaces": "Пробелы",
+    "halfWidth": "Половинная ширина",
+    "fullWidth": "Полная ширина",
+    "newlines": "Переносы строк",
+    "totalLines": "Всего строк"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "description": "Проверяет, совпадает ли пароль с общими базами данных слабых паролей, и оценивает его надёжность.",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введите пароль...",
+    "showPassword": "Показать пароль",
+    "hidePassword": "Скрыть пароль",
+    "charComposition": "Типы символов",
+    "checkResults": "Результаты проверки",
+    "enterToSeeChecks": "Введите пароль для просмотра проверок",
+    "weakPasswordHit": "Обнаружен распространённый пароль",
+    "levelEmpty": "Ожидание",
+    "levelWeak": "Слабый",
+    "levelMedium": "Средний",
+    "levelStrong": "Сильный",
+    "levelVeryStrong": "Очень сильный",
+    "lowercase": "Строчные буквы",
+    "uppercase": "Прописные буквы",
+    "digit": "Цифры",
+    "symbol": "Специальные символы",
+    "summary": {
+      "pending": "Введите пароль для проверки надёжности",
+      "compromised": "Найден в базе распространённых паролей — немедленно измените",
+      "weak": "Слабый пароль, легко угадывается или взламывается перебором",
+      "medium": "Средняя надёжность — увеличьте длину или добавьте типы символов",
+      "strong": "Надёжный пароль с хорошей длиной и разнообразием символов",
+      "very-strong": "Очень надёжный пароль с отличной длиной и сложностью"
+    },
+    "check": {
+      "len12": "Не менее 12 символов",
+      "lowercase": "Содержит строчные буквы",
+      "uppercase": "Содержит прописные буквы",
+      "digit": "Содержит цифры",
+      "symbol": "Содержит специальные символы"
+    },
+    "warn": {
+      "too-short": "Менее 8 символов",
+      "not-min-len": "Менее 12 символов",
+      "few-types": "Слишком мало типов символов",
+      "repeated": "Содержит последовательные повторяющиеся символы",
+      "sequential": "Содержит распространённые последовательные шаблоны",
+      "year": "Содержит распространённый год"
+    }
+  },
+  "ugly-avatar": {
+    "title": "Ugly Avatar",
+    "description": "Генерирует случайные уникальные аватары с настраиваемым цветом фона. Поддерживает загрузку SVG.",
+    "background": "Фон",
+    "regenerate": "Сгенерировать снова",
+    "downloadSvg": "Скачать SVG",
+    "clickToRegenerate": "Нажмите для повторной генерации"
+  },
+  "bp-jwt": {
+    "title": "Server JWT Token",
+    "description": "Генерирует JWT Token HS256 для аутентификации Server API. Payload содержит временную метку в мс iat и поле key_name.",
+    "keyIdPlaceholder": "API Key ID (тип server_key)",
+    "keySecretPlaceholder": "API Key Secret",
+    "payloadNote": "Payload содержит <code>iat</code> (временная метка в мс) и <code>key_name</code> (Key ID). Каждый клик генерирует новую метку.",
+    "generateToken": "Сгенерировать Token"
+  },
+  "bp-sign": {
+    "title": "Client Sign",
+    "description": "Генерирует подпись запроса Client API с помощью HmacSHA256. Формат: digest,timestamp,keyId.",
+    "appIdPlaceholder": "App ID",
+    "getNote": "GET-запрос подписывается с пустой строкой body. Алгоритм: HmacSHA256(appId + timestamp + \"\", keySecret)",
+    "requestBody": "Тело запроса (JSON)",
+    "bodyRaw": "Подпись использует исходную строку JSON без форматирования.",
+    "generateSign": "Сгенерировать подпись",
+    "signResult": "Подпись",
+    "signFormat": "Формат: <code>digest,timestamp,keyId</code>"
+  }
+}

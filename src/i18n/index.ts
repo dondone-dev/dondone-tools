@@ -13,6 +13,14 @@ import frCommon from './locales/fr/common.json'
 import frTools from './locales/fr/tools.json'
 import koCommon from './locales/ko/common.json'
 import koTools from './locales/ko/tools.json'
+import esCommon from './locales/es/common.json'
+import esTools from './locales/es/tools.json'
+import deCommon from './locales/de/common.json'
+import deTools from './locales/de/tools.json'
+import ptCommon from './locales/pt/common.json'
+import ptTools from './locales/pt/tools.json'
+import ruCommon from './locales/ru/common.json'
+import ruTools from './locales/ru/tools.json'
 
 i18n
   .use(LanguageDetector)
@@ -24,6 +32,10 @@ i18n
       ja: { common: jaCommon, tools: jaTools },
       fr: { common: frCommon, tools: frTools },
       ko: { common: koCommon, tools: koTools },
+      es: { common: esCommon, tools: esTools },
+      de: { common: deCommon, tools: deTools },
+      pt: { common: ptCommon, tools: ptTools },
+      ru: { common: ruCommon, tools: ruTools },
     },
     fallbackLng: DEFAULT_LOCALE,
     supportedLngs: LOCALES,

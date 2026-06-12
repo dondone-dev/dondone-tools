@@ -1,0 +1,20 @@
+{
+  "site": {
+    "name": "dondone tools",
+    "tagline": "Ferramentas leves no navegador. Todo o processamento ocorre localmente — nenhum dado é enviado."
+  },
+  "categories": {
+    "Cryptography": "Criptografia",
+    "Security": "Segurança",
+    "Hash": "Hash",
+    "Encoding": "Codificação",
+    "Text": "Texto",
+    "Fun": "Diversão",
+    "BP Authentication": "Autenticação BP"
+  },
+  "ui": {
+    "result": "Resultado",
+    "copy": "Copy",
+    "copied": "Copied"
+  }
+}

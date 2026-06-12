@@ -1,0 +1,174 @@
+{
+  "aes": {
+    "title": "AES",
+    "description": "Verschlüsselt und entschlüsselt Text mit AES. Unterstützt ECB/CBC/CTR-Modi und PKCS7/Zero/None-Padding.",
+    "mode": "Modus",
+    "padding": "Padding",
+    "inputEncoding": "Eingabe-Kodierung",
+    "outputEncoding": "Ausgabe-Kodierung",
+    "key": "Schlüssel",
+    "iv": "IV",
+    "keyPlaceholder": "Schlüssel eingeben...",
+    "ivPlaceholder": "IV eingeben...",
+    "plaintextPlaceholder": "Klartext eingeben...",
+    "ciphertextPlaceholder": "Geheimtext eingeben..."
+  },
+  "md5": {
+    "title": "MD5",
+    "description": "Berechnet den MD5-Hash von Text oder Dateien. Unterstützt UTF-8/GBK-Kodierung und blockweise Dateiverarbeitung."
+  },
+  "sha2": {
+    "title": "SHA-2",
+    "description": "Berechnet SHA-224, SHA-256, SHA-384, SHA-512 Hashes. Unterstützt Text und Dateien."
+  },
+  "sha3": {
+    "title": "SHA-3",
+    "description": "Berechnet SHA3-224, SHA3-256, SHA3-384, SHA3-512 Hashes."
+  },
+  "blake": {
+    "title": "BLAKE",
+    "description": "Berechnet BLAKE2b und BLAKE3 Hashes. Unterstützt Text und Dateien.",
+    "algorithm": "Algorithmus"
+  },
+  "xxhash3": {
+    "title": "xxHash3",
+    "description": "Berechnet xxHash3-64 und xxHash3-128 Hashes. Hochgeschwindigkeits-Nicht-Kryptographie-Hash-Algorithmus."
+  },
+  "_hash": {
+    "outputFormat": "Ausgabeformat",
+    "text": "Text",
+    "file": "Datei",
+    "textPlaceholder": "Text zum Hashen eingeben...",
+    "compute": "Berechnen",
+    "dropFile": "Datei ablegen oder klicken zum Auswählen",
+    "fileLocal": "Datei wird lokal verarbeitet, nicht hochgeladen",
+    "computing": "Berechne... {{progress}}%",
+    "cancel": "Abbrechen",
+    "emptyText": "Bitte Text eingeben"
+  },
+  "base64": {
+    "title": "Base64",
+    "description": "Kodiert und dekodiert Text in Base64. Gibt auch das Base64URL-Format aus.",
+    "encode": "Kodieren",
+    "decode": "Dekodieren",
+    "encodePlaceholder": "Text zum Kodieren eingeben...",
+    "decodePlaceholder": "Base64-Inhalt eingeben...",
+    "decodeResult": "Dekodiertes Ergebnis"
+  },
+  "base64-image": {
+    "title": "Base64 Image",
+    "description": "Konvertiert zwischen Bildern und Base64-Zeichenfolgen. Unterstützt PNG, JPEG, GIF, WebP und mehr.",
+    "imageToB64": "Bild → Base64",
+    "b64ToImage": "Base64 → Bild",
+    "dropImage": "Bild ablegen oder klicken zum Auswählen",
+    "b64Placeholder": "Base64-Zeichenfolge oder Data URL einfügen...",
+    "decode": "Dekodieren",
+    "preview": "Vorschau"
+  },
+  "base58": {
+    "title": "Base58",
+    "description": "Kodiert und dekodiert mit Base58 (Bitcoin-Alphabet).",
+    "encode": "Kodieren",
+    "decode": "Dekodieren",
+    "encodePlaceholder": "Text zum Kodieren eingeben...",
+    "decodePlaceholder": "Base58-Inhalt eingeben...",
+    "textUtf8": "Text (UTF-8)",
+    "invalidUtf8": "Dekodiertes Ergebnis ist kein gültiger UTF-8-Text, zeige nur Hex."
+  },
+  "qrcode": {
+    "title": "QR Code",
+    "description": "Generiert QR-Codes aus Text oder dekodiert QR-Code-Bilder.",
+    "generate": "Generieren",
+    "decode": "Dekodieren",
+    "textPlaceholder": "Textinhalt eingeben...",
+    "downloadPng": "PNG herunterladen",
+    "dropQr": "QR-Code-Bild ablegen oder klicken zum Auswählen",
+    "decodeResult": "Dekodiertes Ergebnis"
+  },
+  "string-length": {
+    "title": "String Length",
+    "description": "Zählt die Zeichenfolgenlänge einschließlich Zeichen, Bytes, Zeilen und Vollbreite/Halbbreite-Statistiken.",
+    "placeholder": "Text hier eingeben, Statistiken werden in Echtzeit aktualisiert...",
+    "lengthExclNewlines": "Zeichen (ohne Zeilenumbrüche)",
+    "length": "Zeichen (Voll/Halb = 1)",
+    "chineseChars": "CJK-Zeichen",
+    "letters": "Buchstaben",
+    "digits": "Ziffern",
+    "spaces": "Leerzeichen",
+    "halfWidth": "Halbbreite",
+    "fullWidth": "Vollbreite",
+    "newlines": "Zeilenumbrüche",
+    "totalLines": "Gesamtzeilen"
+  },
+  "password-strength": {
+    "title": "Password Strength",
+    "description": "Prüft, ob ein Passwort in gängigen Schwachpasswort-Datenbanken vorkommt, und bewertet seine Stärke.",
+    "password": "Passwort",
+    "passwordPlaceholder": "Passwort eingeben...",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen",
+    "charComposition": "Zeichentypen",
+    "checkResults": "Prüfergebnisse",
+    "enterToSeeChecks": "Passwort eingeben, um Prüfungen zu sehen",
+    "weakPasswordHit": "Häufiges Passwort erkannt",
+    "levelEmpty": "Ausstehend",
+    "levelWeak": "Schwach",
+    "levelMedium": "Mittel",
+    "levelStrong": "Stark",
+    "levelVeryStrong": "Sehr stark",
+    "lowercase": "Kleinbuchstaben",
+    "uppercase": "Großbuchstaben",
+    "digit": "Ziffern",
+    "symbol": "Sonderzeichen",
+    "summary": {
+      "pending": "Passwort eingeben, um Stärke zu prüfen",
+      "compromised": "In gängiger Passwort-Datenbank gefunden — sofort ändern",
+      "weak": "Schwaches Passwort, leicht zu erraten oder per Brute-Force angreifbar",
+      "medium": "Mittlere Stärke — Länge erhöhen oder Zeichentypen hinzufügen",
+      "strong": "Starkes Passwort mit guter Länge und Zeichenvielfalt",
+      "very-strong": "Sehr starkes Passwort mit ausgezeichneter Länge und Komplexität"
+    },
+    "check": {
+      "len12": "Mindestens 12 Zeichen",
+      "lowercase": "Enthält Kleinbuchstaben",
+      "uppercase": "Enthält Großbuchstaben",
+      "digit": "Enthält Ziffern",
+      "symbol": "Enthält Sonderzeichen"
+    },
+    "warn": {
+      "too-short": "Weniger als 8 Zeichen",
+      "not-min-len": "Weniger als 12 Zeichen",
+      "few-types": "Zu wenige Zeichentypen",
+      "repeated": "Enthält aufeinanderfolgende Wiederholungen",
+      "sequential": "Enthält gängige Sequenzmuster",
+      "year": "Enthält ein gängiges Jahr"
+    }
+  },
+  "ugly-avatar": {
+    "title": "Ugly Avatar",
+    "description": "Generiert zufällige einzigartige Avatare mit anpassbarer Hintergrundfarbe. SVG-Download unterstützt.",
+    "background": "Hintergrund",
+    "regenerate": "Neu generieren",
+    "downloadSvg": "SVG herunterladen",
+    "clickToRegenerate": "Klicken zum Neu-Generieren"
+  },
+  "bp-jwt": {
+    "title": "Server JWT Token",
+    "description": "Generiert ein HS256 JWT Token für Server API-Authentifizierung. Payload enthält Millisekunden-Zeitstempel iat und key_name.",
+    "keyIdPlaceholder": "API Key ID (Typ server_key)",
+    "keySecretPlaceholder": "API Key Secret",
+    "payloadNote": "Payload enthält <code>iat</code> (ms-Zeitstempel) und <code>key_name</code> (Key ID). Jeder Klick erzeugt einen neuen Zeitstempel.",
+    "generateToken": "Token generieren"
+  },
+  "bp-sign": {
+    "title": "Client Sign",
+    "description": "Generiert eine Client API-Anfrage-Signatur mit HmacSHA256. Format: digest,timestamp,keyId.",
+    "appIdPlaceholder": "App ID",
+    "getNote": "GET-Anfrage signiert mit leerem Body-String. Algorithmus: HmacSHA256(appId + timestamp + \"\", keySecret)",
+    "requestBody": "Anfrage-Body (JSON)",
+    "bodyRaw": "Signatur verwendet den rohen JSON-String ohne Formatierung.",
+    "generateSign": "Signatur generieren",
+    "signResult": "Signatur",
+    "signFormat": "Format: <code>digest,timestamp,keyId</code>"
+  }
+}

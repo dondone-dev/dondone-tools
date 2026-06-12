@@ -1,0 +1,20 @@
+{
+  "site": {
+    "name": "dondone tools",
+    "tagline": "Herramientas ligeras en el navegador. Todo el cómputo se ejecuta localmente — ningún dato se sube."
+  },
+  "categories": {
+    "Cryptography": "Criptografía",
+    "Security": "Seguridad",
+    "Hash": "Hash",
+    "Encoding": "Codificación",
+    "Text": "Texto",
+    "Fun": "Diversión",
+    "BP Authentication": "Autenticación BP"
+  },
+  "ui": {
+    "result": "Resultado",
+    "copy": "Copy",
+    "copied": "Copied"
+  }
+}

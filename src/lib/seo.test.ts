@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { LOCALES, DEFAULT_LOCALE } from '@/i18n/config'
 import { TOOL_ROUTES } from '@/lib/routes'
-import { getPathWithoutLocale, getSeoMetadata, getAllSeoRoutes } from '@/lib/seo'
+import { getPathWithoutLocale, getSeoMetadata, getAllSeoRoutes, getJsonLd } from '@/lib/seo'
 
 const HOSTNAME = 'https://tools.dondone.dev'
 
@@ -138,9 +138,48 @@ describe('getAllSeoRoutes', () => {
     }
   })
 
+  it('has no duplicate routes', () => {
+    const routes = getAllSeoRoutes()
+    expect(routes.length).toBe(new Set(routes).size)
+  })
+
   it('total count matches expected: 1 home + 24 tools + 8 locales × 25', () => {
     const nonDefaultLocaleCount = LOCALES.length - 1
     const expected = 1 + TOOL_ROUTES.length + nonDefaultLocaleCount * (1 + TOOL_ROUTES.length)
     expect(getAllSeoRoutes().length).toBe(expected)
+  })
+})
+
+describe('getJsonLd', () => {
+  it('home page returns WebSite schema', () => {
+    const schemas = getJsonLd('/', 'en')
+    expect(schemas).toHaveLength(1)
+    expect(schemas[0]['@type']).toBe('WebSite')
+  })
+
+  it('tool page returns WebApplication and BreadcrumbList schemas', () => {
+    const schemas = getJsonLd('/encoding/qrcode-decode', 'en')
+    expect(schemas).toHaveLength(2)
+    const types = schemas.map((s) => s['@type'])
+    expect(types).toContain('WebApplication')
+    expect(types).toContain('BreadcrumbList')
+  })
+
+  it('all schemas are valid JSON', () => {
+    const routes = ['/', '/encoding/qrcode-decode', '/zh/hash/md5']
+    const locales = ['en', 'zh', 'en'] as const
+    routes.forEach((route, i) => {
+      const schemas = getJsonLd(route, locales[i])
+      for (const schema of schemas) {
+        expect(() => JSON.parse(JSON.stringify(schema))).not.toThrow()
+      }
+    })
+  })
+
+  it('WebApplication url matches canonical', () => {
+    const schemas = getJsonLd('/encoding/qrcode-decode', 'en')
+    const app = schemas.find((s) => s['@type'] === 'WebApplication') as { url: string }
+    const seo = getSeoMetadata('/encoding/qrcode-decode', 'en')
+    expect(app.url).toBe(seo.canonicalUrl)
   })
 })

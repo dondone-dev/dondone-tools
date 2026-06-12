@@ -176,3 +176,75 @@ export function getAllSeoRoutes(): string[] {
     .flatMap((l) => [`/${l}`, ...TOOL_ROUTES.map((r) => `/${l}${r}`)])
   return [...defaultRoutes, ...localizedRoutes]
 }
+
+// ---- JSON-LD ----
+
+interface WebSiteSchema {
+  '@context': 'https://schema.org'
+  '@type': 'WebSite'
+  name: string
+  url: string
+  description: string
+}
+
+interface WebApplicationSchema {
+  '@context': 'https://schema.org'
+  '@type': 'WebApplication'
+  name: string
+  url: string
+  description: string
+  applicationCategory: string
+  operatingSystem: string
+}
+
+interface BreadcrumbListSchema {
+  '@context': 'https://schema.org'
+  '@type': 'BreadcrumbList'
+  itemListElement: Array<{
+    '@type': 'ListItem'
+    position: number
+    name: string
+    item: string
+  }>
+}
+
+export type JsonLdSchema = WebSiteSchema | WebApplicationSchema | BreadcrumbListSchema
+
+export function getJsonLd(pathname: string, locale: LocaleCode): JsonLdSchema[] {
+  const toolPath = getPathWithoutLocale(pathname, locale)
+  const tool = findToolByPath(toolPath)
+  const seo = getSeoMetadata(pathname, locale)
+
+  if (!tool) {
+    const schema: WebSiteSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: HOSTNAME + '/',
+      description: seo.description,
+    }
+    return [schema]
+  }
+
+  const appSchema: WebApplicationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: seo.title.replace(` | ${SITE_NAME}`, ''),
+    url: seo.canonicalUrl,
+    description: seo.description,
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Any',
+  }
+
+  const breadcrumbSchema: BreadcrumbListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE_NAME, item: HOSTNAME + '/' },
+      { '@type': 'ListItem', position: 2, name: tool.category, item: HOSTNAME + '/' },
+      { '@type': 'ListItem', position: 3, name: tool.title, item: seo.canonicalUrl },
+    ],
+  }
+
+  return [appSchema, breadcrumbSchema]
+}

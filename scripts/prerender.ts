@@ -12,7 +12,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
-import { getAllSeoRoutes, getSeoMetadata, type SeoMetadata } from '@/lib/seo'
+import { getAllSeoRoutes, getSeoMetadata, getJsonLd, type SeoMetadata } from '@/lib/seo'
 
 const __filename = fileURLToPath(import.meta.url)
 const rootDir = join(dirname(__filename), '..')
@@ -26,7 +26,7 @@ function escapeAttr(str: string): string {
     .replace(/>/g, '&gt;')
 }
 
-function buildSeoTags(seo: SeoMetadata): string {
+function buildSeoTags(route: string, locale: LocaleCode, seo: SeoMetadata): string {
   const lines: string[] = [
     `<title>${escapeAttr(seo.title)}</title>`,
     `<meta name="description" content="${escapeAttr(seo.description)}" data-seo-managed="true" />`,
@@ -46,19 +46,23 @@ function buildSeoTags(seo: SeoMetadata): string {
     `<meta name="twitter:card" content="${seo.twitter.card}" data-seo-managed="true" />`,
     `<meta name="twitter:title" content="${escapeAttr(seo.twitter.title)}" data-seo-managed="true" />`,
     `<meta name="twitter:description" content="${escapeAttr(seo.twitter.description)}" data-seo-managed="true" />`,
+    ...getJsonLd(route, locale).map(
+      (schema) =>
+        `<script type="application/ld+json" data-seo-managed="true">${JSON.stringify(schema)}</script>`,
+    ),
   ]
   return lines.map((l) => `    ${l}`).join('\n')
 }
 
-function injectSeoIntoTemplate(template: string, seo: SeoMetadata): string {
-  // Remove static title, description, and canonical from the template
-  // (SeoHead will re-inject the correct values at runtime; we inject here for crawlers)
+function injectSeoIntoTemplate(template: string, route: string, locale: LocaleCode, seo: SeoMetadata): string {
+  // Remove static title, description, and canonical from the template;
+  // SeoHead re-injects the correct values at runtime, we inject here for crawlers.
   let html = template
     .replace(/<title>[^<]*<\/title>/, '')
     .replace(/<meta name="description"[^>]*\/>/, '')
     .replace(/<link rel="canonical"[^>]*\/>/, '')
 
-  return html.replace('</head>', `${buildSeoTags(seo)}\n  </head>`)
+  return html.replace('</head>', `${buildSeoTags(route, locale, seo)}\n  </head>`)
 }
 
 function detectLocale(route: string): LocaleCode {
@@ -83,7 +87,7 @@ console.log(`Prerendering ${routes.length} routes...`)
 for (const route of routes) {
   const locale = detectLocale(route)
   const seo = getSeoMetadata(route, locale)
-  const html = injectSeoIntoTemplate(template, seo)
+  const html = injectSeoIntoTemplate(template, route, locale, seo)
   const outputPath = routeToOutputPath(route)
 
   mkdirSync(dirname(outputPath), { recursive: true })

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { type LocaleCode } from '@/i18n/config'
-import { getSeoMetadata } from '@/lib/seo'
+import { getSeoMetadata, getJsonLd } from '@/lib/seo'
 
 interface SeoHeadProps {
   currentLocale: LocaleCode
@@ -57,6 +57,14 @@ export function SeoHead({ currentLocale, currentPath }: SeoHeadProps) {
     elements.push(createMeta({ name: 'twitter:card', content: seo.twitter.card }))
     elements.push(createMeta({ name: 'twitter:title', content: seo.twitter.title }))
     elements.push(createMeta({ name: 'twitter:description', content: seo.twitter.description }))
+
+    for (const schema of getJsonLd(currentPath, currentLocale)) {
+      const script = document.createElement('script')
+      script.type = 'application/ld+json'
+      script.setAttribute(SEO_ATTR, 'true')
+      script.textContent = JSON.stringify(schema)
+      elements.push(script)
+    }
 
     for (const el of elements) {
       document.head.appendChild(el)

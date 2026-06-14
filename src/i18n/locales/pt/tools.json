@@ -276,5 +276,38 @@
     "copyAll": "Copiar tudo",
     "copied": "Copiado!",
     "downloadCSV": "Baixar CSV"
+  },
+  "supabase-rls": {
+    "title": "Gerador de Políticas RLS do Supabase",
+    "description": "Gere modelos comuns de políticas de segurança em nível de linha do Supabase localmente no seu navegador.",
+    "schema": "Schema",
+    "tableName": "Nome da Tabela",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "Coluna Proprietária",
+    "role": "Papel",
+    "template": "Modelo",
+    "policyNamePrefix": "Prefixo do Nome da Política",
+    "policyNamePrefixPlaceholder": "Prefixo opcional",
+    "includeEnableRls": "Instrução de ativação RLS",
+    "useOptimizedAuthUid": "Sintaxe auth.uid() otimizada",
+    "includeComments": "Comentários SQL",
+    "generate": "Gerar SQL",
+    "loadExample": "Carregar Exemplo",
+    "reset": "Redefinir",
+    "output": "Saída SQL",
+    "outputPlaceholder": "Insira um nome de tabela válido para gerar SQL.",
+    "safetyNote": "O SQL gerado é um modelo inicial. Revise e teste-o antes de executá-lo no Editor SQL do Supabase. Esta ferramenta funciona localmente e não faz upload das suas entradas.",
+    "templates": {
+      "ownRows": "Usuários gerenciam suas próprias linhas",
+      "ownRowsDescription": "Selecionar, inserir, atualizar e excluir apenas linhas do usuário atual.",
+      "publicReadOwnWrite": "Leitura pública, escrita própria",
+      "publicReadOwnWriteDescription": "Qualquer pessoa pode ler linhas; usuários conectados só podem escrever suas próprias linhas.",
+      "authenticatedCrud": "Usuários autenticados podem ler e escrever",
+      "authenticatedCrudDescription": "Usuários conectados podem selecionar, inserir, atualizar e excluir linhas.",
+      "publicReadOnly": "Somente leitura pública",
+      "publicReadOnlyDescription": "Qualquer pessoa pode ler linhas; nenhuma política de escrita do cliente é gerada.",
+      "insertOnlyOwnRows": "Inserir apenas linhas próprias",
+      "insertOnlyOwnRowsDescription": "Usuários conectados podem inserir suas próprias linhas, mas nenhuma política de leitura, atualização ou exclusão é gerada."
+    }
   }
 }

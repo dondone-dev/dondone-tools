@@ -144,7 +144,7 @@ describe('getAllSeoRoutes', () => {
     expect(routes.length).toBe(new Set(routes).size)
   })
 
-  it('total count matches expected: 1 home + 24 tools + 8 locales × 25', () => {
+  it('total count matches expected: 1 home + 25 tools + 8 locales × 26', () => {
     const nonDefaultLocaleCount = LOCALES.length - 1
     const expected = 1 + TOOL_ROUTES.length + nonDefaultLocaleCount * (1 + TOOL_ROUTES.length)
     expect(getAllSeoRoutes().length).toBe(expected)

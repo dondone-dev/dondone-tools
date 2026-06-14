@@ -276,5 +276,38 @@
     "copyAll": "Copiar todo",
     "copied": "¡Copiado!",
     "downloadCSV": "Descargar CSV"
+  },
+  "supabase-rls": {
+    "title": "Generador de políticas RLS de Supabase",
+    "description": "Genere plantillas comunes de políticas de seguridad a nivel de fila de Supabase localmente en su navegador.",
+    "schema": "Esquema",
+    "tableName": "Nombre de la tabla",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "Columna propietaria",
+    "role": "Rol",
+    "template": "Plantilla",
+    "policyNamePrefix": "Prefijo del nombre de política",
+    "policyNamePrefixPlaceholder": "Prefijo opcional",
+    "includeEnableRls": "Sentencia de activación RLS",
+    "useOptimizedAuthUid": "Sintaxis auth.uid() optimizada",
+    "includeComments": "Comentarios SQL",
+    "generate": "Generar SQL",
+    "loadExample": "Cargar ejemplo",
+    "reset": "Restablecer",
+    "output": "Salida SQL",
+    "outputPlaceholder": "Ingrese un nombre de tabla válido para generar SQL.",
+    "safetyNote": "El SQL generado es una plantilla inicial. Revíselo y pruébelo antes de ejecutarlo en su editor SQL de Supabase. Esta herramienta se ejecuta localmente y no sube sus entradas.",
+    "templates": {
+      "ownRows": "Los usuarios gestionan sus propias filas",
+      "ownRowsDescription": "Seleccionar, insertar, actualizar y eliminar solo las filas del usuario actual.",
+      "publicReadOwnWrite": "Lectura pública, escritura propia",
+      "publicReadOwnWriteDescription": "Cualquiera puede leer filas; los usuarios conectados solo pueden escribir sus propias filas.",
+      "authenticatedCrud": "Usuarios autenticados pueden leer y escribir",
+      "authenticatedCrudDescription": "Los usuarios conectados pueden seleccionar, insertar, actualizar y eliminar filas.",
+      "publicReadOnly": "Solo lectura pública",
+      "publicReadOnlyDescription": "Cualquiera puede leer filas; no se generan políticas de escritura del cliente.",
+      "insertOnlyOwnRows": "Solo insertar filas propias",
+      "insertOnlyOwnRowsDescription": "Los usuarios conectados pueden insertar sus propias filas, pero no se generan políticas de lectura, actualización o eliminación."
+    }
   }
 }

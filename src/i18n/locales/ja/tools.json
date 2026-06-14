@@ -276,5 +276,38 @@
     "copyAll": "すべてコピー",
     "copied": "コピーしました！",
     "downloadCSV": "CSV ダウンロード"
+  },
+  "supabase-rls": {
+    "title": "Supabase RLS ポリシージェネレーター",
+    "description": "ブラウザ上でローカルに Supabase の行レベルセキュリティポリシーテンプレートを生成します。",
+    "schema": "スキーマ",
+    "tableName": "テーブル名",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "オーナーカラム",
+    "role": "ロール",
+    "template": "テンプレート",
+    "policyNamePrefix": "ポリシー名プレフィックス",
+    "policyNamePrefixPlaceholder": "任意のプレフィックス",
+    "includeEnableRls": "RLS 有効化ステートメント",
+    "useOptimizedAuthUid": "最適化された auth.uid() 構文",
+    "includeComments": "SQL コメント",
+    "generate": "SQL を生成",
+    "loadExample": "例を読み込む",
+    "reset": "リセット",
+    "output": "SQL 出力",
+    "outputPlaceholder": "有効なテーブル名を入力して SQL を生成してください。",
+    "safetyNote": "生成された SQL はスターターテンプレートです。Supabase SQL エディタで実行する前に確認・テストしてください。このツールはローカルで動作し、入力内容をアップロードしません。",
+    "templates": {
+      "ownRows": "ユーザーが自分の行を管理",
+      "ownRowsDescription": "現在のユーザーが所有する行のみ選択・挿入・更新・削除を許可します。",
+      "publicReadOwnWrite": "公開読み取り、自分のみ書き込み",
+      "publicReadOwnWriteDescription": "誰でも行を読み取れます。ログイン済みユーザーは自分の行のみ書き込めます。",
+      "authenticatedCrud": "認証済みユーザーが読み書き可能",
+      "authenticatedCrudDescription": "ログイン済みユーザーが行を選択・挿入・更新・削除できます。",
+      "publicReadOnly": "公開読み取りのみ",
+      "publicReadOnlyDescription": "誰でも行を読み取れます。クライアントの書き込みポリシーは生成されません。",
+      "insertOnlyOwnRows": "自分の行のみ挿入",
+      "insertOnlyOwnRowsDescription": "ログイン済みユーザーは自分の行を挿入できますが、読み取り・更新・削除ポリシーは生成されません。"
+    }
   }
 }

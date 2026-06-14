@@ -276,5 +276,38 @@
     "copyAll": "Copy All",
     "copied": "Copied!",
     "downloadCSV": "Download CSV"
+  },
+  "supabase-rls": {
+    "title": "Supabase RLS Policy Generator",
+    "description": "Generate common Supabase Row Level Security policy templates locally in your browser.",
+    "schema": "Schema",
+    "tableName": "Table Name",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "Owner Column",
+    "role": "Role",
+    "template": "Template",
+    "policyNamePrefix": "Policy Name Prefix",
+    "policyNamePrefixPlaceholder": "Optional prefix",
+    "includeEnableRls": "Enable RLS statement",
+    "useOptimizedAuthUid": "Optimized auth.uid() syntax",
+    "includeComments": "SQL comments",
+    "generate": "Generate SQL",
+    "loadExample": "Load Example",
+    "reset": "Reset",
+    "output": "SQL Output",
+    "outputPlaceholder": "Enter a valid table name to generate SQL.",
+    "safetyNote": "Generated SQL is a starter template. Review and test it before running it in your Supabase SQL Editor. This tool runs locally and does not upload your inputs.",
+    "templates": {
+      "ownRows": "Users manage their own rows",
+      "ownRowsDescription": "Select, insert, update, and delete only rows owned by the current user.",
+      "publicReadOwnWrite": "Public read, own write",
+      "publicReadOwnWriteDescription": "Anyone can read rows; signed-in users can write only rows they own.",
+      "authenticatedCrud": "Authenticated users can read and write",
+      "authenticatedCrudDescription": "Signed-in users can select, insert, update, and delete rows.",
+      "publicReadOnly": "Public read only",
+      "publicReadOnlyDescription": "Anyone can read rows; no client write policies are generated.",
+      "insertOnlyOwnRows": "Insert own rows only",
+      "insertOnlyOwnRowsDescription": "Signed-in users can insert rows they own, but no read, update, or delete policies are generated."
+    }
   }
 }

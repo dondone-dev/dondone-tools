@@ -276,5 +276,38 @@
     "copyAll": "Alles kopieren",
     "copied": "Kopiert!",
     "downloadCSV": "CSV herunterladen"
+  },
+  "supabase-rls": {
+    "title": "Supabase RLS-Richtliniengenerator",
+    "description": "Generieren Sie gängige Supabase Row Level Security-Richtlinienvorlagen lokal in Ihrem Browser.",
+    "schema": "Schema",
+    "tableName": "Tabellenname",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "Eigentümerspalte",
+    "role": "Rolle",
+    "template": "Vorlage",
+    "policyNamePrefix": "Richtlinienname-Präfix",
+    "policyNamePrefixPlaceholder": "Optionales Präfix",
+    "includeEnableRls": "RLS-Aktivierungsanweisung",
+    "useOptimizedAuthUid": "Optimierte auth.uid()-Syntax",
+    "includeComments": "SQL-Kommentare",
+    "generate": "SQL generieren",
+    "loadExample": "Beispiel laden",
+    "reset": "Zurücksetzen",
+    "output": "SQL-Ausgabe",
+    "outputPlaceholder": "Geben Sie einen gültigen Tabellennamen ein, um SQL zu generieren.",
+    "safetyNote": "Das generierte SQL ist eine Startvorlage. Überprüfen und testen Sie es, bevor Sie es in Ihrem Supabase SQL-Editor ausführen. Dieses Tool läuft lokal und lädt Ihre Eingaben nicht hoch.",
+    "templates": {
+      "ownRows": "Benutzer verwalten ihre eigenen Zeilen",
+      "ownRowsDescription": "Nur Zeilen des aktuellen Benutzers können ausgewählt, eingefügt, aktualisiert und gelöscht werden.",
+      "publicReadOwnWrite": "Öffentliches Lesen, eigenes Schreiben",
+      "publicReadOwnWriteDescription": "Jeder kann Zeilen lesen; angemeldete Benutzer können nur ihre eigenen Zeilen schreiben.",
+      "authenticatedCrud": "Authentifizierte Benutzer können lesen und schreiben",
+      "authenticatedCrudDescription": "Angemeldete Benutzer können Zeilen auswählen, einfügen, aktualisieren und löschen.",
+      "publicReadOnly": "Nur öffentliches Lesen",
+      "publicReadOnlyDescription": "Jeder kann Zeilen lesen; es werden keine Client-Schreibrichtlinien generiert.",
+      "insertOnlyOwnRows": "Nur eigene Zeilen einfügen",
+      "insertOnlyOwnRowsDescription": "Angemeldete Benutzer können ihre eigenen Zeilen einfügen, aber es werden keine Lese-, Aktualisierungs- oder Löschrichtlinien generiert."
+    }
   }
 }

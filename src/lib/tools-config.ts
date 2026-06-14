@@ -19,6 +19,7 @@ import {
   Palette,
   Regex,
   Fingerprint,
+  DatabaseZap,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -32,7 +33,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -188,6 +189,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'Security',
   },
   {
+    id: 'supabase-rls',
+    title: 'Supabase RLS',
+    descriptionKey: 'supabase-rls.description',
+    href: '/sql/supabase-rls',
+    icon: DatabaseZap,
+    category: 'SQL',
+  },
+  {
     id: 'color',
     title: 'Color Picker',
     descriptionKey: 'color.description',
@@ -229,7 +238,7 @@ export const TOOLS: ToolConfig[] = [
   },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'Security', 'Design', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

@@ -276,5 +276,38 @@
     "copyAll": "复制全部",
     "copied": "已复制！",
     "downloadCSV": "下载 CSV"
+  },
+  "supabase-rls": {
+    "title": "Supabase RLS 策略生成器",
+    "description": "在浏览器中本地生成常用的 Supabase 行级安全策略模板。",
+    "schema": "Schema",
+    "tableName": "表名",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "所有者字段",
+    "role": "角色",
+    "template": "模板",
+    "policyNamePrefix": "策略名称前缀",
+    "policyNamePrefixPlaceholder": "可选前缀",
+    "includeEnableRls": "启用 RLS 语句",
+    "useOptimizedAuthUid": "优化 auth.uid() 语法",
+    "includeComments": "SQL 注释",
+    "generate": "生成 SQL",
+    "loadExample": "加载示例",
+    "reset": "重置",
+    "output": "SQL 输出",
+    "outputPlaceholder": "请输入有效的表名以生成 SQL。",
+    "safetyNote": "生成的 SQL 仅为起始模板。在 Supabase SQL 编辑器中运行前请先审查和测试。本工具在本地运行，不会上传您的输入。",
+    "templates": {
+      "ownRows": "用户管理自己的行",
+      "ownRowsDescription": "仅允许查询、插入、更新和删除属于当前用户的行。",
+      "publicReadOwnWrite": "公开读，自有写",
+      "publicReadOwnWriteDescription": "任何人可以读取行；已登录用户只能写入自己的行。",
+      "authenticatedCrud": "已认证用户可读写",
+      "authenticatedCrudDescription": "已登录用户可以查询、插入、更新和删除行。",
+      "publicReadOnly": "仅公开读",
+      "publicReadOnlyDescription": "任何人可以读取行；不生成客户端写入策略。",
+      "insertOnlyOwnRows": "仅插入自己的行",
+      "insertOnlyOwnRowsDescription": "已登录用户可以插入自己的行，但不生成读取、更新或删除策略。"
+    }
   }
 }

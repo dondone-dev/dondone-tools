@@ -276,5 +276,38 @@
     "copyAll": "Tout copier",
     "copied": "Copié !",
     "downloadCSV": "Télécharger CSV"
+  },
+  "supabase-rls": {
+    "title": "Générateur de politiques RLS Supabase",
+    "description": "Générez localement dans votre navigateur des modèles de politiques de sécurité au niveau des lignes Supabase.",
+    "schema": "Schéma",
+    "tableName": "Nom de la table",
+    "tableNamePlaceholder": "todos",
+    "ownerColumn": "Colonne propriétaire",
+    "role": "Rôle",
+    "template": "Modèle",
+    "policyNamePrefix": "Préfixe du nom de politique",
+    "policyNamePrefixPlaceholder": "Préfixe optionnel",
+    "includeEnableRls": "Instruction d'activation RLS",
+    "useOptimizedAuthUid": "Syntaxe auth.uid() optimisée",
+    "includeComments": "Commentaires SQL",
+    "generate": "Générer le SQL",
+    "loadExample": "Charger l'exemple",
+    "reset": "Réinitialiser",
+    "output": "Sortie SQL",
+    "outputPlaceholder": "Entrez un nom de table valide pour générer le SQL.",
+    "safetyNote": "Le SQL généré est un modèle de départ. Vérifiez et testez-le avant de l'exécuter dans votre éditeur SQL Supabase. Cet outil fonctionne localement et ne télécharge pas vos saisies.",
+    "templates": {
+      "ownRows": "Les utilisateurs gèrent leurs propres lignes",
+      "ownRowsDescription": "Sélectionner, insérer, mettre à jour et supprimer uniquement les lignes appartenant à l'utilisateur actuel.",
+      "publicReadOwnWrite": "Lecture publique, écriture propre",
+      "publicReadOwnWriteDescription": "Tout le monde peut lire les lignes ; les utilisateurs connectés ne peuvent écrire que leurs propres lignes.",
+      "authenticatedCrud": "Les utilisateurs authentifiés peuvent lire et écrire",
+      "authenticatedCrudDescription": "Les utilisateurs connectés peuvent sélectionner, insérer, mettre à jour et supprimer des lignes.",
+      "publicReadOnly": "Lecture publique uniquement",
+      "publicReadOnlyDescription": "Tout le monde peut lire les lignes ; aucune politique d'écriture client n'est générée.",
+      "insertOnlyOwnRows": "Insérer ses propres lignes uniquement",
+      "insertOnlyOwnRowsDescription": "Les utilisateurs connectés peuvent insérer leurs propres lignes, mais aucune politique de lecture, mise à jour ou suppression n'est générée."
+    }
   }
 }

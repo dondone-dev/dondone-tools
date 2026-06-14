@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Check, Copy, RotateCcw, Wand2 } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
@@ -120,10 +121,10 @@ export function SupabaseRlsPage() {
             />
           </Field>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <OptionButton active={input.includeEnableRls} label={t('supabase-rls.includeEnableRls')} onClick={() => toggleField('includeEnableRls')} />
-            <OptionButton active={input.useOptimizedAuthUid} label={t('supabase-rls.useOptimizedAuthUid')} onClick={() => toggleField('useOptimizedAuthUid')} />
-            <OptionButton active={input.includeComments} label={t('supabase-rls.includeComments')} onClick={() => toggleField('includeComments')} />
+          <div className="space-y-2">
+            <CheckboxRow id="includeEnableRls" checked={input.includeEnableRls} onCheckedChange={() => toggleField('includeEnableRls')} label={t('supabase-rls.includeEnableRls')} />
+            <CheckboxRow id="useOptimizedAuthUid" checked={input.useOptimizedAuthUid} onCheckedChange={() => toggleField('useOptimizedAuthUid')} label={t('supabase-rls.useOptimizedAuthUid')} />
+            <CheckboxRow id="includeComments" checked={input.includeComments} onCheckedChange={() => toggleField('includeComments')} label={t('supabase-rls.includeComments')} />
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -175,10 +176,13 @@ function Field({ label, error, children }: { label: string; error?: string; chil
   )
 }
 
-function OptionButton({ active, label, onClick }: { active: boolean; label: string; onClick: () => void }) {
+function CheckboxRow({ id, checked, onCheckedChange, label }: { id: string; checked: boolean; onCheckedChange: () => void; label: string }) {
   return (
-    <Button type="button" size="sm" variant={active ? 'secondary' : 'outline'} className="justify-start text-xs h-auto min-h-8 whitespace-normal" onClick={onClick}>
-      {label}
-    </Button>
+    <div className="flex items-center gap-2">
+      <Checkbox id={id} checked={checked} onCheckedChange={onCheckedChange} />
+      <label htmlFor={id} className="text-sm leading-none cursor-pointer select-none">
+        {label}
+      </label>
+    </div>
   )
 }

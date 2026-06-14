@@ -16,6 +16,7 @@ import {
   type RlsGeneratorInput,
   type RlsRole,
   type RlsTemplateId,
+  type RlsValidationErrorCode,
 } from '@/lib/tools/supabase-rls'
 
 const DEFAULT_INPUT: RlsGeneratorInput = {
@@ -62,15 +63,19 @@ export function SupabaseRlsPage() {
     setShowErrors(true)
   }
 
+  function fieldError(code: RlsValidationErrorCode | undefined): string | undefined {
+    return code ? t(`supabase-rls.errors.${code}`) : undefined
+  }
+
   return (
     <ToolLayout toolId="supabase-rls" category="SQL">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-4">
         <section className="space-y-4 border rounded-md p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <Field label={t('supabase-rls.schema')} error={showErrors ? errors.schema : undefined}>
+            <Field label={t('supabase-rls.schema')} error={showErrors ? fieldError(errors.schema) : undefined}>
               <Input value={input.schema} onChange={(event) => updateField('schema', event.target.value)} spellCheck={false} />
             </Field>
-            <Field label={t('supabase-rls.tableName')} error={showErrors ? errors.tableName : undefined}>
+            <Field label={t('supabase-rls.tableName')} error={showErrors ? fieldError(errors.tableName) : undefined}>
               <Input
                 value={input.tableName}
                 onChange={(event) => updateField('tableName', event.target.value)}
@@ -78,10 +83,10 @@ export function SupabaseRlsPage() {
                 spellCheck={false}
               />
             </Field>
-            <Field label={t('supabase-rls.ownerColumn')} error={showErrors ? errors.ownerColumn : undefined}>
+            <Field label={t('supabase-rls.ownerColumn')} error={showErrors ? fieldError(errors.ownerColumn) : undefined}>
               <Input value={input.ownerColumn} onChange={(event) => updateField('ownerColumn', event.target.value)} spellCheck={false} />
             </Field>
-            <Field label={t('supabase-rls.role')} error={showErrors ? errors.role : undefined}>
+            <Field label={t('supabase-rls.role')} error={showErrors ? fieldError(errors.role) : undefined}>
               <Select value={input.role} onValueChange={(value) => updateField('role', value as RlsRole)}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
@@ -94,7 +99,7 @@ export function SupabaseRlsPage() {
             </Field>
           </div>
 
-          <Field label={t('supabase-rls.template')} error={showErrors ? errors.templateId : undefined}>
+          <Field label={t('supabase-rls.template')} error={showErrors ? fieldError(errors.templateId) : undefined}>
             <Select value={input.templateId} onValueChange={(value) => updateField('templateId', value as RlsTemplateId)}>
               <SelectTrigger className="w-full">
                 <SelectValue />

@@ -297,6 +297,12 @@
     "output": "SQL Output",
     "outputPlaceholder": "Enter a valid table name to generate SQL.",
     "safetyNote": "Generated SQL is a starter template. Review and test it before running it in your Supabase SQL Editor. This tool runs locally and does not upload your inputs.",
+    "errors": {
+      "required": "This field is required",
+      "invalidIdentifier": "Use letters, digits, and underscores only (must start with a letter or underscore)",
+      "unsupportedRole": "Unsupported role",
+      "unsupportedTemplate": "Unsupported template"
+    },
     "templates": {
       "ownRows": "Users manage their own rows",
       "ownRowsDescription": "Select, insert, update, and delete only rows owned by the current user.",

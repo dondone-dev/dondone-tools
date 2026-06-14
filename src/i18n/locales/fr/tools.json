@@ -297,6 +297,12 @@
     "output": "Sortie SQL",
     "outputPlaceholder": "Entrez un nom de table valide pour générer le SQL.",
     "safetyNote": "Le SQL généré est un modèle de départ. Vérifiez et testez-le avant de l'exécuter dans votre éditeur SQL Supabase. Cet outil fonctionne localement et ne télécharge pas vos saisies.",
+    "errors": {
+      "required": "Ce champ est obligatoire",
+      "invalidIdentifier": "Utilisez uniquement des lettres, chiffres et underscores (doit commencer par une lettre ou un underscore)",
+      "unsupportedRole": "Rôle non pris en charge",
+      "unsupportedTemplate": "Modèle non pris en charge"
+    },
     "templates": {
       "ownRows": "Les utilisateurs gèrent leurs propres lignes",
       "ownRowsDescription": "Sélectionner, insérer, mettre à jour et supprimer uniquement les lignes appartenant à l'utilisateur actuel.",

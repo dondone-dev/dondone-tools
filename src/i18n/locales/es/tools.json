@@ -297,6 +297,12 @@
     "output": "Salida SQL",
     "outputPlaceholder": "Ingrese un nombre de tabla válido para generar SQL.",
     "safetyNote": "El SQL generado es una plantilla inicial. Revíselo y pruébelo antes de ejecutarlo en su editor SQL de Supabase. Esta herramienta se ejecuta localmente y no sube sus entradas.",
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "invalidIdentifier": "Use solo letras, dígitos y guiones bajos (debe comenzar con una letra o guion bajo)",
+      "unsupportedRole": "Rol no compatible",
+      "unsupportedTemplate": "Plantilla no compatible"
+    },
     "templates": {
       "ownRows": "Los usuarios gestionan sus propias filas",
       "ownRowsDescription": "Seleccionar, insertar, actualizar y eliminar solo las filas del usuario actual.",

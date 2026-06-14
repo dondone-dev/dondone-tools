@@ -297,6 +297,12 @@
     "output": "SQL 출력",
     "outputPlaceholder": "SQL을 생성하려면 유효한 테이블 이름을 입력하세요.",
     "safetyNote": "생성된 SQL은 시작 템플릿입니다. Supabase SQL 편집기에서 실행하기 전에 검토하고 테스트하세요. 이 도구는 로컬에서 실행되며 입력 내용을 업로드하지 않습니다.",
+    "errors": {
+      "required": "이 필드는 필수입니다",
+      "invalidIdentifier": "영문자, 숫자, 밑줄만 사용 가능합니다 (영문자 또는 밑줄로 시작해야 합니다)",
+      "unsupportedRole": "지원되지 않는 역할입니다",
+      "unsupportedTemplate": "지원되지 않는 템플릿입니다"
+    },
     "templates": {
       "ownRows": "사용자가 자신의 행 관리",
       "ownRowsDescription": "현재 사용자가 소유한 행만 선택, 삽입, 업데이트, 삭제할 수 있습니다.",

@@ -297,6 +297,12 @@
     "output": "Saída SQL",
     "outputPlaceholder": "Insira um nome de tabela válido para gerar SQL.",
     "safetyNote": "O SQL gerado é um modelo inicial. Revise e teste-o antes de executá-lo no Editor SQL do Supabase. Esta ferramenta funciona localmente e não faz upload das suas entradas.",
+    "errors": {
+      "required": "Este campo é obrigatório",
+      "invalidIdentifier": "Use apenas letras, dígitos e underscores (deve começar com uma letra ou underscore)",
+      "unsupportedRole": "Papel não suportado",
+      "unsupportedTemplate": "Modelo não suportado"
+    },
     "templates": {
       "ownRows": "Usuários gerenciam suas próprias linhas",
       "ownRowsDescription": "Selecionar, inserir, atualizar e excluir apenas linhas do usuário atual.",

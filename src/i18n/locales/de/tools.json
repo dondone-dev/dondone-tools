@@ -297,6 +297,12 @@
     "output": "SQL-Ausgabe",
     "outputPlaceholder": "Geben Sie einen gültigen Tabellennamen ein, um SQL zu generieren.",
     "safetyNote": "Das generierte SQL ist eine Startvorlage. Überprüfen und testen Sie es, bevor Sie es in Ihrem Supabase SQL-Editor ausführen. Dieses Tool läuft lokal und lädt Ihre Eingaben nicht hoch.",
+    "errors": {
+      "required": "Dieses Feld ist erforderlich",
+      "invalidIdentifier": "Nur Buchstaben, Ziffern und Unterstriche erlaubt (muss mit einem Buchstaben oder Unterstrich beginnen)",
+      "unsupportedRole": "Nicht unterstützte Rolle",
+      "unsupportedTemplate": "Nicht unterstützte Vorlage"
+    },
     "templates": {
       "ownRows": "Benutzer verwalten ihre eigenen Zeilen",
       "ownRowsDescription": "Nur Zeilen des aktuellen Benutzers können ausgewählt, eingefügt, aktualisiert und gelöscht werden.",

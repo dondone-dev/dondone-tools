@@ -297,6 +297,12 @@
     "output": "SQL 出力",
     "outputPlaceholder": "有効なテーブル名を入力して SQL を生成してください。",
     "safetyNote": "生成された SQL はスターターテンプレートです。Supabase SQL エディタで実行する前に確認・テストしてください。このツールはローカルで動作し、入力内容をアップロードしません。",
+    "errors": {
+      "required": "このフィールドは必須です",
+      "invalidIdentifier": "英字・数字・アンダースコアのみ使用できます（英字またはアンダースコアで始まる必要があります）",
+      "unsupportedRole": "サポートされていないロールです",
+      "unsupportedTemplate": "サポートされていないテンプレートです"
+    },
     "templates": {
       "ownRows": "ユーザーが自分の行を管理",
       "ownRowsDescription": "現在のユーザーが所有する行のみ選択・挿入・更新・削除を許可します。",

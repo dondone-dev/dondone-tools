@@ -297,6 +297,12 @@
     "output": "SQL 输出",
     "outputPlaceholder": "请输入有效的表名以生成 SQL。",
     "safetyNote": "生成的 SQL 仅为起始模板。在 Supabase SQL 编辑器中运行前请先审查和测试。本工具在本地运行，不会上传您的输入。",
+    "errors": {
+      "required": "此字段为必填项",
+      "invalidIdentifier": "仅允许字母、数字和下划线（必须以字母或下划线开头）",
+      "unsupportedRole": "不支持的角色",
+      "unsupportedTemplate": "不支持的模板"
+    },
     "templates": {
       "ownRows": "用户管理自己的行",
       "ownRowsDescription": "仅允许查询、插入、更新和删除属于当前用户的行。",

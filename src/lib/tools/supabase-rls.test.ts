@@ -20,7 +20,7 @@ const baseInput: RlsGeneratorInput = {
 describe('validateRlsInput', () => {
   it('requires a table name', () => {
     expect(validateRlsInput({ ...baseInput, tableName: '' })).toEqual({
-      tableName: 'Table name is required',
+      tableName: 'required',
     })
   })
 
@@ -101,5 +101,14 @@ describe('generateRlsPolicySql', () => {
 
     expect(sql).not.toContain('enable row level security')
     expect(sql).toContain('create policy "App Users can view their own todos"')
+  })
+
+  it('escapes double quotes in policy name prefix', () => {
+    const sql = generateRlsPolicySql({
+      ...baseInput,
+      policyNamePrefix: 'My "App"',
+    })
+
+    expect(sql).toContain('create policy "My ""App"" Users can view their own todos"')
   })
 })

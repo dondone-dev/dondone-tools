@@ -19,7 +19,8 @@ export interface RlsGeneratorInput {
   policyNamePrefix: string
 }
 
-export type RlsValidationErrors = Partial<Record<'schema' | 'tableName' | 'ownerColumn' | 'role' | 'templateId', string>>
+export type RlsValidationErrorCode = 'required' | 'invalidIdentifier' | 'unsupportedRole' | 'unsupportedTemplate'
+export type RlsValidationErrors = Partial<Record<'schema' | 'tableName' | 'ownerColumn' | 'role' | 'templateId', RlsValidationErrorCode>>
 
 interface PolicySpec {
   action: 'select' | 'insert' | 'update' | 'delete'
@@ -45,17 +46,17 @@ const IDENTIFIER_RE = /^[A-Za-z_][A-Za-z0-9_]*$/
 
 export function validateRlsInput(input: RlsGeneratorInput): RlsValidationErrors {
   const errors: RlsValidationErrors = {}
-  if (!input.schema.trim()) errors.schema = 'Schema is required'
-  else if (!IDENTIFIER_RE.test(input.schema.trim())) errors.schema = 'Use a simple PostgreSQL identifier'
+  if (!input.schema.trim()) errors.schema = 'required'
+  else if (!IDENTIFIER_RE.test(input.schema.trim())) errors.schema = 'invalidIdentifier'
 
-  if (!input.tableName.trim()) errors.tableName = 'Table name is required'
-  else if (!IDENTIFIER_RE.test(input.tableName.trim())) errors.tableName = 'Use a simple PostgreSQL identifier'
+  if (!input.tableName.trim()) errors.tableName = 'required'
+  else if (!IDENTIFIER_RE.test(input.tableName.trim())) errors.tableName = 'invalidIdentifier'
 
-  if (!input.ownerColumn.trim()) errors.ownerColumn = 'Owner column is required'
-  else if (!IDENTIFIER_RE.test(input.ownerColumn.trim())) errors.ownerColumn = 'Use a simple PostgreSQL identifier'
+  if (!input.ownerColumn.trim()) errors.ownerColumn = 'required'
+  else if (!IDENTIFIER_RE.test(input.ownerColumn.trim())) errors.ownerColumn = 'invalidIdentifier'
 
-  if (!['anon', 'authenticated'].includes(input.role)) errors.role = 'Unsupported role'
-  if (!RLS_TEMPLATES.some((template) => template.id === input.templateId)) errors.templateId = 'Unsupported template'
+  if (!['anon', 'authenticated'].includes(input.role)) errors.role = 'unsupportedRole'
+  if (!RLS_TEMPLATES.some((template) => template.id === input.templateId)) errors.templateId = 'unsupportedTemplate'
 
   return errors
 }
@@ -132,7 +133,7 @@ function getPolicySpecs(input: RlsGeneratorInput, ownerExpression: string): Poli
 }
 
 function formatPolicy(tableRef: string, prefix: string, policy: PolicySpec): string {
-  const policyName = prefix ? `${prefix} ${policy.name}` : policy.name
+  const policyName = (prefix ? `${prefix} ${policy.name}` : policy.name).replace(/"/g, '""')
   const lines = [
     `create policy "${policyName}"`,
     `on ${tableRef}`,

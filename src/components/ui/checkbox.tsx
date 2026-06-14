@@ -13,6 +13,7 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxP
         'disabled:cursor-not-allowed disabled:opacity-50',
         'data-[state=checked]:bg-primary data-[state=checked]:border-primary data-[state=checked]:text-primary-foreground',
         'dark:border-input dark:bg-input/30',
+        'dark:data-[state=checked]:bg-primary dark:data-[state=checked]:border-primary',
         className
       )}
       {...props}

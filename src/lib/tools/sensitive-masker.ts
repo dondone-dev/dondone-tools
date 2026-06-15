@@ -318,6 +318,13 @@ export const PATTERNS: PatternDef[] = [
     re: /\b(?:api[_-]?key|apikey|api[_-]?token|access_key(?:_id)?)["']?\s*(?:=|:)\s*["']?([^\s"',;\n}\]]{8,})/gi,
     mask: m => maskContextField(m, 4, 4),
   },
+  {
+    id: 'bucket-field',
+    label: 'Bucket Name Field',
+    modes: DLA,
+    re: /\b(?:[a-zA-Z0-9_]+_)?bucket(?:_[a-zA-Z0-9_]+)?["']?\s*(?:=|:)\s*["']?([^\s"',;\n}\]]{4,})/gi,
+    mask: m => maskContextField(m, 2, 4),
+  },
   // ── URL Fields (internal hostnames in config values) ──────────────────────
   {
     id: 'url-field',

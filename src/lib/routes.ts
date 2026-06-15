@@ -26,6 +26,7 @@ export const TOOL_ROUTES = [
   '/bp/sign',
   '/image/exif',
   '/image/heic',
+  '/security/sensitive-masker',
 ] as const
 
 export type ToolRoute = (typeof TOOL_ROUTES)[number]

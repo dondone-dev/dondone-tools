@@ -356,6 +356,32 @@
       "colorSpace": "Farbraum"
     }
   },
+  "sensitive-masker": {
+    "title": "Sensible Daten maskieren",
+    "description": "API-Schlüssel, Tokens, Passwörter, Verbindungszeichenketten und persönliche Daten vor dem Teilen von Text oder Logs automatisch maskieren. Alles läuft lokal.",
+    "inputLabel": "Eingabe",
+    "inputPlaceholder": "Text, .env-Datei oder Log-Inhalte einfügen...",
+    "dropHint": ".env / .log-Datei ablegen zum Laden",
+    "outputLabel": "Maskierte Ausgabe",
+    "outputPlaceholder": "Die maskierte Ausgabe erscheint hier...",
+    "uploadFile": "Datei hochladen",
+    "noSecrets": "Im gewählten Modus wurden keine sensiblen Daten erkannt.",
+    "totalMasked": "{{count}} Eintrag/Einträge maskiert",
+    "statsType": "Typ",
+    "statsCount": "Anzahl",
+    "statsChars": "Zeichen",
+    "statsTotal": "Gesamt",
+    "modes": {
+      "dev": "Dev-Schlüssel",
+      "devDesc": "API-Schlüssel, Tokens, DB-Zugangsdaten, SSH-Schlüssel, E-Mail und Telefonnummern",
+      "privacy": "Datenschutz",
+      "privacyDesc": "Ausweis, Bankkartennummern, IP- und MAC-Adressen",
+      "log": "Log-Freigabe",
+      "logDesc": "Dev-Schlüssel + IP- und MAC-Adressen — sicher für die Log-Weitergabe",
+      "all": "Alles",
+      "allDesc": "Vollständiger Scan aller Kategorien"
+    }
+  },
   "heic": {
     "title": "HEIC-Konverter",
     "description": "HEIC/HEIF-Bilder in JPEG, PNG oder Bitmap konvertieren. Unterstützt mehrere Dateien und ZIP-Sammeldownload. Alle Verarbeitungen laufen lokal.",

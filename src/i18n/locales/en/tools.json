@@ -356,6 +356,32 @@
       "colorSpace": "Color Space"
     }
   },
+  "sensitive-masker": {
+    "title": "Sensitive Data Masker",
+    "description": "Mask API keys, tokens, passwords, connection strings, and personal data before sharing text or logs. All processing runs locally.",
+    "inputLabel": "Input",
+    "inputPlaceholder": "Paste text, .env file, or log content here...",
+    "dropHint": "Drop .env / .log file to load",
+    "outputLabel": "Masked Output",
+    "outputPlaceholder": "Masked output will appear here...",
+    "uploadFile": "Upload File",
+    "noSecrets": "No sensitive data detected in the selected mode.",
+    "totalMasked": "{{count}} item(s) masked",
+    "statsType": "Type",
+    "statsCount": "Count",
+    "statsChars": "Chars",
+    "statsTotal": "Total",
+    "modes": {
+      "dev": "Dev Keys",
+      "devDesc": "API keys, tokens, DB credentials, SSH keys, email and phone numbers",
+      "privacy": "Privacy",
+      "privacyDesc": "ID card, bank card numbers, IP and MAC addresses",
+      "log": "Log Share",
+      "logDesc": "Dev keys + IP and MAC addresses — safe for sharing logs",
+      "all": "All",
+      "allDesc": "Full scan across all categories"
+    }
+  },
   "heic": {
     "title": "HEIC Converter",
     "description": "Convert HEIC/HEIF images to JPEG, PNG, or Bitmap. Supports multiple files and batch ZIP download. All processing runs locally.",

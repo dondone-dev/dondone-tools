@@ -356,6 +356,32 @@
       "colorSpace": "色空間"
     }
   },
+  "sensitive-masker": {
+    "title": "機密データマスキング",
+    "description": "テキストやログを共有する前に、APIキー、トークン、パスワード、接続文字列、個人情報を自動でマスクします。すべての処理はローカルで実行されます。",
+    "inputLabel": "入力",
+    "inputPlaceholder": "テキスト、.env ファイル、またはログ内容を貼り付けてください...",
+    "dropHint": ".env / .log ファイルをドロップして読み込む",
+    "outputLabel": "マスク後の出力",
+    "outputPlaceholder": "マスクされた出力がここに表示されます...",
+    "uploadFile": "ファイルをアップロード",
+    "noSecrets": "選択したモードでは機密データが検出されませんでした。",
+    "totalMasked": "{{count}} 件をマスクしました",
+    "statsType": "種類",
+    "statsCount": "件数",
+    "statsChars": "文字数",
+    "statsTotal": "合計",
+    "modes": {
+      "dev": "開発キー",
+      "devDesc": "APIキー、トークン、DB認証情報、SSHキー、メール、電話番号",
+      "privacy": "個人情報",
+      "privacyDesc": "ID番号、銀行カード番号、IP・MACアドレス",
+      "log": "ログ共有",
+      "logDesc": "開発キー + IP・MACアドレス — ログ共有に最適",
+      "all": "全スキャン",
+      "allDesc": "すべてのカテゴリを対象にスキャン"
+    }
+  },
   "heic": {
     "title": "HEIC コンバーター",
     "description": "HEIC/HEIF 画像を JPEG、PNG、Bitmap に変換します。複数ファイルと ZIP 一括ダウンロードに対応。すべての処理はローカルで実行されます。",

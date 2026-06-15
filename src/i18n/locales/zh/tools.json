@@ -356,6 +356,32 @@
       "colorSpace": "色彩空间"
     }
   },
+  "sensitive-masker": {
+    "title": "敏感信息脱敏",
+    "description": "在分享文本或日志前，自动屏蔽 API 密钥、Token、密码、数据库连接串及个人信息。所有处理均在本地进行。",
+    "inputLabel": "输入",
+    "inputPlaceholder": "粘贴文本、.env 文件或日志内容...",
+    "dropHint": "拖拽 .env / .log 文件加载",
+    "outputLabel": "脱敏结果",
+    "outputPlaceholder": "脱敏后的内容将显示在这里...",
+    "uploadFile": "上传文件",
+    "noSecrets": "在当前模式下未检测到敏感信息。",
+    "totalMasked": "已脱敏 {{count}} 处",
+    "statsType": "类型",
+    "statsCount": "数量",
+    "statsChars": "字符数",
+    "statsTotal": "合计",
+    "modes": {
+      "dev": "开发密钥",
+      "devDesc": "API 密钥、Token、数据库凭证、SSH 密钥、邮箱和手机号",
+      "privacy": "个人隐私",
+      "privacyDesc": "身份证号、银行卡号、IP 和 MAC 地址",
+      "log": "日志分享",
+      "logDesc": "开发密钥 + IP 和 MAC 地址，适合分享日志时使用",
+      "all": "全部扫描",
+      "allDesc": "扫描所有类别"
+    }
+  },
   "heic": {
     "title": "HEIC 转换器",
     "description": "将 HEIC/HEIF 图片转换为 JPEG、PNG 或 Bitmap。支持批量转换和 ZIP 打包下载。所有处理均在本地进行。",

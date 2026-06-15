@@ -356,6 +356,32 @@
       "colorSpace": "Espaço de cor"
     }
   },
+  "sensitive-masker": {
+    "title": "Mascaramento de dados sensíveis",
+    "description": "Mascare chaves de API, tokens, senhas, strings de conexão e dados pessoais antes de compartilhar texto ou logs. Todo o processamento é local.",
+    "inputLabel": "Entrada",
+    "inputPlaceholder": "Cole texto, arquivo .env ou conteúdo de log aqui...",
+    "dropHint": "Solte um arquivo .env / .log para carregar",
+    "outputLabel": "Saída mascarada",
+    "outputPlaceholder": "A saída mascarada aparecerá aqui...",
+    "uploadFile": "Enviar arquivo",
+    "noSecrets": "Nenhum dado sensível detectado no modo selecionado.",
+    "totalMasked": "{{count}} item(ns) mascarado(s)",
+    "statsType": "Tipo",
+    "statsCount": "Quantidade",
+    "statsChars": "Caracteres",
+    "statsTotal": "Total",
+    "modes": {
+      "dev": "Chaves Dev",
+      "devDesc": "Chaves API, tokens, credenciais DB, chaves SSH, e-mails e telefones",
+      "privacy": "Privacidade",
+      "privacyDesc": "CPF, número de cartão, endereços IP e MAC",
+      "log": "Compartilhar logs",
+      "logDesc": "Chaves dev + endereços IP e MAC — seguro para compartilhar logs",
+      "all": "Tudo",
+      "allDesc": "Varredura completa de todas as categorias"
+    }
+  },
   "heic": {
     "title": "Conversor HEIC",
     "description": "Converta imagens HEIC/HEIF para JPEG, PNG ou Bitmap. Suporta múltiplos arquivos e download ZIP. Todo o processamento é feito localmente.",

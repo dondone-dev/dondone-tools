@@ -356,6 +356,32 @@
       "colorSpace": "Espace colorimétrique"
     }
   },
+  "sensitive-masker": {
+    "title": "Masquage de données sensibles",
+    "description": "Masquez les clés API, tokens, mots de passe, chaînes de connexion et données personnelles avant de partager du texte ou des logs. Tout le traitement est local.",
+    "inputLabel": "Entrée",
+    "inputPlaceholder": "Collez du texte, un fichier .env ou le contenu d'un log...",
+    "dropHint": "Déposez un fichier .env / .log pour le charger",
+    "outputLabel": "Sortie masquée",
+    "outputPlaceholder": "La sortie masquée apparaîtra ici...",
+    "uploadFile": "Importer un fichier",
+    "noSecrets": "Aucune donnée sensible détectée dans le mode sélectionné.",
+    "totalMasked": "{{count}} élément(s) masqué(s)",
+    "statsType": "Type",
+    "statsCount": "Nombre",
+    "statsChars": "Caractères",
+    "statsTotal": "Total",
+    "modes": {
+      "dev": "Clés Dev",
+      "devDesc": "Clés API, tokens, identifiants DB, clés SSH, e-mails et numéros de téléphone",
+      "privacy": "Confidentialité",
+      "privacyDesc": "Carte d'identité, carte bancaire, adresses IP et MAC",
+      "log": "Partage de logs",
+      "logDesc": "Clés dev + adresses IP et MAC — adapté au partage de logs",
+      "all": "Tout",
+      "allDesc": "Analyse complète de toutes les catégories"
+    }
+  },
   "heic": {
     "title": "Convertisseur HEIC",
     "description": "Convertissez des images HEIC/HEIF en JPEG, PNG ou Bitmap. Supporte plusieurs fichiers et le téléchargement ZIP. Tout le traitement est local.",

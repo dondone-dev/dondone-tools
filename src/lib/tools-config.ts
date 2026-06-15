@@ -22,6 +22,7 @@ import {
   DatabaseZap,
   Camera,
   FileImage,
+  EyeOff,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -188,6 +189,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'password-strength.description',
     href: '/security/password-strength',
     icon: ShieldCheck,
+    category: 'Security',
+  },
+  {
+    id: 'sensitive-masker',
+    title: 'Sensitive Data Masker',
+    descriptionKey: 'sensitive-masker.description',
+    href: '/security/sensitive-masker',
+    icon: EyeOff,
     category: 'Security',
   },
   {

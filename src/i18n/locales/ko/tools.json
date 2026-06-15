@@ -356,6 +356,32 @@
       "colorSpace": "색 공간"
     }
   },
+  "sensitive-masker": {
+    "title": "민감 정보 마스킹",
+    "description": "텍스트나 로그를 공유하기 전에 API 키, 토큰, 비밀번호, 연결 문자열, 개인정보를 자동으로 마스킹합니다. 모든 처리는 로컬에서 실행됩니다.",
+    "inputLabel": "입력",
+    "inputPlaceholder": "텍스트, .env 파일 또는 로그 내용을 붙여넣으세요...",
+    "dropHint": ".env / .log 파일을 드롭하여 불러오기",
+    "outputLabel": "마스킹 결과",
+    "outputPlaceholder": "마스킹된 출력이 여기에 표시됩니다...",
+    "uploadFile": "파일 업로드",
+    "noSecrets": "선택한 모드에서 민감한 데이터가 감지되지 않았습니다.",
+    "totalMasked": "{{count}}개 항목이 마스킹됨",
+    "statsType": "유형",
+    "statsCount": "개수",
+    "statsChars": "문자 수",
+    "statsTotal": "합계",
+    "modes": {
+      "dev": "개발 키",
+      "devDesc": "API 키, 토큰, DB 자격증명, SSH 키, 이메일 및 전화번호",
+      "privacy": "개인정보",
+      "privacyDesc": "주민번호, 카드번호, IP 및 MAC 주소",
+      "log": "로그 공유",
+      "logDesc": "개발 키 + IP 및 MAC 주소 — 로그 공유에 최적",
+      "all": "전체 스캔",
+      "allDesc": "모든 카테고리 대상 전체 스캔"
+    }
+  },
   "heic": {
     "title": "HEIC 변환기",
     "description": "HEIC/HEIF 이미지를 JPEG, PNG 또는 Bitmap으로 변환합니다. 여러 파일 및 ZIP 일괄 다운로드 지원. 모든 처리는 로컬에서 실행됩니다.",

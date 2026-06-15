@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "仅插入自己的行",
       "insertOnlyOwnRowsDescription": "已登录用户可以插入自己的行，但不生成读取、更新或删除策略。"
     }
+  },
+  "exif": {
+    "title": "EXIF 读取器",
+    "description": "从 JPEG、HEIC 等图片中提取 EXIF 元数据。相机型号、曝光参数、GPS 位置等。所有处理均在本地进行。",
+    "dropImage": "拖拽图片或点击选择",
+    "imageOnly": "请选择图片文件",
+    "noExif": "该图片中未找到 EXIF 数据",
+    "loadFailed": "读取 EXIF 数据失败",
+    "openMap": "在地图中查看",
+    "sections": {
+      "camera": "相机",
+      "exposure": "曝光",
+      "datetime": "日期 & 时间",
+      "gps": "GPS 位置",
+      "image": "图像"
+    },
+    "fields": {
+      "make": "制造商",
+      "model": "型号",
+      "lens": "镜头",
+      "software": "软件",
+      "exposureTime": "快门速度",
+      "fNumber": "光圈",
+      "iso": "ISO",
+      "focalLength": "焦距",
+      "flash": "闪光灯",
+      "exposureMode": "曝光模式",
+      "meteringMode": "测光模式",
+      "whiteBalance": "白平衡",
+      "dateTimeOriginal": "拍摄时间",
+      "createDate": "创建时间",
+      "modifyDate": "修改时间",
+      "latitude": "纬度",
+      "longitude": "经度",
+      "altitude": "海拔",
+      "width": "宽度",
+      "height": "高度",
+      "orientation": "方向",
+      "colorSpace": "色彩空间"
+    }
   }
 }

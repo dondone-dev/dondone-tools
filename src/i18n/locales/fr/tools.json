@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "Insérer ses propres lignes uniquement",
       "insertOnlyOwnRowsDescription": "Les utilisateurs connectés peuvent insérer leurs propres lignes, mais aucune politique de lecture, mise à jour ou suppression n'est générée."
     }
+  },
+  "exif": {
+    "title": "Lecteur EXIF",
+    "description": "Extrayez les métadonnées EXIF des images JPEG, HEIC et autres. Modèle d'appareil photo, paramètres d'exposition, localisation GPS et plus. Tout le traitement est local.",
+    "dropImage": "Déposez une image ou cliquez pour sélectionner",
+    "imageOnly": "Veuillez sélectionner un fichier image",
+    "noExif": "Aucune donnée EXIF trouvée dans cette image",
+    "loadFailed": "Échec de la lecture des données EXIF",
+    "openMap": "Ouvrir dans Maps",
+    "sections": {
+      "camera": "Appareil photo",
+      "exposure": "Exposition",
+      "datetime": "Date et heure",
+      "gps": "Localisation GPS",
+      "image": "Image"
+    },
+    "fields": {
+      "make": "Fabricant",
+      "model": "Modèle",
+      "lens": "Objectif",
+      "software": "Logiciel",
+      "exposureTime": "Vitesse d'obturation",
+      "fNumber": "Ouverture",
+      "iso": "ISO",
+      "focalLength": "Longueur focale",
+      "flash": "Flash",
+      "exposureMode": "Mode d'exposition",
+      "meteringMode": "Mode de mesure",
+      "whiteBalance": "Balance des blancs",
+      "dateTimeOriginal": "Date de prise de vue",
+      "createDate": "Date de création",
+      "modifyDate": "Date de modification",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "altitude": "Altitude",
+      "width": "Largeur",
+      "height": "Hauteur",
+      "orientation": "Orientation",
+      "colorSpace": "Espace colorimétrique"
+    }
   }
 }

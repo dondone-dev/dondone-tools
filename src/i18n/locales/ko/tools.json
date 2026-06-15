@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "자신의 행만 삽입",
       "insertOnlyOwnRowsDescription": "로그인한 사용자는 자신의 행을 삽입할 수 있지만, 읽기, 업데이트, 삭제 정책은 생성되지 않습니다."
     }
+  },
+  "exif": {
+    "title": "EXIF 리더",
+    "description": "JPEG, HEIC 등 이미지에서 EXIF 메타데이터를 추출합니다. 카메라 모델, 노출 설정, GPS 위치 등. 모든 처리는 로컬에서 실행됩니다.",
+    "dropImage": "이미지를 드래그하거나 클릭하여 선택",
+    "imageOnly": "이미지 파일을 선택해 주세요",
+    "noExif": "이 이미지에서 EXIF 데이터를 찾을 수 없습니다",
+    "loadFailed": "EXIF 데이터를 읽는 데 실패했습니다",
+    "openMap": "지도에서 열기",
+    "sections": {
+      "camera": "카메라",
+      "exposure": "노출",
+      "datetime": "날짜 & 시간",
+      "gps": "GPS 위치",
+      "image": "이미지"
+    },
+    "fields": {
+      "make": "제조사",
+      "model": "모델",
+      "lens": "렌즈",
+      "software": "소프트웨어",
+      "exposureTime": "셔터 속도",
+      "fNumber": "조리개",
+      "iso": "ISO",
+      "focalLength": "초점 거리",
+      "flash": "플래시",
+      "exposureMode": "노출 모드",
+      "meteringMode": "측광 모드",
+      "whiteBalance": "화이트 밸런스",
+      "dateTimeOriginal": "촬영 날짜",
+      "createDate": "생성일",
+      "modifyDate": "수정일",
+      "latitude": "위도",
+      "longitude": "경도",
+      "altitude": "고도",
+      "width": "너비",
+      "height": "높이",
+      "orientation": "방향",
+      "colorSpace": "색 공간"
+    }
   }
 }

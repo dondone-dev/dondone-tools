@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "自分の行のみ挿入",
       "insertOnlyOwnRowsDescription": "ログイン済みユーザーは自分の行を挿入できますが、読み取り・更新・削除ポリシーは生成されません。"
     }
+  },
+  "exif": {
+    "title": "EXIF リーダー",
+    "description": "JPEG、HEICなどの画像からEXIFメタデータを抽出します。カメラモデル、露出設定、GPS位置情報など。すべての処理はローカルで実行されます。",
+    "dropImage": "画像をドロップまたはクリックして選択",
+    "imageOnly": "画像ファイルを選択してください",
+    "noExif": "この画像にEXIFデータが見つかりません",
+    "loadFailed": "EXIFデータの読み取りに失敗しました",
+    "openMap": "マップで開く",
+    "sections": {
+      "camera": "カメラ",
+      "exposure": "露出",
+      "datetime": "日時",
+      "gps": "GPS位置情報",
+      "image": "画像"
+    },
+    "fields": {
+      "make": "メーカー",
+      "model": "モデル",
+      "lens": "レンズ",
+      "software": "ソフトウェア",
+      "exposureTime": "シャッタースピード",
+      "fNumber": "絞り値",
+      "iso": "ISO",
+      "focalLength": "焦点距離",
+      "flash": "フラッシュ",
+      "exposureMode": "露出モード",
+      "meteringMode": "測光モード",
+      "whiteBalance": "ホワイトバランス",
+      "dateTimeOriginal": "撮影日時",
+      "createDate": "作成日時",
+      "modifyDate": "更新日時",
+      "latitude": "緯度",
+      "longitude": "経度",
+      "altitude": "高度",
+      "width": "幅",
+      "height": "高さ",
+      "orientation": "向き",
+      "colorSpace": "色空間"
+    }
   }
 }

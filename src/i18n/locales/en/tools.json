@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "Insert own rows only",
       "insertOnlyOwnRowsDescription": "Signed-in users can insert rows they own, but no read, update, or delete policies are generated."
     }
+  },
+  "exif": {
+    "title": "EXIF Reader",
+    "description": "Extract EXIF metadata from JPEG, HEIC and other images. Camera model, exposure settings, GPS location and more. All processing runs locally.",
+    "dropImage": "Drop image or click to select",
+    "imageOnly": "Please select an image file",
+    "noExif": "No EXIF data found in this image",
+    "loadFailed": "Failed to read EXIF data",
+    "openMap": "Open in Maps",
+    "sections": {
+      "camera": "Camera",
+      "exposure": "Exposure",
+      "datetime": "Date & Time",
+      "gps": "GPS Location",
+      "image": "Image"
+    },
+    "fields": {
+      "make": "Make",
+      "model": "Model",
+      "lens": "Lens",
+      "software": "Software",
+      "exposureTime": "Shutter Speed",
+      "fNumber": "Aperture",
+      "iso": "ISO",
+      "focalLength": "Focal Length",
+      "flash": "Flash",
+      "exposureMode": "Exposure Mode",
+      "meteringMode": "Metering Mode",
+      "whiteBalance": "White Balance",
+      "dateTimeOriginal": "Date Taken",
+      "createDate": "Created",
+      "modifyDate": "Modified",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "altitude": "Altitude",
+      "width": "Width",
+      "height": "Height",
+      "orientation": "Orientation",
+      "colorSpace": "Color Space"
+    }
   }
 }

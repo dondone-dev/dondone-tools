@@ -315,5 +315,45 @@
       "insertOnlyOwnRows": "Nur eigene Zeilen einfügen",
       "insertOnlyOwnRowsDescription": "Angemeldete Benutzer können ihre eigenen Zeilen einfügen, aber es werden keine Lese-, Aktualisierungs- oder Löschrichtlinien generiert."
     }
+  },
+  "exif": {
+    "title": "EXIF-Lesegerät",
+    "description": "EXIF-Metadaten aus JPEG-, HEIC- und anderen Bildern extrahieren. Kameramodell, Belichtungseinstellungen, GPS-Position und mehr. Alle Verarbeitungen laufen lokal.",
+    "dropImage": "Bild ablegen oder klicken zum Auswählen",
+    "imageOnly": "Bitte eine Bilddatei auswählen",
+    "noExif": "Keine EXIF-Daten in diesem Bild gefunden",
+    "loadFailed": "EXIF-Daten konnten nicht gelesen werden",
+    "openMap": "In Karte öffnen",
+    "sections": {
+      "camera": "Kamera",
+      "exposure": "Belichtung",
+      "datetime": "Datum & Uhrzeit",
+      "gps": "GPS-Position",
+      "image": "Bild"
+    },
+    "fields": {
+      "make": "Hersteller",
+      "model": "Modell",
+      "lens": "Objektiv",
+      "software": "Software",
+      "exposureTime": "Verschlusszeit",
+      "fNumber": "Blende",
+      "iso": "ISO",
+      "focalLength": "Brennweite",
+      "flash": "Blitz",
+      "exposureMode": "Belichtungsmodus",
+      "meteringMode": "Messmodus",
+      "whiteBalance": "Weißabgleich",
+      "dateTimeOriginal": "Aufnahmedatum",
+      "createDate": "Erstellungsdatum",
+      "modifyDate": "Änderungsdatum",
+      "latitude": "Breitengrad",
+      "longitude": "Längengrad",
+      "altitude": "Höhe",
+      "width": "Breite",
+      "height": "Höhe",
+      "orientation": "Ausrichtung",
+      "colorSpace": "Farbraum"
+    }
   }
 }

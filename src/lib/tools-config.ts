@@ -20,6 +20,7 @@ import {
   Regex,
   Fingerprint,
   DatabaseZap,
+  Camera,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -33,7 +34,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -236,9 +237,17 @@ export const TOOLS: ToolConfig[] = [
     icon: ShieldCheck,
     category: 'BP Authentication',
   },
+  {
+    id: 'exif',
+    title: 'EXIF Reader',
+    descriptionKey: 'exif.description',
+    href: '/image/exif',
+    icon: Camera,
+    category: 'Image',
+  },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Image', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

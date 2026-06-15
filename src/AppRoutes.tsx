@@ -26,6 +26,7 @@ import { ColorPage } from '@/pages/ColorPage'
 import { RegexPage } from '@/pages/RegexPage'
 import { UuidPage } from '@/pages/UuidPage'
 import { SupabaseRlsPage } from '@/pages/SupabaseRlsPage'
+import { ExifPage } from '@/pages/ExifPage'
 
 function toolRoutes() {
   return (
@@ -55,6 +56,7 @@ function toolRoutes() {
       <Route path="text/regex" element={<RegexPage />} />
       <Route path="fun/uuid" element={<UuidPage />} />
       <Route path="sql/supabase-rls" element={<SupabaseRlsPage />} />
+      <Route path="image/exif" element={<ExifPage />} />
     </>
   )
 }

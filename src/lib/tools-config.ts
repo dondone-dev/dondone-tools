@@ -23,6 +23,7 @@ import {
   Camera,
   FileImage,
   EyeOff,
+  FileArchive,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -36,7 +37,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -248,6 +249,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'BP Authentication',
   },
   {
+    id: 'zip-inspector',
+    title: 'ZIP Inspector',
+    descriptionKey: 'zip-inspector.description',
+    href: '/file/zip-inspector',
+    icon: FileArchive,
+    category: 'File',
+  },
+  {
     id: 'exif',
     title: 'EXIF Reader',
     descriptionKey: 'exif.description',
@@ -265,7 +274,7 @@ export const TOOLS: ToolConfig[] = [
   },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Image', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Image', 'File', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

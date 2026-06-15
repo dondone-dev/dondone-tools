@@ -27,6 +27,7 @@ export const TOOL_ROUTES = [
   '/image/exif',
   '/image/heic',
   '/security/sensitive-masker',
+  '/file/zip-inspector',
 ] as const
 
 export type ToolRoute = (typeof TOOL_ROUTES)[number]

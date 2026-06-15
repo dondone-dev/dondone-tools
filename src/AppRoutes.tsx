@@ -43,6 +43,7 @@ import { SupabaseRlsPage } from '@/pages/SupabaseRlsPage'
 import { ExifPage } from '@/pages/ExifPage'
 import { SensitiveMaskerPage } from '@/pages/SensitiveMaskerPage'
 const HeicPage = lazy(() => import('@/pages/HeicPage').then(m => ({ default: m.HeicPage })))
+const ZipInspectorPage = lazy(() => import('@/pages/ZipInspectorPage').then(m => ({ default: m.ZipInspectorPage })))
 
 function toolRoutes() {
   return (
@@ -75,6 +76,7 @@ function toolRoutes() {
       <Route path="image/exif" element={<ExifPage />} />
       <Route path="security/sensitive-masker" element={<SensitiveMaskerPage />} />
       <Route path="image/heic" element={<Suspense fallback={<ToolSkeleton />}><HeicPage /></Suspense>} />
+      <Route path="file/zip-inspector" element={<Suspense fallback={<ToolSkeleton />}><ZipInspectorPage /></Suspense>} />
     </>
   )
 }

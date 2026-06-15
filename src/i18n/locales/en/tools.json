@@ -399,5 +399,31 @@
     "notHeic": "Not a HEIC/HEIF file",
     "conversionFailed": "Conversion failed",
     "filesCount": "{{count}} file(s)"
+  },
+  "zip-inspector": {
+    "title": "ZIP Inspector",
+    "description": "Inspect ZIP archive contents — file tree, sizes, and compression ratios. All processing runs locally.",
+    "dropFile": "Drop ZIP file here, or click to select",
+    "zipOnly": "Please select a ZIP (.zip) file",
+    "fileTooLarge": "File exceeds the 500 MB limit",
+    "loadFailed": "Failed to read ZIP file",
+    "sizeWarning": "Large file ({{size}}) — parsing may take a moment",
+    "parsing": "Parsing archive...",
+    "summary": "Summary",
+    "contents": "Contents",
+    "files": "Files",
+    "folders": "Folders",
+    "totalSize": "Total Size",
+    "compressedSize": "Compressed",
+    "ratio": "Ratio",
+    "filter": "Filter files...",
+    "noMatch": "No files match",
+    "colName": "Name",
+    "colSize": "Size",
+    "colCompressed": "Compressed",
+    "colRatio": "Ratio",
+    "showAll": "Show all {{count}} entries",
+    "hint": ".zip · max {{maxSize}}",
+    "clear": "Clear"
   }
 }

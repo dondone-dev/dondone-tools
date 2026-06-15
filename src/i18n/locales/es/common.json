@@ -20,7 +20,8 @@
     "BP Authentication": "Autenticación BP",
     "Design": "Diseño",
     "SQL": "SQL",
-    "Image": "Imagen"
+    "Image": "Imagen",
+    "File": "Archivo"
   },
   "ui": {
     "result": "Resultado",

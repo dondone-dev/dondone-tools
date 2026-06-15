@@ -399,5 +399,31 @@
     "notHeic": "Não é um arquivo HEIC/HEIF",
     "conversionFailed": "Falha na conversão",
     "filesCount": "{{count}} arquivo(s)"
+  },
+  "zip-inspector": {
+    "title": "Inspetor ZIP",
+    "description": "Inspecione o conteúdo de arquivos ZIP — árvore de arquivos, tamanhos e taxas de compressão. Todo o processamento é local.",
+    "dropFile": "Solte um arquivo ZIP aqui ou clique para selecionar",
+    "zipOnly": "Selecione um arquivo ZIP (.zip)",
+    "fileTooLarge": "O arquivo excede o limite de 500 MB",
+    "loadFailed": "Falha ao ler o arquivo ZIP",
+    "sizeWarning": "Arquivo grande ({{size}}) — a análise pode demorar um momento",
+    "parsing": "Analisando...",
+    "summary": "Resumo",
+    "contents": "Conteúdo",
+    "files": "Arquivos",
+    "folders": "Pastas",
+    "totalSize": "Tamanho total",
+    "compressedSize": "Comprimido",
+    "ratio": "Taxa",
+    "filter": "Filtrar arquivos...",
+    "noMatch": "Nenhum arquivo corresponde",
+    "colName": "Nome",
+    "colSize": "Tamanho",
+    "colCompressed": "Comprimido",
+    "colRatio": "Taxa",
+    "showAll": "Mostrar todos ({{count}})",
+    "hint": ".zip · máx. {{maxSize}}",
+    "clear": "Limpar"
   }
 }

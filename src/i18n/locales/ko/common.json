@@ -20,7 +20,8 @@
     "BP Authentication": "BP 인증",
     "Design": "디자인",
     "SQL": "SQL",
-    "Image": "이미지"
+    "Image": "이미지",
+    "File": "파일"
   },
   "ui": {
     "result": "결과",

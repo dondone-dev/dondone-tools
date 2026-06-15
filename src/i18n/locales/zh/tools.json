@@ -399,5 +399,31 @@
     "notHeic": "不是 HEIC/HEIF 文件",
     "conversionFailed": "转换失败",
     "filesCount": "{{count}} 个文件"
+  },
+  "zip-inspector": {
+    "title": "ZIP 解析器",
+    "description": "解析 ZIP 压缩包内容，查看文件目录、大小及压缩率。所有处理均在本地进行。",
+    "dropFile": "拖拽 ZIP 文件到此处，或点击选择",
+    "zipOnly": "请选择 ZIP (.zip) 文件",
+    "fileTooLarge": "文件超过 500 MB 限制",
+    "loadFailed": "读取 ZIP 文件失败",
+    "sizeWarning": "文件较大（{{size}}），解析可能需要片刻",
+    "parsing": "正在解析...",
+    "summary": "概览",
+    "contents": "内容",
+    "files": "文件",
+    "folders": "目录",
+    "totalSize": "原始大小",
+    "compressedSize": "压缩后",
+    "ratio": "压缩率",
+    "filter": "过滤文件...",
+    "noMatch": "无匹配文件",
+    "colName": "名称",
+    "colSize": "大小",
+    "colCompressed": "压缩后",
+    "colRatio": "压缩率",
+    "showAll": "显示全部 {{count}} 条",
+    "hint": ".zip · 最大 {{maxSize}}",
+    "clear": "清除"
   }
 }

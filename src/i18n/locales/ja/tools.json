@@ -399,5 +399,31 @@
     "notHeic": "HEIC/HEIF ファイルではありません",
     "conversionFailed": "変換に失敗しました",
     "filesCount": "{{count}} ファイル"
+  },
+  "zip-inspector": {
+    "title": "ZIP インスペクター",
+    "description": "ZIPアーカイブの内容を確認 — ファイルツリー、サイズ、圧縮率。すべての処理はローカルで実行。",
+    "dropFile": "ZIPファイルをドロップするか、クリックして選択",
+    "zipOnly": "ZIP (.zip) ファイルを選択してください",
+    "fileTooLarge": "ファイルが 500 MB の制限を超えています",
+    "loadFailed": "ZIPファイルの読み込みに失敗しました",
+    "sizeWarning": "大きなファイル ({{size}}) — 解析に時間がかかる場合があります",
+    "parsing": "解析中...",
+    "summary": "概要",
+    "contents": "コンテンツ",
+    "files": "ファイル",
+    "folders": "フォルダー",
+    "totalSize": "合計サイズ",
+    "compressedSize": "圧縮後",
+    "ratio": "圧縮率",
+    "filter": "ファイルを絞り込む...",
+    "noMatch": "一致するファイルがありません",
+    "colName": "名前",
+    "colSize": "サイズ",
+    "colCompressed": "圧縮後",
+    "colRatio": "圧縮率",
+    "showAll": "すべて {{count}} 件を表示",
+    "hint": ".zip · 最大 {{maxSize}}",
+    "clear": "クリア"
   }
 }

@@ -20,7 +20,8 @@
     "BP Authentication": "BP 鉴权",
     "Design": "设计",
     "SQL": "SQL",
-    "Image": "图像"
+    "Image": "图像",
+    "File": "文件"
   },
   "ui": {
     "result": "结果",

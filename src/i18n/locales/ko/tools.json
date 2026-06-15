@@ -399,5 +399,31 @@
     "notHeic": "HEIC/HEIF 파일이 아닙니다",
     "conversionFailed": "변환 실패",
     "filesCount": "{{count}}개 파일"
+  },
+  "zip-inspector": {
+    "title": "ZIP 검사기",
+    "description": "ZIP 아카이브 내용 검사 — 파일 트리, 크기, 압축률. 모든 처리는 로컬에서 실행됩니다.",
+    "dropFile": "ZIP 파일을 여기에 드롭하거나 클릭하여 선택",
+    "zipOnly": "ZIP (.zip) 파일을 선택해 주세요",
+    "fileTooLarge": "파일이 500 MB 제한을 초과합니다",
+    "loadFailed": "ZIP 파일을 읽지 못했습니다",
+    "sizeWarning": "큰 파일 ({{size}}) — 분석에 시간이 걸릴 수 있습니다",
+    "parsing": "분석 중...",
+    "summary": "요약",
+    "contents": "내용",
+    "files": "파일",
+    "folders": "폴더",
+    "totalSize": "전체 크기",
+    "compressedSize": "압축 후",
+    "ratio": "압축률",
+    "filter": "파일 필터...",
+    "noMatch": "일치하는 파일 없음",
+    "colName": "이름",
+    "colSize": "크기",
+    "colCompressed": "압축 후",
+    "colRatio": "압축률",
+    "showAll": "전체 {{count}}개 보기",
+    "hint": ".zip · 최대 {{maxSize}}",
+    "clear": "삭제"
   }
 }

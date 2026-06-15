@@ -21,6 +21,7 @@ import {
   Fingerprint,
   DatabaseZap,
   Camera,
+  FileImage,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -243,6 +244,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'exif.description',
     href: '/image/exif',
     icon: Camera,
+    category: 'Image',
+  },
+  {
+    id: 'heic',
+    title: 'HEIC Converter',
+    descriptionKey: 'heic.description',
+    href: '/image/heic',
+    icon: FileImage,
     category: 'Image',
   },
 ]

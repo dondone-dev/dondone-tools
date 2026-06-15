@@ -355,5 +355,23 @@
       "orientation": "방향",
       "colorSpace": "색 공간"
     }
+  },
+  "heic": {
+    "title": "HEIC 변환기",
+    "description": "HEIC/HEIF 이미지를 JPEG, PNG 또는 Bitmap으로 변환합니다. 여러 파일 및 ZIP 일괄 다운로드 지원. 모든 처리는 로컬에서 실행됩니다.",
+    "dropFiles": "HEIC / HEIF 파일을 드래그하거나 클릭하여 선택",
+    "multipleHint": "여러 파일 지원",
+    "outputFormat": "출력 형식",
+    "quality": "품질",
+    "downloadAll": "일괄 다운로드 (.zip)",
+    "clearAll": "모두 지우기",
+    "download": "저장",
+    "remove": "제거",
+    "pending": "대기 중",
+    "converting": "변환 중...",
+    "done": "완료",
+    "notHeic": "HEIC/HEIF 파일이 아닙니다",
+    "conversionFailed": "변환 실패",
+    "filesCount": "{{count}}개 파일"
   }
 }

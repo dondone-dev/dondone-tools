@@ -355,5 +355,23 @@
       "orientation": "方向",
       "colorSpace": "色彩空间"
     }
+  },
+  "heic": {
+    "title": "HEIC 转换器",
+    "description": "将 HEIC/HEIF 图片转换为 JPEG、PNG 或 Bitmap。支持批量转换和 ZIP 打包下载。所有处理均在本地进行。",
+    "dropFiles": "拖拽 HEIC / HEIF 文件或点击选择",
+    "multipleHint": "支持多文件",
+    "outputFormat": "输出格式",
+    "quality": "质量",
+    "downloadAll": "批量下载 (.zip)",
+    "clearAll": "清空",
+    "download": "保存",
+    "remove": "移除",
+    "pending": "等待中",
+    "converting": "转换中...",
+    "done": "完成",
+    "notHeic": "不是 HEIC/HEIF 文件",
+    "conversionFailed": "转换失败",
+    "filesCount": "{{count}} 个文件"
   }
 }

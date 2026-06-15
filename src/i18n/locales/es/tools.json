@@ -355,5 +355,23 @@
       "orientation": "Orientación",
       "colorSpace": "Espacio de color"
     }
+  },
+  "heic": {
+    "title": "Convertidor HEIC",
+    "description": "Convierte imágenes HEIC/HEIF a JPEG, PNG o Bitmap. Soporta múltiples archivos y descarga ZIP. Todo el procesamiento se realiza localmente.",
+    "dropFiles": "Suelta archivos HEIC / HEIF o haz clic para seleccionar",
+    "multipleHint": "Soporta múltiples archivos",
+    "outputFormat": "Formato de salida",
+    "quality": "Calidad",
+    "downloadAll": "Descargar todo (.zip)",
+    "clearAll": "Borrar todo",
+    "download": "Guardar",
+    "remove": "Eliminar",
+    "pending": "Pendiente",
+    "converting": "Convirtiendo...",
+    "done": "Listo",
+    "notHeic": "No es un archivo HEIC/HEIF",
+    "conversionFailed": "Error en la conversión",
+    "filesCount": "{{count}} archivo(s)"
   }
 }

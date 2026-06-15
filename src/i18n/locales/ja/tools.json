@@ -355,5 +355,23 @@
       "orientation": "向き",
       "colorSpace": "色空間"
     }
+  },
+  "heic": {
+    "title": "HEIC コンバーター",
+    "description": "HEIC/HEIF 画像を JPEG、PNG、Bitmap に変換します。複数ファイルと ZIP 一括ダウンロードに対応。すべての処理はローカルで実行されます。",
+    "dropFiles": "HEIC / HEIF ファイルをドロップまたはクリックして選択",
+    "multipleHint": "複数ファイル対応",
+    "outputFormat": "出力形式",
+    "quality": "品質",
+    "downloadAll": "一括ダウンロード (.zip)",
+    "clearAll": "すべてクリア",
+    "download": "保存",
+    "remove": "削除",
+    "pending": "待機中",
+    "converting": "変換中...",
+    "done": "完了",
+    "notHeic": "HEIC/HEIF ファイルではありません",
+    "conversionFailed": "変換に失敗しました",
+    "filesCount": "{{count}} ファイル"
   }
 }

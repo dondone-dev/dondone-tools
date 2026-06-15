@@ -25,6 +25,7 @@ export const TOOL_ROUTES = [
   '/bp/jwt',
   '/bp/sign',
   '/image/exif',
+  '/image/heic',
 ] as const
 
 export type ToolRoute = (typeof TOOL_ROUTES)[number]

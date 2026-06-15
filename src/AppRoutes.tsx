@@ -1,3 +1,17 @@
+import { lazy, Suspense } from 'react'
+
+function ToolSkeleton() {
+  return (
+    <main className="max-w-5xl mx-auto px-4 py-8 animate-pulse">
+      <div className="mb-8">
+        <div className="h-5 w-16 rounded-full bg-muted mb-3" />
+        <div className="h-7 w-48 rounded bg-muted mb-2" />
+        <div className="h-4 w-80 rounded bg-muted" />
+      </div>
+      <div className="h-40 rounded-lg bg-muted" />
+    </main>
+  )
+}
 import { Routes, Route } from 'react-router-dom'
 import { LocaleLayout } from '@/components/layout/LocaleLayout'
 import { Home } from '@/pages/Home'
@@ -27,6 +41,7 @@ import { RegexPage } from '@/pages/RegexPage'
 import { UuidPage } from '@/pages/UuidPage'
 import { SupabaseRlsPage } from '@/pages/SupabaseRlsPage'
 import { ExifPage } from '@/pages/ExifPage'
+const HeicPage = lazy(() => import('@/pages/HeicPage').then(m => ({ default: m.HeicPage })))
 
 function toolRoutes() {
   return (
@@ -57,6 +72,7 @@ function toolRoutes() {
       <Route path="fun/uuid" element={<UuidPage />} />
       <Route path="sql/supabase-rls" element={<SupabaseRlsPage />} />
       <Route path="image/exif" element={<ExifPage />} />
+      <Route path="image/heic" element={<Suspense fallback={<ToolSkeleton />}><HeicPage /></Suspense>} />
     </>
   )
 }

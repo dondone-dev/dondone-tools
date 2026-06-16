@@ -192,7 +192,8 @@
     "inputPlaceholder": "Cole seu JSON aqui...",
     "format": "Formatar",
     "minify": "Minimizar",
-    "outputPlaceholder": "O resultado aparecerá aqui..."
+    "outputPlaceholder": "O resultado aparecerá aqui...",
+    "unescape": "Desescapar e Formatar"
   },
   "text-diff": {
     "title": "Text Diff",

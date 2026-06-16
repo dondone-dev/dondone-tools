@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
-import { formatJson, minifyJson } from '@/lib/tools/json-format'
+import { formatJson, minifyJson, unescapeAndFormatJson } from '@/lib/tools/json-format'
 
 export function JsonFormatPage() {
   const { t } = useTranslation('tools')
@@ -43,6 +43,9 @@ export function JsonFormatPage() {
           </Button>
           <Button size="sm" variant="outline" onClick={() => run(minifyJson)}>
             {t('json-format.minify')}
+          </Button>
+          <Button size="sm" variant="outline" onClick={() => run(unescapeAndFormatJson)}>
+            {t('json-format.unescape')}
           </Button>
         </div>
 

@@ -192,7 +192,8 @@
     "inputPlaceholder": "在此粘贴 JSON...",
     "format": "格式化",
     "minify": "压缩为一行",
-    "outputPlaceholder": "输出结果将显示在这里..."
+    "outputPlaceholder": "输出结果将显示在这里...",
+    "unescape": "去转义并格式化"
   },
   "text-diff": {
     "title": "Text Diff",

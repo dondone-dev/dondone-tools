@@ -192,7 +192,8 @@
     "inputPlaceholder": "여기에 JSON을 붙여넣으세요...",
     "format": "서식 지정",
     "minify": "최소화",
-    "outputPlaceholder": "출력 결과가 여기에 표시됩니다..."
+    "outputPlaceholder": "출력 결과가 여기에 표시됩니다...",
+    "unescape": "이스케이프 해제 후 서식 지정"
   },
   "text-diff": {
     "title": "Text Diff",

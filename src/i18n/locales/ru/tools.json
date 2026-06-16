@@ -192,7 +192,8 @@
     "inputPlaceholder": "Вставьте JSON сюда...",
     "format": "Форматировать",
     "minify": "Минифицировать",
-    "outputPlaceholder": "Результат появится здесь..."
+    "outputPlaceholder": "Результат появится здесь...",
+    "unescape": "Разэкранировать и Форматировать"
   },
   "text-diff": {
     "title": "Text Diff",

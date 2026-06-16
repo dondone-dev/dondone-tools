@@ -192,7 +192,8 @@
     "inputPlaceholder": "JSON hier einfügen...",
     "format": "Formatieren",
     "minify": "Minimieren",
-    "outputPlaceholder": "Ausgabe erscheint hier..."
+    "outputPlaceholder": "Ausgabe erscheint hier...",
+    "unescape": "Deeskapen und Formatieren"
   },
   "text-diff": {
     "title": "Text Diff",

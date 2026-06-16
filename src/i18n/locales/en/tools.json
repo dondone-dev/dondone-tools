@@ -192,7 +192,8 @@
     "inputPlaceholder": "Paste JSON here...",
     "format": "Format",
     "minify": "Minify",
-    "outputPlaceholder": "Output will appear here..."
+    "outputPlaceholder": "Output will appear here...",
+    "unescape": "Unescape & Format"
   },
   "text-diff": {
     "title": "Text Diff",

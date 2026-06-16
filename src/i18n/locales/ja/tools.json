@@ -192,7 +192,8 @@
     "inputPlaceholder": "ここに JSON を貼り付けてください...",
     "format": "整形",
     "minify": "圧縮",
-    "outputPlaceholder": "出力結果がここに表示されます..."
+    "outputPlaceholder": "出力結果がここに表示されます...",
+    "unescape": "アンエスケープして整形"
   },
   "text-diff": {
     "title": "Text Diff",

@@ -29,7 +29,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       'onnxruntime-web': path.resolve(
         __dirname,
-        'node_modules/onnxruntime-web/dist/ort.wasm.min.mjs',
+        'node_modules/onnxruntime-web/dist/ort.min.mjs',
       ),
     },
   },

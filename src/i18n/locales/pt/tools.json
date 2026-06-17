@@ -437,6 +437,8 @@
     "result_placeholder": "O texto reconhecido aparecerá aqui",
     "error_format": "Formato de imagem não suportado",
     "error_size": "Arquivo muito grande (máx. 10 MB)",
-    "error_inference": "Falha no reconhecimento, tente novamente"
+    "error_inference": "Falha no reconhecimento, tente novamente",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

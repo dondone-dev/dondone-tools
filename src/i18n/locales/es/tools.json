@@ -437,6 +437,8 @@
     "result_placeholder": "El texto reconocido aparecerá aquí",
     "error_format": "Formato de imagen no compatible",
     "error_size": "Archivo demasiado grande (máx. 10 MB)",
-    "error_inference": "Reconocimiento fallido, inténtalo de nuevo"
+    "error_inference": "Reconocimiento fallido, inténtalo de nuevo",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

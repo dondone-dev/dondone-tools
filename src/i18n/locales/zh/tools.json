@@ -437,6 +437,8 @@
     "result_placeholder": "识别结果将显示在此处",
     "error_format": "不支持的图片格式",
     "error_size": "文件过大（最大 10 MB）",
-    "error_inference": "识别失败，请重试"
+    "error_inference": "识别失败，请重试",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

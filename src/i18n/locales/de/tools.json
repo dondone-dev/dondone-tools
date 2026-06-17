@@ -437,6 +437,8 @@
     "result_placeholder": "Erkannter Text wird hier angezeigt",
     "error_format": "Nicht unterstütztes Bildformat",
     "error_size": "Datei zu groß (max. 10 MB)",
-    "error_inference": "Erkennung fehlgeschlagen, bitte erneut versuchen"
+    "error_inference": "Erkennung fehlgeschlagen, bitte erneut versuchen",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

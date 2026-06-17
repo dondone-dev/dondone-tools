@@ -437,6 +437,8 @@
     "result_placeholder": "Le texte reconnu apparaîtra ici",
     "error_format": "Format d'image non pris en charge",
     "error_size": "Fichier trop volumineux (max 10 Mo)",
-    "error_inference": "Échec de la reconnaissance, veuillez réessayer"
+    "error_inference": "Échec de la reconnaissance, veuillez réessayer",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

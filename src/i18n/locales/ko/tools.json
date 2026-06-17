@@ -437,6 +437,8 @@
     "result_placeholder": "인식된 텍스트가 여기에 표시됩니다",
     "error_format": "지원되지 않는 이미지 형식입니다",
     "error_size": "파일이 너무 큽니다 (최대 10 MB)",
-    "error_inference": "인식에 실패했습니다. 다시 시도해 주세요"
+    "error_inference": "인식에 실패했습니다. 다시 시도해 주세요",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

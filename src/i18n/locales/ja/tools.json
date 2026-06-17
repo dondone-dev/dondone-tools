@@ -437,6 +437,8 @@
     "result_placeholder": "認識されたテキストがここに表示されます",
     "error_format": "サポートされていない画像形式です",
     "error_size": "ファイルが大きすぎます（最大 10 MB）",
-    "error_inference": "認識に失敗しました。もう一度お試しください"
+    "error_inference": "認識に失敗しました。もう一度お試しください",
+    "backend_gpu": "GPU",
+    "backend_cpu": "CPU"
   }
 }

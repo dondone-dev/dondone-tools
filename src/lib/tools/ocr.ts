@@ -39,6 +39,7 @@ interface OcrInst {
 let _instance: OcrInst | null = null
 let _creating: Promise<OcrInst> | null = null
 let _gen = 0
+let _backend: 'gpu' | 'cpu' | null = null
 
 export function isOcrReady(): boolean {
   return _instance !== null
@@ -46,6 +47,10 @@ export function isOcrReady(): boolean {
 
 export function isOcrStarted(): boolean {
   return _instance !== null || _creating !== null
+}
+
+export function getOcrBackend(): 'gpu' | 'cpu' | null {
+  return _backend
 }
 
 export async function warmUpOcr(): Promise<void> {
@@ -56,17 +61,19 @@ async function getOrCreate(): Promise<OcrInst> {
   if (_instance) return _instance
   if (_creating) return _creating
   const gen = ++_gen
+  const supportsWebGpu = typeof navigator !== 'undefined' && 'gpu' in navigator
   _creating = PaddleOCR.create({
     lang: 'ch',
     ocrVersion: 'PP-OCRv6',
     ortOptions: {
-      backend: 'wasm',
+      backend: 'auto',
       wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.26.0/dist/',
     },
     worker: true,
   }).then(inst => {
     if (_gen === gen) {
       _instance = inst
+      _backend = supportsWebGpu ? 'gpu' : 'cpu'
       _creating = null
     } else {
       inst.dispose().catch(() => {})
@@ -106,4 +113,5 @@ export async function disposeOcr(): Promise<void> {
     await _instance.dispose()
     _instance = null
   }
+  _backend = null
 }

@@ -1,4 +1,7 @@
-import { pipeline, RawImage } from '@huggingface/transformers'
+import { pipeline, RawImage, env } from '@huggingface/transformers'
+
+// Persist downloaded model files in browser CacheStorage across page refreshes
+env.useBrowserCache = true
 
 const MODEL_ID = 'onnx-community/BiRefNet_lite-ONNX'
 

@@ -4,7 +4,7 @@ import { Check, Copy, Loader2, Upload } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { useClipboard } from '@/hooks/useClipboard'
-import { recognizeImage, disposeOcr, isOcrStarted, warmUpOcr, getOcrBackend, OcrError } from '@/lib/tools/ocr'
+import { recognizeImage, disposeOcr, isOcrStarted, getOcrBackend, OcrError } from '@/lib/tools/ocr'
 import { cn } from '@/lib/utils'
 
 type Status = 'idle' | 'loading' | 'recognizing' | 'done' | 'error'
@@ -18,12 +18,10 @@ export function OcrPage() {
   const [status, setStatus] = useState<Status>('idle')
   const [result, setResult] = useState<string | null>(null)
   const [error, setError] = useState('')
-  const [modelReady, setModelReady] = useState(false)
   const [backend, setBackend] = useState<'gpu' | 'cpu' | null>(null)
   const { copiedText, copy } = useClipboard()
 
   useEffect(() => {
-    warmUpOcr().then(() => { setModelReady(true); setBackend(getOcrBackend()) }).catch(() => {})
     return () => {
       if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current)
       disposeOcr()
@@ -43,9 +41,11 @@ export function OcrPage() {
 
     try {
       const text = await recognizeImage(file)
+      setBackend(getOcrBackend())
       setResult(text)
       setStatus('done')
     } catch (e) {
+      setBackend(getOcrBackend())
       if (e instanceof OcrError) {
         setError(t(`ocr.error_${e.kind}`, { ns: 'tools' }))
       } else {
@@ -61,7 +61,6 @@ export function OcrPage() {
   }
 
   const isProcessing = status === 'loading' || status === 'recognizing'
-  const showModelBar = !modelReady && status === 'idle'
 
   const backendBadge = backend ? (
     <span className={cn(
@@ -78,13 +77,6 @@ export function OcrPage() {
 
   return (
     <ToolLayout toolId="ocr" category="Image" headerExtra={backendBadge}>
-      {showModelBar && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Loader2 className="h-4 w-4 animate-spin shrink-0" />
-          <span>{t('ocr.loading_model', { ns: 'tools' })}</span>
-        </div>
-      )}
-
       <input
         ref={inputRef}
         type="file"

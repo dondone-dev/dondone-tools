@@ -6,9 +6,10 @@ interface ToolLayoutProps {
   toolId: string
   category: string
   children: ReactNode
+  headerExtra?: ReactNode
 }
 
-export function ToolLayout({ toolId, category, children }: ToolLayoutProps) {
+export function ToolLayout({ toolId, category, children, headerExtra }: ToolLayoutProps) {
   const { t } = useTranslation(['tools', 'common'])
 
   return (
@@ -20,7 +21,10 @@ export function ToolLayout({ toolId, category, children }: ToolLayoutProps) {
           </Badge>
         </div>
         <h1 className="text-2xl font-semibold tracking-tight mb-1">{t(`${toolId}.title`, { ns: 'tools' })}</h1>
-        <p className="text-sm text-muted-foreground">{t(`${toolId}.description`, { ns: 'tools' })}</p>
+        <div className="flex items-center gap-2">
+          <p className="text-sm text-muted-foreground">{t(`${toolId}.description`, { ns: 'tools' })}</p>
+          {headerExtra}
+        </div>
       </div>
       <div className="space-y-4">{children}</div>
     </main>

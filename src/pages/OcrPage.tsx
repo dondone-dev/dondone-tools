@@ -63,8 +63,21 @@ export function OcrPage() {
   const isProcessing = status === 'loading' || status === 'recognizing'
   const showModelBar = !modelReady && status === 'idle'
 
+  const backendBadge = backend ? (
+    <span className={cn(
+      'inline-flex items-center gap-1 text-xs font-medium shrink-0',
+      backend === 'gpu' ? 'text-green-700 dark:text-green-400' : 'text-yellow-700 dark:text-yellow-500',
+    )}>
+      <span className={cn(
+        'inline-block h-1.5 w-1.5 rounded-full',
+        backend === 'gpu' ? 'bg-green-500' : 'bg-yellow-500',
+      )} />
+      {backend === 'gpu' ? t('ocr.backend_gpu', { ns: 'tools' }) : t('ocr.backend_cpu', { ns: 'tools' })}
+    </span>
+  ) : null
+
   return (
-    <ToolLayout toolId="ocr" category="Image">
+    <ToolLayout toolId="ocr" category="Image" headerExtra={backendBadge}>
       {showModelBar && (
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Loader2 className="h-4 w-4 animate-spin shrink-0" />
@@ -85,7 +98,7 @@ export function OcrPage() {
         tabIndex={0}
         aria-label={t('ocr.dropzone', { ns: 'tools' })}
         className={cn(
-          'relative border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer',
+          'border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer',
           dragOver
             ? 'border-foreground/50 bg-muted/50'
             : 'border-border hover:border-foreground/30 focus-visible:border-foreground/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
@@ -97,23 +110,6 @@ export function OcrPage() {
         onClick={() => !isProcessing && inputRef.current?.click()}
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); inputRef.current?.click() } }}
       >
-        {backend && (
-          <span
-            aria-label={backend === 'gpu' ? t('ocr.backend_gpu', { ns: 'tools' }) : t('ocr.backend_cpu', { ns: 'tools' })}
-            className={cn(
-              'absolute top-2 right-2 flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full pointer-events-none select-none',
-              backend === 'gpu'
-                ? 'text-green-700 dark:text-green-400'
-                : 'text-yellow-700 dark:text-yellow-500',
-            )}
-          >
-            <span className={cn(
-              'inline-block h-1.5 w-1.5 rounded-full',
-              backend === 'gpu' ? 'bg-green-500' : 'bg-yellow-500',
-            )} />
-            {backend === 'gpu' ? t('ocr.backend_gpu', { ns: 'tools' }) : t('ocr.backend_cpu', { ns: 'tools' })}
-          </span>
-        )}
         {previewUrl ? (
           <img
             src={previewUrl}

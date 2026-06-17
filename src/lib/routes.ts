@@ -29,7 +29,7 @@ export const TOOL_ROUTES = [
   '/security/sensitive-masker',
   '/file/zip-inspector',
   '/image/ocr',
-  '/image/bg-remove',
+  // '/image/bg-remove', // disabled: WASM inference unstable across devices
 ] as const
 
 export type ToolRoute = (typeof TOOL_ROUTES)[number]

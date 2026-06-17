@@ -25,7 +25,7 @@ import {
   EyeOff,
   FileArchive,
   ScanText,
-  Scissors,
+  // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -282,14 +282,14 @@ export const TOOLS: ToolConfig[] = [
     icon: ScanText,
     category: 'Image',
   },
-  {
-    id: 'bg-remove',
-    title: 'Background Remover',
-    descriptionKey: 'bg-remove.description',
-    href: '/image/bg-remove',
-    icon: Scissors,
-    category: 'Image',
-  },
+  // {
+  //   id: 'bg-remove',
+  //   title: 'Background Remover',
+  //   descriptionKey: 'bg-remove.description',
+  //   href: '/image/bg-remove',
+  //   icon: Scissors,
+  //   category: 'Image',
+  // },
 ]
 
 export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Image', 'File', 'Fun', 'BP Authentication']

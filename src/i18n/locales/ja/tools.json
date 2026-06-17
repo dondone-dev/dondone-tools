@@ -426,5 +426,17 @@
     "showAll": "すべて {{count}} 件を表示",
     "hint": ".zip · 最大 {{maxSize}}",
     "clear": "クリア"
+  },
+  "ocr": {
+    "title": "OCR",
+    "description": "画像からテキストを抽出します。すべての処理はブラウザ内で実行され、画像はデバイスから離れません。",
+    "dropzone": "画像をここにドロップ、またはクリックしてアップロード",
+    "dropzone_hint": "PNG · JPG · WebP · BMP · 最大 10 MB",
+    "loading_model": "モデルを読み込み中…",
+    "recognizing": "認識中…",
+    "result_placeholder": "認識されたテキストがここに表示されます",
+    "error_format": "サポートされていない画像形式です",
+    "error_size": "ファイルが大きすぎます（最大 10 MB）",
+    "error_inference": "認識に失敗しました。もう一度お試しください"
   }
 }

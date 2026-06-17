@@ -24,6 +24,7 @@ import {
   FileImage,
   EyeOff,
   FileArchive,
+  ScanText,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -270,6 +271,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'heic.description',
     href: '/image/heic',
     icon: FileImage,
+    category: 'Image',
+  },
+  {
+    id: 'ocr',
+    title: 'OCR',
+    descriptionKey: 'ocr.description',
+    href: '/image/ocr',
+    icon: ScanText,
     category: 'Image',
   },
 ]

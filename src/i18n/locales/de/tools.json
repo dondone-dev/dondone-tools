@@ -426,5 +426,17 @@
     "showAll": "Alle {{count}} Einträge anzeigen",
     "hint": ".zip · max. {{maxSize}}",
     "clear": "Löschen"
+  },
+  "ocr": {
+    "title": "OCR",
+    "description": "Text aus Bildern extrahieren. Läuft vollständig im Browser — Bilder verlassen Ihr Gerät nicht.",
+    "dropzone": "Bild hier ablegen oder zum Hochladen klicken",
+    "dropzone_hint": "PNG · JPG · WebP · BMP · max. 10 MB",
+    "loading_model": "Modell wird geladen…",
+    "recognizing": "Erkennung läuft…",
+    "result_placeholder": "Erkannter Text wird hier angezeigt",
+    "error_format": "Nicht unterstütztes Bildformat",
+    "error_size": "Datei zu groß (max. 10 MB)",
+    "error_inference": "Erkennung fehlgeschlagen, bitte erneut versuchen"
   }
 }

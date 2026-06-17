@@ -426,5 +426,17 @@
     "showAll": "Mostrar todos ({{count}})",
     "hint": ".zip · máx. {{maxSize}}",
     "clear": "Limpar"
+  },
+  "ocr": {
+    "title": "OCR",
+    "description": "Extraia texto de imagens diretamente no navegador — as imagens não saem do seu dispositivo.",
+    "dropzone": "Solte uma imagem aqui ou clique para enviar",
+    "dropzone_hint": "PNG · JPG · WebP · BMP · máx. 10 MB",
+    "loading_model": "Carregando modelo…",
+    "recognizing": "Reconhecendo…",
+    "result_placeholder": "O texto reconhecido aparecerá aqui",
+    "error_format": "Formato de imagem não suportado",
+    "error_size": "Arquivo muito grande (máx. 10 MB)",
+    "error_inference": "Falha no reconhecimento, tente novamente"
   }
 }

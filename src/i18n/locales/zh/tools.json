@@ -426,5 +426,17 @@
     "showAll": "显示全部 {{count}} 条",
     "hint": ".zip · 最大 {{maxSize}}",
     "clear": "清除"
+  },
+  "ocr": {
+    "title": "OCR 文字识别",
+    "description": "从图片中提取文字，完全在浏览器本地运行，图片不会上传。",
+    "dropzone": "将图片拖到此处，或点击上传",
+    "dropzone_hint": "PNG · JPG · WebP · BMP · 最大 10 MB",
+    "loading_model": "正在加载模型…",
+    "recognizing": "识别中…",
+    "result_placeholder": "识别结果将显示在此处",
+    "error_format": "不支持的图片格式",
+    "error_size": "文件过大（最大 10 MB）",
+    "error_inference": "识别失败，请重试"
   }
 }

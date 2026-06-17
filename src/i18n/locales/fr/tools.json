@@ -426,5 +426,17 @@
     "showAll": "Afficher les {{count}} entrées",
     "hint": ".zip · max {{maxSize}}",
     "clear": "Effacer"
+  },
+  "ocr": {
+    "title": "OCR",
+    "description": "Extrayez du texte depuis des images. Traitement entièrement local — les images ne quittent pas votre appareil.",
+    "dropzone": "Déposez une image ici ou cliquez pour télécharger",
+    "dropzone_hint": "PNG · JPG · WebP · BMP · max 10 Mo",
+    "loading_model": "Chargement du modèle…",
+    "recognizing": "Reconnaissance en cours…",
+    "result_placeholder": "Le texte reconnu apparaîtra ici",
+    "error_format": "Format d'image non pris en charge",
+    "error_size": "Fichier trop volumineux (max 10 Mo)",
+    "error_inference": "Échec de la reconnaissance, veuillez réessayer"
   }
 }

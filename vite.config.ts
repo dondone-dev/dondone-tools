@@ -27,6 +27,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      'onnxruntime-web/webgpu': path.resolve(
+        __dirname,
+        'node_modules/onnxruntime-web/dist/ort.webgpu.min.mjs',
+      ),
       'onnxruntime-web': path.resolve(
         __dirname,
         'node_modules/onnxruntime-web/dist/ort.min.mjs',

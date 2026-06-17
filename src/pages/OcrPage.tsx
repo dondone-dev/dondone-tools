@@ -65,7 +65,7 @@ export function OcrPage() {
 
   const backendBadge = backend ? (
     <span className={cn(
-      'inline-flex items-center gap-1 text-xs font-medium shrink-0',
+      'inline-flex items-center gap-1.5 text-sm font-medium shrink-0',
       backend === 'gpu' ? 'text-green-700 dark:text-green-400' : 'text-yellow-700 dark:text-yellow-500',
     )}>
       <span className={cn(

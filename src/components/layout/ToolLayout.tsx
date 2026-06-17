@@ -20,11 +20,11 @@ export function ToolLayout({ toolId, category, children, headerExtra }: ToolLayo
             {t(`categories.${category}`, { ns: 'common' })}
           </Badge>
         </div>
-        <h1 className="text-2xl font-semibold tracking-tight mb-1">{t(`${toolId}.title`, { ns: 'tools' })}</h1>
-        <div className="flex items-center gap-2">
-          <p className="text-sm text-muted-foreground">{t(`${toolId}.description`, { ns: 'tools' })}</p>
+        <div className="flex items-center gap-2 mb-1">
+          <h1 className="text-2xl font-semibold tracking-tight">{t(`${toolId}.title`, { ns: 'tools' })}</h1>
           {headerExtra}
         </div>
+        <p className="text-sm text-muted-foreground">{t(`${toolId}.description`, { ns: 'tools' })}</p>
       </div>
       <div className="space-y-4">{children}</div>
     </main>

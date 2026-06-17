@@ -440,5 +440,26 @@
     "error_inference": "识别失败，请重试",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "去除背景",
+    "description": "基于 BiRefNet AI，在浏览器本地去除图片背景。",
+    "dropImage": "拖拽图片或点击选择",
+    "supportedFormats": "支持 PNG、JPEG、WebP",
+    "loadingModel": "加载模型中… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "加载模型中…",
+    "processing": "正在去除背景…",
+    "download": "下载 PNG",
+    "original": "原图",
+    "result": "结果",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "errorFormat": "不支持的图片格式",
+    "errorSize": "文件过大（最大 25 MB）",
+    "errorLoad": "模型加载失败，请检查网络后重试。",
+    "errorProcess": "处理失败，请换一张图片试试。",
+    "retry": "重试",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

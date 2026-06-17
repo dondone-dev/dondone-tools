@@ -440,5 +440,26 @@
     "error_inference": "認識に失敗しました。もう一度お試しください",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "背景削除",
+    "description": "BiRefNet AI でブラウザローカルに背景を削除します。",
+    "dropImage": "画像をドロップまたはクリックして選択",
+    "supportedFormats": "PNG、JPEG、WebP 対応",
+    "loadingModel": "モデル読み込み中… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "モデル読み込み中…",
+    "processing": "背景を削除しています…",
+    "download": "PNG をダウンロード",
+    "original": "元の画像",
+    "result": "結果",
+    "zoomIn": "拡大",
+    "zoomOut": "縮小",
+    "errorFormat": "未対応の画像形式です",
+    "errorSize": "ファイルが大きすぎます（最大 25 MB）",
+    "errorLoad": "モデルの読み込みに失敗しました。ネットワークを確認してください。",
+    "errorProcess": "処理に失敗しました。別の画像でお試しください。",
+    "retry": "再試行",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

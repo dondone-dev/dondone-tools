@@ -440,5 +440,26 @@
     "error_inference": "Recognition failed, please try again",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "Background Remover",
+    "description": "Remove image backgrounds locally in your browser using BiRefNet AI.",
+    "dropImage": "Drop image or click to select",
+    "supportedFormats": "Supports PNG, JPEG, WebP",
+    "loadingModel": "Loading model… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "Loading model…",
+    "processing": "Removing background…",
+    "download": "Download PNG",
+    "original": "Original",
+    "result": "Result",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "errorFormat": "Unsupported image format",
+    "errorSize": "File too large (max 25 MB)",
+    "errorLoad": "Failed to load model. Check your network and try again.",
+    "errorProcess": "Processing failed. Please try a different image.",
+    "retry": "Retry",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

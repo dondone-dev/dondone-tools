@@ -440,5 +440,26 @@
     "error_inference": "Échec de la reconnaissance, veuillez réessayer",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "Suppression de fond",
+    "description": "Supprimez les arrière-plans localement dans votre navigateur avec BiRefNet.",
+    "dropImage": "Déposez une image ou cliquez pour sélectionner",
+    "supportedFormats": "PNG, JPEG, WebP pris en charge",
+    "loadingModel": "Chargement du modèle… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "Chargement du modèle…",
+    "processing": "Suppression du fond…",
+    "download": "Télécharger PNG",
+    "original": "Original",
+    "result": "Résultat",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "errorFormat": "Format d'image non pris en charge",
+    "errorSize": "Fichier trop volumineux (max 25 MB)",
+    "errorLoad": "Échec du chargement du modèle. Vérifiez votre réseau.",
+    "errorProcess": "Traitement échoué. Essayez une autre image.",
+    "retry": "Réessayer",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

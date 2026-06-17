@@ -440,5 +440,26 @@
     "error_inference": "Falha no reconhecimento, tente novamente",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "Remover fundo",
+    "description": "Remova fundos localmente no navegador com BiRefNet.",
+    "dropImage": "Arraste a imagem ou clique para selecionar",
+    "supportedFormats": "Suporta PNG, JPEG, WebP",
+    "loadingModel": "Carregando modelo… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "Carregando modelo…",
+    "processing": "Removendo o fundo…",
+    "download": "Baixar PNG",
+    "original": "Original",
+    "result": "Resultado",
+    "zoomIn": "Ampliar",
+    "zoomOut": "Reduzir",
+    "errorFormat": "Formato de imagem não suportado",
+    "errorSize": "Arquivo muito grande (máx. 25 MB)",
+    "errorLoad": "Falha ao carregar o modelo. Verifique sua rede.",
+    "errorProcess": "Falha no processamento. Tente outra imagem.",
+    "retry": "Tentar novamente",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

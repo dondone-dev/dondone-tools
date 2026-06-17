@@ -440,5 +440,26 @@
     "error_inference": "Erkennung fehlgeschlagen, bitte erneut versuchen",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "Hintergrund entfernen",
+    "description": "Hintergrund lokal im Browser mit BiRefNet entfernen.",
+    "dropImage": "Bild ablegen oder klicken zum Auswählen",
+    "supportedFormats": "PNG, JPEG, WebP unterstützt",
+    "loadingModel": "Modell wird geladen… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "Modell wird geladen…",
+    "processing": "Hintergrund wird entfernt…",
+    "download": "PNG herunterladen",
+    "original": "Original",
+    "result": "Ergebnis",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "errorFormat": "Nicht unterstütztes Bildformat",
+    "errorSize": "Datei zu groß (max. 25 MB)",
+    "errorLoad": "Modell konnte nicht geladen werden. Netzwerk prüfen.",
+    "errorProcess": "Verarbeitung fehlgeschlagen. Bitte anderes Bild versuchen.",
+    "retry": "Wiederholen",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

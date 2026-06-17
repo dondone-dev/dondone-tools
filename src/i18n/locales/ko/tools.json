@@ -440,5 +440,26 @@
     "error_inference": "인식에 실패했습니다. 다시 시도해 주세요",
     "backend_gpu": "GPU",
     "backend_cpu": "CPU"
+  },
+  "bg-remove": {
+    "title": "배경 제거",
+    "description": "BiRefNet AI로 브라우저에서 로컬 배경을 제거합니다.",
+    "dropImage": "이미지를 드롭하거나 클릭하여 선택",
+    "supportedFormats": "PNG, JPEG, WebP 지원",
+    "loadingModel": "모델 로딩 중… {{loaded}} MB / {{total}} MB",
+    "loadingModelIndeterminate": "모델 로딩 중…",
+    "processing": "배경 제거 중…",
+    "download": "PNG 다운로드",
+    "original": "원본",
+    "result": "결과",
+    "zoomIn": "확대",
+    "zoomOut": "축소",
+    "errorFormat": "지원하지 않는 이미지 형식입니다",
+    "errorSize": "파일이 너무 큽니다 (최대 25 MB)",
+    "errorLoad": "모델 로딩에 실패했습니다. 네트워크를 확인하세요.",
+    "errorProcess": "처리에 실패했습니다. 다른 이미지를 사용해 보세요.",
+    "retry": "다시 시도",
+    "backend_gpu": "GPU",
+    "backend_wasm": "WASM"
   }
 }

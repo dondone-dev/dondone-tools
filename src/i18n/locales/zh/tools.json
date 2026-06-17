@@ -429,7 +429,7 @@
   },
   "ocr": {
     "title": "OCR 文字识别",
-    "description": "从图片中提取文字，完全在浏览器本地运行，图片不会上传。",
+    "description": "使用 PP-OCRv6 从图片中提取文字，完全在浏览器本地运行，图片不会上传。",
     "dropzone": "将图片拖到此处，或点击上传",
     "dropzone_hint": "PNG · JPG · WebP · BMP · 最大 10 MB",
     "loading_model": "正在加载模型…",

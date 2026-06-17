@@ -429,7 +429,7 @@
   },
   "ocr": {
     "title": "OCR",
-    "description": "Extrayez du texte depuis des images. Traitement entièrement local — les images ne quittent pas votre appareil.",
+    "description": "Extrayez du texte depuis des images avec PP-OCRv6. Traitement entièrement local — les images ne quittent pas votre appareil.",
     "dropzone": "Déposez une image ici ou cliquez pour télécharger",
     "dropzone_hint": "PNG · JPG · WebP · BMP · max 10 Mo",
     "loading_model": "Chargement du modèle…",

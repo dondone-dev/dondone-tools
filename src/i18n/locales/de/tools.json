@@ -429,7 +429,7 @@
   },
   "ocr": {
     "title": "OCR",
-    "description": "Text aus Bildern extrahieren. Läuft vollständig im Browser — Bilder verlassen Ihr Gerät nicht.",
+    "description": "Text aus Bildern mit PP-OCRv6 extrahieren. Läuft vollständig im Browser — Bilder verlassen Ihr Gerät nicht.",
     "dropzone": "Bild hier ablegen oder zum Hochladen klicken",
     "dropzone_hint": "PNG · JPG · WebP · BMP · max. 10 MB",
     "loading_model": "Modell wird geladen…",

@@ -429,7 +429,7 @@
   },
   "ocr": {
     "title": "OCR",
-    "description": "Extraia texto de imagens diretamente no navegador — as imagens não saem do seu dispositivo.",
+    "description": "Extraia texto de imagens com PP-OCRv6 diretamente no navegador — as imagens não saem do seu dispositivo.",
     "dropzone": "Solte uma imagem aqui ou clique para enviar",
     "dropzone_hint": "PNG · JPG · WebP · BMP · máx. 10 MB",
     "loading_model": "Carregando modelo…",

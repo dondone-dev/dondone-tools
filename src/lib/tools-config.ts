@@ -25,6 +25,7 @@ import {
   EyeOff,
   FileArchive,
   ScanText,
+  Scissors,
   type LucideIcon,
 } from 'lucide-react'
 import { type ToolRoute } from '@/lib/routes'
@@ -279,6 +280,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'ocr.description',
     href: '/image/ocr',
     icon: ScanText,
+    category: 'Image',
+  },
+  {
+    id: 'bg-remove',
+    title: 'Background Remover',
+    descriptionKey: 'bg-remove.description',
+    href: '/image/bg-remove',
+    icon: Scissors,
     category: 'Image',
   },
 ]

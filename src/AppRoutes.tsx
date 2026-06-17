@@ -45,6 +45,7 @@ import { SensitiveMaskerPage } from '@/pages/SensitiveMaskerPage'
 const HeicPage = lazy(() => import('@/pages/HeicPage').then(m => ({ default: m.HeicPage })))
 const ZipInspectorPage = lazy(() => import('@/pages/ZipInspectorPage').then(m => ({ default: m.ZipInspectorPage })))
 const OcrPage = lazy(() => import('@/pages/OcrPage').then(m => ({ default: m.OcrPage })))
+const BgRemovePage = lazy(() => import('@/pages/BgRemovePage').then(m => ({ default: m.BgRemovePage })))
 
 function toolRoutes() {
   return (
@@ -79,6 +80,7 @@ function toolRoutes() {
       <Route path="image/heic" element={<Suspense fallback={<ToolSkeleton />}><HeicPage /></Suspense>} />
       <Route path="file/zip-inspector" element={<Suspense fallback={<ToolSkeleton />}><ZipInspectorPage /></Suspense>} />
       <Route path="image/ocr" element={<Suspense fallback={<ToolSkeleton />}><OcrPage /></Suspense>} />
+      <Route path="image/bg-remove" element={<Suspense fallback={<ToolSkeleton />}><BgRemovePage /></Suspense>} />
     </>
   )
 }

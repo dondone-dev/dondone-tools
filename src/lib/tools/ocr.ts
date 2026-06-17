@@ -59,7 +59,10 @@ async function getOrCreate(): Promise<OcrInst> {
   _creating = PaddleOCR.create({
     lang: 'ch',
     ocrVersion: 'PP-OCRv6',
-    ortOptions: { backend: 'auto' },
+    ortOptions: {
+      backend: 'wasm',
+      wasmPaths: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.26.0/dist/',
+    },
     worker: true,
   }).then(inst => {
     if (_gen === gen) {

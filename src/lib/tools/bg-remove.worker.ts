@@ -39,9 +39,7 @@ async function createPipeline(progressCb: ProgressCb): Promise<PipelineFn> {
     }
   }
 
-  // fp16 halves the WASM heap requirement vs fp32
   const p = await pipeline('background-removal', MODEL_ID, {
-    dtype: 'fp16',
     progress_callback: progressCb,
   })
   _backend = 'wasm'

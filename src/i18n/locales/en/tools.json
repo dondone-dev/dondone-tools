@@ -458,6 +458,7 @@
     "errorSize": "File too large (max 25 MB)",
     "errorLoad": "Failed to load model. Check your network and try again.",
     "errorProcess": "Processing failed. Please try a different image.",
+    "errorOom": "Insufficient memory to process this image. Try a smaller image or use a device with more RAM.",
     "retry": "Retry",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

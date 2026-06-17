@@ -23,6 +23,7 @@ async function createPipeline(progressCb: ProgressCb): Promise<PipelineFn> {
     try {
       const p = await pipeline('background-removal', MODEL_ID, {
         device: 'webgpu',
+        dtype: 'fp16',
         progress_callback: progressCb,
       })
       _backend = 'webgpu'
@@ -32,7 +33,9 @@ async function createPipeline(progressCb: ProgressCb): Promise<PipelineFn> {
     }
   }
 
+  // fp16 halves the WASM heap requirement vs fp32 (~150 MB → ~75 MB)
   const p = await pipeline('background-removal', MODEL_ID, {
+    dtype: 'fp16',
     progress_callback: progressCb,
   })
   _backend = 'wasm'
@@ -108,12 +111,9 @@ self.onmessage = async (event: MessageEvent) => {
       const resultBlob = await canvas.convertToBlob({ type: 'image/png' })
       self.postMessage({ type: 'result', blob: resultBlob, id })
     } catch (err) {
-      self.postMessage({
-        type: 'error',
-        kind: 'inference',
-        message: err instanceof Error ? err.message : String(err),
-        id,
-      })
+      const message = err instanceof Error ? err.message : String(err)
+      const kind = message.includes('bad_alloc') ? 'oom' : 'inference'
+      self.postMessage({ type: 'error', kind, message, id })
     }
   }
 }

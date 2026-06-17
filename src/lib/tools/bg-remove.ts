@@ -4,7 +4,7 @@ type AllowedType = (typeof ALLOWED_TYPES)[number]
 
 export type BgRemoveBackend = 'webgpu' | 'wasm'
 
-export type BgRemoveErrorKind = 'format' | 'size' | 'load' | 'inference'
+export type BgRemoveErrorKind = 'format' | 'size' | 'load' | 'inference' | 'oom'
 
 export class BgRemoveError extends Error {
   readonly kind: BgRemoveErrorKind

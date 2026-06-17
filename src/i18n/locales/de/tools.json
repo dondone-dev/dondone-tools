@@ -458,6 +458,7 @@
     "errorSize": "Datei zu groß (max. 25 MB)",
     "errorLoad": "Modell konnte nicht geladen werden. Netzwerk prüfen.",
     "errorProcess": "Verarbeitung fehlgeschlagen. Bitte anderes Bild versuchen.",
+    "errorOom": "Nicht genügend Arbeitsspeicher. Bitte ein kleineres Bild oder ein Gerät mit mehr RAM verwenden.",
     "retry": "Wiederholen",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

@@ -458,6 +458,7 @@
     "errorSize": "文件过大（最大 25 MB）",
     "errorLoad": "模型加载失败，请检查网络后重试。",
     "errorProcess": "处理失败，请换一张图片试试。",
+    "errorOom": "内存不足，无法处理此图片。请尝试较小的图片或使用内存更大的设备。",
     "retry": "重试",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

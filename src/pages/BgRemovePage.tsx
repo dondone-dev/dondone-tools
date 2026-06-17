@@ -80,7 +80,9 @@ export function BgRemovePage() {
             ? 'bg-remove.errorSize'
             : err instanceof BgRemoveError && err.kind === 'load'
               ? 'bg-remove.errorLoad'
-              : 'bg-remove.errorProcess'
+              : err instanceof BgRemoveError && err.kind === 'oom'
+                ? 'bg-remove.errorOom'
+                : 'bg-remove.errorProcess'
       setError(t(key, { ns: 'tools' }))
       setStatus('error')
     }

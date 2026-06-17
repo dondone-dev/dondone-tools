@@ -458,6 +458,7 @@
     "errorSize": "Arquivo muito grande (máx. 25 MB)",
     "errorLoad": "Falha ao carregar o modelo. Verifique sua rede.",
     "errorProcess": "Falha no processamento. Tente outra imagem.",
+    "errorOom": "Memória insuficiente para processar esta imagem. Tente uma imagem menor ou um dispositivo com mais RAM.",
     "retry": "Tentar novamente",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

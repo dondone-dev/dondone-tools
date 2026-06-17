@@ -458,6 +458,7 @@
     "errorSize": "파일이 너무 큽니다 (최대 25 MB)",
     "errorLoad": "모델 로딩에 실패했습니다. 네트워크를 확인하세요.",
     "errorProcess": "처리에 실패했습니다. 다른 이미지를 사용해 보세요.",
+    "errorOom": "이미지를 처리할 메모리가 부족합니다. 더 작은 이미지를 사용하거나 RAM이 더 많은 기기를 사용해 보세요.",
     "retry": "다시 시도",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

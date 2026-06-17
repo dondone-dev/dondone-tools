@@ -458,6 +458,7 @@
     "errorSize": "Fichier trop volumineux (max 25 MB)",
     "errorLoad": "Échec du chargement du modèle. Vérifiez votre réseau.",
     "errorProcess": "Traitement échoué. Essayez une autre image.",
+    "errorOom": "Mémoire insuffisante pour traiter cette image. Essayez une image plus petite ou un appareil avec plus de RAM.",
     "retry": "Réessayer",
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",

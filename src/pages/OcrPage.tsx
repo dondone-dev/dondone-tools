@@ -85,6 +85,17 @@ export function OcrPage() {
         onChange={(e) => handleFiles(e.target.files)}
       />
 
+      {isProcessing && (
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin shrink-0" />
+          <span>
+            {status === 'loading'
+              ? t('ocr.loading_model', { ns: 'tools' })
+              : t('ocr.recognizing', { ns: 'tools' })}
+          </span>
+        </div>
+      )}
+
       <div
         role="button"
         tabIndex={0}
@@ -116,17 +127,6 @@ export function OcrPage() {
           </>
         )}
       </div>
-
-      {isProcessing && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Loader2 className="h-4 w-4 animate-spin shrink-0" />
-          <span>
-            {status === 'loading'
-              ? t('ocr.loading_model', { ns: 'tools' })
-              : t('ocr.recognizing', { ns: 'tools' })}
-          </span>
-        </div>
-      )}
 
       {error && (
         <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>

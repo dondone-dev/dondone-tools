@@ -460,6 +460,7 @@
     "errorProcess": "Traitement échoué. Essayez une autre image.",
     "retry": "Réessayer",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "Importer une autre"
   }
 }

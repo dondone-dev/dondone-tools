@@ -460,6 +460,7 @@
     "errorProcess": "処理に失敗しました。別の画像でお試しください。",
     "retry": "再試行",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "別の画像をアップロード"
   }
 }

@@ -460,6 +460,7 @@
     "errorProcess": "处理失败，请换一张图片试试。",
     "retry": "重试",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "上传另一张"
   }
 }

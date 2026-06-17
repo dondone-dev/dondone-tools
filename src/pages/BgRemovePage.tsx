@@ -299,7 +299,7 @@ export function BgRemovePage() {
               {t('bg-remove.download', { ns: 'tools' })}
             </Button>
             <Button variant="outline" onClick={() => { handleRetry(); inputRef.current?.click() }}>
-              {t('bg-remove.dropImage', { ns: 'tools' })}
+              {t('bg-remove.uploadAnother', { ns: 'tools' })}
             </Button>
           </div>
         </div>

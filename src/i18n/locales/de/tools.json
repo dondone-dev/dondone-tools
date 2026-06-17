@@ -460,6 +460,7 @@
     "errorProcess": "Verarbeitung fehlgeschlagen. Bitte anderes Bild versuchen.",
     "retry": "Wiederholen",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "Anderes Bild hochladen"
   }
 }

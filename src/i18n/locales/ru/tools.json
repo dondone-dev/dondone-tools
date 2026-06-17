@@ -460,6 +460,7 @@
     "errorProcess": "Обработка не удалась. Попробуйте другое изображение.",
     "retry": "Повторить",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "Загрузить другое"
   }
 }

@@ -460,6 +460,7 @@
     "errorProcess": "처리에 실패했습니다. 다른 이미지를 사용해 보세요.",
     "retry": "다시 시도",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "다른 이미지 업로드"
   }
 }

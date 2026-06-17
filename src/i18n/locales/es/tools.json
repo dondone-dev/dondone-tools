@@ -460,6 +460,7 @@
     "errorProcess": "Error al procesar. Prueba con otra imagen.",
     "retry": "Reintentar",
     "backend_gpu": "GPU",
-    "backend_wasm": "WASM"
+    "backend_wasm": "WASM",
+    "uploadAnother": "Subir otra imagen"
   }
 }

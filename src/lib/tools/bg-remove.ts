@@ -45,7 +45,7 @@ function getWorker(): Worker {
       | { type: 'progress'; loaded: number; total: number; id: number }
       | { type: 'model-ready'; backend: BgRemoveBackend; id: number }
       | { type: 'result'; blob: Blob; id: number }
-      | { type: 'error'; message: string; id: number }
+      | { type: 'error'; kind: BgRemoveErrorKind; message: string; id: number }
 
     const entry = _pending.get(msg.id)
     if (!entry) return
@@ -60,7 +60,7 @@ function getWorker(): Worker {
       entry.resolve(msg.blob)
     } else if (msg.type === 'error') {
       _pending.delete(msg.id)
-      entry.reject(new BgRemoveError('inference', msg.message))
+      entry.reject(new BgRemoveError(msg.kind, msg.message))
     }
   }
   _worker.onerror = (err) => {
@@ -68,6 +68,7 @@ function getWorker(): Worker {
       entry.reject(new BgRemoveError('load', err.message))
     }
     _pending.clear()
+    _worker?.terminate()
     _worker = null
     _modelReady = false
   }
@@ -97,6 +98,7 @@ export async function removeBackground(
 export function disposeWorker(): void {
   if (!_worker) return
   try { _worker.postMessage({ type: 'dispose' }) } catch { /* ignore */ }
+  _worker.terminate()
   _worker = null
   _modelReady = false
   for (const entry of _pending.values()) {

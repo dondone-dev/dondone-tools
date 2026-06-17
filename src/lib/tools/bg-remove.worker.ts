@@ -74,12 +74,23 @@ self.onmessage = async (event: MessageEvent) => {
 
   if (msg.type === 'remove') {
     const { blob, id } = msg
+
+    let pipe: PipelineFn
     try {
-      const pipe = await getOrCreate(id)
+      pipe = await getOrCreate(id)
+    } catch (err) {
+      self.postMessage({
+        type: 'error',
+        kind: 'load',
+        message: err instanceof Error ? err.message : String(err),
+        id,
+      })
+      return
+    }
 
-      // Notify main thread that model is ready; inference is now starting
-      self.postMessage({ type: 'model-ready', backend: _backend, id })
+    self.postMessage({ type: 'model-ready', backend: _backend, id })
 
+    try {
       const outputs = await (pipe as unknown as (input: Blob) => Promise<RawImage[]>)(blob)
       const output = outputs[0]
 
@@ -92,11 +103,11 @@ self.onmessage = async (event: MessageEvent) => {
         0, 0,
       )
       const resultBlob = await canvas.convertToBlob({ type: 'image/png' })
-
       self.postMessage({ type: 'result', blob: resultBlob, id })
     } catch (err) {
       self.postMessage({
         type: 'error',
+        kind: 'inference',
         message: err instanceof Error ? err.message : String(err),
         id,
       })

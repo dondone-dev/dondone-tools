@@ -268,8 +268,8 @@ export function BgRemovePage() {
                   src={resultUrl}
                   alt={t('bg-remove.result', { ns: 'tools' })}
                   className={cn(
-                    'w-full object-contain max-h-80 transition-transform duration-200 origin-top-left cursor-zoom-in',
-                    zoom === 2 && 'scale-[2] cursor-zoom-out',
+                    'w-full object-contain max-h-80 transition-transform duration-200 origin-center',
+                    zoom === 1 ? 'cursor-zoom-in' : 'scale-[2] cursor-zoom-out',
                   )}
                   onClick={() => setZoom((z) => (z === 1 ? 2 : 1))}
                 />

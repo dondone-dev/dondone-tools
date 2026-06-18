@@ -17,6 +17,7 @@ export const TOOL_ROUTES = [
   '/text/string-length',
   '/text/timestamp',
   '/text/regex',
+  '/text/id-card',
   '/security/password-strength',
   '/sql/supabase-rls',
   '/design/color',

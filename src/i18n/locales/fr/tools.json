@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "Importer une autre"
+  },
+  "id-card": {
+    "title": "Carte d'identité chinoise",
+    "description": "Analyse un numéro de carte d'identité de résident chinois : région, date de naissance, sexe, âge et validité. Tout est calculé localement, rien n'est envoyé.",
+    "input": "Numéro de carte d'identité",
+    "placeholder": "ex. 11010519900307851X",
+    "privacy": "Fonctionne entièrement dans votre navigateur. Rien n'est envoyé à un serveur.",
+    "valid": "Valide",
+    "invalid": "Invalide",
+    "formatLabel": "Type",
+    "format18": "18 chiffres",
+    "format15": "15 chiffres (ancien)",
+    "checksumOk": "Clé de contrôle correcte",
+    "region": "Région",
+    "regionUnknown": "code de région absent du jeu de données",
+    "birthDate": "Date de naissance",
+    "age": "Âge",
+    "ageValue": "{{age}} ans",
+    "gender": "Sexe",
+    "male": "Homme",
+    "female": "Femme",
+    "zodiac": "Signe du zodiaque chinois",
+    "constellation": "Signe astrologique",
+    "reason": {
+      "empty": "Saisissez un numéro de carte d'identité",
+      "length": "La longueur doit être de 15 ou 18 caractères",
+      "format": "Format invalide — 17 chiffres suivis d'un chiffre ou de X",
+      "birthdate": "La date de naissance encodée n'existe pas",
+      "checksum": "Clé de contrôle incorrecte — attendu {{expected}}, obtenu {{actual}}"
+    }
   }
 }

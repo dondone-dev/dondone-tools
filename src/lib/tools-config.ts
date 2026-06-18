@@ -18,6 +18,7 @@ import {
   KeySquare,
   Palette,
   Regex,
+  IdCard,
   Fingerprint,
   DatabaseZap,
   Camera,
@@ -184,6 +185,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'regex.description',
     href: '/text/regex',
     icon: Regex,
+    category: 'Text',
+  },
+  {
+    id: 'id-card',
+    title: 'China ID Card',
+    descriptionKey: 'id-card.description',
+    href: '/text/id-card',
+    icon: IdCard,
     category: 'Text',
   },
   {

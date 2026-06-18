@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "다른 이미지 업로드"
+  },
+  "id-card": {
+    "title": "중국 신분증 조회",
+    "description": "중국 주민 신분증 번호를 분석합니다: 지역, 생년월일, 성별, 나이, 유효성. 모든 계산은 로컬에서 이루어지며 아무것도 업로드되지 않습니다.",
+    "input": "신분증 번호",
+    "placeholder": "예: 11010519900307851X",
+    "privacy": "브라우저 내에서 전부 실행되며 서버로 전송되지 않습니다.",
+    "valid": "유효",
+    "invalid": "유효하지 않음",
+    "formatLabel": "유형",
+    "format18": "18자리",
+    "format15": "15자리(구형)",
+    "checksumOk": "검증 코드 정상",
+    "region": "지역",
+    "regionUnknown": "지역 코드가 데이터에 없음",
+    "birthDate": "생년월일",
+    "age": "나이",
+    "ageValue": "{{age}}세",
+    "gender": "성별",
+    "male": "남성",
+    "female": "여성",
+    "zodiac": "띠",
+    "constellation": "별자리",
+    "reason": {
+      "empty": "신분증 번호를 입력하세요",
+      "length": "길이는 15자리 또는 18자리여야 합니다",
+      "format": "형식이 잘못됨 — 숫자 17자리와 숫자 또는 X 1자리",
+      "birthdate": "인코딩된 생년월일이 존재하지 않습니다",
+      "checksum": "검증 코드 불일치 — 예상 {{expected}}, 실제 {{actual}}"
+    }
   }
 }

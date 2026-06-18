@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "上传另一张"
+  },
+  "id-card": {
+    "title": "身份证查询",
+    "description": "解析中国居民身份证号码：归属地区、出生日期、性别、年龄与有效性。全部在本地计算，不上传任何数据。",
+    "input": "身份证号码",
+    "placeholder": "例如 11010519900307851X",
+    "privacy": "完全在浏览器本地运行，不会发送到任何服务器。",
+    "valid": "有效",
+    "invalid": "无效",
+    "formatLabel": "类型",
+    "format18": "18 位",
+    "format15": "15 位（旧版）",
+    "checksumOk": "校验码正确",
+    "region": "归属地区",
+    "regionUnknown": "地区码未收录",
+    "birthDate": "出生日期",
+    "age": "年龄",
+    "ageValue": "{{age}} 岁",
+    "gender": "性别",
+    "male": "男",
+    "female": "女",
+    "zodiac": "生肖",
+    "constellation": "星座",
+    "reason": {
+      "empty": "请输入身份证号码",
+      "length": "长度必须为 15 位或 18 位",
+      "format": "格式不正确——需为 17 位数字加 1 位数字或 X",
+      "birthdate": "编码中的出生日期不存在",
+      "checksum": "校验码不匹配——应为 {{expected}}，实际为 {{actual}}"
+    }
   }
 }

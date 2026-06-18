@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "別の画像をアップロード"
+  },
+  "id-card": {
+    "title": "中国身分証チェッカー",
+    "description": "中国の居民身分証番号を解析します：地域、生年月日、性別、年齢、有効性。すべてローカルで計算され、アップロードされません。",
+    "input": "身分証番号",
+    "placeholder": "例: 11010519900307851X",
+    "privacy": "すべてブラウザー内で実行され、サーバーには送信されません。",
+    "valid": "有効",
+    "invalid": "無効",
+    "formatLabel": "種別",
+    "format18": "18桁",
+    "format15": "15桁（旧式）",
+    "checksumOk": "チェックディジット正常",
+    "region": "地域",
+    "regionUnknown": "地域コードは未収録",
+    "birthDate": "生年月日",
+    "age": "年齢",
+    "ageValue": "{{age}}歳",
+    "gender": "性別",
+    "male": "男性",
+    "female": "女性",
+    "zodiac": "干支",
+    "constellation": "星座",
+    "reason": {
+      "empty": "身分証番号を入力してください",
+      "length": "長さは15桁または18桁である必要があります",
+      "format": "形式が不正です — 17桁の数字に数字またはXが続く必要があります",
+      "birthdate": "エンコードされた生年月日が存在しません",
+      "checksum": "チェックディジットが一致しません — 期待値 {{expected}}、実際 {{actual}}"
+    }
   }
 }

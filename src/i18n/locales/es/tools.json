@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "Subir otra imagen"
+  },
+  "id-card": {
+    "title": "DNI chino",
+    "description": "Analiza un número de cédula de identidad de residente chino: región, fecha de nacimiento, sexo, edad y validez. Todo se calcula localmente, no se sube nada.",
+    "input": "Número de cédula",
+    "placeholder": "p. ej. 11010519900307851X",
+    "privacy": "Se ejecuta totalmente en tu navegador. No se envía nada a ningún servidor.",
+    "valid": "Válido",
+    "invalid": "No válido",
+    "formatLabel": "Tipo",
+    "format18": "18 dígitos",
+    "format15": "15 dígitos (antiguo)",
+    "checksumOk": "Dígito de control correcto",
+    "region": "Región",
+    "regionUnknown": "código de región no incluido en los datos",
+    "birthDate": "Fecha de nacimiento",
+    "age": "Edad",
+    "ageValue": "{{age}} años",
+    "gender": "Sexo",
+    "male": "Hombre",
+    "female": "Mujer",
+    "zodiac": "Signo del zodiaco chino",
+    "constellation": "Signo astrológico",
+    "reason": {
+      "empty": "Introduce un número de cédula",
+      "length": "La longitud debe ser de 15 o 18 caracteres",
+      "format": "Formato no válido: 17 dígitos más un dígito o X",
+      "birthdate": "La fecha de nacimiento codificada no existe",
+      "checksum": "El dígito de control no coincide: se esperaba {{expected}}, se obtuvo {{actual}}"
+    }
   }
 }

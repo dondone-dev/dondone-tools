@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "Upload Another"
+  },
+  "id-card": {
+    "title": "China ID Card",
+    "description": "Parse a Chinese resident ID card number: region, date of birth, gender, age and validity. All computation runs locally — nothing is uploaded.",
+    "input": "ID card number",
+    "placeholder": "e.g. 11010519900307851X",
+    "privacy": "Runs entirely in your browser. Nothing is sent to any server.",
+    "valid": "Valid",
+    "invalid": "Invalid",
+    "formatLabel": "Type",
+    "format18": "18-digit",
+    "format15": "15-digit (legacy)",
+    "checksumOk": "Checksum OK",
+    "region": "Region",
+    "regionUnknown": "region code not in dataset",
+    "birthDate": "Date of birth",
+    "age": "Age",
+    "ageValue": "{{age}} years",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "zodiac": "Zodiac",
+    "constellation": "Star sign",
+    "reason": {
+      "empty": "Enter an ID card number",
+      "length": "Length must be 15 or 18 characters",
+      "format": "Invalid format — must be 17 digits plus a digit or X",
+      "birthdate": "The encoded date of birth does not exist",
+      "checksum": "Check digit mismatch — expected {{expected}}, got {{actual}}"
+    }
   }
 }

@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "Carregar outra imagem"
+  },
+  "id-card": {
+    "title": "Documento de identidade chinês",
+    "description": "Analisa um número de carteira de identidade de residente chinês: região, data de nascimento, sexo, idade e validade. Tudo é calculado localmente, nada é enviado.",
+    "input": "Número do documento",
+    "placeholder": "ex.: 11010519900307851X",
+    "privacy": "Executa inteiramente no seu navegador. Nada é enviado para nenhum servidor.",
+    "valid": "Válido",
+    "invalid": "Inválido",
+    "formatLabel": "Tipo",
+    "format18": "18 dígitos",
+    "format15": "15 dígitos (antigo)",
+    "checksumOk": "Dígito verificador correto",
+    "region": "Região",
+    "regionUnknown": "código de região não consta nos dados",
+    "birthDate": "Data de nascimento",
+    "age": "Idade",
+    "ageValue": "{{age}} anos",
+    "gender": "Sexo",
+    "male": "Masculino",
+    "female": "Feminino",
+    "zodiac": "Signo do zodíaco chinês",
+    "constellation": "Signo astrológico",
+    "reason": {
+      "empty": "Digite um número de documento",
+      "length": "O comprimento deve ser de 15 ou 18 caracteres",
+      "format": "Formato inválido — 17 dígitos mais um dígito ou X",
+      "birthdate": "A data de nascimento codificada não existe",
+      "checksum": "Dígito verificador não confere — esperado {{expected}}, obtido {{actual}}"
+    }
   }
 }

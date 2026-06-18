@@ -463,5 +463,35 @@
     "backend_gpu": "GPU",
     "backend_wasm": "WASM",
     "uploadAnother": "Anderes Bild hochladen"
+  },
+  "id-card": {
+    "title": "Chinesischer Personalausweis",
+    "description": "Analysiert eine chinesische Personalausweisnummer: Region, Geburtsdatum, Geschlecht, Alter und Gültigkeit. Alles wird lokal berechnet, nichts wird hochgeladen.",
+    "input": "Ausweisnummer",
+    "placeholder": "z. B. 11010519900307851X",
+    "privacy": "Läuft vollständig in Ihrem Browser. Es wird nichts an einen Server gesendet.",
+    "valid": "Gültig",
+    "invalid": "Ungültig",
+    "formatLabel": "Typ",
+    "format18": "18-stellig",
+    "format15": "15-stellig (alt)",
+    "checksumOk": "Prüfziffer korrekt",
+    "region": "Region",
+    "regionUnknown": "Regionalcode nicht im Datensatz",
+    "birthDate": "Geburtsdatum",
+    "age": "Alter",
+    "ageValue": "{{age}} Jahre",
+    "gender": "Geschlecht",
+    "male": "Männlich",
+    "female": "Weiblich",
+    "zodiac": "Tierkreiszeichen",
+    "constellation": "Sternzeichen",
+    "reason": {
+      "empty": "Geben Sie eine Ausweisnummer ein",
+      "length": "Die Länge muss 15 oder 18 Zeichen betragen",
+      "format": "Ungültiges Format — 17 Ziffern plus eine Ziffer oder X",
+      "birthdate": "Das codierte Geburtsdatum existiert nicht",
+      "checksum": "Prüfziffer stimmt nicht — erwartet {{expected}}, erhalten {{actual}}"
+    }
   }
 }

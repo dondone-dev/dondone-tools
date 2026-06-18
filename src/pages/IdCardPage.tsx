@@ -54,32 +54,36 @@ export function IdCardPage() {
         </p>
       </div>
 
-      {result && <StatusBanner result={result} />}
+      {result && (
+        <div className="space-y-4 md:w-1/3">
+          <StatusBanner result={result} />
 
-      {result && (result.valid || result.reason === 'checksum') && (
-        <div className="space-y-2 border rounded-lg p-4">
-          {result.region.full && (
-            <ResultRow
-              label={t('id-card.region')}
-              value={result.region.full}
-              copiedText={copiedText}
-              onCopy={copy}
-              hint={result.region.unknown ? t('id-card.regionUnknown') : undefined}
-            />
-          )}
-          {result.birthDate && (
-            <ResultRow label={t('id-card.birthDate')} value={result.birthDate} copiedText={copiedText} onCopy={copy} />
-          )}
-          {result.age !== null && (
-            <PlainRow label={t('id-card.age')} value={t('id-card.ageValue', { age: result.age })} />
-          )}
-          {result.gender && (
-            <PlainRow label={t('id-card.gender')} value={t(`id-card.${result.gender}`)} />
-          )}
-          {(result.zodiac || result.constellation) && (
-            <div className="flex gap-6 pt-1">
-              {result.zodiac && <PlainRow label={t('id-card.zodiac')} value={result.zodiac} inline />}
-              {result.constellation && <PlainRow label={t('id-card.constellation')} value={result.constellation} inline />}
+          {(result.valid || result.reason === 'checksum') && (
+            <div className="space-y-2 border rounded-lg p-4">
+              {result.region.full && (
+                <ResultRow
+                  label={t('id-card.region')}
+                  value={result.region.full}
+                  copiedText={copiedText}
+                  onCopy={copy}
+                  hint={result.region.unknown ? t('id-card.regionUnknown') : undefined}
+                />
+              )}
+              {result.birthDate && (
+                <ResultRow label={t('id-card.birthDate')} value={result.birthDate} copiedText={copiedText} onCopy={copy} />
+              )}
+              {result.age !== null && (
+                <PlainRow label={t('id-card.age')} value={t('id-card.ageValue', { age: result.age })} />
+              )}
+              {result.gender && (
+                <PlainRow label={t('id-card.gender')} value={t(`id-card.${result.gender}`)} />
+              )}
+              {(result.zodiac || result.constellation) && (
+                <div className="flex gap-6 pt-1">
+                  {result.zodiac && <PlainRow label={t('id-card.zodiac')} value={result.zodiac} inline />}
+                  {result.constellation && <PlainRow label={t('id-card.constellation')} value={result.constellation} inline />}
+                </div>
+              )}
             </div>
           )}
         </div>

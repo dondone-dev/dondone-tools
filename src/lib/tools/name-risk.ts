@@ -17,11 +17,27 @@ export interface NameRiskResult {
 
 // ── Data shapes (as stored in JSON) ──────────────────────────────────────────
 
-interface HashEntry {
-  hash: string
+// Compact columnar hash data (v2). Parallel arrays indexed by entry position;
+// enum values are dictionary indexes and hashes are truncated to `hashBits`.
+export interface NameRiskV2 {
+  v: number
+  hashBits: number
+  generatedAt: string
+  count: number
+  sevDict: Severity[]
+  confDict: string[]
+  catDict: string[]
+  tagDict: string[]
+  hash: string[]
+  sev: number[]
+  conf: number[]
+  cat: number[][]
+  tag: number[][]
+}
+
+interface HashMatch {
   severity: Severity
   categories: string[]
-  tags: string[]
   confidence: string
 }
 
@@ -50,7 +66,8 @@ export interface NameRiskMeta {
 
 export interface NameRiskData {
   meta: NameRiskMeta
-  hashes: { entries: HashEntry[] }
+  hashHexLen: number
+  hashLookup: Map<string, HashMatch>
   rareChars: { characters: CharEntry[] }
   trendyChars: { characters: CharEntry[] }
   folkTaboo: { characters: CharEntry[] }
@@ -59,6 +76,19 @@ export interface NameRiskData {
     knownTraditionalCompoundSurnames: string[]
     examples: SurnameEntry[]
   }
+}
+
+// Decode the columnar v2 file into an O(1) lookup keyed by truncated hash.
+export function buildHashLookup(v2: NameRiskV2): Map<string, HashMatch> {
+  const map = new Map<string, HashMatch>()
+  for (let i = 0; i < v2.hash.length; i++) {
+    map.set(v2.hash[i], {
+      severity: v2.sevDict[v2.sev[i]],
+      categories: v2.cat[i].map((j) => v2.catDict[j]),
+      confidence: v2.confDict[v2.conf[i]],
+    })
+  }
+  return map
 }
 
 // ── Normalization (mirrors Go logic) ─────────────────────────────────────────
@@ -105,9 +135,9 @@ export async function checkName(
 
   if (!name) return { name: rawName, findings: [], worstSeverity: null }
 
-  // 1. SHA-256 hash match
-  const hash = await sha256Hex(name)
-  const hashHit = data.hashes.entries.find((e) => e.hash === hash)
+  // 1. SHA-256 hash match (truncated to the v2 hash width)
+  const hash = (await sha256Hex(name)).slice(0, data.hashHexLen)
+  const hashHit = data.hashLookup.get(hash)
   if (hashHit) {
     for (const cat of hashHit.categories) {
       findings.push({

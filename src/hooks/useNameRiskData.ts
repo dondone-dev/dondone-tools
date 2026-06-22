@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { NameRiskData } from '@/lib/tools/name-risk'
+import { buildHashLookup, type NameRiskData, type NameRiskV2 } from '@/lib/tools/name-risk'
 
 type Status = 'idle' | 'loading' | 'ready' | 'error'
 
@@ -23,16 +23,24 @@ export function useNameRiskData(): UseNameRiskDataResult {
 
     const base = '/data/name-risk'
     Promise.all([
-      fetch(`${base}/name-risk.meta.json`).then((r) => r.json()),
-      fetch(`${base}/name-risk.hashes.json`).then((r) => r.json()),
+      fetch(`${base}/name-risk.v2.json`).then((r) => r.json() as Promise<NameRiskV2>),
       fetch(`${base}/rare_characters.json`).then((r) => r.json()),
       fetch(`${base}/trendy_name_characters.json`).then((r) => r.json()),
       fetch(`${base}/feminine_folk_taboo_characters.json`).then((r) => r.json()),
       fetch(`${base}/generational_name_trends.json`).then((r) => r.json()),
       fetch(`${base}/compound_surname_risks.json`).then((r) => r.json()),
     ])
-      .then(([meta, hashes, rareChars, trendyChars, folkTaboo, generationTrends, compoundSurnames]) => {
-        cached = { meta, hashes, rareChars, trendyChars, folkTaboo, generationTrends, compoundSurnames }
+      .then(([v2, rareChars, trendyChars, folkTaboo, generationTrends, compoundSurnames]) => {
+        cached = {
+          meta: { generatedAt: v2.generatedAt, entryCount: v2.count },
+          hashHexLen: v2.hashBits / 4,
+          hashLookup: buildHashLookup(v2),
+          rareChars,
+          trendyChars,
+          folkTaboo,
+          generationTrends,
+          compoundSurnames,
+        }
         setData(cached)
         setStatus('ready')
       })

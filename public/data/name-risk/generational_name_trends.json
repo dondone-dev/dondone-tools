@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "category": "generation_association",
+  "defaultSeverity": "info",
+  "description": "姓名或用字的年代联想规则源。该数据不参与当前 SHA256 姓名精确匹配，适合前端或后续规则引擎做轻提示。",
+  "message": "该姓名或用字带有较明显的年代联想，可结合家庭审美与使用场景评估。",
+  "sourceNotes": [
+    "用户提供材料：二十世纪五十年代常见“建国”“建华”“国华”“和平”“秀英”“桂兰”等。",
+    "用户提供材料：六七十年代男性名多用“军”“勇”“伟”，女性名多用“英”“丽”“兰”。",
+    "用户提供材料：改革开放时期“磊”“鹏”“超”“丽”更多，九十年代“浩”“杰”“婷”“雪”等登场，新世纪以来“梓涵”“浩然”“欣怡”“俊杰”等受欢迎。"
+  ],
+  "suggestedMatchPolicy": {
+    "fullName": {
+      "severity": "info",
+      "message": "该姓名带有较明显的年代联想，可结合家庭审美与使用场景评估。"
+    },
+    "singleCharacter": {
+      "severity": "info",
+      "message": "姓名中包含具有年代联想的常见用字，可作为轻提示参考。"
+    }
+  },
+  "names": [
+    {
+      "name": "建国",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见男性名字。"
+    },
+    {
+      "name": "建华",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见名字，且在江苏较常见。"
+    },
+    {
+      "name": "国华",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见男性名字。"
+    },
+    {
+      "name": "和平",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见男性名字。"
+    },
+    {
+      "name": "秀英",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见女性名字，山东占比较高。"
+    },
+    {
+      "name": "桂兰",
+      "tags": ["generation_association", "era_bound_name", "mid_century_name"],
+      "confidence": "high",
+      "notes": "用户提供材料：二十世纪五十年代常见女性名字。"
+    },
+    {
+      "name": "玉梅",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：“玉梅”在河南省最常见。"
+    },
+    {
+      "name": "海燕",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：“海燕”在广东最常见。"
+    },
+    {
+      "name": "婷婷",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：“婷婷”生活在安徽的最多。"
+    }
+  ],
+  "characters": [
+    {
+      "char": "军",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代男性名字常用字。"
+    },
+    {
+      "char": "勇",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代男性名字常用字。"
+    },
+    {
+      "char": "伟",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代男性名字常用字。"
+    },
+    {
+      "char": "英",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代女性名字常用字。"
+    },
+    {
+      "char": "丽",
+      "tags": ["generation_association", "era_bound_name", "reform_era_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代及改革开放时期常见女性名字用字。"
+    },
+    {
+      "char": "兰",
+      "tags": ["generation_association", "era_bound_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：六七十年代女性名字常用字。"
+    },
+    {
+      "char": "磊",
+      "tags": ["generation_association", "reform_era_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：改革开放时期名字中更常见。"
+    },
+    {
+      "char": "鹏",
+      "tags": ["generation_association", "reform_era_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：改革开放时期名字中更常见。"
+    },
+    {
+      "char": "超",
+      "tags": ["generation_association", "reform_era_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：改革开放时期名字中更常见。"
+    },
+    {
+      "char": "浩",
+      "tags": ["generation_association", "post_2000_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：九十年代及新世纪后常见审美用字。"
+    },
+    {
+      "char": "杰",
+      "tags": ["generation_association", "post_2000_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：九十年代及新世纪后常见审美用字。"
+    },
+    {
+      "char": "婷",
+      "tags": ["generation_association", "post_2000_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：九十年代常见审美用字。"
+    },
+    {
+      "char": "雪",
+      "tags": ["generation_association", "post_2000_name"],
+      "confidence": "medium",
+      "notes": "用户提供材料：九十年代常见审美用字。"
+    }
+  ]
+}

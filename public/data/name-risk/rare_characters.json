@@ -1,0 +1,272 @@
+{
+  "version": 1,
+  "category": "rare_character_risk",
+  "defaultSeverity": "yellow",
+  "description": "生僻字/冷僻字风险规则源。该数据不参与当前 SHA256 姓名精确匹配，适合前端或后续规则引擎逐字扫描。",
+  "message": "姓名中包含较生僻汉字，可能在证件、银行、航旅、通信或线上实名系统中带来输入与识别成本。",
+  "sourceNotes": [
+    "该类数据用于提示输入法、证件、银行、航旅、通信和线上实名系统中的潜在识别成本。",
+    "极冷僻、扩展区、结构复杂或异体字默认 yellow；近年起名中可见但仍偏少见的字使用 info 或 medium 置信度。",
+    "不要把所有审美上少见的字都判断为不可用，前端文案应强调“可能带来输入与识别成本”。"
+  ],
+  "suggestedMatchPolicy": {
+    "singleCharacter": {
+      "severity": "yellow",
+      "message": "姓名中包含较生僻汉字，可能在证件、银行、航旅、通信或线上实名系统中带来输入与识别成本。"
+    }
+  },
+  "characters": [
+    {
+      "char": "䶮",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "high",
+      "notes": "公开报道提及姓名中带该字可能遇到银行账户、实名验证等问题。"
+    },
+    {
+      "char": "㑇",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "䜣",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "䜩",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "䞍",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "䴖",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "䃅",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "公开报道列举的冷僻汉字之一。"
+    },
+    {
+      "char": "𠮷",
+      "tags": ["rare_character_risk", "identity_system_risk", "variant_character"],
+      "confidence": "high",
+      "notes": "“吉”的异体/扩展区写法，跨系统录入、检索和显示兼容成本较高。"
+    },
+    {
+      "char": "龘",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构极复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "䲜",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构极复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "靐",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "齉",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "爨",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂，作为姓名用字时输入和识别成本较高。"
+    },
+    {
+      "char": "麤",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "飝",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂且日常使用频率很低，输入和识别成本高。"
+    },
+    {
+      "char": "猋",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构较特殊且日常使用频率低，姓名中出现可能增加输入识别成本。"
+    },
+    {
+      "char": "羴",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构较特殊且日常使用频率低，姓名中出现可能增加输入识别成本。"
+    },
+    {
+      "char": "鱻",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构较特殊且日常使用频率低，姓名中出现可能增加输入识别成本。"
+    },
+    {
+      "char": "犇",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "结构特殊，近年姓名中偶见；可作为输入识别成本轻提示。"
+    },
+    {
+      "char": "骉",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "结构特殊，近年姓名中偶见；可作为输入识别成本轻提示。"
+    },
+    {
+      "char": "垚",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "近年姓名中偶见但仍偏少见，可能带来读写和输入成本。"
+    },
+    {
+      "char": "壵",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "结构特殊且日常使用频率低，姓名中出现可能增加输入识别成本。"
+    },
+    {
+      "char": "淼",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但仍属结构特殊字，可作为输入识别成本轻提示。"
+    },
+    {
+      "char": "㵘",
+      "tags": ["rare_character_risk", "identity_system_risk", "complex_structure_character"],
+      "confidence": "high",
+      "notes": "结构复杂且日常使用频率低，输入和识别成本高。"
+    },
+    {
+      "char": "焱",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但仍属结构特殊字，可作为输入识别成本轻提示。"
+    },
+    {
+      "char": "燚",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character", "complex_structure_character"],
+      "confidence": "medium",
+      "notes": "近年姓名中偶见但仍偏少见，可能带来读写和输入成本。"
+    },
+    {
+      "char": "赟",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但读写和输入成本高于常用字。"
+    },
+    {
+      "char": "翀",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但读写和输入成本高于常用字。"
+    },
+    {
+      "char": "昉",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "旻",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "玹",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但读写和输入成本高于常用字。"
+    },
+    {
+      "char": "珣",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "琰",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "瑀",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "瑢",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    },
+    {
+      "char": "璟",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "low",
+      "notes": "近年起名中可见，主要作为读写识别成本轻提示。"
+    },
+    {
+      "char": "祎",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "low",
+      "notes": "近年起名中可见，主要作为读写识别成本轻提示。"
+    },
+    {
+      "char": "禤",
+      "tags": ["rare_character_risk", "identity_system_risk"],
+      "confidence": "medium",
+      "notes": "较少见汉字，作为姓名或姓氏时可能带来读写和输入成本。"
+    },
+    {
+      "char": "翾",
+      "severity": "info",
+      "tags": ["rare_character_risk", "uncommon_name_character"],
+      "confidence": "medium",
+      "notes": "姓名中可见但使用频率较低，可能带来读写和输入成本。"
+    }
+  ]
+}

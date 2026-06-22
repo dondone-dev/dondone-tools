@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "category": "compound_surname_risk",
+  "defaultSeverity": "yellow",
+  "description": "双姓、夹姓、姓氏谐音或偏旁设计带来的起名结构风险。该数据不参与当前 SHA256 姓名精确匹配，适合前端或后续规则引擎对姓名结构做检测。",
+  "message": "该姓名可能使用了双姓、夹姓或在姓氏上过度设计的结构，建议先明确单一姓氏并评估整体自然度。",
+  "sourceNotes": [
+    "用户提供观点：夹姓是高风险起名思路，容易让名字整体格调下降。",
+    "用户提供示例：黄杨、吕郭、刘马等“拼好姓”与望舒、风眠、商隐等名字组合时可能显得不自然。",
+    "该类数据属于起名结构建议，不应表述为绝对禁用。"
+  ],
+  "suggestedMatchPolicy": {
+    "knownCompoundSurname": {
+      "severity": "info",
+      "message": "该姓名使用传统复姓或明确双字姓氏，建议确认姓氏边界后再评估名字本身。"
+    },
+    "suspectedParentSurnameBlend": {
+      "severity": "yellow",
+      "message": "该姓名疑似使用双姓、夹姓或拼接姓氏结构，可能削弱名字自然度，建议谨慎评估。"
+    },
+    "surnameWordplay": {
+      "severity": "yellow",
+      "message": "该姓名疑似在姓氏谐音或偏旁上过度设计，可能显得刻意，建议谨慎评估。"
+    }
+  },
+  "examples": [
+    {
+      "surnamePart": "黄杨",
+      "tags": ["compound_surname_risk", "double_surname_structure", "overdesigned_surname_structure"],
+      "confidence": "medium",
+      "notes": "用户提供示例：作为夹姓/拼接姓氏结构时容易降低整体自然度。"
+    },
+    {
+      "surnamePart": "吕郭",
+      "tags": ["compound_surname_risk", "double_surname_structure", "overdesigned_surname_structure"],
+      "confidence": "medium",
+      "notes": "用户提供示例：作为夹姓/拼接姓氏结构时容易降低整体自然度。"
+    },
+    {
+      "surnamePart": "刘马",
+      "tags": ["compound_surname_risk", "double_surname_structure", "overdesigned_surname_structure"],
+      "confidence": "medium",
+      "notes": "用户提供示例：作为夹姓/拼接姓氏结构时容易降低整体自然度。"
+    }
+  ],
+  "knownTraditionalCompoundSurnames": [
+    "欧阳",
+    "司马",
+    "上官",
+    "诸葛",
+    "东方",
+    "皇甫",
+    "尉迟",
+    "公孙",
+    "慕容",
+    "宇文",
+    "司徒",
+    "司空",
+    "端木",
+    "轩辕",
+    "令狐",
+    "钟离",
+    "长孙",
+    "南宫",
+    "夏侯",
+    "西门",
+    "百里"
+  ],
+  "avoidGuidelines": [
+    "不要默认把两个单姓拼成姓氏部分。",
+    "不要为了谐音、偏旁或父母姓氏组合强行设计姓氏。",
+    "不要把传统复姓和临时拼接姓混为一类；传统复姓可只做边界确认，不必提示为负面。",
+    "前端提示应使用“疑似”“可能”“建议评估”，不要输出“烂名”或绝对否定。"
+  ]
+}

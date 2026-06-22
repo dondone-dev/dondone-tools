@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "category": "trendy_name_character",
+  "defaultSeverity": "yellow",
+  "description": "近年起名中较流行、容易形成模板感或“拼好名”观感的用字。该数据不参与当前 SHA256 姓名精确匹配，适合前端或后续规则引擎逐字扫描与组合计数。",
+  "message": "姓名中包含近年起名中较流行、容易形成模板感的用字，建议结合整体辨识度评估。",
+  "sourceNotes": [
+    "知乎专栏《宝宝起名如何避雷拼好名》搜索结果可访问摘要显示，文章讨论 2025 年流行名从集中款转向重新排列组合形成“拼好名”的现象。",
+    "用户指定示例字：梓、宸、昕、玥、喆、煜、熠、祎、璟、珩。",
+    "用户提供材料：2021年出生并已进行户籍登记的新生儿名字中，使用频率最高的50个字包括“泽”“梓”“子”“宇”“沐”等；与2020年相比，“汐”“芮”“霖”“航”等字受到青睐。"
+  ],
+  "suggestedMatchPolicy": {
+    "singleCharacter": {
+      "severity": "info",
+      "message": "姓名中包含近年较流行的起名用字，可结合整体搭配评估。"
+    },
+    "twoOrMoreCharacters": {
+      "severity": "yellow",
+      "message": "姓名中包含多个近年较流行的起名用字，可能显得模板化或缺乏辨识度。"
+    }
+  },
+  "characters": [
+    {
+      "char": "梓",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "宸",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "昕",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "玥",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "喆",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "煜",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "熠",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "祎",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "璟",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "珩",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户指定的“拼好名”避雷示例字。"
+    },
+    {
+      "char": "泽",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：2021年新生儿名字高频用字。"
+    },
+    {
+      "char": "子",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "medium",
+      "notes": "用户提供材料：2021年新生儿名字高频用字；“子涵”等曾有强重名联想。"
+    },
+    {
+      "char": "宇",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：2021年新生儿名字高频用字。"
+    },
+    {
+      "char": "沐",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：2021年新生儿名字高频用字；“沐宸”“沐辰”等为高频新生儿名。"
+    },
+    {
+      "char": "汐",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：与2020年相比，“汐”受到青睐；“若汐”为2021年女性新生儿高频名。"
+    },
+    {
+      "char": "芮",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：与2020年相比，“芮”受到青睐。"
+    },
+    {
+      "char": "霖",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：与2020年相比，“霖”受到青睐。"
+    },
+    {
+      "char": "航",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：与2020年相比，“航”受到青睐。"
+    },
+    {
+      "char": "苡",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：“苡”为新生儿起名常用且使用频度稍低的二级字；“苡沫”为女性新生儿前十。"
+    },
+    {
+      "char": "奕",
+      "tags": ["trendy_name_character", "assembled_trendy_name", "aesthetic_cliche_character"],
+      "confidence": "high",
+      "notes": "用户提供材料：“奕”为新生儿起名常用且使用频度稍低的二级字；“奕辰”为男性新生儿高频名。"
+    }
+  ]
+}

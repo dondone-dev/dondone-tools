@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "category": "folk_naming_taboo_character",
+  "defaultSeverity": "info",
+  "description": "女宝宝起名中部分民俗/主观起名观点会避开的用字。该数据不参与当前 SHA256 姓名精确匹配，适合前端或后续规则引擎逐字扫描。",
+  "message": "姓名中包含部分民俗起名观点中会避开的用字，可作为家庭偏好参考。",
+  "sourceNotes": [
+    "用户提供的女宝宝取名避雷内容，包含“孤独、孤傲字眼”和“忙碌不休”两类说法。",
+    "该类数据属于民俗或主观起名观点，不应在前端表述为事实判断、命运判断或性格判断。"
+  ],
+  "suggestedMatchPolicy": {
+    "singleCharacter": {
+      "severity": "info",
+      "message": "姓名中包含部分民俗起名观点中会避开的用字，可作为家庭偏好参考。"
+    },
+    "twoOrMoreCharacters": {
+      "severity": "info",
+      "message": "姓名中包含多个民俗起名观点中会避开的用字，如家人介意此类说法，建议再评估。"
+    }
+  },
+  "characters": [
+    {
+      "char": "枝",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "梅",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "雪",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "霞",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "月",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "贞",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "琴",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "英",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "亭",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "lonely_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“孤独、孤傲字眼”。"
+    },
+    {
+      "char": "敏",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "busy_life_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“忙碌不休”，原文称“奔忙之母”。"
+    },
+    {
+      "char": "茹",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "busy_life_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“忙碌不休”，原文称“含辛茹苦，付出多收获少”。"
+    },
+    {
+      "char": "萍",
+      "tags": ["folk_naming_taboo_character", "female_baby_naming_taboo", "busy_life_impression_character", "subjective_naming_belief"],
+      "confidence": "low",
+      "notes": "用户提供示例：归入“忙碌不休”，原文称“浮萍、无根草、奔波漂泊”。"
+    }
+  ]
+}

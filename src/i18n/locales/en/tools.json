@@ -493,5 +493,73 @@
       "birthdate": "The encoded date of birth does not exist",
       "checksum": "Check digit mismatch — expected {{expected}}, got {{actual}}"
     }
+  },
+  "name-risk": {
+    "title": "Name Risk Screener",
+    "description": "Check if a Chinese name has notable public associations, cultural taboos, or character-level risks before committing to it. All checks run locally.",
+    "inputLabel": "Full Name",
+    "placeholder": "e.g. 张伟",
+    "screenButton": "Screen",
+    "privacy": "All checks run locally. No data is sent to any server.",
+    "loadingData": "Loading data…",
+    "idle": "Enter a name to start screening.",
+    "cleanDetail": "No notable risks detected in the current dataset. This is a preliminary check — we recommend further evaluation based on family preferences and real-world context.",
+    "disclaimer": "This tool provides preliminary association risk hints only and does not constitute legal or cultural authority. Results are advisory. Final naming decisions should account for family context and real-world use.",
+    "matchedChars": "Matched characters",
+    "verdict": {
+      "clean": "No notable risks found",
+      "red": "Strong association — consider carefully",
+      "yellow": "Association risk detected",
+      "info": "Advisory notes",
+      "count": "{{count}} finding(s)",
+      "countZero": "0 findings"
+    },
+    "severity": {
+      "red": "High Risk",
+      "yellow": "Caution",
+      "info": "Advisory"
+    },
+    "category": {
+      "political_figure": "Political Figure",
+      "adult_content_character": "Adult Content",
+      "negative_public_event": "Negative Event",
+      "high_frequency_name": "High-Frequency Name",
+      "highly_bound_celebrity": "Celebrity Association",
+      "fiction_character": "Fictional Character",
+      "game_character": "Game Character",
+      "meme_bound_name": "Internet Meme",
+      "homophone_risk": "Homophone Risk",
+      "historical_figure": "Historical Figure",
+      "mythology_figure": "Mythology Figure",
+      "brand_bound_name": "Brand Association",
+      "trendy_name_character": "Trendy Name Characters",
+      "folk_naming_taboo_character": "Folk Naming Belief",
+      "compound_surname_risk": "Compound Surname",
+      "generation_association": "Era Association",
+      "rare_character_risk": "Rare Character",
+      "reserved": "Pending Review"
+    },
+    "message": {
+      "political_figure": "This name is strongly associated with a prominent political figure. Consider carefully.",
+      "adult_content_character": "This name is strongly associated with adult content not appropriate for a child's name.",
+      "negative_public_event": "This name is closely tied to a negative public event.",
+      "high_frequency_name": "This is a very common name and may lack distinctiveness in social, educational, or search contexts.",
+      "highly_bound_celebrity": "This name closely matches a well-known celebrity or public figure and may carry strong associations.",
+      "fiction_character": "This name is associated with a character from film, literature, or online content.",
+      "game_character": "This name is associated with a well-known game character.",
+      "meme_bound_name": "This name carries a strong internet meme or comedic association. Consider the context.",
+      "homophone_risk": "The pronunciation of this name may produce awkward or negative homophones.",
+      "historical_figure": "This name is strongly associated with a well-known historical figure.",
+      "mythology_figure": "This name is strongly associated with a figure from mythology, religion, or legend.",
+      "brand_bound_name": "This name is closely associated with a brand, product, or commercial IP.",
+      "trendy_name_character": "This name contains characters popular in recent years and may feel template-like or lack distinctiveness.",
+      "folk_naming_taboo_character": "This name contains characters that some folk naming traditions consider inauspicious. For family reference only.",
+      "compound_surname_risk": "This name may use a compound, blended, or over-designed surname structure. Consider evaluating overall naturalness.",
+      "generation_association": "This name or its characters carry a notable era association. Consider family aesthetics and context.",
+      "rare_character_risk": "This name contains rare characters that may cause issues in ID systems, banking, travel, or online services.",
+      "reserved": "This name has a pending review for potential public associations. Consider carefully."
+    },
+    "loadError": "Failed to load name risk data",
+    "dataVersion": "Data: {{date}} · {{count}} entries"
   }
 }

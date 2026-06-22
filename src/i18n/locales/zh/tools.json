@@ -493,5 +493,73 @@
       "birthdate": "编码中的出生日期不存在",
       "checksum": "校验码不匹配——应为 {{expected}}，实际为 {{actual}}"
     }
+  },
+  "name-risk": {
+    "title": "取名风险初筛",
+    "description": "检查一个中文姓名是否存在公众联想、文化忌讳或字符风险。所有检查均在本地完成，不上传任何数据。",
+    "inputLabel": "完整姓名",
+    "placeholder": "如：张伟",
+    "screenButton": "筛查",
+    "privacy": "所有检查均在本地完成，不上传任何数据。",
+    "loadingData": "正在加载数据…",
+    "idle": "输入一个姓名开始筛查。",
+    "cleanDetail": "在当前数据范围内，未检出明显联想风险。这是初步筛查，建议进一步结合家庭审美与实际场景综合评估。",
+    "disclaimer": "本工具为联想风险初步提示，不构成法律或文化权威判断。结果仅供参考，最终命名决策请综合家庭意见与实际场景评估。",
+    "matchedChars": "涉及字符",
+    "verdict": {
+      "clean": "未发现明显联想风险",
+      "red": "存在较强关联，建议谨慎评估",
+      "yellow": "存在联想风险，建议评估",
+      "info": "轻提示，供参考",
+      "count": "{{count}} 条提示",
+      "countZero": "0 条提示"
+    },
+    "severity": {
+      "red": "高关联",
+      "yellow": "注意",
+      "info": "提示"
+    },
+    "category": {
+      "political_figure": "政治人物",
+      "adult_content_character": "成人内容关联",
+      "negative_public_event": "负面事件关联",
+      "high_frequency_name": "高频姓名",
+      "highly_bound_celebrity": "明星强绑定",
+      "fiction_character": "影视文学角色",
+      "game_character": "游戏角色",
+      "meme_bound_name": "网络梗绑定",
+      "homophone_risk": "谐音风险",
+      "historical_figure": "历史人物",
+      "mythology_figure": "神话人物",
+      "brand_bound_name": "品牌绑定",
+      "trendy_name_character": "趋势用字",
+      "folk_naming_taboo_character": "民俗观点参考",
+      "compound_surname_risk": "复姓或夹姓结构",
+      "generation_association": "年代联想",
+      "rare_character_risk": "生僻字",
+      "reserved": "待复核"
+    },
+    "message": {
+      "political_figure": "该姓名与高知名公众人物存在强关联，建议谨慎使用。",
+      "adult_content_character": "该姓名在不适合儿童起名的内容中存在较强关联，建议谨慎使用。",
+      "negative_public_event": "该姓名与负面公共事件存在较强关联，建议谨慎使用。",
+      "high_frequency_name": "该姓名属于高频姓名，未来在社交、教育或搜索场景中可能缺乏辨识度。",
+      "highly_bound_celebrity": "该姓名与高知名公众人物或明星存在较强关联，可能带来明显联想。",
+      "fiction_character": "该姓名与影视、文学或网络作品角色存在关联，可能带来一定联想。",
+      "game_character": "该姓名与高知名游戏角色存在关联，可能带来一定联想。",
+      "meme_bound_name": "该姓名存在较强网络梗或调侃联想，建议结合使用场景评估。",
+      "homophone_risk": "该姓名读音可能产生尴尬或负面谐音，建议谨慎评估。",
+      "historical_figure": "该姓名与高知名历史人物存在强关联，可能带来明显联想。",
+      "mythology_figure": "该姓名与神话、宗教或传说人物存在强关联，可能带来明显联想。",
+      "brand_bound_name": "该姓名与品牌、产品或商业 IP 存在较强关联，可能带来一定联想。",
+      "trendy_name_character": "该姓名包含近年起名中较流行、容易形成模板感的用字，建议结合整体辨识度评估。",
+      "folk_naming_taboo_character": "该姓名包含部分民俗起名观点中会避开的用字，可作为家庭偏好参考。",
+      "compound_surname_risk": "该姓名可能使用了双姓、夹姓或在姓氏上过度设计的结构，建议先明确单一姓氏并评估整体自然度。",
+      "generation_association": "该姓名或用字带有较明显的年代联想，可结合家庭审美与使用场景评估。",
+      "rare_character_risk": "姓名中包含较生僻汉字，可能在证件、银行、航旅、通信或线上实名系统中带来输入与识别成本。",
+      "reserved": "该姓名存在待复核的公共联想风险，建议谨慎评估。"
+    },
+    "loadError": "姓名风险数据加载失败",
+    "dataVersion": "数据版本：{{date}} · {{count}} 条记录"
   }
 }

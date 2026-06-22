@@ -26,6 +26,7 @@ import {
   EyeOff,
   FileArchive,
   ScanText,
+  Baby,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -193,6 +194,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'id-card.description',
     href: '/text/id-card',
     icon: IdCard,
+    category: 'Text',
+  },
+  {
+    id: 'name-risk',
+    title: 'Name Risk Screener',
+    descriptionKey: 'name-risk.description',
+    href: '/text/name-risk',
+    icon: Baby,
     category: 'Text',
   },
   {

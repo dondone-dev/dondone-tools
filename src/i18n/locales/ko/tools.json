@@ -493,5 +493,73 @@
       "birthdate": "인코딩된 생년월일이 존재하지 않습니다",
       "checksum": "검증 코드 불일치 — 예상 {{expected}}, 실제 {{actual}}"
     }
+  },
+  "name-risk": {
+    "title": "이름 위험 검사기",
+    "description": "중국 이름에 주목할 만한 공공 연관성, 문화적 금기 또는 문자 수준의 위험이 있는지 확인합니다. 모든 처리는 로컬에서 실행됩니다.",
+    "inputLabel": "전체 이름",
+    "placeholder": "예: 张伟",
+    "screenButton": "검사",
+    "privacy": "모든 검사는 로컬에서 실행됩니다. 서버로 데이터가 전송되지 않습니다.",
+    "loadingData": "데이터 로딩 중…",
+    "idle": "이름을 입력하여 검사를 시작하세요.",
+    "cleanDetail": "현재 데이터셋에서 주목할 만한 위험이 감지되지 않았습니다. 예비 검사이므로 가족 선호도와 실제 상황을 바탕으로 추가 평가를 권장합니다.",
+    "disclaimer": "이 도구는 예비적인 연관 위험 힌트만 제공하며 법적 또는 문화적 권위를 구성하지 않습니다. 결과는 참고용입니다.",
+    "matchedChars": "일치하는 문자",
+    "verdict": {
+      "clean": "주목할 만한 위험 없음",
+      "red": "강한 연관성 — 신중하게 검토하세요",
+      "yellow": "연관 위험 감지됨",
+      "info": "참고 사항",
+      "count": "{{count}}개 발견",
+      "countZero": "0개 발견"
+    },
+    "severity": {
+      "red": "고위험",
+      "yellow": "주의",
+      "info": "참고"
+    },
+    "category": {
+      "political_figure": "정치인",
+      "adult_content_character": "성인 콘텐츠",
+      "negative_public_event": "부정적 사건",
+      "high_frequency_name": "고빈도 이름",
+      "highly_bound_celebrity": "유명인 연관",
+      "fiction_character": "가상 캐릭터",
+      "game_character": "게임 캐릭터",
+      "meme_bound_name": "인터넷 밈",
+      "homophone_risk": "동음이의어 위험",
+      "historical_figure": "역사적 인물",
+      "mythology_figure": "신화적 인물",
+      "brand_bound_name": "브랜드 연관",
+      "trendy_name_character": "유행 문자",
+      "folk_naming_taboo_character": "민속 명명 신앙",
+      "compound_surname_risk": "복합 성씨",
+      "generation_association": "시대 연상",
+      "rare_character_risk": "희귀 문자",
+      "reserved": "검토 대기"
+    },
+    "message": {
+      "political_figure": "이 이름은 저명한 정치인과 강하게 연관되어 있습니다. 신중하게 고려하세요.",
+      "adult_content_character": "이 이름은 어린이 이름으로 적합하지 않은 성인 콘텐츠와 강하게 연관되어 있습니다.",
+      "negative_public_event": "이 이름은 부정적인 공공 사건과 밀접하게 연결되어 있습니다.",
+      "high_frequency_name": "이는 매우 흔한 이름으로 사회적, 교육적 또는 검색 상황에서 독창성이 부족할 수 있습니다.",
+      "highly_bound_celebrity": "이 이름은 잘 알려진 유명인과 밀접하게 일치합니다.",
+      "fiction_character": "이 이름은 영화, 문학 또는 온라인 콘텐츠의 캐릭터와 연관되어 있습니다.",
+      "game_character": "이 이름은 잘 알려진 게임 캐릭터와 연관되어 있습니다.",
+      "meme_bound_name": "이 이름은 강한 인터넷 밈 또는 유머 연상을 갖고 있습니다.",
+      "homophone_risk": "이 이름의 발음은 불쾌하거나 부정적인 동음이의어를 생성할 수 있습니다.",
+      "historical_figure": "이 이름은 잘 알려진 역사적 인물과 강하게 연관되어 있습니다.",
+      "mythology_figure": "이 이름은 신화, 종교 또는 전설의 인물과 강하게 연관되어 있습니다.",
+      "brand_bound_name": "이 이름은 브랜드, 제품 또는 상업적 IP와 밀접하게 연관되어 있습니다.",
+      "trendy_name_character": "이 이름에는 최근 몇 년간 인기 있는 문자가 포함되어 있어 틀에 박힌 느낌을 줄 수 있습니다.",
+      "folk_naming_taboo_character": "이 이름에는 일부 민속 명명 전통에서 불길하다고 여기는 문자가 포함되어 있습니다.",
+      "compound_surname_risk": "이 이름은 복합 또는 과도하게 디자인된 성씨 구조를 사용할 수 있습니다.",
+      "generation_association": "이 이름 또는 그 문자는 주목할 만한 시대 연상을 가지고 있습니다.",
+      "rare_character_risk": "이 이름에는 신분증, 은행, 여행 또는 온라인 서비스에서 문제를 일으킬 수 있는 희귀 문자가 포함되어 있습니다.",
+      "reserved": "이 이름은 잠재적인 공공 연관성에 대해 검토 대기 중입니다."
+    },
+    "loadError": "이름 위험 데이터를 불러오지 못했습니다",
+    "dataVersion": "데이터: {{date}} · {{count}}개"
   }
 }

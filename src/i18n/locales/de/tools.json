@@ -493,5 +493,73 @@
       "birthdate": "Das codierte Geburtsdatum existiert nicht",
       "checksum": "Prüfziffer stimmt nicht — erwartet {{expected}}, erhalten {{actual}}"
     }
+  },
+  "name-risk": {
+    "title": "Namensrisiko-Prüfer",
+    "description": "Überprüfen Sie, ob ein chinesischer Name notable öffentliche Assoziationen, kulturelle Tabus oder zeichenbezogene Risiken aufweist. Alles läuft lokal.",
+    "inputLabel": "Vollständiger Name",
+    "placeholder": "z.B. 张伟",
+    "screenButton": "Prüfen",
+    "privacy": "Alle Prüfungen laufen lokal. Es werden keine Daten an einen Server gesendet.",
+    "loadingData": "Daten werden geladen…",
+    "idle": "Geben Sie einen Namen ein, um die Prüfung zu starten.",
+    "cleanDetail": "Im aktuellen Datensatz wurden keine nennenswerten Risiken festgestellt. Dies ist eine Vorabprüfung — eine weitere Bewertung wird empfohlen.",
+    "disclaimer": "Dieses Tool liefert nur vorläufige Assoziationsrisikohinweise und stellt keine rechtliche oder kulturelle Autorität dar. Die Ergebnisse sind beratender Natur.",
+    "matchedChars": "Übereinstimmende Zeichen",
+    "verdict": {
+      "clean": "Keine nennenswerten Risiken gefunden",
+      "red": "Starke Assoziation — sorgfältig prüfen",
+      "yellow": "Assoziationsrisiko erkannt",
+      "info": "Beratungshinweise",
+      "count": "{{count}} Ergebnis(se)",
+      "countZero": "0 Ergebnisse"
+    },
+    "severity": {
+      "red": "Hohes Risiko",
+      "yellow": "Vorsicht",
+      "info": "Hinweis"
+    },
+    "category": {
+      "political_figure": "Politische Persönlichkeit",
+      "adult_content_character": "Erwachseneninhalt",
+      "negative_public_event": "Negatives Ereignis",
+      "high_frequency_name": "Häufiger Name",
+      "highly_bound_celebrity": "Prominenten-Assoziation",
+      "fiction_character": "Fiktive Figur",
+      "game_character": "Spielfigur",
+      "meme_bound_name": "Internet-Meme",
+      "homophone_risk": "Homophon-Risiko",
+      "historical_figure": "Historische Persönlichkeit",
+      "mythology_figure": "Mythologische Figur",
+      "brand_bound_name": "Marken-Assoziation",
+      "trendy_name_character": "Trendige Zeichen",
+      "folk_naming_taboo_character": "Volksglauben",
+      "compound_surname_risk": "Zusammengesetzter Nachname",
+      "generation_association": "Generationsassoziation",
+      "rare_character_risk": "Seltenes Zeichen",
+      "reserved": "Ausstehende Überprüfung"
+    },
+    "message": {
+      "political_figure": "Dieser Name ist stark mit einer prominenten politischen Persönlichkeit assoziiert. Sorgfältig abwägen.",
+      "adult_content_character": "Dieser Name ist stark mit Erwachseneninhalten assoziiert, die für einen Kindernamen ungeeignet sind.",
+      "negative_public_event": "Dieser Name ist eng mit einem negativen öffentlichen Ereignis verbunden.",
+      "high_frequency_name": "Dies ist ein sehr verbreiteter Name, der in sozialen, bildungsbezogenen oder Suchkontexten an Einzigartigkeit fehlen kann.",
+      "highly_bound_celebrity": "Dieser Name stimmt eng mit einer bekannten Berühmtheit oder öffentlichen Persönlichkeit überein.",
+      "fiction_character": "Dieser Name ist mit einer Figur aus Film, Literatur oder Online-Inhalten assoziiert.",
+      "game_character": "Dieser Name ist mit einer bekannten Spielfigur assoziiert.",
+      "meme_bound_name": "Dieser Name trägt eine starke Internet-Meme- oder humoristische Assoziation.",
+      "homophone_risk": "Die Aussprache dieses Namens kann peinliche oder negative Homophones erzeugen.",
+      "historical_figure": "Dieser Name ist stark mit einer bekannten historischen Persönlichkeit assoziiert.",
+      "mythology_figure": "Dieser Name ist stark mit einer Figur aus Mythologie, Religion oder Legende assoziiert.",
+      "brand_bound_name": "Dieser Name ist eng mit einer Marke, einem Produkt oder einem kommerziellen IP assoziiert.",
+      "trendy_name_character": "Dieser Name enthält Zeichen, die in den letzten Jahren beliebt sind, und kann vorlagenähnlich wirken.",
+      "folk_naming_taboo_character": "Dieser Name enthält Zeichen, die manche Volksbrauchtumstraditionen als unheilsam betrachten. Nur als Familienreferenz.",
+      "compound_surname_risk": "Dieser Name könnte einen zusammengesetzten oder übermäßig gestalteten Nachnamen verwenden.",
+      "generation_association": "Dieser Name oder seine Zeichen tragen eine bemerkenswerte Generationsassoziation.",
+      "rare_character_risk": "Dieser Name enthält seltene Zeichen, die in Ausweisstellen, Banken, auf Reisen oder bei Online-Diensten Probleme verursachen können.",
+      "reserved": "Dieser Name steht für potenzielle öffentliche Assoziationen noch zur Überprüfung aus."
+    },
+    "loadError": "Namensrisikodaten konnten nicht geladen werden",
+    "dataVersion": "Daten: {{date}} · {{count}} Einträge"
   }
 }

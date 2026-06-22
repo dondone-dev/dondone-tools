@@ -500,6 +500,7 @@
     "inputLabel": "Nombre completo",
     "placeholder": "Ej.: 张伟",
     "screenButton": "Analizar",
+    "exampleButton": "Ejemplo",
     "privacy": "Todas las comprobaciones se realizan localmente. No se envían datos a ningún servidor.",
     "loadingData": "Cargando datos…",
     "idle": "Introduce un nombre para comenzar el análisis.",

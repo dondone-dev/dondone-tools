@@ -500,6 +500,7 @@
     "inputLabel": "전체 이름",
     "placeholder": "예: 张伟",
     "screenButton": "검사",
+    "exampleButton": "예시",
     "privacy": "모든 검사는 로컬에서 실행됩니다. 서버로 데이터가 전송되지 않습니다.",
     "loadingData": "데이터 로딩 중…",
     "idle": "이름을 입력하여 검사를 시작하세요.",

@@ -500,6 +500,7 @@
     "inputLabel": "フルネーム",
     "placeholder": "例：张伟",
     "screenButton": "チェック",
+    "exampleButton": "サンプル",
     "privacy": "すべての処理はローカルで実行されます。データはサーバーに送信されません。",
     "loadingData": "データを読み込んでいます…",
     "idle": "名前を入力してスクリーニングを開始してください。",

@@ -500,6 +500,7 @@
     "inputLabel": "Vollständiger Name",
     "placeholder": "z.B. 张伟",
     "screenButton": "Prüfen",
+    "exampleButton": "Beispiel",
     "privacy": "Alle Prüfungen laufen lokal. Es werden keine Daten an einen Server gesendet.",
     "loadingData": "Daten werden geladen…",
     "idle": "Geben Sie einen Namen ein, um die Prüfung zu starten.",

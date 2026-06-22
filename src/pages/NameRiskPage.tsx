@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AlertTriangle, CheckCircle2, Info, Search, ShieldCheck } from 'lucide-react'
+import { AlertTriangle, CheckCircle2, Info, Search, ShieldCheck, Shuffle } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -8,6 +8,16 @@ import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { checkName, type NameRiskFinding, type NameRiskResult, type Severity } from '@/lib/tools/name-risk'
 import { useNameRiskData } from '@/hooks/useNameRiskData'
+
+// Curated example names, all verified to match the dataset across a range of
+// severities and categories (placeholder, celebrity, historical, fiction,
+// athlete, common name…). No political or otherwise controversial names.
+const EXAMPLE_NAMES = [
+  '张三', '李四', '刘德华', '周杰伦', '成龙', '邓丽君', '王菲', '章子怡',
+  '李白', '杜甫', '苏轼', '屈原', '李清照', '王羲之', '孔子', '老子',
+  '武则天', '袁隆平', '钱学森', '李时珍', '华佗', '孙悟空', '林黛玉',
+  '诸葛亮', '郭靖', '刘翔', '李娜', '姚明', '郎平', '张伟',
+]
 
 // ── Category label lookup (i18n key → display) ───────────────────────────────
 
@@ -199,6 +209,7 @@ export function NameRiskPage() {
   const [result, setResult] = useState<NameRiskResult | null>(null)
   const [pendingName, setPendingName] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const lastExampleRef = useRef(-1)
 
   const trimmed = input.trim()
 
@@ -221,6 +232,18 @@ export function NameRiskPage() {
     e.preventDefault()
     if (!trimmed || status !== 'ready') return
     runCheck(trimmed)
+  }
+
+  function fillExample() {
+    if (status !== 'ready' || scanning) return
+    let i = Math.floor(Math.random() * EXAMPLE_NAMES.length)
+    if (EXAMPLE_NAMES.length > 1 && i === lastExampleRef.current) {
+      i = (i + 1) % EXAMPLE_NAMES.length
+    }
+    lastExampleRef.current = i
+    const name = EXAMPLE_NAMES[i]
+    setInput(name)
+    runCheck(name)
   }
 
   // Sort findings: red → yellow → info, dedup by category within hash/rule groups
@@ -278,9 +301,20 @@ export function NameRiskPage() {
             <Search className="h-4 w-4" />
             {t('name-risk.screenButton')}
           </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={fillExample}
+            disabled={status !== 'ready' || scanning}
+            className="px-5 gap-1.5 flex-shrink-0"
+            aria-label={t('name-risk.exampleButton')}
+          >
+            <Shuffle className="h-4 w-4" />
+            {t('name-risk.exampleButton')}
+          </Button>
         </div>
         <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <ShieldCheck className="h-3.5 w-3.5" />
+          <ShieldCheck className="h-3.5 w-3.5 flex-shrink-0" />
           {t('name-risk.privacy')}
         </p>
       </form>

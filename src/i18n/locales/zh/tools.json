@@ -500,6 +500,7 @@
     "inputLabel": "完整姓名",
     "placeholder": "如：张伟",
     "screenButton": "筛查",
+    "exampleButton": "随机示例",
     "privacy": "所有检查均在本地完成，不上传任何数据。",
     "loadingData": "正在加载数据…",
     "idle": "输入一个姓名开始筛查。",

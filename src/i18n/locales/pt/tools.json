@@ -500,6 +500,7 @@
     "inputLabel": "Nome completo",
     "placeholder": "Ex.: 张伟",
     "screenButton": "Verificar",
+    "exampleButton": "Exemplo",
     "privacy": "Todas as verificações são realizadas localmente. Nenhum dado é enviado para um servidor.",
     "loadingData": "Carregando dados…",
     "idle": "Insira um nome para iniciar a verificação.",

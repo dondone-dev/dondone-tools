@@ -500,6 +500,7 @@
     "inputLabel": "Full Name",
     "placeholder": "e.g. 张伟",
     "screenButton": "Screen",
+    "exampleButton": "Example",
     "privacy": "All checks run locally. No data is sent to any server.",
     "loadingData": "Loading data…",
     "idle": "Enter a name to start screening.",

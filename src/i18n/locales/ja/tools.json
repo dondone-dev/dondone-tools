@@ -270,7 +270,10 @@
   },
   "uuid": {
     "title": "UUID ジェネレーター",
-    "description": "UUID v4（ランダム）を生成 — 最大 1000 件のバッチ生成に対応",
+    "description": "UUID v4（ランダム）または v7（時系列）を生成 — 最大 1000 件のバッチ生成に対応",
+    "version": "バージョン",
+    "v4": "v4（ランダム）",
+    "v7": "v7（時系列）",
     "count": "個数",
     "generate": "生成",
     "generated": "件の UUID を生成しました",

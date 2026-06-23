@@ -270,7 +270,10 @@
   },
   "uuid": {
     "title": "UUID 생성기",
-    "description": "UUID v4(무작위) 생성 — 최대 1000개 일괄 생성 지원",
+    "description": "UUID v4(무작위) 또는 v7(시간순) 생성 — 최대 1000개 일괄 생성 지원",
+    "version": "버전",
+    "v4": "v4(무작위)",
+    "v7": "v7(시간순)",
     "count": "개수",
     "generate": "생성",
     "generated": "개 UUID 생성됨",

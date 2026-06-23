@@ -70,6 +70,7 @@ function toolRoutes() {
       <Route path="text/json-format" element={<JsonFormatPage />} />
       <Route path="text/string-length" element={<StringLengthPage />} />
       <Route path="security/password-strength" element={<PasswordStrengthPage />} />
+      <Route path="random/ugly-avatar" element={<UglyAvatarPage />} />
       <Route path="fun/ugly-avatar" element={<UglyAvatarPage />} />
       <Route path="bp/jwt" element={<BpJwtPage />} />
       <Route path="bp/sign" element={<BpSignPage />} />
@@ -80,6 +81,7 @@ function toolRoutes() {
       <Route path="text/regex" element={<RegexPage />} />
       <Route path="text/id-card" element={<Suspense fallback={<ToolSkeleton />}><IdCardPage /></Suspense>} />
       <Route path="text/name-risk" element={<Suspense fallback={<ToolSkeleton />}><NameRiskPage /></Suspense>} />
+      <Route path="random/uuid" element={<UuidPage />} />
       <Route path="fun/uuid" element={<UuidPage />} />
       <Route path="sql/supabase-rls" element={<SupabaseRlsPage />} />
       <Route path="image/exif" element={<ExifPage />} />

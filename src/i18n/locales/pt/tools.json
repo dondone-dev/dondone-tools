@@ -270,7 +270,10 @@
   },
   "uuid": {
     "title": "Gerador UUID",
-    "description": "Gere UUID v4 aleatórios — até 1000 em lote",
+    "description": "Gere UUID v4 aleatórios ou v7 ordenados por tempo — até 1000 em lote",
+    "version": "Versão",
+    "v4": "v4 (aleatório)",
+    "v7": "v7 (ordenado por tempo)",
     "count": "Quantidade",
     "generate": "Gerar",
     "generated": "UUIDs gerados",

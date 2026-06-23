@@ -270,7 +270,10 @@
   },
   "uuid": {
     "title": "UUID 生成器",
-    "description": "生成 UUID v4（随机），支持批量生成，最多 1000 个",
+    "description": "生成 UUID v4（随机）或 v7（按时间排序），支持批量生成，最多 1000 个",
+    "version": "版本",
+    "v4": "v4（随机）",
+    "v7": "v7（按时间排序）",
     "count": "数量",
     "generate": "生成",
     "generated": "个 UUID 已生成",

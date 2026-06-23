@@ -44,7 +44,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File' | 'Finance'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Random' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File' | 'Finance'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -267,17 +267,17 @@ export const TOOLS: ToolConfig[] = [
     id: 'uuid',
     title: 'UUID Generator',
     descriptionKey: 'uuid.description',
-    href: '/fun/uuid',
+    href: '/random/uuid',
     icon: Fingerprint,
-    category: 'Fun',
+    category: 'Random',
   },
   {
     id: 'ugly-avatar',
     title: 'Ugly Avatar',
     descriptionKey: 'ugly-avatar.description',
-    href: '/fun/ugly-avatar',
+    href: '/random/ugly-avatar',
     icon: Smile,
-    category: 'Fun',
+    category: 'Random',
   },
   {
     id: 'bp-jwt',
@@ -337,7 +337,7 @@ export const TOOLS: ToolConfig[] = [
   // },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Design', 'Image', 'File', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Design', 'Image', 'File', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

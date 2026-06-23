@@ -270,7 +270,10 @@
   },
   "uuid": {
     "title": "UUID Generator",
-    "description": "Generate UUID v4 (random) — single or batch up to 1000",
+    "description": "Generate UUID v4 (random) or v7 (time-ordered) — single or batch up to 1000",
+    "version": "Version",
+    "v4": "v4 (random)",
+    "v7": "v7 (time-ordered)",
     "count": "Count",
     "generate": "Generate",
     "generated": "UUIDs generated",

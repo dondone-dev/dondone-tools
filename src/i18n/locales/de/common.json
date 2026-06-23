@@ -21,7 +21,8 @@
     "Design": "Design",
     "SQL": "SQL",
     "Image": "Bild",
-    "File": "Datei"
+    "File": "Datei",
+    "Finance": "Finanzen"
   },
   "ui": {
     "result": "Ergebnis",

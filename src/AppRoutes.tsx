@@ -48,6 +48,7 @@ const HeicPage = lazy(() => import('@/pages/HeicPage').then(m => ({ default: m.H
 const ZipInspectorPage = lazy(() => import('@/pages/ZipInspectorPage').then(m => ({ default: m.ZipInspectorPage })))
 const OcrPage = lazy(() => import('@/pages/OcrPage').then(m => ({ default: m.OcrPage })))
 const BgRemovePage = lazy(() => import('@/pages/BgRemovePage').then(m => ({ default: m.BgRemovePage })))
+const PayrollCnPage = lazy(() => import('@/pages/PayrollCnPage').then(m => ({ default: m.PayrollCnPage })))
 
 function toolRoutes() {
   return (
@@ -85,6 +86,7 @@ function toolRoutes() {
       <Route path="file/zip-inspector" element={<Suspense fallback={<ToolSkeleton />}><ZipInspectorPage /></Suspense>} />
       <Route path="image/ocr" element={<Suspense fallback={<ToolSkeleton />}><OcrPage /></Suspense>} />
       <Route path="image/bg-remove" element={<Suspense fallback={<ToolSkeleton />}><BgRemovePage /></Suspense>} />
+      <Route path="finance/social-insurance" element={<Suspense fallback={<ToolSkeleton />}><PayrollCnPage /></Suspense>} />
     </>
   )
 }

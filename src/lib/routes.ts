@@ -20,6 +20,7 @@ export const TOOL_ROUTES = [
   '/text/id-card',
   '/text/name-risk',
   '/security/password-strength',
+  '/finance/social-insurance',
   '/sql/supabase-rls',
   '/design/color',
   '/fun/uuid',

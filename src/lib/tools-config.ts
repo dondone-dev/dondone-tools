@@ -27,6 +27,7 @@ import {
   FileArchive,
   ScanText,
   Baby,
+  Wallet,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -41,7 +42,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File' | 'Finance'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -205,6 +206,14 @@ export const TOOLS: ToolConfig[] = [
     category: 'Text',
   },
   {
+    id: 'payroll-cn',
+    title: 'China Payroll Calculator',
+    descriptionKey: 'payroll-cn.description',
+    href: '/finance/social-insurance',
+    icon: Wallet,
+    category: 'Finance',
+  },
+  {
     id: 'password-strength',
     title: 'Password Strength',
     descriptionKey: 'password-strength.description',
@@ -310,7 +319,7 @@ export const TOOLS: ToolConfig[] = [
   // },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Design', 'Image', 'File', 'Fun', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Design', 'Image', 'File', 'Fun', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

@@ -32,15 +32,15 @@ export function Header({ breadcrumbs, currentLocale = DEFAULT_LOCALE, currentPat
         </Link>
 
         {!isHome && breadcrumbs && breadcrumbs.length > 0 && (
-          <>
+          <nav className="hidden min-w-0 items-center gap-2 sm:flex">
             {breadcrumbs.map((item, index) => (
-              <span key={index} className="flex items-center gap-2">
+              <span key={index} className="flex min-w-0 items-center gap-2">
                 <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
                 {item.href ? (
                   <Link
                     to={item.href}
                     className={cn(
-                      'text-sm hover:text-foreground transition-colors',
+                      'truncate text-sm hover:text-foreground transition-colors',
                       index === breadcrumbs.length - 1
                         ? 'text-foreground font-medium'
                         : 'text-muted-foreground'
@@ -51,7 +51,7 @@ export function Header({ breadcrumbs, currentLocale = DEFAULT_LOCALE, currentPat
                 ) : (
                   <span
                     className={cn(
-                      'text-sm',
+                      'truncate text-sm',
                       index === breadcrumbs.length - 1
                         ? 'text-foreground font-medium'
                         : 'text-muted-foreground'
@@ -62,7 +62,7 @@ export function Header({ breadcrumbs, currentLocale = DEFAULT_LOCALE, currentPat
                 )}
               </span>
             ))}
-          </>
+          </nav>
         )}
 
         <div className="ml-auto flex items-center gap-1">

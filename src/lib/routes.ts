@@ -26,6 +26,7 @@ export const TOOL_ROUTES = [
   '/sql/supabase-rls',
   '/design/color',
   '/random/uuid',
+  '/random/string',
   '/random/ugly-avatar',
   '/bp/jwt',
   '/bp/sign',

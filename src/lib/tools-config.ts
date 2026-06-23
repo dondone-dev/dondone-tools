@@ -30,6 +30,7 @@ import {
   Wallet,
   Briefcase,
   Store,
+  Shuffle,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -269,6 +270,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'uuid.description',
     href: '/random/uuid',
     icon: Fingerprint,
+    category: 'Random',
+  },
+  {
+    id: 'random-string',
+    title: 'Random String',
+    descriptionKey: 'random-string.description',
+    href: '/random/string',
+    icon: Shuffle,
     category: 'Random',
   },
   {

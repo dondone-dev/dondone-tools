@@ -651,5 +651,41 @@
     "note": "Les indépendants paient la totalité eux-mêmes. La retraite et la maladie s'appliquent ; certaines villes incluent aussi le chômage. Pas d'accident du travail / maternité / fonds de logement, et l'impôt sur le revenu n'est pas inclus.",
     "unemployment": "Chômage",
     "medicalFlat": "Cette ville applique un forfait mensuel maladie fixe, indépendant de la base."
+  },
+  "beijing-getihu": {
+    "title": "Cotisations sociales minimales – entrepreneur individuel (Pékin)",
+    "description": "Cotisations sociales (五险) mensuelles minimales d'un 个体工商户 (entreprise individuelle) à Pékin payant les parts employeur et salarié au plancher. Comparaison annuelle par graphique linéaire et avis de prélèvement officiel. Tous les calculs sont effectués localement.",
+    "year": "Année de référence",
+    "yearLabel": "{{year}}",
+    "notPublished": "non encore publié",
+    "context": "Les non-résidents de Pékin ne peuvent pas s'affilier à l'assurance des travailleurs indépendants de Pékin ; beaucoup enregistrent donc une entreprise individuelle (个体工商户) et cotisent en tant qu'employeur, prenant en charge les parts employeur et salarié. Ceci montre le minimum au plancher de cotisation.",
+    "trend": "Évolution annuelle",
+    "legendSocial": "Cinq assurances",
+    "disclaimer": "Basé sur les planchers officiels de Pékin et le taux combiné employeur+salarié (cinq assurances 37,2% + ¥3 fixe 大额医疗), vérifié avec des montants réels de 个体工商户 (2025 : 2 667,27 ¥). Les chiffres varient — vérifiez auprès des autorités de sécurité sociale de Pékin. Estimation uniquement. Le taux d'accidents du travail dépend du secteur (0,2%–1,9%) ; 0,4% est utilisé ici pour correspondre à l'avis de référence.",
+    "col": {
+      "category": "Catégorie de prélèvement",
+      "item": "Poste de prélèvement",
+      "amount": "Montant dû"
+    },
+    "cat": {
+      "pension": "Retraite de base des salariés",
+      "unemployment": "Assurance chômage",
+      "medical": "Assurance maladie de base",
+      "injury": "Assurance accidents du travail"
+    },
+    "ins": {
+      "pension": "Retraite de base du salarié",
+      "unemployment": "Assurance chômage",
+      "medicalBasic": "Assurance maladie de base du salarié",
+      "medicalLarge": "Entraide maladie majeure du salarié",
+      "injury": "Assurance accidents du travail"
+    },
+    "side": {
+      "employer": "employeur",
+      "employee": "individuel"
+    },
+    "itemFmt": "{{name}} ({{side}})",
+    "totalLower": "Total (chiffres)",
+    "totalUpper": "Total (en lettres)"
   }
 }

@@ -50,6 +50,7 @@ const OcrPage = lazy(() => import('@/pages/OcrPage').then(m => ({ default: m.Ocr
 const BgRemovePage = lazy(() => import('@/pages/BgRemovePage').then(m => ({ default: m.BgRemovePage })))
 const PayrollCnPage = lazy(() => import('@/pages/PayrollCnPage').then(m => ({ default: m.PayrollCnPage })))
 const FlexibleInsurancePage = lazy(() => import('@/pages/FlexibleInsurancePage').then(m => ({ default: m.FlexibleInsurancePage })))
+const BeijingGetihuPage = lazy(() => import('@/pages/BeijingGetihuPage').then(m => ({ default: m.BeijingGetihuPage })))
 
 function toolRoutes() {
   return (
@@ -89,6 +90,7 @@ function toolRoutes() {
       <Route path="image/bg-remove" element={<Suspense fallback={<ToolSkeleton />}><BgRemovePage /></Suspense>} />
       <Route path="finance/social-insurance" element={<Suspense fallback={<ToolSkeleton />}><PayrollCnPage /></Suspense>} />
       <Route path="finance/flexible-insurance" element={<Suspense fallback={<ToolSkeleton />}><FlexibleInsurancePage /></Suspense>} />
+      <Route path="finance/beijing-getihu" element={<Suspense fallback={<ToolSkeleton />}><BeijingGetihuPage /></Suspense>} />
     </>
   )
 }

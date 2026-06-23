@@ -651,5 +651,41 @@
     "note": "Selbstständige zahlen den vollen Betrag selbst. Rente und Kranken gelten; einige Städte schließen auch Arbeitslosenversicherung ein. Kein Unfall / Mutterschaft / Wohnungsfonds, und Einkommensteuer ist nicht enthalten.",
     "unemployment": "Arbeitslosen",
     "medicalFlat": "Diese Stadt erhebt eine feste monatliche Krankengebühr, unabhängig von der Bemessungsgrundlage."
+  },
+  "beijing-getihu": {
+    "title": "Mindest-Sozialversicherung für Einzelunternehmer (Peking)",
+    "description": "Monatliche Mindest-Sozialversicherung (五险) für ein Pekinger 个体工商户 (Einzelunternehmen), das Arbeitgeber- und Arbeitnehmeranteile am Beitragsboden zahlt. Jahresvergleich per Liniendiagramm und amtlicher Beitragsbescheid. Alle Berechnungen erfolgen lokal.",
+    "year": "Politikjahr",
+    "yearLabel": "{{year}}",
+    "notPublished": "noch nicht veröffentlicht",
+    "context": "Nicht in Peking gemeldete Personen können der Pekinger Versicherung für flexibel Beschäftigte nicht beitreten; viele registrieren daher ein Einzelunternehmen (个体工商户) und zahlen als Arbeitgeber — sowohl den Arbeitgeber- als auch den Arbeitnehmeranteil selbst. Dies zeigt den Mindestwert am Beitragsboden.",
+    "trend": "Jahresvergleich",
+    "legendSocial": "Fünf Versicherungen",
+    "disclaimer": "Basiert auf den offiziellen Pekinger Untergrenzen und dem kombinierten Arbeitgeber+Arbeitnehmer-Satz (fünf Versicherungen 37,2% + ¥3 feste 大额医疗), abgeglichen mit echten 个体工商户-Beträgen (2025: 2.667,27 ¥). Werte variieren — bei den Pekinger Sozialversicherungsbehörden bestätigen. Nur Schätzung. Der Unfallversicherungssatz ist branchenabhängig (0,2%–1,9%); hier werden 0,4% verwendet, passend zum Referenzbescheid.",
+    "col": {
+      "category": "Erhebungskategorie",
+      "item": "Erhebungsposten",
+      "amount": "Fälliger Betrag"
+    },
+    "cat": {
+      "pension": "Betriebliche Grundrente der Arbeitnehmer",
+      "unemployment": "Arbeitslosenversicherung",
+      "medical": "Grundkrankenversicherung",
+      "injury": "Unfallversicherung"
+    },
+    "ins": {
+      "pension": "Grundrente des Arbeitnehmers",
+      "unemployment": "Arbeitslosenversicherung",
+      "medicalBasic": "Grundkrankenversicherung des Arbeitnehmers",
+      "medicalLarge": "Großschaden-Krankenhilfe des Arbeitnehmers",
+      "injury": "Unfallversicherung"
+    },
+    "side": {
+      "employer": "Arbeitgeber",
+      "employee": "individuell"
+    },
+    "itemFmt": "{{name}} ({{side}})",
+    "totalLower": "Summe (Ziffern)",
+    "totalUpper": "Summe (in Worten)"
   }
 }

@@ -651,5 +651,41 @@
     "note": "Os autônomos pagam o valor integral. Aplicam-se aposentadoria e saúde; algumas cidades também incluem desemprego. Sem acidente de trabalho / maternidade / fundo habitacional, e o imposto de renda não está incluído.",
     "unemployment": "Desemprego",
     "medicalFlat": "Esta cidade cobra uma taxa médica mensal fixa, independente da base."
+  },
+  "beijing-getihu": {
+    "title": "Contribuição social mínima do microempreendedor (Pequim)",
+    "description": "Contribuição social mensal mínima (五险) de um 个体工商户 (firma individual) em Pequim que paga as parcelas do empregador e do empregado no piso. Comparação anual em gráfico de linhas e guia oficial. Todos os cálculos são feitos localmente.",
+    "year": "Ano da política",
+    "yearLabel": "{{year}}",
+    "notPublished": "ainda não publicado",
+    "context": "Não residentes de Pequim não podem aderir ao seguro de emprego flexível de Pequim, então muitos registram uma firma individual (个体工商户) e contribuem como empregador, arcando com as parcelas do empregador e do empregado. Isto mostra o mínimo no piso de contribuição.",
+    "trend": "Tendência anual",
+    "legendSocial": "Cinco seguros",
+    "disclaimer": "Baseado nos pisos oficiais de Pequim e na taxa combinada empregador+empregado (cinco seguros 37,2% + ¥3 fixo 大额医疗), verificado com valores reais de 个体工商户 (2025: ¥2.667,27). Os valores variam — confirme com as autoridades de previdência de Pequim. Apenas estimativa. A taxa de acidentes de trabalho depende do setor (0,2%–1,9%); usa-se 0,4% aqui para corresponder à guia de referência.",
+    "col": {
+      "category": "Categoria de cobrança",
+      "item": "Item de cobrança",
+      "amount": "Valor devido"
+    },
+    "cat": {
+      "pension": "Aposentadoria básica do empregado",
+      "unemployment": "Seguro-desemprego",
+      "medical": "Seguro de saúde básico",
+      "injury": "Seguro de acidentes de trabalho"
+    },
+    "ins": {
+      "pension": "Aposentadoria básica do empregado",
+      "unemployment": "Seguro-desemprego",
+      "medicalBasic": "Seguro de saúde básico do empregado",
+      "medicalLarge": "Auxílio mútuo de grandes despesas médicas do empregado",
+      "injury": "Seguro de acidentes de trabalho"
+    },
+    "side": {
+      "employer": "empregador",
+      "employee": "individual"
+    },
+    "itemFmt": "{{name}} ({{side}})",
+    "totalLower": "Total (algarismos)",
+    "totalUpper": "Total (por extenso)"
   }
 }

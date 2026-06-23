@@ -651,5 +651,41 @@
     "note": "Los autónomos pagan el importe íntegro. Se aplican jubilación y sanidad; algunas ciudades también incluyen desempleo. Sin accidente laboral / maternidad / fondo de vivienda, y no incluye el impuesto sobre la renta.",
     "unemployment": "Desempleo",
     "medicalFlat": "Esta ciudad cobra una cuota médica mensual fija, independiente de la base."
+  },
+  "beijing-getihu": {
+    "title": "Cotización social mínima del autónomo (Pekín)",
+    "description": "Cotización social mensual mínima (五险) de un 个体工商户 (autónomo) en Pekín que paga las partes del empleador y del empleado en el mínimo. Comparación anual con gráfico de líneas y recibo oficial. Todos los cálculos se realizan localmente.",
+    "year": "Año de política",
+    "yearLabel": "{{year}}",
+    "notPublished": "aún no publicado",
+    "context": "Los no residentes de Pekín no pueden afiliarse al seguro de empleo flexible de Pekín, por lo que muchos registran un negocio individual (个体工商户) y cotizan como empleador, asumiendo tanto la parte del empleador como la del empleado. Esto muestra el mínimo en el piso de cotización.",
+    "trend": "Tendencia anual",
+    "legendSocial": "Cinco seguros",
+    "disclaimer": "Basado en los pisos oficiales de Pekín y la tasa combinada empleador+empleado (cinco seguros 37,2% + ¥3 fijo 大额医疗), verificado con importes reales de 个体工商户 (2025: ¥2.667,27). Las cifras varían: confírmalo con las autoridades de seguridad social de Pekín. Solo estimación. La tasa de accidentes laborales depende del sector (0,2%–1,9%); aquí se usa 0,4% para coincidir con el recibo de referencia.",
+    "col": {
+      "category": "Categoría de recaudación",
+      "item": "Concepto de recaudación",
+      "amount": "Importe a pagar"
+    },
+    "cat": {
+      "pension": "Pensión básica del empleado de empresa",
+      "unemployment": "Seguro de desempleo",
+      "medical": "Seguro médico básico",
+      "injury": "Seguro de accidentes laborales"
+    },
+    "ins": {
+      "pension": "Pensión básica del empleado",
+      "unemployment": "Seguro de desempleo",
+      "medicalBasic": "Seguro médico básico del empleado",
+      "medicalLarge": "Ayuda mutua médica mayor del empleado",
+      "injury": "Seguro de accidentes laborales"
+    },
+    "side": {
+      "employer": "empleador",
+      "employee": "individual"
+    },
+    "itemFmt": "{{name}} ({{side}})",
+    "totalLower": "Total (cifras)",
+    "totalUpper": "Total (en letras)"
   }
 }

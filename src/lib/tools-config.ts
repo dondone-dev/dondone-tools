@@ -29,6 +29,7 @@ import {
   Baby,
   Wallet,
   Briefcase,
+  Store,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -220,6 +221,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'flexible-insurance.description',
     href: '/finance/flexible-insurance',
     icon: Briefcase,
+    category: 'Finance',
+  },
+  {
+    id: 'beijing-getihu',
+    title: 'Beijing Sole Proprietor Social Insurance Minimum',
+    descriptionKey: 'beijing-getihu.description',
+    href: '/finance/beijing-getihu',
+    icon: Store,
     category: 'Finance',
   },
   {

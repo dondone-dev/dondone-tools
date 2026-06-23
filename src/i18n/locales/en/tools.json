@@ -651,5 +651,41 @@
     "note": "Flexible workers pay the full amount themselves. Pension and medical apply; some cities also include unemployment. No work-injury / maternity / housing fund, and income tax is not included.",
     "unemployment": "Unemployment",
     "medicalFlat": "This city charges a fixed monthly medical fee that does not scale with the base."
+  },
+  "beijing-getihu": {
+    "title": "Beijing Sole Proprietor Social Insurance Minimum",
+    "description": "Minimum monthly social insurance (五险) for a Beijing 个体工商户 (sole proprietorship) paying both the employer and employee portions at the contribution floor. Compare years with a line chart and an official-style levy bill. All computation runs locally.",
+    "year": "Policy year",
+    "yearLabel": "{{year}}",
+    "notPublished": "not yet published",
+    "context": "Non-Beijing-household residents cannot enroll in Beijing flexible-employment insurance, so many register a 个体工商户 (sole proprietorship) and pay as an employer — covering both the employer and employee portions themselves. This shows the minimum standard at the contribution floor.",
+    "trend": "Year-over-year trend",
+    "legendSocial": "Five insurances",
+    "disclaimer": "Based on Beijing official base floors and combined employer+employee rates (five insurances 37.2% + ¥3 fixed 大额医疗), verified against real 个体工商户 levy figures (2025 ¥2,667.27). Figures vary and may be adjusted — verify with the Beijing social security authorities. Estimation only. The work-injury rate is industry-dependent (0.2%–1.9%); 0.4% is used here to match the reference bill.",
+    "col": {
+      "category": "Levy category",
+      "item": "Levy item",
+      "amount": "Amount due"
+    },
+    "cat": {
+      "pension": "Enterprise employee basic pension",
+      "unemployment": "Unemployment insurance",
+      "medical": "Basic medical insurance",
+      "injury": "Work-injury insurance"
+    },
+    "ins": {
+      "pension": "Employee basic pension",
+      "unemployment": "Unemployment insurance",
+      "medicalBasic": "Employee basic medical",
+      "medicalLarge": "Employee major-medical mutual aid",
+      "injury": "Work-injury insurance"
+    },
+    "side": {
+      "employer": "employer",
+      "employee": "individual"
+    },
+    "itemFmt": "{{name}} ({{side}})",
+    "totalLower": "Total (figures)",
+    "totalUpper": "Total (in words)"
   }
 }

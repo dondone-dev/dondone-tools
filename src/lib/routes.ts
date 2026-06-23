@@ -22,6 +22,7 @@ export const TOOL_ROUTES = [
   '/security/password-strength',
   '/finance/social-insurance',
   '/finance/flexible-insurance',
+  '/finance/beijing-getihu',
   '/sql/supabase-rls',
   '/design/color',
   '/fun/uuid',

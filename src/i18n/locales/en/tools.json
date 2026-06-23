@@ -623,5 +623,33 @@
       "housingFund": "Housing fund"
     },
     "baseClamped": "Salary is outside the base limits; the contribution base was capped or floored."
+  },
+  "flexible-insurance": {
+    "title": "Flexible Employment Insurance",
+    "description": "Calculate monthly social insurance for flexible-employment / self-employed workers in China — pension and medical, paid entirely by yourself. All computation runs locally.",
+    "city": "City",
+    "pensionBase": "Pension contribution base",
+    "baseRange": "Choose within {{min}}–{{max}}",
+    "tierMin": "Min (60%)",
+    "tierAvg": "Average (100%)",
+    "tierMax": "Max (300%)",
+    "includeMedical": "Include medical insurance",
+    "medicalBase": "Medical contribution base",
+    "medicalApprox": "This city's medical rate is an estimate — verify with the local bureau and adjust below.",
+    "customRate": "Custom rates",
+    "pensionRate": "Pension rate",
+    "medicalRate": "Medical rate",
+    "privacy": "All computation runs locally. No data is sent to any server.",
+    "disclaimer": "Rates and bases use {{year}} figures for reference and vary by city and district. Verify with your local social security bureau. This tool is for estimation only.",
+    "monthlyTotal": "Monthly contribution",
+    "annualTotal": "Annual total",
+    "pension": "Pension",
+    "base": "Base",
+    "toAccount": "To personal account",
+    "toPool": "To pooling account",
+    "medical": "Medical",
+    "note": "Flexible workers pay the full amount themselves. Pension and medical apply; some cities also include unemployment. No work-injury / maternity / housing fund, and income tax is not included.",
+    "unemployment": "Unemployment",
+    "medicalFlat": "This city charges a fixed monthly medical fee that does not scale with the base."
   }
 }

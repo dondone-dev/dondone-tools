@@ -623,5 +623,33 @@
       "housingFund": "Wohnungsfonds"
     },
     "baseClamped": "Das Gehalt liegt außerhalb der Grenzen; die Bemessungsgrundlage wurde gedeckelt oder angehoben."
+  },
+  "flexible-insurance": {
+    "title": "Versicherung für flexibel Beschäftigte",
+    "description": "Berechnen Sie die monatlichen Sozialbeiträge für flexibel Beschäftigte / Selbstständige in China — Rente und Kranken, vollständig selbst getragen. Alle Berechnungen erfolgen lokal.",
+    "city": "Stadt",
+    "pensionBase": "Beitragsbemessungsgrundlage Rente",
+    "baseRange": "Wählen zwischen {{min}} und {{max}}",
+    "tierMin": "Min (60%)",
+    "tierAvg": "Durchschnitt (100%)",
+    "tierMax": "Max (300%)",
+    "includeMedical": "Krankenversicherung einbeziehen",
+    "medicalBase": "Beitragsbemessungsgrundlage Kranken",
+    "medicalApprox": "Der Krankensatz dieser Stadt ist eine Schätzung — bestätigen Sie ihn bei der örtlichen Behörde und passen Sie ihn unten an.",
+    "customRate": "Eigene Sätze",
+    "pensionRate": "Rentensatz",
+    "medicalRate": "Krankensatz",
+    "privacy": "Alle Berechnungen erfolgen lokal. Es werden keine Daten an einen Server gesendet.",
+    "disclaimer": "Sätze und Bemessungsgrundlagen verwenden {{year}}er Werte als Referenz und variieren je nach Stadt und Bezirk. Bestätigen Sie sie bei Ihrer örtlichen Sozialversicherung. Dieses Tool dient nur der Schätzung.",
+    "monthlyTotal": "Monatlicher Beitrag",
+    "annualTotal": "Jahressumme",
+    "pension": "Rente",
+    "base": "Bemessungsgrundlage",
+    "toAccount": "Auf das persönliche Konto",
+    "toPool": "In den Pool",
+    "medical": "Kranken",
+    "note": "Selbstständige zahlen den vollen Betrag selbst. Rente und Kranken gelten; einige Städte schließen auch Arbeitslosenversicherung ein. Kein Unfall / Mutterschaft / Wohnungsfonds, und Einkommensteuer ist nicht enthalten.",
+    "unemployment": "Arbeitslosen",
+    "medicalFlat": "Diese Stadt erhebt eine feste monatliche Krankengebühr, unabhängig von der Bemessungsgrundlage."
   }
 }

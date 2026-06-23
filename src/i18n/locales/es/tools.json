@@ -623,5 +623,33 @@
       "housingFund": "Fondo de vivienda"
     },
     "baseClamped": "El salario está fuera de los límites; la base de cotización se ajustó al tope o al mínimo."
+  },
+  "flexible-insurance": {
+    "title": "Seguro para trabajadores autónomos",
+    "description": "Calcula las cotizaciones sociales mensuales de los trabajadores autónomos en China: jubilación y sanidad, pagadas íntegramente por ti. Todos los cálculos se realizan localmente.",
+    "city": "Ciudad",
+    "pensionBase": "Base de cotización de jubilación",
+    "baseRange": "Elige entre {{min}} y {{max}}",
+    "tierMin": "Mín (60%)",
+    "tierAvg": "Media (100%)",
+    "tierMax": "Máx (300%)",
+    "includeMedical": "Incluir seguro médico",
+    "medicalBase": "Base de cotización médica",
+    "medicalApprox": "La tasa médica de esta ciudad es una estimación; verifícala con la oficina local y ajústala abajo.",
+    "customRate": "Tasas personalizadas",
+    "pensionRate": "Tasa de jubilación",
+    "medicalRate": "Tasa médica",
+    "privacy": "Todos los cálculos se realizan localmente. No se envían datos a ningún servidor.",
+    "disclaimer": "Las tasas y bases usan cifras de {{year}} como referencia y varían según la ciudad y el distrito. Confírmalo con tu oficina local de seguridad social. Esta herramienta es solo para estimación.",
+    "monthlyTotal": "Cotización mensual",
+    "annualTotal": "Total anual",
+    "pension": "Jubilación",
+    "base": "Base",
+    "toAccount": "A la cuenta individual",
+    "toPool": "A la cuenta común",
+    "medical": "Médico",
+    "note": "Los autónomos pagan el importe íntegro. Se aplican jubilación y sanidad; algunas ciudades también incluyen desempleo. Sin accidente laboral / maternidad / fondo de vivienda, y no incluye el impuesto sobre la renta.",
+    "unemployment": "Desempleo",
+    "medicalFlat": "Esta ciudad cobra una cuota médica mensual fija, independiente de la base."
   }
 }

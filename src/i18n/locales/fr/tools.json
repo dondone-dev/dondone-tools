@@ -623,5 +623,33 @@
       "housingFund": "Fonds de logement"
     },
     "baseClamped": "Le salaire est hors des limites ; la base de cotisation a été plafonnée ou minorée."
+  },
+  "flexible-insurance": {
+    "title": "Assurance pour travailleurs indépendants",
+    "description": "Calculez les cotisations sociales mensuelles des travailleurs indépendants en Chine — retraite et maladie, entièrement à votre charge. Tous les calculs sont effectués localement.",
+    "city": "Ville",
+    "pensionBase": "Base de cotisation retraite",
+    "baseRange": "Choisir entre {{min}} et {{max}}",
+    "tierMin": "Min (60%)",
+    "tierAvg": "Moyenne (100%)",
+    "tierMax": "Max (300%)",
+    "includeMedical": "Inclure l'assurance maladie",
+    "medicalBase": "Base de cotisation maladie",
+    "medicalApprox": "Le taux maladie de cette ville est une estimation — vérifiez auprès du bureau local et ajustez ci-dessous.",
+    "customRate": "Taux personnalisés",
+    "pensionRate": "Taux retraite",
+    "medicalRate": "Taux maladie",
+    "privacy": "Tous les calculs sont effectués localement. Aucune donnée n'est envoyée à un serveur.",
+    "disclaimer": "Les taux et bases utilisent les chiffres {{year}} à titre indicatif et varient selon la ville et le district. Vérifiez auprès de votre bureau de sécurité sociale local. Cet outil sert uniquement à l'estimation.",
+    "monthlyTotal": "Cotisation mensuelle",
+    "annualTotal": "Total annuel",
+    "pension": "Retraite",
+    "base": "Base",
+    "toAccount": "Vers le compte individuel",
+    "toPool": "Vers le compte mutualisé",
+    "medical": "Maladie",
+    "note": "Les indépendants paient la totalité eux-mêmes. La retraite et la maladie s'appliquent ; certaines villes incluent aussi le chômage. Pas d'accident du travail / maternité / fonds de logement, et l'impôt sur le revenu n'est pas inclus.",
+    "unemployment": "Chômage",
+    "medicalFlat": "Cette ville applique un forfait mensuel maladie fixe, indépendant de la base."
   }
 }

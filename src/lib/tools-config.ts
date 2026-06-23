@@ -28,6 +28,7 @@ import {
   ScanText,
   Baby,
   Wallet,
+  Briefcase,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -211,6 +212,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'payroll-cn.description',
     href: '/finance/social-insurance',
     icon: Wallet,
+    category: 'Finance',
+  },
+  {
+    id: 'flexible-insurance',
+    title: 'Flexible Employment Insurance',
+    descriptionKey: 'flexible-insurance.description',
+    href: '/finance/flexible-insurance',
+    icon: Briefcase,
     category: 'Finance',
   },
   {

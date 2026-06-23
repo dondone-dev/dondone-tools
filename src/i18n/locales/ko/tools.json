@@ -623,5 +623,33 @@
       "housingFund": "주택공적금"
     },
     "baseClamped": "급여가 기수 상·하한을 벗어나 납부 기수가 상한 또는 하한으로 조정되었습니다."
+  },
+  "flexible-insurance": {
+    "title": "유연고용 사회보험 계산기",
+    "description": "중국 유연고용 / 자영업자가 매월 납부하는 사회보험(연금·의료, 전액 본인 부담)을 계산합니다. 모든 계산은 로컬에서 수행됩니다.",
+    "city": "도시",
+    "pensionBase": "연금 납부 기수",
+    "baseRange": "{{min}}–{{max}} 범위에서 선택",
+    "tierMin": "최저 (60%)",
+    "tierAvg": "평균 (100%)",
+    "tierMax": "최고 (300%)",
+    "includeMedical": "의료보험 포함",
+    "medicalBase": "의료 납부 기수",
+    "medicalApprox": "이 도시의 의료 요율은 추정치입니다. 현지 기관에 확인 후 아래에서 조정하세요.",
+    "customRate": "요율 직접 설정",
+    "pensionRate": "연금 요율",
+    "medicalRate": "의료 요율",
+    "privacy": "모든 계산은 로컬에서 수행되며 서버로 데이터를 전송하지 않습니다.",
+    "disclaimer": "요율과 기수는 참고용 {{year}}년 수치이며 도시·구별로 다릅니다. 현지 사회보장국에 확인하세요. 본 도구는 추정용입니다.",
+    "monthlyTotal": "월 납부액",
+    "annualTotal": "연간 합계",
+    "pension": "연금",
+    "base": "납부 기수",
+    "toAccount": "개인계좌 적립",
+    "toPool": "통합계좌 적립",
+    "medical": "의료",
+    "note": "유연고용자는 전액 본인 부담입니다. 보통 연금과 의료이며 일부 도시는 실업보험도 포함됩니다. 산재 / 출산 / 주택공적금은 없으며 소득세는 포함되지 않습니다.",
+    "unemployment": "실업보험",
+    "medicalFlat": "이 도시의 의료는 기수와 무관한 고정 월정액입니다."
   }
 }

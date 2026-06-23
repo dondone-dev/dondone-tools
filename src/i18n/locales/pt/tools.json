@@ -623,5 +623,33 @@
       "housingFund": "Fundo habitacional"
     },
     "baseClamped": "O salário está fora dos limites; a base de contribuição foi limitada ao teto ou ao piso."
+  },
+  "flexible-insurance": {
+    "title": "Seguro para trabalhadores autônomos",
+    "description": "Calcule as contribuições sociais mensais de trabalhadores autônomos na China — aposentadoria e saúde, pagas integralmente por você. Todos os cálculos são feitos localmente.",
+    "city": "Cidade",
+    "pensionBase": "Base de contribuição da aposentadoria",
+    "baseRange": "Escolha entre {{min}} e {{max}}",
+    "tierMin": "Mín (60%)",
+    "tierAvg": "Média (100%)",
+    "tierMax": "Máx (300%)",
+    "includeMedical": "Incluir seguro de saúde",
+    "medicalBase": "Base de contribuição da saúde",
+    "medicalApprox": "A taxa de saúde desta cidade é uma estimativa — confirme com o órgão local e ajuste abaixo.",
+    "customRate": "Taxas personalizadas",
+    "pensionRate": "Taxa de aposentadoria",
+    "medicalRate": "Taxa de saúde",
+    "privacy": "Todos os cálculos são feitos localmente. Nenhum dado é enviado a servidores.",
+    "disclaimer": "As taxas e bases usam números de {{year}} para referência e variam por cidade e distrito. Confirme com o órgão local de previdência. Esta ferramenta serve apenas para estimativa.",
+    "monthlyTotal": "Contribuição mensal",
+    "annualTotal": "Total anual",
+    "pension": "Aposentadoria",
+    "base": "Base",
+    "toAccount": "Para a conta individual",
+    "toPool": "Para a conta coletiva",
+    "medical": "Saúde",
+    "note": "Os autônomos pagam o valor integral. Aplicam-se aposentadoria e saúde; algumas cidades também incluem desemprego. Sem acidente de trabalho / maternidade / fundo habitacional, e o imposto de renda não está incluído.",
+    "unemployment": "Desemprego",
+    "medicalFlat": "Esta cidade cobra uma taxa médica mensal fixa, independente da base."
   }
 }

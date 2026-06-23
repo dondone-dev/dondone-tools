@@ -623,5 +623,33 @@
       "housingFund": "公积金"
     },
     "baseClamped": "工资超出基数上下限，缴费基数已封顶或托底。"
+  },
+  "flexible-insurance": {
+    "title": "灵活就业社保计算器",
+    "description": "计算灵活就业 / 自由职业人员每月需缴纳的社保——养老与医疗，全部由个人承担。全部计算在本地完成。",
+    "city": "城市",
+    "pensionBase": "养老缴费基数",
+    "baseRange": "可在 {{min}}–{{max}} 间选择",
+    "tierMin": "最低（60%）",
+    "tierAvg": "平均（100%）",
+    "tierMax": "最高（300%）",
+    "includeMedical": "包含医疗保险",
+    "medicalBase": "医疗缴费基数",
+    "medicalApprox": "该城市医疗比例为估算值，请以当地社保局为准并在下方调整。",
+    "customRate": "自定义比例",
+    "pensionRate": "养老比例",
+    "medicalRate": "医疗比例",
+    "privacy": "全部计算在本地完成，不向任何服务器发送数据。",
+    "disclaimer": "比例与基数采用 {{year}} 年数据仅供参考，各城市、城区有所不同，请以当地社保局公告为准。本工具仅用于估算。",
+    "monthlyTotal": "每月缴费",
+    "annualTotal": "全年合计",
+    "pension": "养老保险",
+    "base": "缴费基数",
+    "toAccount": "计入个人账户",
+    "toPool": "计入统筹账户",
+    "medical": "医疗保险",
+    "note": "灵活就业人员全部费用自行承担。通常为养老与医疗，部分城市可含失业保险；无工伤 / 生育 / 公积金。本工具不含个人所得税。",
+    "unemployment": "失业保险",
+    "medicalFlat": "该城市医疗按固定月费缴纳，不随基数变化。"
   }
 }

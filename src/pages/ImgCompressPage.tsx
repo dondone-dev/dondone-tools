@@ -387,13 +387,13 @@ export function ImgCompressPage() {
                       disabled && 'opacity-35 cursor-not-allowed',
                     )}
                   >
-                    <div className="flex items-center gap-1.5 mb-0.5">
+                    <div className="flex flex-wrap items-center gap-1 mb-0.5">
                       <span className={cn(
-                        'h-1.5 w-1.5 rounded-full transition-opacity',
+                        'h-1.5 w-1.5 flex-shrink-0 rounded-full transition-opacity',
                         selected && !disabled ? 'bg-primary opacity-100' : 'opacity-0',
                       )} />
                       <span className="text-xs font-semibold leading-none">{fmt.label}</span>
-                      <span className={cn('ml-auto rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wide', tagClass[fmt.tag])}>
+                      <span className={cn('rounded px-1 py-0.5 text-[9px] font-semibold uppercase tracking-wide', tagClass[fmt.tag])}>
                         {tagLabel[fmt.tag]}
                       </span>
                     </div>

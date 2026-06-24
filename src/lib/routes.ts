@@ -35,6 +35,7 @@ export const TOOL_ROUTES = [
   '/security/sensitive-masker',
   '/file/zip-inspector',
   '/image/ocr',
+  '/image/compress',
   // '/image/bg-remove', // disabled: WASM inference unstable across devices
 ] as const
 

@@ -52,6 +52,7 @@ const BgRemovePage = lazy(() => import('@/pages/BgRemovePage').then(m => ({ defa
 const PayrollCnPage = lazy(() => import('@/pages/PayrollCnPage').then(m => ({ default: m.PayrollCnPage })))
 const FlexibleInsurancePage = lazy(() => import('@/pages/FlexibleInsurancePage').then(m => ({ default: m.FlexibleInsurancePage })))
 const BeijingGetihuPage = lazy(() => import('@/pages/BeijingGetihuPage').then(m => ({ default: m.BeijingGetihuPage })))
+const ImgCompressPage = lazy(() => import('@/pages/ImgCompressPage').then(m => ({ default: m.ImgCompressPage })))
 
 function toolRoutes() {
   return (
@@ -91,6 +92,7 @@ function toolRoutes() {
       <Route path="image/heic" element={<Suspense fallback={<ToolSkeleton />}><HeicPage /></Suspense>} />
       <Route path="file/zip-inspector" element={<Suspense fallback={<ToolSkeleton />}><ZipInspectorPage /></Suspense>} />
       <Route path="image/ocr" element={<Suspense fallback={<ToolSkeleton />}><OcrPage /></Suspense>} />
+      <Route path="image/compress" element={<Suspense fallback={<ToolSkeleton />}><ImgCompressPage /></Suspense>} />
       <Route path="image/bg-remove" element={<Suspense fallback={<ToolSkeleton />}><BgRemovePage /></Suspense>} />
       <Route path="finance/social-insurance" element={<Suspense fallback={<ToolSkeleton />}><PayrollCnPage /></Suspense>} />
       <Route path="finance/flexible-insurance" element={<Suspense fallback={<ToolSkeleton />}><FlexibleInsurancePage /></Suspense>} />

@@ -31,6 +31,7 @@ import {
   Briefcase,
   Store,
   Shuffle,
+  Minimize2,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -334,6 +335,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'ocr.description',
     href: '/image/ocr',
     icon: ScanText,
+    category: 'Image',
+  },
+  {
+    id: 'img-compress',
+    title: 'Image Compressor',
+    descriptionKey: 'img-compress.description',
+    href: '/image/compress',
+    icon: Minimize2,
     category: 'Image',
   },
   // {

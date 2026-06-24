@@ -9,7 +9,7 @@ import { init as initPngImpl, default as encodePng } from '@jsquash/png/encode'
 import { init as initWebpImpl, default as encodeWebp } from '@jsquash/webp/encode'
 
 export type InputFormat = 'jpeg' | 'png' | 'webp'
-export type OutputFormat = 'original' | 'jpeg' | 'png' | 'webp'
+export type OutputFormat = 'jpeg' | 'png' | 'webp'
 
 export interface CompressOptions {
   outputFormat: OutputFormat
@@ -93,11 +93,9 @@ export function preloadCodecs(): Promise<void[]> {
 
 export async function compressImage(
   file: File,
-  inputFormat: InputFormat,
   opts: CompressOptions,
 ): Promise<CompressResult> {
-  const target: InputFormat =
-    opts.outputFormat === 'original' ? inputFormat : opts.outputFormat
+  const target: InputFormat = opts.outputFormat
 
   const { data, width, height } = await fileToImageData(file)
 

@@ -22,22 +22,14 @@ const MAX_BYTES = 20 * 1024 * 1024
 
 type Tab = 'original' | 'compressed'
 
-function getEffectiveTarget(outputFormat: OutputFormat, inputFormat: InputFormat): InputFormat {
-  return outputFormat === 'original' ? inputFormat : outputFormat
+function showQualitySlider(outputFormat: OutputFormat, lossless: boolean): boolean {
+  if (outputFormat === 'jpeg') return true
+  if (outputFormat === 'png') return false
+  return !lossless // webp lossy only
 }
 
-function showQualitySlider(outputFormat: OutputFormat, inputFormat: InputFormat, lossless: boolean): boolean {
-  const t = getEffectiveTarget(outputFormat, inputFormat)
-  if (t === 'jpeg') return true
-  if (t === 'png') return false
-  return !lossless // webp lossy
-}
-
-function isFormatDisabled(fmt: OutputFormat, inputFormat: InputFormat | null, lossless: boolean): boolean {
-  if (!lossless) return false
-  if (fmt === 'jpeg') return true
-  if (fmt === 'original' && inputFormat === 'jpeg') return true
-  return false
+function isFormatDisabled(fmt: OutputFormat, lossless: boolean): boolean {
+  return lossless && fmt === 'jpeg'
 }
 
 export function ImgCompressPage() {
@@ -50,7 +42,7 @@ export function ImgCompressPage() {
   const [inputFormat, setInputFormat] = useState<InputFormat | null>(null)
   const [originalUrl, setOriginalUrl] = useState<string | null>(null)
 
-  const [outputFormat, setOutputFormat] = useState<OutputFormat>('original')
+  const [outputFormat, setOutputFormat] = useState<OutputFormat>('jpeg')
   const [quality, setQuality] = useState(85)
   const [lossless, setLossless] = useState(false)
 
@@ -91,11 +83,7 @@ export function ImgCompressPage() {
     setCompressedUrl(null)
     setError(null)
     setTab('original')
-
-    // When a JPEG is uploaded and current selection would be disabled, switch format
-    if (fmt === 'jpeg' && lossless && outputFormat === 'original') {
-      setOutputFormat('png')
-    }
+    setOutputFormat(lossless && fmt === 'jpeg' ? 'png' : fmt)
   }
 
   function handleFiles(list: FileList | null) {
@@ -110,7 +98,7 @@ export function ImgCompressPage() {
   }
 
   function handleFormatSelect(fmt: OutputFormat) {
-    if (isFormatDisabled(fmt, inputFormat, lossless)) return
+    if (isFormatDisabled(fmt, lossless)) return
     setOutputFormat(fmt)
     // Changing format invalidates the last result
     setResult(null)
@@ -134,7 +122,7 @@ export function ImgCompressPage() {
     setCompressing(true)
     setError(null)
     try {
-      const r = await compressImage(file, inputFormat, { outputFormat, quality, lossless })
+      const r = await compressImage(file, { outputFormat, quality, lossless })
       const blob = new Blob([r.buffer], { type: r.mimeType })
       const url = makeObjectUrl(blob)
       setResult(r)
@@ -174,7 +162,7 @@ export function ImgCompressPage() {
 
   const qualityVisible =
     inputFormat != null &&
-    showQualitySlider(outputFormat, inputFormat, lossless)
+    showQualitySlider(outputFormat, lossless)
 
   // ── Upload zone ──────────────────────────────────────────────────────────────
   if (!file) {
@@ -220,10 +208,9 @@ export function ImgCompressPage() {
 
   // ── Loaded state ─────────────────────────────────────────────────────────────
   const formats: { id: OutputFormat; label: string; sub: string; tag: 'lossy' | 'lossless' | 'both' }[] = [
-    { id: 'original', label: t('img-compress.original'), sub: t('img-compress.keepSub', { ext: inputFormat!.toUpperCase() }), tag: inputFormat === 'jpeg' ? 'lossy' : inputFormat === 'png' ? 'lossless' : 'both' },
-    { id: 'jpeg',     label: 'JPEG', sub: t('img-compress.codecJpeg'), tag: 'lossy' },
-    { id: 'png',      label: 'PNG',  sub: t('img-compress.codecPng'),  tag: 'lossless' },
-    { id: 'webp',     label: 'WebP', sub: t('img-compress.codecWebp'), tag: lossless ? 'lossless' : 'both' },
+    { id: 'jpeg', label: 'JPEG', sub: t('img-compress.codecJpeg'), tag: 'lossy' },
+    { id: 'png',  label: 'PNG',  sub: t('img-compress.codecPng'),  tag: 'lossless' },
+    { id: 'webp', label: 'WebP', sub: t('img-compress.codecWebp'), tag: lossless ? 'lossless' : 'both' },
   ]
 
   const tagClass = {
@@ -368,7 +355,7 @@ export function ImgCompressPage() {
             </p>
             <div className="grid grid-cols-2 gap-1.5" role="radiogroup" aria-label={t('img-compress.outputFormat')}>
               {formats.map((fmt) => {
-                const disabled = isFormatDisabled(fmt.id, inputFormat, lossless)
+                const disabled = isFormatDisabled(fmt.id, lossless)
                 const selected = outputFormat === fmt.id
                 return (
                   <button

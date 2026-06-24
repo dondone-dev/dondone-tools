@@ -65,7 +65,7 @@ let webpReady: Promise<void> | null = null
 
 function ensureJpeg(): Promise<void> {
   if (!jpegReady) {
-    jpegReady = initJpegImpl({ locateFile: (_: string) => mozjpegEncWasmUrl })
+    jpegReady = initJpegImpl({ locateFile: (_path: string) => mozjpegEncWasmUrl })
   }
   return jpegReady
 }

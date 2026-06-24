@@ -50,6 +50,7 @@ export function ImgCompressPage() {
   const [compressing, setCompressing] = useState(false)
   const [result, setResult] = useState<CompressResult | null>(null)
   const [compressedUrl, setCompressedUrl] = useState<string | null>(null)
+  const [naturalSize, setNaturalSize] = useState<{ w: number; h: number } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // Start loading codecs in background when the page mounts
@@ -60,6 +61,14 @@ export function ImgCompressPage() {
   useEffect(() => {
     return () => { objectUrlsRef.current.forEach(URL.revokeObjectURL) }
   }, [])
+
+  useEffect(() => {
+    if (!file) { setNaturalSize(null); return }
+    createImageBitmap(file).then(bmp => {
+      setNaturalSize({ w: bmp.width, h: bmp.height })
+      bmp.close()
+    }).catch(() => {})
+  }, [file])
 
   function makeObjectUrl(blob: Blob | File): string {
     const url = URL.createObjectURL(blob)
@@ -300,8 +309,8 @@ export function ImgCompressPage() {
             <div className="px-4 py-3">
               <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">{t('img-compress.tabOriginal')}</p>
               <p className="mt-0.5 font-mono text-base font-semibold tabular-nums">{formatBytes(file.size)}</p>
-              {result && (
-                <p className="text-[10px] text-muted-foreground">{result.width}×{result.height}</p>
+              {naturalSize && (
+                <p className="text-[10px] text-muted-foreground">{naturalSize.w}×{naturalSize.h}</p>
               )}
             </div>
             <div className="flex flex-col items-center justify-center px-4 py-3">

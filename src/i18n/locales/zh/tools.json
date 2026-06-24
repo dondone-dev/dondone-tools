@@ -736,6 +736,7 @@
     "remove": "移除图片",
     "tabOriginal": "原图",
     "tabCompressed": "压缩后",
+    "keepSub": "保持 {{ext}} · 不转换格式",
     "codecJpeg": "MozJPEG 编码器",
     "codecPng": "OxiPNG 优化器",
     "codecWebp": "Google WebP WASM",

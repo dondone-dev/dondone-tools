@@ -736,6 +736,7 @@
     "remove": "Bild entfernen",
     "tabOriginal": "Original",
     "tabCompressed": "Komprimiert",
+    "keepSub": "{{ext}} behalten · keine Konvertierung",
     "codecJpeg": "MozJPEG-Encoder",
     "codecPng": "OxiPNG-Optimierer",
     "codecWebp": "Google WebP WASM",

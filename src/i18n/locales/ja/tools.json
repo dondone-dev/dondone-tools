@@ -736,6 +736,7 @@
     "remove": "画像を削除",
     "tabOriginal": "元の画像",
     "tabCompressed": "圧縮後",
+    "keepSub": "{{ext}} を維持 · 変換なし",
     "codecJpeg": "MozJPEG エンコーダー",
     "codecPng": "OxiPNG オプティマイザー",
     "codecWebp": "Google WebP WASM",

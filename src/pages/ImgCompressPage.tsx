@@ -220,7 +220,7 @@ export function ImgCompressPage() {
 
   // ── Loaded state ─────────────────────────────────────────────────────────────
   const formats: { id: OutputFormat; label: string; sub: string; tag: 'lossy' | 'lossless' | 'both' }[] = [
-    { id: 'original', label: t('img-compress.original'), sub: inputFormat === 'jpeg' ? 'MozJPEG' : inputFormat === 'png' ? 'OxiPNG' : 'WebP', tag: inputFormat === 'jpeg' ? 'lossy' : inputFormat === 'png' ? 'lossless' : 'both' },
+    { id: 'original', label: t('img-compress.original'), sub: t('img-compress.keepSub', { ext: inputFormat!.toUpperCase() }), tag: inputFormat === 'jpeg' ? 'lossy' : inputFormat === 'png' ? 'lossless' : 'both' },
     { id: 'jpeg',     label: 'JPEG', sub: t('img-compress.codecJpeg'), tag: 'lossy' },
     { id: 'png',      label: 'PNG',  sub: t('img-compress.codecPng'),  tag: 'lossless' },
     { id: 'webp',     label: 'WebP', sub: t('img-compress.codecWebp'), tag: lossless ? 'lossless' : 'both' },

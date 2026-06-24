@@ -736,6 +736,7 @@
     "remove": "Удалить изображение",
     "tabOriginal": "Оригинал",
     "tabCompressed": "Сжатое",
+    "keepSub": "Сохранить {{ext}} · без конвертации",
     "codecJpeg": "Кодировщик MozJPEG",
     "codecPng": "Оптимизатор OxiPNG",
     "codecWebp": "Google WebP WASM",

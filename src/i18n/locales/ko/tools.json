@@ -736,6 +736,7 @@
     "remove": "이미지 제거",
     "tabOriginal": "원본",
     "tabCompressed": "압축됨",
+    "keepSub": "{{ext}} 유지 · 변환 없음",
     "codecJpeg": "MozJPEG 인코더",
     "codecPng": "OxiPNG 최적화",
     "codecWebp": "Google WebP WASM",

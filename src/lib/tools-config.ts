@@ -32,6 +32,7 @@ import {
   Store,
   Shuffle,
   Minimize2,
+  BookOpen,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -344,6 +345,14 @@ export const TOOLS: ToolConfig[] = [
     href: '/image/compress',
     icon: Minimize2,
     category: 'Image',
+  },
+  {
+    id: 'wordbook',
+    title: 'Wordbook',
+    descriptionKey: 'wordbook.description',
+    href: '/text/wordbook',
+    icon: BookOpen,
+    category: 'Text',
   },
   // {
   //   id: 'bg-remove',

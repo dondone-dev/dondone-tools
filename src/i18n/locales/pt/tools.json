@@ -745,5 +745,21 @@
     "errorFormat": "Formato não suportado. Use um arquivo JPEG, PNG ou WebP.",
     "errorSize": "O arquivo excede o limite de 20 MB.",
     "errorFailed": "Falha na compressão. Tente novamente."
+  },
+  "wordbook": {
+    "title": "Vocabulário",
+    "description": "Navegue por listas de vocabulário selecionadas para estudo. Copie ou baixe a lista completa.",
+    "selectBook": "Selecionar vocabulário",
+    "wordCount": "{{count}} palavras",
+    "copyAll": "Copiar tudo",
+    "download": "Baixar",
+    "copied": "Copiado!",
+    "loading": "Carregando...",
+    "exportPdf": "Exportar PDF",
+    "books": {
+      "cs1": "Inglês para Computação I",
+      "cs2": "Inglês para Computação II",
+      "cs3": "Inglês para Computação III"
+    }
   }
 }

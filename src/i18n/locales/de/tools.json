@@ -745,5 +745,21 @@
     "errorFormat": "Nicht unterstütztes Format. Bitte JPEG-, PNG- oder WebP-Datei verwenden.",
     "errorSize": "Datei überschreitet das 20-MB-Limit.",
     "errorFailed": "Komprimierung fehlgeschlagen. Bitte erneut versuchen."
+  },
+  "wordbook": {
+    "title": "Vokabelheft",
+    "description": "Durchsuchen Sie kuratierte Vokabellisten zum Lernen. Alle Wörter kopieren oder herunterladen.",
+    "selectBook": "Vokabelheft auswählen",
+    "wordCount": "{{count}} Wörter",
+    "copyAll": "Alle kopieren",
+    "download": "Herunterladen",
+    "copied": "Kopiert!",
+    "loading": "Wird geladen...",
+    "exportPdf": "PDF exportieren",
+    "books": {
+      "cs1": "Englisch für Informatik I",
+      "cs2": "Englisch für Informatik II",
+      "cs3": "Englisch für Informatik III"
+    }
   }
 }

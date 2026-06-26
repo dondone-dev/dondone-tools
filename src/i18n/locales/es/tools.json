@@ -745,5 +745,21 @@
     "errorFormat": "Formato no compatible. Usa un archivo JPEG, PNG o WebP.",
     "errorSize": "El archivo supera el límite de 20 MB.",
     "errorFailed": "Error de compresión. Inténtalo de nuevo."
+  },
+  "wordbook": {
+    "title": "Vocabulario",
+    "description": "Explora listas de vocabulario seleccionadas para estudiar. Copia o descarga la lista completa.",
+    "selectBook": "Seleccionar vocabulario",
+    "wordCount": "{{count}} palabras",
+    "copyAll": "Copiar todo",
+    "download": "Descargar",
+    "copied": "¡Copiado!",
+    "loading": "Cargando...",
+    "exportPdf": "Exportar PDF",
+    "books": {
+      "cs1": "Inglés Informático I",
+      "cs2": "Inglés Informático II",
+      "cs3": "Inglés Informático III"
+    }
   }
 }

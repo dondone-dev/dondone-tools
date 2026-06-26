@@ -745,5 +745,21 @@
     "errorFormat": "不支持的格式，请上传 JPEG、PNG 或 WebP 文件。",
     "errorSize": "文件超过 20 MB 限制。",
     "errorFailed": "压缩失败，请重试。"
+  },
+  "wordbook": {
+    "title": "词书",
+    "description": "浏览精选词汇表，复制或下载完整词表，辅助学习记忆。",
+    "selectBook": "选择词书",
+    "wordCount": "共 {{count}} 词",
+    "copyAll": "复制全部",
+    "download": "下载",
+    "copied": "已复制！",
+    "loading": "加载中...",
+    "exportPdf": "导出 PDF",
+    "books": {
+      "cs1": "计算机常用英语（上）",
+      "cs2": "计算机常用英语（中）",
+      "cs3": "计算机常用英语（下）"
+    }
   }
 }

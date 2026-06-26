@@ -745,5 +745,21 @@
     "errorFormat": "Format non pris en charge. Veuillez utiliser un fichier JPEG, PNG ou WebP.",
     "errorSize": "Le fichier dépasse la limite de 20 Mo.",
     "errorFailed": "La compression a échoué. Veuillez réessayer."
+  },
+  "wordbook": {
+    "title": "Vocabulaire",
+    "description": "Parcourez des listes de vocabulaire sélectionnées pour l'apprentissage. Copiez ou téléchargez la liste complète.",
+    "selectBook": "Choisir un recueil",
+    "wordCount": "{{count}} mots",
+    "copyAll": "Tout copier",
+    "download": "Télécharger",
+    "copied": "Copié !",
+    "loading": "Chargement...",
+    "exportPdf": "Exporter en PDF",
+    "books": {
+      "cs1": "Anglais informatique I",
+      "cs2": "Anglais informatique II",
+      "cs3": "Anglais informatique III"
+    }
   }
 }

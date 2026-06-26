@@ -745,5 +745,21 @@
     "errorFormat": "Unsupported format. Please upload a JPEG, PNG, or WebP file.",
     "errorSize": "File exceeds the 20 MB limit.",
     "errorFailed": "Compression failed. Please try again."
+  },
+  "wordbook": {
+    "title": "Wordbook",
+    "description": "Browse curated vocabulary lists for study. Copy or download the full word list.",
+    "selectBook": "Select wordbook",
+    "wordCount": "{{count}} words",
+    "copyAll": "Copy All",
+    "download": "Download",
+    "copied": "Copied!",
+    "loading": "Loading...",
+    "exportPdf": "Export PDF",
+    "books": {
+      "cs1": "Computer English I",
+      "cs2": "Computer English II",
+      "cs3": "Computer English III"
+    }
   }
 }

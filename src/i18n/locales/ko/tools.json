@@ -745,5 +745,21 @@
     "errorFormat": "지원되지 않는 형식입니다. JPEG, PNG 또는 WebP 파일을 사용하세요.",
     "errorSize": "파일이 20 MB 한도를 초과합니다.",
     "errorFailed": "압축에 실패했습니다. 다시 시도하세요."
+  },
+  "wordbook": {
+    "title": "단어장",
+    "description": "학습을 위한 엄선된 어휘 목록을 탐색하세요. 전체 단어 목록을 복사하거나 다운로드할 수 있습니다.",
+    "selectBook": "단어장 선택",
+    "wordCount": "총 {{count}}개 단어",
+    "copyAll": "전체 복사",
+    "download": "다운로드",
+    "copied": "복사됨!",
+    "loading": "불러오는 중...",
+    "exportPdf": "PDF 내보내기",
+    "books": {
+      "cs1": "컴퓨터 영어 I",
+      "cs2": "컴퓨터 영어 II",
+      "cs3": "컴퓨터 영어 III"
+    }
   }
 }

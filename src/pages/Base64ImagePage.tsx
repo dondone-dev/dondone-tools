@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useClipboard } from '@/hooks/useClipboard'
-import { Copy, Check, Upload } from 'lucide-react'
+import { Copy, Check, Upload, Download } from 'lucide-react'
 import { decodeImageInput, encodeImageBytes } from '@/lib/tools/base64-image'
 import { formatBytes } from '@/lib/tools/encoding-common'
 import { cn } from '@/lib/utils'
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
 export function Base64ImagePage() {
   const { t } = useTranslation(['tools', 'common'])
   const [b64Input, setB64Input] = useState('')
-  const [result, setResult] = useState<{ dataUrl?: string; base64?: string; mimeType?: string; byteLength?: number } | null>(null)
+  const [result, setResult] = useState<{ dataUrl?: string; base64?: string; mimeType?: string; byteLength?: number; mode?: 'encode' | 'decode' } | null>(null)
   const [error, setError] = useState('')
   const [dragOver, setDragOver] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -22,13 +22,22 @@ export function Base64ImagePage() {
 
   const handleDecodeB64 = () => {
     setError(''); setResult(null)
-    try { setResult(decodeImageInput(b64Input)) } catch (e) { setError((e as Error).message) }
+    try { setResult({ ...decodeImageInput(b64Input), mode: 'decode' }) } catch (e) { setError((e as Error).message) }
   }
 
   const handleFile = async (file: File) => {
     setError(''); setResult(null)
     const bytes = new Uint8Array(await file.arrayBuffer())
-    try { setResult(encodeImageBytes(bytes, file.type)) } catch (e) { setError((e as Error).message) }
+    try { setResult({ ...encodeImageBytes(bytes, file.type), mode: 'encode' }) } catch (e) { setError((e as Error).message) }
+  }
+
+  const handleDownload = () => {
+    if (!result?.dataUrl) return
+    const ext = (result.mimeType ?? 'image/png').replace('image/', '').replace('+xml', '').replace('jpeg', 'jpg')
+    const a = document.createElement('a')
+    a.href = result.dataUrl
+    a.download = `image.${ext}`
+    a.click()
   }
 
   const handleDrop = (e: React.DragEvent) => {
@@ -60,7 +69,7 @@ export function Base64ImagePage() {
         </TabsContent>
 
         <TabsContent value="b64-to-image" className="space-y-3 mt-3">
-          <Textarea placeholder={t('base64-image.b64Placeholder', { ns: 'tools' })} value={b64Input} onChange={(e) => setB64Input(e.target.value)} className="font-mono text-xs min-h-[100px] resize-none" />
+          <Textarea placeholder={t('base64-image.b64Placeholder', { ns: 'tools' })} value={b64Input} onChange={(e) => setB64Input(e.target.value)} className="font-mono text-xs min-h-[100px] max-h-[200px] overflow-y-auto resize-none" />
           <Button onClick={handleDecodeB64} size="sm">{t('base64-image.decode', { ns: 'tools' })}</Button>
         </TabsContent>
       </Tabs>
@@ -71,12 +80,27 @@ export function Base64ImagePage() {
         <div className="space-y-3">
           {result.dataUrl && (
             <div className="space-y-1">
-              <Label className="text-xs text-muted-foreground">{t('base64-image.preview', { ns: 'tools' })}</Label>
-              <img src={result.dataUrl} alt="preview" className="max-w-[240px] max-h-[240px] rounded-md border border-border object-contain" />
+              <div className="flex items-center justify-between">
+                <Label className="text-xs text-muted-foreground">{t('base64-image.preview', { ns: 'tools' })}</Label>
+                {result.mode === 'decode' && (
+                  <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={handleDownload}>
+                    <Download className="h-3 w-3" />
+                    {t('base64-image.download', { ns: 'tools' })}
+                  </Button>
+                )}
+              </div>
+              <img
+                src={result.dataUrl}
+                alt="preview"
+                className={cn(
+                  'rounded-md border border-border object-contain',
+                  result.mode === 'decode' ? 'max-w-full max-h-[480px]' : 'max-w-[240px] max-h-[240px]',
+                )}
+              />
               <p className="text-xs text-muted-foreground">{result.mimeType} · {formatBytes(result.byteLength ?? 0)}</p>
             </div>
           )}
-          {result.base64 && (
+          {result.mode === 'encode' && result.base64 && (
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <Label className="text-xs text-muted-foreground">Base64</Label>

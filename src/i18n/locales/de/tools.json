@@ -63,7 +63,8 @@
     "dropImage": "Bild ablegen oder klicken zum Auswählen",
     "b64Placeholder": "Base64-Zeichenfolge oder Data URL einfügen...",
     "decode": "Dekodieren",
-    "preview": "Vorschau"
+    "preview": "Vorschau",
+    "download": "Herunterladen"
   },
   "base58": {
     "title": "Base58",

@@ -63,7 +63,8 @@
     "dropImage": "画像をドロップまたはクリックして選択",
     "b64Placeholder": "Base64 文字列または Data URL を貼り付け...",
     "decode": "デコード",
-    "preview": "プレビュー"
+    "preview": "プレビュー",
+    "download": "ダウンロード"
   },
   "base58": {
     "title": "Base58",

@@ -63,7 +63,8 @@
     "dropImage": "拖放图片或点击选择",
     "b64Placeholder": "粘贴 Base64 字符串或 Data URL...",
     "decode": "解码",
-    "preview": "预览"
+    "preview": "预览",
+    "download": "下载"
   },
   "base58": {
     "title": "Base58",

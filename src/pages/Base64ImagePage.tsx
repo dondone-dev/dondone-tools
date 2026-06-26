@@ -48,7 +48,7 @@ export function Base64ImagePage() {
 
   return (
     <ToolLayout toolId="base64-image" category="Encoding">
-      <Tabs defaultValue="image-to-b64">
+      <Tabs defaultValue="image-to-b64" onValueChange={() => { setResult(null); setError('') }}>
         <TabsList className="h-8">
           <TabsTrigger value="image-to-b64" className="text-xs h-7">{t('base64-image.imageToB64', { ns: 'tools' })}</TabsTrigger>
           <TabsTrigger value="b64-to-image" className="text-xs h-7">{t('base64-image.b64ToImage', { ns: 'tools' })}</TabsTrigger>

@@ -33,6 +33,7 @@ import {
   Shuffle,
   Minimize2,
   BookOpen,
+  UtensilsCrossed,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -232,6 +233,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'beijing-getihu.description',
     href: '/finance/beijing-getihu',
     icon: Store,
+    category: 'Finance',
+  },
+  {
+    id: 'restaurant-breakeven',
+    title: 'Restaurant Break-even Calculator',
+    descriptionKey: 'restaurant-breakeven.description',
+    href: '/finance/restaurant-breakeven',
+    icon: UtensilsCrossed,
     category: 'Finance',
   },
   {

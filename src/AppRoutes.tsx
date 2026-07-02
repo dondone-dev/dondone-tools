@@ -52,6 +52,7 @@ const BgRemovePage = lazy(() => import('@/pages/BgRemovePage').then(m => ({ defa
 const PayrollCnPage = lazy(() => import('@/pages/PayrollCnPage').then(m => ({ default: m.PayrollCnPage })))
 const FlexibleInsurancePage = lazy(() => import('@/pages/FlexibleInsurancePage').then(m => ({ default: m.FlexibleInsurancePage })))
 const BeijingGetihuPage = lazy(() => import('@/pages/BeijingGetihuPage').then(m => ({ default: m.BeijingGetihuPage })))
+const RestaurantBreakevenPage = lazy(() => import('@/pages/RestaurantBreakevenPage').then(m => ({ default: m.RestaurantBreakevenPage })))
 const ImgCompressPage = lazy(() => import('@/pages/ImgCompressPage').then(m => ({ default: m.ImgCompressPage })))
 const WordbookPage = lazy(() => import('@/pages/WordbookPage').then(m => ({ default: m.WordbookPage })))
 
@@ -99,6 +100,7 @@ function toolRoutes() {
       <Route path="finance/social-insurance" element={<Suspense fallback={<ToolSkeleton />}><PayrollCnPage /></Suspense>} />
       <Route path="finance/flexible-insurance" element={<Suspense fallback={<ToolSkeleton />}><FlexibleInsurancePage /></Suspense>} />
       <Route path="finance/beijing-getihu" element={<Suspense fallback={<ToolSkeleton />}><BeijingGetihuPage /></Suspense>} />
+      <Route path="finance/restaurant-breakeven" element={<Suspense fallback={<ToolSkeleton />}><RestaurantBreakevenPage /></Suspense>} />
     </>
   )
 }

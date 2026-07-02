@@ -23,6 +23,7 @@ export const TOOL_ROUTES = [
   '/finance/social-insurance',
   '/finance/flexible-insurance',
   '/finance/beijing-getihu',
+  '/finance/restaurant-breakeven',
   '/sql/supabase-rls',
   '/design/color',
   '/random/uuid',

@@ -170,6 +170,9 @@ export function aesEncrypt(options: AesOptions): string {
   if (requiresIv(mode) && ivBytes.length !== 16) {
     throw new Error('IV must be exactly 16 bytes for the selected mode')
   }
+  if (normalizeEncoding(options.outputEncoding) === 'utf8') {
+    throw new Error('Ciphertext cannot be encoded as UTF-8 (binary data would be corrupted). Use Hex or Base64.')
+  }
   const payloadBytes = decodeInput(options.input, options.inputEncoding)
   if (padding === 'none' && mode !== 'ctr' && payloadBytes.length % 16 !== 0) {
     throw new Error('Padding None requires 16-byte blocks for ECB/CBC')

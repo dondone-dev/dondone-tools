@@ -238,3 +238,12 @@ test('throws on unsupported encoding', () => {
     mode: 'ecb', padding: 'pkcs7', keySizeBits: 128,
   })).toThrow(/Unsupported encoding/)
 })
+
+test('rejects UTF-8 output encoding for encryption', () => {
+  expect(() => aesEncrypt({
+    input: 'hello', inputEncoding: 'utf8', outputEncoding: 'utf8',
+    key: '1234567890abcdef', keyEncoding: 'utf8',
+    iv: '', ivEncoding: 'hex',
+    mode: 'ecb', padding: 'pkcs7', keySizeBits: 128,
+  })).toThrow(/UTF-8/)
+})

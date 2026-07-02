@@ -10,6 +10,8 @@
     "iv": "IV",
     "keyPlaceholder": "Entrez la clé...",
     "ivPlaceholder": "Entrez l'IV...",
+    "encrypt": "Chiffrer",
+    "decrypt": "Déchiffrer",
     "plaintextPlaceholder": "Entrez le texte en clair...",
     "ciphertextPlaceholder": "Entrez le texte chiffré..."
   },

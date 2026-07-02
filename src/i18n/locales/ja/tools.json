@@ -10,6 +10,8 @@
     "iv": "初期化ベクター IV",
     "keyPlaceholder": "キーを入力...",
     "ivPlaceholder": "IV を入力...",
+    "encrypt": "暗号化",
+    "decrypt": "復号",
     "plaintextPlaceholder": "平文を入力...",
     "ciphertextPlaceholder": "暗号文を入力..."
   },

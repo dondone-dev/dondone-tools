@@ -10,6 +10,8 @@
     "iv": "初始向量 IV",
     "keyPlaceholder": "输入密钥...",
     "ivPlaceholder": "输入 IV...",
+    "encrypt": "加密",
+    "decrypt": "解密",
     "plaintextPlaceholder": "输入明文...",
     "ciphertextPlaceholder": "输入密文..."
   },

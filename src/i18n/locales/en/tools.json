@@ -10,6 +10,8 @@
     "iv": "IV",
     "keyPlaceholder": "Enter key...",
     "ivPlaceholder": "Enter IV...",
+    "encrypt": "Encrypt",
+    "decrypt": "Decrypt",
     "plaintextPlaceholder": "Enter plaintext...",
     "ciphertextPlaceholder": "Enter ciphertext..."
   },

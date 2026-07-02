@@ -10,6 +10,8 @@
     "iv": "IV",
     "keyPlaceholder": "키를 입력...",
     "ivPlaceholder": "IV를 입력...",
+    "encrypt": "암호화",
+    "decrypt": "복호화",
     "plaintextPlaceholder": "평문 입력...",
     "ciphertextPlaceholder": "암호문 입력..."
   },

@@ -10,6 +10,8 @@
     "iv": "IV",
     "keyPlaceholder": "Введите ключ...",
     "ivPlaceholder": "Введите IV...",
+    "encrypt": "Зашифровать",
+    "decrypt": "Расшифровать",
     "plaintextPlaceholder": "Введите открытый текст...",
     "ciphertextPlaceholder": "Введите зашифрованный текст..."
   },

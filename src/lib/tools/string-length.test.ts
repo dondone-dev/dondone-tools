@@ -19,7 +19,7 @@ test('counts Chinese full-width characters and logical CRLF newlines', () => {
   // Ａ(full-width), B, 中(Chinese), \u3000(full-width space), 1, \r\n, ２(full-width)
   const stats = analyzeText('ＡB中　1\r\n２')
   expect(stats.length1).toBe(6)
-  expect(stats.length2).toBe(6)
+  expect(stats.length2).toBe(10) // 4 full-width × 2 + 2 half-width × 1
   expect(stats.chinese).toBe(1)
   expect(stats.letters).toBe(2)
   expect(stats.digits).toBe(1)

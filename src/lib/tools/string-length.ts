@@ -107,7 +107,7 @@ export function analyzeText(text: string): StringLengthStats {
     }
     const char = token.value
     stats.length1 += 1
-    stats.length2 += Array.from(normalizeHalfWidth(char)).length
+    stats.length2 += isFullWidthCodePoint(char.codePointAt(0)!) ? 2 : 1
     if (isChinese(char)) stats.chinese += 1
     if (isLetter(char)) stats.letters += 1
     if (isAsciiDigit(char)) stats.digits += 1

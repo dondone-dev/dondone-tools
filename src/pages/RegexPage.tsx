@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HelpCircle } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
@@ -12,6 +12,10 @@ import { cn } from '@/lib/utils'
 const FLAGS = ['g', 'i', 'm', 's'] as const
 type Flag = (typeof FLAGS)[number]
 
+const MAX_MATCHES = 10000
+const WORKER_TIMEOUT_MS = 5000
+const DEBOUNCE_MS = 300
+
 interface MatchInfo {
   index: number
   value: string
@@ -20,23 +24,37 @@ interface MatchInfo {
   groups: string[]
 }
 
-function getMatches(pattern: string, flags: string, input: string): RegExpExecArray[] {
-  const re = new RegExp(pattern, flags)
-  const results: RegExpExecArray[] = []
-  if (flags.includes('g')) {
-    let m: RegExpExecArray | null
-    while ((m = re.exec(input)) !== null) {
-      results.push(m)
-      if (m[0].length === 0) re.lastIndex++
-    }
-  } else {
-    const m = re.exec(input)
-    if (m) results.push(m)
-  }
-  return results
+interface SerializedMatch {
+  0: string
+  index: number
+  groups: string[]
 }
 
-function buildSegments(text: string, matches: RegExpExecArray[]): { text: string; highlight: boolean }[] {
+const workerCode = `
+self.onmessage = function(e) {
+  const { pattern, flags, input, maxMatches } = e.data
+  try {
+    const re = new RegExp(pattern, flags)
+    const results = []
+    if (flags.includes('g')) {
+      let m
+      while ((m = re.exec(input)) !== null) {
+        results.push({ 0: m[0], index: m.index, groups: m.slice(1).map(g => g ?? '') })
+        if (results.length >= maxMatches) break
+        if (m[0].length === 0) re.lastIndex++
+      }
+    } else {
+      const m = re.exec(input)
+      if (m) results.push({ 0: m[0], index: m.index, groups: m.slice(1).map(g => g ?? '') })
+    }
+    self.postMessage({ ok: true, results })
+  } catch (err) {
+    self.postMessage({ ok: false, error: err.message })
+  }
+}
+`
+
+function buildSegments(text: string, matches: SerializedMatch[]): { text: string; highlight: boolean }[] {
   if (matches.length === 0) return [{ text, highlight: false }]
   const segments: { text: string; highlight: boolean }[] = []
   let pos = 0
@@ -51,13 +69,67 @@ function buildSegments(text: string, matches: RegExpExecArray[]): { text: string
   return segments
 }
 
+function useRegexWorker() {
+  const blobUrlRef = useRef<string>()
+
+  const run = useCallback((pattern: string, flags: string, input: string): Promise<{ matches: SerializedMatch[]; error: string }> => {
+    return new Promise((resolve) => {
+      if (!blobUrlRef.current) {
+        blobUrlRef.current = URL.createObjectURL(new Blob([workerCode], { type: 'application/javascript' }))
+      }
+      const worker = new Worker(blobUrlRef.current)
+      const timer = setTimeout(() => {
+        worker.terminate()
+        resolve({ matches: [], error: 'Regex execution timed out (possible catastrophic backtracking)' })
+      }, WORKER_TIMEOUT_MS)
+
+      worker.onmessage = (e) => {
+        clearTimeout(timer)
+        worker.terminate()
+        if (e.data.ok) {
+          resolve({ matches: e.data.results, error: '' })
+        } else {
+          resolve({ matches: [], error: e.data.error })
+        }
+      }
+      worker.onerror = () => {
+        clearTimeout(timer)
+        worker.terminate()
+        resolve({ matches: [], error: 'Worker error' })
+      }
+      worker.postMessage({ pattern, flags, input, maxMatches: MAX_MATCHES })
+    })
+  }, [])
+
+  return run
+}
+
 export function RegexPage() {
   const { t } = useTranslation('tools')
   const [pattern, setPattern] = useState('')
   const [activeFlags, setActiveFlags] = useState<Set<Flag>>(new Set(['g']))
   const [testInput, setTestInput] = useState('')
+  const [matches, setMatches] = useState<SerializedMatch[]>([])
+  const [error, setError] = useState('')
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>()
+  const runRegex = useRegexWorker()
 
   const flagsStr = FLAGS.filter((f) => activeFlags.has(f)).join('')
+
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    if (!pattern) {
+      setMatches([])
+      setError('')
+      return
+    }
+    debounceRef.current = setTimeout(async () => {
+      const result = await runRegex(pattern, flagsStr, testInput)
+      setMatches(result.matches)
+      setError(result.error)
+    }, DEBOUNCE_MS)
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
+  }, [pattern, flagsStr, testInput, runRegex])
 
   function toggleFlag(flag: Flag) {
     setActiveFlags((prev) => {
@@ -67,21 +139,12 @@ export function RegexPage() {
     })
   }
 
-  const { matches, error } = useMemo<{ matches: RegExpExecArray[]; error: string }>(() => {
-    if (!pattern) return { matches: [], error: '' }
-    try {
-      return { matches: getMatches(pattern, flagsStr, testInput), error: '' }
-    } catch (e) {
-      return { matches: [], error: (e as Error).message }
-    }
-  }, [pattern, flagsStr, testInput])
-
   const matchInfos: MatchInfo[] = matches.map((m, i) => ({
     index: i,
     value: m[0],
     start: m.index,
     end: m.index + m[0].length,
-    groups: m.slice(1).map((g) => g ?? ''),
+    groups: m.groups,
   }))
 
   const segments = useMemo(() => buildSegments(testInput, matches), [testInput, matches])

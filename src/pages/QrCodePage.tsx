@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
@@ -23,21 +23,31 @@ export function QrCodePage() {
     try { setQrResult(await generateQrCode({ text, size })) } catch (e) { setError((e as Error).message) }
   }
 
+  const objectUrlRef = useRef<string>()
+  useEffect(() => () => { if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current) }, [])
+
   const handleDecodeFile = (file: File) => {
     setError(''); setDecodeResult('')
-    const img = new Image()
+    if (!file.type.startsWith('image/')) {
+      setError(t('qrcode.imageOnly', 'Please select an image file'))
+      return
+    }
+    if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current)
     const url = URL.createObjectURL(file)
+    objectUrlRef.current = url
+    const img = new Image()
     img.onload = () => {
       const canvas = document.createElement('canvas')
       canvas.width = img.width; canvas.height = img.height
-      const ctx = canvas.getContext('2d')!
+      const ctx = canvas.getContext('2d')
+      if (!ctx) { setError('Canvas not supported'); return }
       ctx.drawImage(img, 0, 0)
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       try {
         setDecodeResult(decodeImageData({ data: imageData.data, width: canvas.width, height: canvas.height }).text)
       } catch (e) { setError((e as Error).message) }
-      URL.revokeObjectURL(url)
     }
+    img.onerror = () => setError(t('qrcode.loadFailed', 'Failed to load image'))
     img.src = url
   }
 

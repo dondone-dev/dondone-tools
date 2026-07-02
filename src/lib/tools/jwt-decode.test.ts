@@ -40,3 +40,13 @@ test('formatTimestamp returns null for non-number', () => {
   expect(formatTimestamp('not a number')).toBeNull()
   expect(formatTimestamp(null)).toBeNull()
 })
+
+test('decodes JWT with Chinese characters in payload', () => {
+  // payload: {"sub":"1","name":"张三"}
+  const jwt =
+    'eyJhbGciOiJIUzI1NiJ9.' +
+    'eyJzdWIiOiIxIiwibmFtZSI6IuW8oOS4iSJ9.' +
+    'sig'
+  const result = decodeJwt(jwt)
+  expect(result.payload.name).toBe('张三')
+})

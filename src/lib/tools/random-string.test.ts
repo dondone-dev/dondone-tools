@@ -103,6 +103,27 @@ describe('generateRandomString', () => {
     expect(value).toHaveLength(12)
     expect(value[0]).toMatch(/[A-Z]/)
     expect(value).toMatch(/^[A-Z0-9!@#$%^&*]+$/)
+    expect(value.replace(/\D/g, '').length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('preserves minimumNumbers guarantee when startWithLetter replaces a digit at index 0', () => {
+    // Use random source that puts the guaranteed digit at position 0 after shuffle
+    const value = generateRandomString(
+      {
+        length: 4,
+        includeLowercase: false,
+        includeUppercase: true,
+        includeNumbers: true,
+        includeSpecial: false,
+        minimumNumbers: 1,
+        startWithLetter: true,
+      },
+      sequence(0, 0, 0, 0, 0)
+    )
+
+    expect(value).toHaveLength(4)
+    expect(value[0]).toMatch(/[A-Z]/)
+    expect(value.replace(/\D/g, '').length).toBeGreaterThanOrEqual(1)
   })
 
   it('generates the requested length from selected classes', () => {

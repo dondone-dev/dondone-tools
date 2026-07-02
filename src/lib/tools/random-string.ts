@@ -150,6 +150,10 @@ export function generateRandomString(options: RandomStringOptions = {}, random: 
   const shuffled = shuffle(characters, random)
   if (normalized.startWithLetter && shuffled.length > 0) {
     const letters = getLetterCharacters(normalized)
+    if (digits.includes(shuffled[0]) && normalized.minimumNumbers > 0) {
+      const swapIdx = shuffled.findIndex((c, i) => i > 0 && !digits.includes(c))
+      if (swapIdx > 0) shuffled[swapIdx] = shuffled[0]
+    }
     shuffled[0] = pick(letters, random)
   }
 

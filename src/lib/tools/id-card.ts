@@ -164,6 +164,7 @@ export function parseIdCard(raw: string): IdCardResult {
   }
 
   if (!isRealDate(year, month, day)) return fail('birthdate', format, normalized)
+  if (new Date(year, month - 1, day) > new Date()) return fail('birthdate', format, normalized)
 
   let checksum: IdCardResult['checksum'] = null
   if (format === '18') {

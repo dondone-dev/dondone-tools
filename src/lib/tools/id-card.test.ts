@@ -60,6 +60,12 @@ describe('parseIdCard - 18 digit', () => {
     expect(r.reason).toBe('birthdate')
   })
 
+  it('rejects a future birth date', () => {
+    const r = parseIdCard('11010520300307851X')
+    expect(r.valid).toBe(false)
+    expect(r.reason).toBe('birthdate')
+  })
+
   it('rejects non-existent leap day', () => {
     const r = parseIdCard('110105199902298515')
     expect(r.valid).toBe(false)

@@ -57,7 +57,9 @@ export function computeDiff(original: string, modified: string): DiffResult {
   let oldLineNo = 1
   let newLineNo = 1
 
-  const changes = diffLines(original, modified)
+  const a = original.endsWith('\n') || !original ? original : original + '\n'
+  const b = modified.endsWith('\n') || !modified ? modified : modified + '\n'
+  const changes = diffLines(a, b)
   let i = 0
 
   while (i < changes.length) {

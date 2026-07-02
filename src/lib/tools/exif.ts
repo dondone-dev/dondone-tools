@@ -74,7 +74,13 @@ function fmtColorSpace(val: number): string {
 
 function fmtDateTime(val: Date | string): string {
   if (val instanceof Date) {
-    return val.toISOString().replace('T', ' ').slice(0, 19)
+    const Y = val.getFullYear()
+    const M = String(val.getMonth() + 1).padStart(2, '0')
+    const D = String(val.getDate()).padStart(2, '0')
+    const h = String(val.getHours()).padStart(2, '0')
+    const m = String(val.getMinutes()).padStart(2, '0')
+    const s = String(val.getSeconds()).padStart(2, '0')
+    return `${Y}-${M}-${D} ${h}:${m}:${s}`
   }
   return String(val)
 }

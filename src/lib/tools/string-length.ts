@@ -11,15 +11,6 @@ export interface StringLengthStats {
   totalLines: number
 }
 
-function normalizeHalfWidth(char: string): string {
-  if (char === '\u3000') return ' '
-  const codePoint = char.codePointAt(0)!
-  if (codePoint >= 0xff01 && codePoint <= 0xff5e) {
-    return String.fromCodePoint(codePoint - 0xfee0)
-  }
-  return char
-}
-
 function isChinese(char: string): boolean {
   return /\p{Script=Han}/u.test(char)
 }

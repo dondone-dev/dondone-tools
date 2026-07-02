@@ -70,7 +70,7 @@ function buildSegments(text: string, matches: SerializedMatch[]): { text: string
 }
 
 function useRegexWorker() {
-  const blobUrlRef = useRef<string>()
+  const blobUrlRef = useRef<string | undefined>(undefined)
 
   const run = useCallback((pattern: string, flags: string, input: string): Promise<{ matches: SerializedMatch[]; error: string }> => {
     return new Promise((resolve) => {
@@ -111,7 +111,7 @@ export function RegexPage() {
   const [testInput, setTestInput] = useState('')
   const [matches, setMatches] = useState<SerializedMatch[]>([])
   const [error, setError] = useState('')
-  const debounceRef = useRef<ReturnType<typeof setTimeout>>()
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const runRegex = useRegexWorker()
 
   const flagsStr = FLAGS.filter((f) => activeFlags.has(f)).join('')

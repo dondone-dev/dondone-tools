@@ -23,7 +23,7 @@ export function QrCodePage() {
     try { setQrResult(await generateQrCode({ text, size })) } catch (e) { setError((e as Error).message) }
   }
 
-  const objectUrlRef = useRef<string>()
+  const objectUrlRef = useRef<string | undefined>(undefined)
   useEffect(() => () => { if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current) }, [])
 
   const handleDecodeFile = (file: File) => {

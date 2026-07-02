@@ -51,13 +51,23 @@ function maskContextField(m: string, pre: number, suf: number): string {
   return m.replace(/([=:]\s*["']?)([^\s"',;\n}\]]{4,})/, (_, pfx, val) => pfx + keep(val, pre, suf))
 }
 
+const WEBHOOK_HOSTS = ['hooks.slack.com', 'discord.com', 'discordapp.com']
+
 function maskUrlInField(m: string): string {
-  return m.replace(/(https?:\/\/)([^:/?\s"',;\n}\]]+)/, (_, scheme, host) => {
-    const labels = host.split('.')
-    if (labels.length <= 1) return scheme + keep(host, 4, 0)
+  const urlMatch = m.match(/(https?:\/\/)([^:/?\s"',;\n}\]]+)(\/[^\s"',;\n}\]]*)?/)
+  if (!urlMatch) return m
+  const [, scheme, host, path] = urlMatch
+  if (WEBHOOK_HOSTS.some(wh => host === wh || host.endsWith('.' + wh))) {
+    const fullUrl = scheme + host + (path || '')
+    const prefix = m.slice(0, m.indexOf(scheme))
+    return prefix + keep(fullUrl, 40, 4)
+  }
+  return m.replace(/(https?:\/\/)([^:/?\s"',;\n}\]]+)/, (_, s, h) => {
+    const labels = h.split('.')
+    if (labels.length <= 1) return s + keep(h, 4, 0)
     const tld = labels[labels.length - 1]
-    const prefix = labels.slice(0, labels.length - 1).join('.')
-    return scheme + keep(prefix, 4, 0) + '.' + tld
+    const pfx = labels.slice(0, labels.length - 1).join('.')
+    return s + keep(pfx, 4, 0) + '.' + tld
   })
 }
 

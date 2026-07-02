@@ -39,6 +39,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
   const [progress, setProgress] = useState(0)
   const [dragOver, setDragOver] = useState(false)
   const abortRef = useRef<AbortController | null>(null)
+  const generationRef = useRef(0)
   const { copiedText, copy } = useClipboard()
 
   const handleTextDigest = useCallback(async () => {
@@ -54,16 +55,21 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
   }, [textInput, outputEncoding, onDigestText, t])
 
   const handleFileDigest = useCallback(async (file: File) => {
+    const gen = ++generationRef.current
     setError(''); setLoading(true); setResult(null); setProgress(0)
     abortRef.current?.abort()
     const controller = new AbortController()
     abortRef.current = controller
     try {
-      const res = await onDigestFile(file, outputEncoding, (p) => setProgress(p), controller.signal)
-      setResult(res)
+      const res = await onDigestFile(file, outputEncoding, (p) => {
+        if (generationRef.current === gen) setProgress(p)
+      }, controller.signal)
+      if (generationRef.current === gen) setResult(res)
     } catch (e) {
-      if (!isAbortError(e)) setError((e as Error).message)
-    } finally { setLoading(false) }
+      if (!isAbortError(e) && generationRef.current === gen) setError((e as Error).message)
+    } finally {
+      if (generationRef.current === gen) setLoading(false)
+    }
   }, [outputEncoding, onDigestFile])
 
   const handleAbort = () => { abortRef.current?.abort(); setLoading(false); setProgress(0) }

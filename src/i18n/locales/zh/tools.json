@@ -844,6 +844,7 @@
     "greaterChina": "大中华区",
     "mainland": "仅中国大陆",
     "strict": "严格模式",
+    "strictHint": "仅检查浏览器主语言，并禁用 UTC 偏移回退信号。",
     "runNetwork": "运行网络探测",
     "runningNetwork": "探测中...",
     "copyJson": "复制 JSON",

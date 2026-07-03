@@ -844,6 +844,7 @@
     "greaterChina": "대중화권",
     "mainland": "중국 본토만",
     "strict": "엄격 모드",
+    "strictHint": "브라우저 기본 언어만 확인하고 UTC 오프셋 대체 신호를 비활성화합니다.",
     "runNetwork": "네트워크 탐지 실행",
     "runningNetwork": "탐지 중...",
     "copyJson": "JSON 복사",

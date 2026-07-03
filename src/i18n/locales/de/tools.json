@@ -844,6 +844,7 @@
     "greaterChina": "Großchina",
     "mainland": "Nur Festland",
     "strict": "Strikter Modus",
+    "strictHint": "Prüft nur die Hauptsprache des Browsers und deaktiviert das UTC-Offset-Fallback-Signal.",
     "runNetwork": "Netzwerkprobe starten",
     "runningNetwork": "Probe läuft...",
     "copyJson": "JSON kopieren",

@@ -844,6 +844,7 @@
     "greaterChina": "Grande Chine",
     "mainland": "Chine continentale uniquement",
     "strict": "Mode strict",
+    "strictHint": "Vérifie uniquement la langue principale du navigateur et désactive le signal de repli UTC.",
     "runNetwork": "Lancer la sonde réseau",
     "runningNetwork": "Sonde en cours...",
     "copyJson": "Copier JSON",

@@ -844,6 +844,7 @@
     "greaterChina": "Greater China",
     "mainland": "Mainland only",
     "strict": "Strict mode",
+    "strictHint": "Only checks the primary browser language and disables the UTC offset fallback signal.",
     "runNetwork": "Run network probe",
     "runningNetwork": "Running probe...",
     "copyJson": "Copy JSON",

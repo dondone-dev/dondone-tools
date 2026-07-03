@@ -844,6 +844,7 @@
     "greaterChina": "Grande China",
     "mainland": "Apenas China continental",
     "strict": "Modo estrito",
+    "strictHint": "Verifica apenas o idioma principal do navegador e desativa o sinal de fallback UTC.",
     "runNetwork": "Executar sonda de rede",
     "runningNetwork": "Executando sonda...",
     "copyJson": "Copiar JSON",

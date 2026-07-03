@@ -844,6 +844,7 @@
     "greaterChina": "大中華圏",
     "mainland": "中国本土のみ",
     "strict": "厳格モード",
+    "strictHint": "ブラウザの主要言語のみを確認し、UTCオフセットのフォールバック信号を無効にします。",
     "runNetwork": "ネットワーク検査を実行",
     "runningNetwork": "検査中...",
     "copyJson": "JSONをコピー",

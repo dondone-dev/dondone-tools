@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Check, Copy, Loader2, Radar, Wifi } from 'lucide-react'
+import { Check, Copy, HelpCircle, Loader2, Radar, Wifi } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { useClipboard } from '@/hooks/useClipboard'
 import {
   detectEmojiSignal,
@@ -17,7 +17,6 @@ import {
   evaluateUtcOffsetSignal,
   readBrowserEnvironment,
   runNetworkProbe,
-  type ChinaDetectorMode,
   type ChinaDetectorResult,
   type ChinaDetectorStatus,
   type NetworkProbeResult,
@@ -36,7 +35,6 @@ export function ChinaUserDetectorPage() {
   const { t } = useTranslation(['tools', 'common'])
   const { copiedText, copy } = useClipboard()
 
-  const [mode, setMode] = useState<ChinaDetectorMode>('greater-china')
   const [strict, setStrict] = useState(false)
   const [networkSignal, setNetworkSignal] = useState<NetworkProbeResult | null>(null)
   const [networkLoading, setNetworkLoading] = useState(false)
@@ -50,7 +48,7 @@ export function ChinaUserDetectorPage() {
     setLocalSignals([emoji, font])
   }, [])
 
-  const options = useMemo(() => ({ mode, strict }), [mode, strict])
+  const options = useMemo(() => ({ mode: 'mainland' as const, strict }), [strict])
 
   const result: ChinaDetectorResult | null = useMemo(() => {
     if (!mounted) return null
@@ -120,17 +118,6 @@ export function ChinaUserDetectorPage() {
 
       {/* Controls */}
       <div className="flex flex-wrap items-center gap-3">
-        <Tabs value={mode} onValueChange={v => setMode(v as ChinaDetectorMode)}>
-          <TabsList className="h-8">
-            <TabsTrigger value="greater-china" className="text-xs h-7 px-3">
-              {t('china-user-detector.greaterChina', { ns: 'tools' })}
-            </TabsTrigger>
-            <TabsTrigger value="mainland" className="text-xs h-7 px-3">
-              {t('china-user-detector.mainland', { ns: 'tools' })}
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-
         <div className="flex items-center gap-1.5">
           <Checkbox
             id="strict-mode"
@@ -140,6 +127,16 @@ export function ChinaUserDetectorPage() {
           <Label htmlFor="strict-mode" className="text-xs cursor-pointer">
             {t('china-user-detector.strict', { ns: 'tools' })}
           </Label>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="h-3.5 w-3.5 text-muted-foreground cursor-help" />
+              </TooltipTrigger>
+              <TooltipContent side="top" className="max-w-[240px] text-xs">
+                {t('china-user-detector.strictHint', { ns: 'tools' })}
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
 
         <Button

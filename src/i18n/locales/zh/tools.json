@@ -228,7 +228,9 @@
     "flagDescG": "全局 — 匹配所有结果",
     "flagDescI": "忽略大小写",
     "flagDescM": "多行 — ^ 和 $ 匹配行首行尾",
-    "flagDescS": "点号全匹配 — . 也匹配换行符"
+    "flagDescS": "点号全匹配 — . 也匹配换行符",
+    "timeout": "正则执行超时（可能存在灾难性回溯）",
+    "workerError": "正则执行失败"
   },
   "color": {
     "title": "颜色选择器",

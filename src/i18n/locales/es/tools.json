@@ -228,7 +228,9 @@
     "flagDescG": "Global — todas las coincidencias",
     "flagDescI": "Sin distinción de mayúsculas",
     "flagDescM": "Multilínea — ^ y $ coinciden con inicio/fin de línea",
-    "flagDescS": "Punto total — . también coincide con saltos de línea"
+    "flagDescS": "Punto total — . también coincide con saltos de línea",
+    "timeout": "La ejecución de la expresión regular agotó el tiempo (posible retroceso catastrófico)",
+    "workerError": "Error al ejecutar la expresión regular"
   },
   "color": {
     "title": "Selector de color",

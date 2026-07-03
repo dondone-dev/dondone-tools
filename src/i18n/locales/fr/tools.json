@@ -228,7 +228,9 @@
     "flagDescG": "Global — toutes les correspondances",
     "flagDescI": "Insensible à la casse",
     "flagDescM": "Multiligne — ^ et $ correspondent aux débuts/fins de ligne",
-    "flagDescS": "Point universel — . correspond aussi aux sauts de ligne"
+    "flagDescS": "Point universel — . correspond aussi aux sauts de ligne",
+    "timeout": "L'exécution de l'expression régulière a expiré (retour sur trace catastrophique possible)",
+    "workerError": "Échec de l'exécution de l'expression régulière"
   },
   "color": {
     "title": "Sélecteur de couleur",

@@ -228,7 +228,9 @@
     "flagDescG": "Global — find all matches",
     "flagDescI": "Case-insensitive",
     "flagDescM": "Multiline — ^ and $ match line boundaries",
-    "flagDescS": "Dot All — . also matches newlines"
+    "flagDescS": "Dot All — . also matches newlines",
+    "timeout": "Regex execution timed out (possible catastrophic backtracking)",
+    "workerError": "Regex execution failed"
   },
   "color": {
     "title": "Color Picker",

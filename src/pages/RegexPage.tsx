@@ -69,10 +69,20 @@ function buildSegments(text: string, matches: SerializedMatch[]): { text: string
   return segments
 }
 
+interface RegexRunResult {
+  matches: SerializedMatch[]
+  error: string
+  errorKey?: 'timeout' | 'workerError'
+}
+
 function useRegexWorker() {
   const blobUrlRef = useRef<string | undefined>(undefined)
 
-  const run = useCallback((pattern: string, flags: string, input: string): Promise<{ matches: SerializedMatch[]; error: string }> => {
+  useEffect(() => () => {
+    if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current)
+  }, [])
+
+  const run = useCallback((pattern: string, flags: string, input: string): Promise<RegexRunResult> => {
     return new Promise((resolve) => {
       if (!blobUrlRef.current) {
         blobUrlRef.current = URL.createObjectURL(new Blob([workerCode], { type: 'application/javascript' }))
@@ -80,7 +90,7 @@ function useRegexWorker() {
       const worker = new Worker(blobUrlRef.current)
       const timer = setTimeout(() => {
         worker.terminate()
-        resolve({ matches: [], error: 'Regex execution timed out (possible catastrophic backtracking)' })
+        resolve({ matches: [], error: '', errorKey: 'timeout' })
       }, WORKER_TIMEOUT_MS)
 
       worker.onmessage = (e) => {
@@ -95,7 +105,7 @@ function useRegexWorker() {
       worker.onerror = () => {
         clearTimeout(timer)
         worker.terminate()
-        resolve({ matches: [], error: 'Worker error' })
+        resolve({ matches: [], error: '', errorKey: 'workerError' })
       }
       worker.postMessage({ pattern, flags, input, maxMatches: MAX_MATCHES })
     })
@@ -112,6 +122,7 @@ export function RegexPage() {
   const [matches, setMatches] = useState<SerializedMatch[]>([])
   const [error, setError] = useState('')
   const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const runIdRef = useRef(0)
   const runRegex = useRegexWorker()
 
   const flagsStr = FLAGS.filter((f) => activeFlags.has(f)).join('')
@@ -119,17 +130,20 @@ export function RegexPage() {
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
     if (!pattern) {
+      runIdRef.current += 1
       setMatches([])
       setError('')
       return
     }
     debounceRef.current = setTimeout(async () => {
+      const runId = ++runIdRef.current
       const result = await runRegex(pattern, flagsStr, testInput)
+      if (runId !== runIdRef.current) return
       setMatches(result.matches)
-      setError(result.error)
+      setError(result.errorKey ? t(`regex.${result.errorKey}`) : result.error)
     }, DEBOUNCE_MS)
     return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
-  }, [pattern, flagsStr, testInput, runRegex])
+  }, [pattern, flagsStr, testInput, runRegex, t])
 
   function toggleFlag(flag: Flag) {
     setActiveFlags((prev) => {

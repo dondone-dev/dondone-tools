@@ -228,7 +228,9 @@
     "flagDescG": "Global — alle Treffer finden",
     "flagDescI": "Groß-/Kleinschreibung ignorieren",
     "flagDescM": "Mehrzeilig — ^ und $ treffen Zeilenanfang/-ende",
-    "flagDescS": "Punkt alle — . trifft auch Zeilenumbrüche"
+    "flagDescS": "Punkt alle — . trifft auch Zeilenumbrüche",
+    "timeout": "Regex-Ausführung überschritt das Zeitlimit (möglicherweise katastrophales Backtracking)",
+    "workerError": "Regex-Ausführung fehlgeschlagen"
   },
   "color": {
     "title": "Farbwähler",

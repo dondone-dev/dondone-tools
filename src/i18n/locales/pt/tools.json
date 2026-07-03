@@ -228,7 +228,9 @@
     "flagDescG": "Global — todas as correspondências",
     "flagDescI": "Sem distinção de maiúsculas",
     "flagDescM": "Multilinha — ^ e $ correspondem ao início/fim de linha",
-    "flagDescS": "Ponto total — . também corresponde a quebras de linha"
+    "flagDescS": "Ponto total — . também corresponde a quebras de linha",
+    "timeout": "A execução da expressão regular excedeu o tempo limite (possível retrocesso catastrófico)",
+    "workerError": "Falha na execução da expressão regular"
   },
   "color": {
     "title": "Seletor de cor",

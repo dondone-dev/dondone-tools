@@ -108,7 +108,7 @@
     "description": "Comptez la longueur des chaînes incluant le nombre de caractères, octets, lignes et statistiques pleine/demi-largeur.",
     "placeholder": "Entrez le texte ici, les statistiques se mettent à jour en temps réel...",
     "lengthExclNewlines": "Caractères (sans retours à la ligne)",
-    "length": "Caractères (pleine/demi = 1)",
+    "length": "Largeur d'affichage (pleine chasse=2, demi-chasse=1)",
     "chineseChars": "Caractères CJC",
     "letters": "Lettres",
     "digits": "Chiffres",

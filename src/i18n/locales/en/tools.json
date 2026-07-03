@@ -108,7 +108,7 @@
     "description": "Count string length including character count, byte count, lines, and full/half-width stats. Calculates in real time.",
     "placeholder": "Enter text here, statistics update in real time...",
     "lengthExclNewlines": "Chars (excl. newlines)",
-    "length": "Chars (full/half = 1)",
+    "length": "Display width (full-width=2, half-width=1)",
     "chineseChars": "CJK Chars",
     "letters": "Letters",
     "digits": "Digits",

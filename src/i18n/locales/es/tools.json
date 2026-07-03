@@ -108,7 +108,7 @@
     "description": "Cuenta la longitud de cadenas incluyendo caracteres, bytes, líneas y estadísticas de ancho completo/medio.",
     "placeholder": "Introduce texto aquí, las estadísticas se actualizan en tiempo real...",
     "lengthExclNewlines": "Caracteres (sin saltos de línea)",
-    "length": "Caracteres (completo/medio = 1)",
+    "length": "Ancho de visualización (ancho completo=2, medio ancho=1)",
     "chineseChars": "Caracteres CJK",
     "letters": "Letras",
     "digits": "Dígitos",

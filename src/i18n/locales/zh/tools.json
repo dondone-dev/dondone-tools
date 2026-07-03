@@ -108,7 +108,7 @@
     "description": "统计字符串长度，包括字符数、字节数、行数、全角/半角字符统计。实时计算，无需点击。",
     "placeholder": "在此输入文本，统计结果实时显示...",
     "lengthExclNewlines": "字符数（不含换行）",
-    "length": "字符数（全半角计为1）",
+    "length": "显示宽度（全角计2、半角计1）",
     "chineseChars": "中文字符",
     "letters": "字母",
     "digits": "数字",

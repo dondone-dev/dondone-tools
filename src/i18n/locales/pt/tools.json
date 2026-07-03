@@ -108,7 +108,7 @@
     "description": "Conta o comprimento de strings incluindo caracteres, bytes, linhas e estatísticas de largura total/meia.",
     "placeholder": "Introduza texto aqui, as estatísticas atualizam em tempo real...",
     "lengthExclNewlines": "Caracteres (sem quebras de linha)",
-    "length": "Caracteres (total/meio = 1)",
+    "length": "Largura de exibição (largura total=2, meia largura=1)",
     "chineseChars": "Caracteres CJK",
     "letters": "Letras",
     "digits": "Dígitos",

@@ -108,7 +108,7 @@
     "description": "Zählt die Zeichenfolgenlänge einschließlich Zeichen, Bytes, Zeilen und Vollbreite/Halbbreite-Statistiken.",
     "placeholder": "Text hier eingeben, Statistiken werden in Echtzeit aktualisiert...",
     "lengthExclNewlines": "Zeichen (ohne Zeilenumbrüche)",
-    "length": "Zeichen (Voll/Halb = 1)",
+    "length": "Anzeigebreite (vollbreit=2, halbbreit=1)",
     "chineseChars": "CJK-Zeichen",
     "letters": "Buchstaben",
     "digits": "Ziffern",

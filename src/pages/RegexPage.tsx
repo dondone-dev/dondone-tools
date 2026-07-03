@@ -128,17 +128,17 @@ export function RegexPage() {
   const flagsStr = FLAGS.filter((f) => activeFlags.has(f)).join('')
 
   useEffect(() => {
+    const currentRunId = ++runIdRef.current
     if (debounceRef.current) clearTimeout(debounceRef.current)
     if (!pattern) {
-      runIdRef.current += 1
       setMatches([])
       setError('')
       return
     }
     debounceRef.current = setTimeout(async () => {
-      const runId = ++runIdRef.current
+      if (currentRunId !== runIdRef.current) return
       const result = await runRegex(pattern, flagsStr, testInput)
-      if (runId !== runIdRef.current) return
+      if (currentRunId !== runIdRef.current) return
       setMatches(result.matches)
       setError(result.errorKey ? t(`regex.${result.errorKey}`) : result.error)
     }, DEBOUNCE_MS)

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  analyzeRenderedPixels,
   evaluateAggregate,
   evaluateLanguageSignal,
   evaluateTimeZoneSignal,
@@ -7,6 +8,35 @@ import {
   type ChinaDetectorOptions,
   type SignalResult,
 } from './china-user-detector'
+
+describe('analyzeRenderedPixels', () => {
+  it('detects empty rendered output', () => {
+    const result = analyzeRenderedPixels(new Uint8ClampedArray([
+      0, 0, 0, 0,
+      0, 0, 0, 0,
+    ]))
+    expect(result.opaquePixelCount).toBe(0)
+    expect(result.isMonochrome).toBe(true)
+  })
+
+  it('detects monochrome rendered output', () => {
+    const result = analyzeRenderedPixels(new Uint8ClampedArray([
+      10, 10, 10, 255,
+      80, 80, 80, 255,
+    ]))
+    expect(result.opaquePixelCount).toBe(2)
+    expect(result.isMonochrome).toBe(true)
+  })
+
+  it('detects color rendered output', () => {
+    const result = analyzeRenderedPixels(new Uint8ClampedArray([
+      10, 10, 10, 255,
+      255, 80, 20, 255,
+    ]))
+    expect(result.opaquePixelCount).toBe(2)
+    expect(result.isMonochrome).toBe(false)
+  })
+})
 
 describe('evaluateLanguageSignal', () => {
   it('matches zh-CN in mainland mode', () => {

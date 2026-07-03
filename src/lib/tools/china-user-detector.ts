@@ -239,6 +239,29 @@ export function readBrowserEnvironment(): BrowserEnvironment {
   return { languages, timeZone, utcOffsetMinutes }
 }
 
+export function analyzeRenderedPixels(data: ArrayLike<number>): {
+  opaquePixelCount: number
+  isMonochrome: boolean
+} {
+  let opaquePixelCount = 0
+  let isMonochrome = true
+
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i]
+    const g = data[i + 1]
+    const b = data[i + 2]
+    const a = data[i + 3]
+    if (a > 0) {
+      opaquePixelCount++
+      if (isMonochrome && !(r === g && g === b)) {
+        isMonochrome = false
+      }
+    }
+  }
+
+  return { opaquePixelCount, isMonochrome }
+}
+
 export function detectEmojiSignal(): SignalResult {
   if (typeof document === 'undefined' || typeof navigator === 'undefined') {
     return {
@@ -279,20 +302,16 @@ export function detectEmojiSignal(): SignalResult {
       }
     }
 
-    const hasColorPixels = (text: string): boolean => {
+    const renderText = (text: string): ReturnType<typeof analyzeRenderedPixels> => {
       ctx.clearRect(0, 0, 16, 16)
       ctx.font = '14px sans-serif'
       ctx.fillText(text, 0, 14)
       const data = ctx.getImageData(0, 0, 16, 16).data
-      let nonTransparent = 0
-      for (let i = 3; i < data.length; i += 4) {
-        if (data[i] > 0) nonTransparent++
-      }
-      return nonTransparent >= 10
+      return analyzeRenderedPixels(data)
     }
 
-    const controlRendered = hasColorPixels('\u{1F600}')
-    if (!controlRendered) {
+    const control = renderText('\u{1F600}')
+    if (control.opaquePixelCount < 10 || control.isMonochrome) {
       return {
         id: 'emoji',
         status: 'unknown',
@@ -303,8 +322,8 @@ export function detectEmojiSignal(): SignalResult {
       }
     }
 
-    const flagRendered = hasColorPixels('\u{1F1F9}\u{1F1FC}')
-    if (!flagRendered) {
+    const flag = renderText('\u{1F1F9}\u{1F1FC}')
+    if (flag.opaquePixelCount < 10 || flag.isMonochrome) {
       return {
         id: 'emoji',
         status: 'match',
@@ -362,7 +381,7 @@ export function detectFontSignal(fontList?: string[]): SignalResult {
       }
     }
 
-    const testText = 'mmmmmmmmmmlli'
+    const testText = 'mmmmmmmmmmlli中文测试'
     ctx.font = '72px monospace'
     const baselineWidth = ctx.measureText(testText).width
 

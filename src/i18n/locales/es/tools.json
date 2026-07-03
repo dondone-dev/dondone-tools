@@ -836,5 +836,54 @@
     "catVariable": "Costo variable",
     "revenueLabel": "Ingresos",
     "disclaimer": "Esta estimación usa un modelo simplificado (costos fijos + tasa de costos variables) y no incluye depreciación, impuestos ni estacionalidad. Es solo para una evaluación rápida de viabilidad; combínala con un estudio de mercado local antes de decidir."
+  },
+  "china-user-detector": {
+    "title": "Detector de entorno China",
+    "description": "Inspecciona las señales del navegador, dispositivo y red opcional que pueden indicar un entorno chino. Todas las comprobaciones locales se ejecutan en tu navegador.",
+    "mode": "Alcance de detección",
+    "greaterChina": "Gran China",
+    "mainland": "Solo China continental",
+    "strict": "Modo estricto",
+    "runNetwork": "Ejecutar sonda de red",
+    "runningNetwork": "Ejecutando sonda...",
+    "copyJson": "Copiar JSON",
+    "summary": "Resumen",
+    "signals": "Señales",
+    "observed": "Observado",
+    "score": "Puntuación",
+    "networkNotice": "La sonda de red carga pequeñas imágenes remotas y puede verse afectada por VPN, proxies, bloqueadores o estado sin conexión.",
+    "networkDetails": "Detalles de la sonda de red",
+    "reachable": "Accesible",
+    "unreachable": "Inaccesible",
+    "status": {
+      "label": "Estado",
+      "match": "Coincidencia",
+      "miss": "Sin coincidencia",
+      "unknown": "Desconocido",
+      "unavailable": "No disponible",
+      "error": "Error"
+    },
+    "confidence": {
+      "label": "Confianza",
+      "high": "Alta",
+      "medium": "Media",
+      "low": "Baja",
+      "unknown": "Desconocida"
+    },
+    "result": {
+      "mainlandLikely": "Probable entorno de China continental",
+      "greaterChinaLikely": "Probable entorno de Gran China",
+      "someSignals": "Algunas señales relacionadas con China",
+      "noStrongSignals": "Sin señales fuertes relacionadas con China",
+      "unknown": "No se puede determinar"
+    },
+    "signalNames": {
+      "language": "Idioma",
+      "timezone": "Zona horaria",
+      "utc-offset": "Desfase UTC",
+      "emoji": "Renderizado Emoji",
+      "font": "Fuentes",
+      "network": "Accesibilidad de red"
+    }
   }
 }

@@ -836,5 +836,54 @@
     "catVariable": "Charge variable",
     "revenueLabel": "Chiffre d'affaires",
     "disclaimer": "Cette estimation utilise un modèle simplifié (charges fixes + taux de charges variables) et exclut l'amortissement, les impôts et la saisonnalité. À titre indicatif uniquement — associez-la à une étude de marché locale avant toute décision."
+  },
+  "china-user-detector": {
+    "title": "Détecteur d'environnement Chine",
+    "description": "Inspectez les signaux du navigateur, de l'appareil et du réseau optionnel pouvant indiquer un environnement chinois. Toutes les vérifications locales s'exécutent dans votre navigateur.",
+    "mode": "Portée de détection",
+    "greaterChina": "Grande Chine",
+    "mainland": "Chine continentale uniquement",
+    "strict": "Mode strict",
+    "runNetwork": "Lancer la sonde réseau",
+    "runningNetwork": "Sonde en cours...",
+    "copyJson": "Copier JSON",
+    "summary": "Résumé",
+    "signals": "Signaux",
+    "observed": "Observé",
+    "score": "Score",
+    "networkNotice": "La sonde réseau charge de petites images distantes et peut être affectée par les VPN, proxies, bloqueurs ou l'état hors ligne.",
+    "networkDetails": "Détails de la sonde réseau",
+    "reachable": "Accessible",
+    "unreachable": "Inaccessible",
+    "status": {
+      "label": "Statut",
+      "match": "Correspondance",
+      "miss": "Pas de correspondance",
+      "unknown": "Inconnu",
+      "unavailable": "Indisponible",
+      "error": "Erreur"
+    },
+    "confidence": {
+      "label": "Confiance",
+      "high": "Élevée",
+      "medium": "Moyenne",
+      "low": "Faible",
+      "unknown": "Inconnue"
+    },
+    "result": {
+      "mainlandLikely": "Probablement un environnement de Chine continentale",
+      "greaterChinaLikely": "Probablement un environnement de Grande Chine",
+      "someSignals": "Quelques signaux liés à la Chine",
+      "noStrongSignals": "Pas de signaux forts liés à la Chine",
+      "unknown": "Impossible de déterminer"
+    },
+    "signalNames": {
+      "language": "Langue",
+      "timezone": "Fuseau horaire",
+      "utc-offset": "Décalage UTC",
+      "emoji": "Rendu Emoji",
+      "font": "Polices",
+      "network": "Accessibilité réseau"
+    }
   }
 }

@@ -836,5 +836,54 @@
     "catVariable": "变动成本",
     "revenueLabel": "营业收入",
     "disclaimer": "测算基于简化模型（固定成本 + 变动成本率），不含折旧、税费与季节性波动，仅供快速可行性参考；实际经营决策请结合当地市场调研。"
+  },
+  "china-user-detector": {
+    "title": "中国环境检测",
+    "description": "检测浏览器、设备和可选网络信号，判断当前环境是否具有中国特征。所有本地检测在浏览器中运行。",
+    "mode": "检测范围",
+    "greaterChina": "大中华区",
+    "mainland": "仅中国大陆",
+    "strict": "严格模式",
+    "runNetwork": "运行网络探测",
+    "runningNetwork": "探测中...",
+    "copyJson": "复制 JSON",
+    "summary": "总结",
+    "signals": "信号详情",
+    "observed": "观测值",
+    "score": "得分",
+    "networkNotice": "网络探测会加载远程小图片，可能受 VPN、代理、广告拦截器或离线状态影响。",
+    "networkDetails": "网络探测详情",
+    "reachable": "可达",
+    "unreachable": "不可达",
+    "status": {
+      "label": "状态",
+      "match": "匹配",
+      "miss": "未匹配",
+      "unknown": "未知",
+      "unavailable": "不可用",
+      "error": "错误"
+    },
+    "confidence": {
+      "label": "置信度",
+      "high": "高",
+      "medium": "中",
+      "low": "低",
+      "unknown": "未知"
+    },
+    "result": {
+      "mainlandLikely": "可能是中国大陆环境",
+      "greaterChinaLikely": "可能是大中华区环境",
+      "someSignals": "存在部分中国相关信号",
+      "noStrongSignals": "未发现明显中国相关信号",
+      "unknown": "无法判断"
+    },
+    "signalNames": {
+      "language": "语言",
+      "timezone": "时区",
+      "utc-offset": "UTC 偏移",
+      "emoji": "Emoji 渲染",
+      "font": "字体",
+      "network": "网络可达性"
+    }
   }
 }

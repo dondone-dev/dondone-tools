@@ -34,6 +34,7 @@ import {
   Minimize2,
   BookOpen,
   UtensilsCrossed,
+  Radar,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -257,6 +258,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'sensitive-masker.description',
     href: '/security/sensitive-masker',
     icon: EyeOff,
+    category: 'Security',
+  },
+  {
+    id: 'china-user-detector',
+    title: 'China Environment Detector',
+    descriptionKey: 'china-user-detector.description',
+    href: '/security/china-user-detector',
+    icon: Radar,
     category: 'Security',
   },
   {

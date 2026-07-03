@@ -55,6 +55,7 @@ const BeijingGetihuPage = lazy(() => import('@/pages/BeijingGetihuPage').then(m 
 const RestaurantBreakevenPage = lazy(() => import('@/pages/RestaurantBreakevenPage').then(m => ({ default: m.RestaurantBreakevenPage })))
 const ImgCompressPage = lazy(() => import('@/pages/ImgCompressPage').then(m => ({ default: m.ImgCompressPage })))
 const WordbookPage = lazy(() => import('@/pages/WordbookPage').then(m => ({ default: m.WordbookPage })))
+const ChinaUserDetectorPage = lazy(() => import('@/pages/ChinaUserDetectorPage').then(m => ({ default: m.ChinaUserDetectorPage })))
 
 function toolRoutes() {
   return (
@@ -91,6 +92,7 @@ function toolRoutes() {
       <Route path="sql/supabase-rls" element={<SupabaseRlsPage />} />
       <Route path="image/exif" element={<ExifPage />} />
       <Route path="security/sensitive-masker" element={<SensitiveMaskerPage />} />
+      <Route path="security/china-user-detector" element={<Suspense fallback={<ToolSkeleton />}><ChinaUserDetectorPage /></Suspense>} />
       <Route path="image/heic" element={<Suspense fallback={<ToolSkeleton />}><HeicPage /></Suspense>} />
       <Route path="file/zip-inspector" element={<Suspense fallback={<ToolSkeleton />}><ZipInspectorPage /></Suspense>} />
       <Route path="image/ocr" element={<Suspense fallback={<ToolSkeleton />}><OcrPage /></Suspense>} />

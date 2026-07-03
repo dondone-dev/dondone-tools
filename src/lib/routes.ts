@@ -34,6 +34,7 @@ export const TOOL_ROUTES = [
   '/image/exif',
   '/image/heic',
   '/security/sensitive-masker',
+  '/security/china-user-detector',
   '/file/zip-inspector',
   '/image/ocr',
   '/image/compress',

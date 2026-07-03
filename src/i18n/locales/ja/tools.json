@@ -836,5 +836,54 @@
     "catVariable": "変動費",
     "revenueLabel": "売上高",
     "disclaimer": "この試算は簡易モデル（固定費＋変動費率）に基づき、減価償却・税金・季節変動は含まれません。あくまで簡易的な採算性の目安であり、実際の意思決定には現地の市場調査を併せてご検討ください。"
+  },
+  "china-user-detector": {
+    "title": "中国環境検出",
+    "description": "ブラウザ、デバイス、オプションのネットワーク信号を検査し、中国環境の特徴があるか判定します。ローカルチェックはすべてブラウザ内で実行されます。",
+    "mode": "検出範囲",
+    "greaterChina": "大中華圏",
+    "mainland": "中国本土のみ",
+    "strict": "厳格モード",
+    "runNetwork": "ネットワーク検査を実行",
+    "runningNetwork": "検査中...",
+    "copyJson": "JSONをコピー",
+    "summary": "概要",
+    "signals": "信号詳細",
+    "observed": "観測値",
+    "score": "スコア",
+    "networkNotice": "ネットワーク検査は小さなリモート画像を読み込みます。VPN、プロキシ、ブロッカー、オフライン状態の影響を受ける場合があります。",
+    "networkDetails": "ネットワーク検査詳細",
+    "reachable": "到達可能",
+    "unreachable": "到達不可",
+    "status": {
+      "label": "ステータス",
+      "match": "一致",
+      "miss": "不一致",
+      "unknown": "不明",
+      "unavailable": "利用不可",
+      "error": "エラー"
+    },
+    "confidence": {
+      "label": "確信度",
+      "high": "高",
+      "medium": "中",
+      "low": "低",
+      "unknown": "不明"
+    },
+    "result": {
+      "mainlandLikely": "中国本土環境の可能性が高い",
+      "greaterChinaLikely": "大中華圏環境の可能性が高い",
+      "someSignals": "中国関連の信号が一部検出",
+      "noStrongSignals": "明確な中国関連信号なし",
+      "unknown": "判定不能"
+    },
+    "signalNames": {
+      "language": "言語",
+      "timezone": "タイムゾーン",
+      "utc-offset": "UTCオフセット",
+      "emoji": "Emoji描画",
+      "font": "フォント",
+      "network": "ネットワーク到達性"
+    }
   }
 }

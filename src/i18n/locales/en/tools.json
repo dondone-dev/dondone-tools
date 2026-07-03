@@ -836,5 +836,54 @@
     "catVariable": "Variable cost",
     "revenueLabel": "Revenue",
     "disclaimer": "This estimate uses a simplified model (fixed costs + variable cost rate) and excludes depreciation, taxes, and seasonality. For quick feasibility checks only — combine with local market research before deciding."
+  },
+  "china-user-detector": {
+    "title": "China Environment Detector",
+    "description": "Inspect browser, device, and optional network signals that may resemble a China environment. All local checks run in your browser.",
+    "mode": "Detection scope",
+    "greaterChina": "Greater China",
+    "mainland": "Mainland only",
+    "strict": "Strict mode",
+    "runNetwork": "Run network probe",
+    "runningNetwork": "Running probe...",
+    "copyJson": "Copy JSON",
+    "summary": "Summary",
+    "signals": "Signals",
+    "observed": "Observed",
+    "score": "Score",
+    "networkNotice": "Network probe loads small remote images and can be affected by VPNs, proxies, blockers, or offline status.",
+    "networkDetails": "Network probe details",
+    "reachable": "Reachable",
+    "unreachable": "Unreachable",
+    "status": {
+      "label": "Status",
+      "match": "Match",
+      "miss": "No match",
+      "unknown": "Unknown",
+      "unavailable": "Unavailable",
+      "error": "Error"
+    },
+    "confidence": {
+      "label": "Confidence",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low",
+      "unknown": "Unknown"
+    },
+    "result": {
+      "mainlandLikely": "Likely mainland China environment",
+      "greaterChinaLikely": "Likely Greater China environment",
+      "someSignals": "Some China-related signals",
+      "noStrongSignals": "No strong China-related signals",
+      "unknown": "Unable to judge"
+    },
+    "signalNames": {
+      "language": "Language",
+      "timezone": "Time zone",
+      "utc-offset": "UTC offset",
+      "emoji": "Emoji rendering",
+      "font": "Fonts",
+      "network": "Network reachability"
+    }
   }
 }

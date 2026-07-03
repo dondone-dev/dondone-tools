@@ -836,5 +836,54 @@
     "catVariable": "Variable Kosten",
     "revenueLabel": "Umsatz",
     "disclaimer": "Diese Schätzung basiert auf einem vereinfachten Modell (Fixkosten + variable Kostenquote) und berücksichtigt keine Abschreibungen, Steuern oder saisonale Schwankungen. Nur zur schnellen Machbarkeitsprüfung — kombinieren Sie sie vor einer Entscheidung mit einer lokalen Marktanalyse."
+  },
+  "china-user-detector": {
+    "title": "China-Umgebungserkennung",
+    "description": "Untersuchen Sie Browser-, Geräte- und optionale Netzwerksignale, die auf eine chinesische Umgebung hindeuten könnten. Alle lokalen Prüfungen laufen in Ihrem Browser.",
+    "mode": "Erkennungsbereich",
+    "greaterChina": "Großchina",
+    "mainland": "Nur Festland",
+    "strict": "Strikter Modus",
+    "runNetwork": "Netzwerkprobe starten",
+    "runningNetwork": "Probe läuft...",
+    "copyJson": "JSON kopieren",
+    "summary": "Zusammenfassung",
+    "signals": "Signale",
+    "observed": "Beobachtet",
+    "score": "Punktzahl",
+    "networkNotice": "Die Netzwerkprobe lädt kleine Remote-Bilder und kann durch VPNs, Proxys, Blocker oder Offline-Status beeinflusst werden.",
+    "networkDetails": "Netzwerkprobe-Details",
+    "reachable": "Erreichbar",
+    "unreachable": "Nicht erreichbar",
+    "status": {
+      "label": "Status",
+      "match": "Übereinstimmung",
+      "miss": "Keine Übereinstimmung",
+      "unknown": "Unbekannt",
+      "unavailable": "Nicht verfügbar",
+      "error": "Fehler"
+    },
+    "confidence": {
+      "label": "Konfidenz",
+      "high": "Hoch",
+      "medium": "Mittel",
+      "low": "Niedrig",
+      "unknown": "Unbekannt"
+    },
+    "result": {
+      "mainlandLikely": "Wahrscheinlich eine Festland-China-Umgebung",
+      "greaterChinaLikely": "Wahrscheinlich eine Großchina-Umgebung",
+      "someSignals": "Einige chinabezogene Signale",
+      "noStrongSignals": "Keine starken chinabezogenen Signale",
+      "unknown": "Nicht beurteilbar"
+    },
+    "signalNames": {
+      "language": "Sprache",
+      "timezone": "Zeitzone",
+      "utc-offset": "UTC-Offset",
+      "emoji": "Emoji-Darstellung",
+      "font": "Schriftarten",
+      "network": "Netzwerk-Erreichbarkeit"
+    }
   }
 }

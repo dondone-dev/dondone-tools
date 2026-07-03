@@ -23,4 +23,27 @@ describe('sensitive-masker', () => {
       expect(result.output).not.toContain('internal.company')
     })
   })
+
+  describe('sensitive query params in url field context', () => {
+    it('masks access_token in a DingTalk webhook query string', () => {
+      const input = 'webhook_url=https://oapi.dingtalk.com/robot/send?access_token=abc123secret456xyz'
+      const result = maskText(input, 'dev')
+      expect(result.output).not.toContain('abc123secret456xyz')
+      expect(result.output).toContain('access_token=')
+    })
+
+    it('masks api_key and secret query params in a generic url field', () => {
+      const input = 'endpoint=https://api.example.com/v1/send?api_key=AKIA1234567890SECRET&secret=deadbeefcafe1234'
+      const result = maskText(input, 'dev')
+      expect(result.output).not.toContain('AKIA1234567890SECRET')
+      expect(result.output).not.toContain('deadbeefcafe1234')
+    })
+
+    it('leaves non-sensitive query params intact', () => {
+      const input = 'api_url=https://api.example.com/v1/users?page=2&limit=50'
+      const result = maskText(input, 'dev')
+      expect(result.output).toContain('page=2')
+      expect(result.output).toContain('limit=50')
+    })
+  })
 })

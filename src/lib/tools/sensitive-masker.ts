@@ -53,6 +53,14 @@ function maskContextField(m: string, pre: number, suf: number): string {
 
 const WEBHOOK_HOSTS = ['hooks.slack.com', 'discord.com', 'discordapp.com']
 
+// The url-field pattern wins the overlap sort over token-field/api-key-field,
+// so query-string secrets must be masked here or they leak unmasked.
+const SENSITIVE_QUERY_RE = /([?&](?:access_token|refresh_token|auth_token|id_token|client_secret|api[_-]?key|apikey|token|secret|signature|sig|password|pwd)=)([^&\s"',;\n}\]]{4,})/gi
+
+function maskSensitiveQueryParams(url: string): string {
+  return url.replace(SENSITIVE_QUERY_RE, (_, pfx, val) => pfx + keep(val, 4, 4))
+}
+
 function maskUrlInField(m: string): string {
   const urlMatch = m.match(/(https?:\/\/)([^:/?\s"',;\n}\]]+)(\/[^\s"',;\n}\]]*)?/)
   if (!urlMatch) return m
@@ -62,13 +70,14 @@ function maskUrlInField(m: string): string {
     const prefix = m.slice(0, m.indexOf(scheme))
     return prefix + keep(fullUrl, 40, 4)
   }
-  return m.replace(/(https?:\/\/)([^:/?\s"',;\n}\]]+)/, (_, s, h) => {
+  const hostMasked = m.replace(/(https?:\/\/)([^:/?\s"',;\n}\]]+)/, (_, s, h) => {
     const labels = h.split('.')
     if (labels.length <= 1) return s + keep(h, 4, 0)
     const tld = labels[labels.length - 1]
     const pfx = labels.slice(0, labels.length - 1).join('.')
     return s + keep(pfx, 4, 0) + '.' + tld
   })
+  return maskSensitiveQueryParams(hostMasked)
 }
 
 const DLA: MaskerMode[] = ['dev', 'log', 'all']

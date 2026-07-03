@@ -86,7 +86,10 @@
     "textPlaceholder": "텍스트 내용을 입력...",
     "downloadPng": "PNG 다운로드",
     "dropQr": "QR 코드 이미지를 끌어다 놓거나 클릭하여 선택",
-    "decodeResult": "디코딩 결과"
+    "decodeResult": "디코딩 결과",
+    "imageOnly": "이미지 파일을 선택하세요",
+    "loadFailed": "이미지를 불러오지 못했습니다",
+    "canvasUnsupported": "이 브라우저는 Canvas를 지원하지 않습니다"
   },
   "qrcode-decode": {
     "title": "QR Code Decoder",

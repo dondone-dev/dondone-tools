@@ -86,7 +86,10 @@
     "textPlaceholder": "Introduza o conteúdo de texto...",
     "downloadPng": "Descarregar PNG",
     "dropQr": "Solte a imagem do código QR ou clique para selecionar",
-    "decodeResult": "Resultado descodificado"
+    "decodeResult": "Resultado descodificado",
+    "imageOnly": "Selecione um ficheiro de imagem",
+    "loadFailed": "Falha ao carregar a imagem",
+    "canvasUnsupported": "O Canvas não é suportado neste navegador"
   },
   "qrcode-decode": {
     "title": "QR Code Decoder",

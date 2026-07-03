@@ -86,7 +86,10 @@
     "textPlaceholder": "Введите текстовое содержимое...",
     "downloadPng": "Скачать PNG",
     "dropQr": "Перетащите изображение QR-кода или нажмите для выбора",
-    "decodeResult": "Декодированный результат"
+    "decodeResult": "Декодированный результат",
+    "imageOnly": "Выберите файл изображения",
+    "loadFailed": "Не удалось загрузить изображение",
+    "canvasUnsupported": "Canvas не поддерживается в этом браузере"
   },
   "qrcode-decode": {
     "title": "QR Code Decoder",

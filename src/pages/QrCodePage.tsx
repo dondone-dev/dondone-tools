@@ -29,7 +29,7 @@ export function QrCodePage() {
   const handleDecodeFile = (file: File) => {
     setError(''); setDecodeResult('')
     if (!file.type.startsWith('image/')) {
-      setError(t('qrcode.imageOnly', 'Please select an image file'))
+      setError(t('qrcode.imageOnly'))
       return
     }
     if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current)
@@ -40,14 +40,14 @@ export function QrCodePage() {
       const canvas = document.createElement('canvas')
       canvas.width = img.width; canvas.height = img.height
       const ctx = canvas.getContext('2d')
-      if (!ctx) { setError('Canvas not supported'); return }
+      if (!ctx) { setError(t('qrcode.canvasUnsupported')); return }
       ctx.drawImage(img, 0, 0)
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       try {
         setDecodeResult(decodeImageData({ data: imageData.data, width: canvas.width, height: canvas.height }).text)
       } catch (e) { setError((e as Error).message) }
     }
-    img.onerror = () => setError(t('qrcode.loadFailed', 'Failed to load image'))
+    img.onerror = () => setError(t('qrcode.loadFailed'))
     img.src = url
   }
 

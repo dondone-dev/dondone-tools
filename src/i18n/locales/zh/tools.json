@@ -86,7 +86,10 @@
     "textPlaceholder": "输入文本内容...",
     "downloadPng": "下载 PNG",
     "dropQr": "拖放二维码图片或点击选择",
-    "decodeResult": "识别结果"
+    "decodeResult": "识别结果",
+    "imageOnly": "请选择图片文件",
+    "loadFailed": "图片加载失败",
+    "canvasUnsupported": "当前浏览器不支持 Canvas"
   },
   "qrcode-decode": {
     "title": "QR Code Decoder",

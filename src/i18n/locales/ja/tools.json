@@ -86,7 +86,10 @@
     "textPlaceholder": "テキストを入力...",
     "downloadPng": "PNG ダウンロード",
     "dropQr": "QR コード画像をドロップまたはクリックして選択",
-    "decodeResult": "デコード結果"
+    "decodeResult": "デコード結果",
+    "imageOnly": "画像ファイルを選択してください",
+    "loadFailed": "画像の読み込みに失敗しました",
+    "canvasUnsupported": "このブラウザは Canvas に対応していません"
   },
   "qrcode-decode": {
     "title": "QR Code Decoder",

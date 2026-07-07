@@ -23,11 +23,14 @@
     "SQL": "SQL",
     "Image": "图像",
     "File": "文件",
-    "Finance": "财务"
+    "Finance": "财务",
+    "Favorites": "收藏"
   },
   "ui": {
     "result": "结果",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "addFavorite": "添加到收藏",
+    "removeFavorite": "取消收藏"
   }
 }

@@ -7,12 +7,16 @@ import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
 import { localeHref } from '@/i18n/utils'
+import { useFavorites } from '@/hooks/useFavorites'
 
 export function Home() {
   const { t, i18n } = useTranslation(['common', 'tools'])
   const locale = (LOCALES.includes(i18n.language as LocaleCode) ? i18n.language : DEFAULT_LOCALE) as LocaleCode
   const [query, setQuery] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const { favorites, isFavorite } = useFavorites()
+  const favoriteTools = TOOLS.filter((t) => favorites.includes(t.id))
+    .sort((a, b) => favorites.indexOf(a.id) - favorites.indexOf(b.id))
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -77,6 +81,7 @@ export function Home() {
                 href={localeHref(locale, tool.href)}
                 icon={tool.icon}
                 category={tool.category}
+                isFavorite={isFavorite(tool.id)}
               />
             ))}
           </div>
@@ -87,6 +92,29 @@ export function Home() {
         )
       ) : (
         <div className="space-y-10">
+          {favoriteTools.length > 0 && (
+            <section>
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                  {t('categories.Favorites', { ns: 'common' })}
+                </h2>
+                <Separator className="flex-1" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {favoriteTools.map((tool) => (
+                  <ToolCard
+                    key={tool.id}
+                    title={tool.title}
+                    descriptionKey={tool.descriptionKey}
+                    href={localeHref(locale, tool.href)}
+                    icon={tool.icon}
+                    category={tool.category}
+                    isFavorite
+                  />
+                ))}
+              </div>
+            </section>
+          )}
           {CATEGORIES.map((category) => {
             const tools = getToolsByCategory(category)
             if (tools.length === 0) return null
@@ -107,6 +135,7 @@ export function Home() {
                       href={localeHref(locale, tool.href)}
                       icon={tool.icon}
                       category={tool.category}
+                      isFavorite={isFavorite(tool.id)}
                     />
                   ))}
                 </div>

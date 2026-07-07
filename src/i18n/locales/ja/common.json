@@ -23,11 +23,14 @@
     "SQL": "SQL",
     "Image": "画像",
     "File": "ファイル",
-    "Finance": "ファイナンス"
+    "Finance": "ファイナンス",
+    "Favorites": "お気に入り"
   },
   "ui": {
     "result": "結果",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "addFavorite": "お気に入りに追加",
+    "removeFavorite": "お気に入りから削除"
   }
 }

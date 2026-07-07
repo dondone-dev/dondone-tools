@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ChevronRight, type LucideIcon } from 'lucide-react'
+import { ChevronRight, Star, type LucideIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
@@ -10,10 +10,11 @@ interface ToolCardProps {
   href: string
   icon: LucideIcon
   category: string
+  isFavorite?: boolean
   className?: string
 }
 
-export function ToolCard({ title, descriptionKey, href, icon: Icon, category, className }: ToolCardProps) {
+export function ToolCard({ title, descriptionKey, href, icon: Icon, category, isFavorite, className }: ToolCardProps) {
   const { t } = useTranslation(['tools', 'common'])
 
   return (
@@ -28,9 +29,14 @@ export function ToolCard({ title, descriptionKey, href, icon: Icon, category, cl
         <div className="p-2 rounded-md bg-muted group-hover:bg-muted/80 transition-colors">
           <Icon className="h-4 w-4 text-foreground/70" />
         </div>
-        <Badge variant="outline" className="text-xs font-normal shrink-0">
-          {t(`categories.${category}`, { ns: 'common' })}
-        </Badge>
+        <div className="flex items-center gap-1.5">
+          {isFavorite && (
+            <Star className="h-3 w-3 fill-amber-500 text-amber-500 shrink-0" aria-hidden="true" />
+          )}
+          <Badge variant="outline" className="text-xs font-normal shrink-0">
+            {t(`categories.${category}`, { ns: 'common' })}
+          </Badge>
+        </div>
       </div>
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">

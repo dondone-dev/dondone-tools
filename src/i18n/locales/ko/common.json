@@ -23,11 +23,14 @@
     "SQL": "SQL",
     "Image": "이미지",
     "File": "파일",
-    "Finance": "재무"
+    "Finance": "재무",
+    "Favorites": "즐겨찾기"
   },
   "ui": {
     "result": "결과",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "addFavorite": "즐겨찾기에 추가",
+    "removeFavorite": "즐겨찾기에서 제거"
   }
 }

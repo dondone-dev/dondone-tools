@@ -23,11 +23,14 @@
     "SQL": "SQL",
     "Image": "Изображение",
     "File": "Файл",
-    "Finance": "Финансы"
+    "Finance": "Финансы",
+    "Favorites": "Избранное"
   },
   "ui": {
     "result": "Результат",
     "copy": "Copy",
-    "copied": "Copied"
+    "copied": "Copied",
+    "addFavorite": "Добавить в избранное",
+    "removeFavorite": "Удалить из избранного"
   }
 }

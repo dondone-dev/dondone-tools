@@ -5,7 +5,8 @@ import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
-import { computeDiff, type ChangeType, type DiffResult, type SplitRow, type Token, type UnifiedLine } from '@/lib/tools/text-diff'
+import { Checkbox } from '@/components/ui/checkbox'
+import { computeDiff, computeJsonDiff, JsonDiffParseError, type ChangeType, type DiffResult, type JsonDiffSide, type SplitRow, type Token, type UnifiedLine } from '@/lib/tools/text-diff'
 
 type ViewMode = 'split' | 'unified'
 
@@ -114,9 +115,23 @@ export function TextDiffPage() {
   const [modified, setModified] = useState('')
   const [result, setResult] = useState<DiffResult | null>(null)
   const [mode, setMode] = useState<ViewMode>('split')
+  const [jsonMode, setJsonMode] = useState(false)
+  const [parseError, setParseError] = useState<{ side: JsonDiffSide; message: string } | null>(null)
 
   function handleCompare() {
-    setResult(computeDiff(original, modified))
+    setParseError(null)
+    if (jsonMode) {
+      try {
+        setResult(computeJsonDiff(original, modified))
+      } catch (e) {
+        if (e instanceof JsonDiffParseError) {
+          setParseError({ side: e.side, message: e.message })
+          setResult(null)
+        }
+      }
+    } else {
+      setResult(computeDiff(original, modified))
+    }
   }
 
   const identical = result && result.addedCount === 0 && result.removedCount === 0
@@ -135,6 +150,11 @@ export function TextDiffPage() {
               className="font-mono text-sm resize-y"
               spellCheck={false}
             />
+            {parseError?.side === 'original' && (
+              <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
+                {t('text-diff.jsonParseError', { label: t('text-diff.original'), message: parseError.message })}
+              </p>
+            )}
           </div>
           <div className="space-y-1.5">
             <Label className="text-xs text-muted-foreground">{t('text-diff.modified')}</Label>
@@ -146,12 +166,29 @@ export function TextDiffPage() {
               className="font-mono text-sm resize-y"
               spellCheck={false}
             />
+            {parseError?.side === 'modified' && (
+              <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
+                {t('text-diff.jsonParseError', { label: t('text-diff.modified'), message: parseError.message })}
+              </p>
+            )}
           </div>
         </div>
 
-        <Button size="sm" onClick={handleCompare}>
-          {t('text-diff.compare')}
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button size="sm" onClick={handleCompare}>
+            {t('text-diff.compare')}
+          </Button>
+          <div className="flex items-center gap-2">
+            <Checkbox
+              id="json-mode"
+              checked={jsonMode}
+              onCheckedChange={(v) => setJsonMode(v === true)}
+            />
+            <Label htmlFor="json-mode" className="text-sm cursor-pointer">
+              {t('text-diff.jsonMode')}
+            </Label>
+          </div>
+        </div>
 
         {result && (
           <div className="space-y-2">

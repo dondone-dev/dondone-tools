@@ -211,7 +211,9 @@
     "compare": "Compare",
     "split": "Split",
     "unified": "Unified",
-    "identical": "Texts are identical"
+    "identical": "Texts are identical",
+    "jsonMode": "JSON Format",
+    "jsonParseError": "{{label}}: Invalid JSON — {{message}}"
   },
   "regex": {
     "title": "Regex Tester",

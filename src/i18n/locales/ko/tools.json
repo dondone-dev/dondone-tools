@@ -211,7 +211,9 @@
     "compare": "비교",
     "split": "분할",
     "unified": "통합",
-    "identical": "두 텍스트가 동일합니다"
+    "identical": "두 텍스트가 동일합니다",
+    "jsonMode": "JSON 형식",
+    "jsonParseError": "{{label}}: 잘못된 JSON — {{message}}"
   },
   "regex": {
     "title": "정규식 테스터",

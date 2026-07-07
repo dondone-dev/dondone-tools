@@ -1,4 +1,5 @@
 import { diffLines, diffWords } from 'diff'
+import { formatJson } from './json-format'
 
 export type ChangeType = 'added' | 'removed' | 'unchanged'
 
@@ -147,4 +148,31 @@ export function computeDiff(original: string, modified: string): DiffResult {
   }
 
   return { split, unified, addedCount, removedCount }
+}
+
+export type JsonDiffSide = 'original' | 'modified'
+
+export class JsonDiffParseError extends Error {
+  side: JsonDiffSide
+
+  constructor(side: JsonDiffSide, message: string) {
+    super(message)
+    this.side = side
+  }
+}
+
+export function computeJsonDiff(original: string, modified: string, indent = 2): DiffResult {
+  let formattedOriginal: string
+  let formattedModified: string
+  try {
+    formattedOriginal = formatJson(original, indent)
+  } catch (e) {
+    throw new JsonDiffParseError('original', (e as Error).message)
+  }
+  try {
+    formattedModified = formatJson(modified, indent)
+  } catch (e) {
+    throw new JsonDiffParseError('modified', (e as Error).message)
+  }
+  return computeDiff(formattedOriginal, formattedModified)
 }

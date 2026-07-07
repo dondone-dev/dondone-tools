@@ -211,7 +211,9 @@
     "compare": "Vergleichen",
     "split": "Geteilt",
     "unified": "Einheitlich",
-    "identical": "Texte sind identisch"
+    "identical": "Texte sind identisch",
+    "jsonMode": "JSON-Format",
+    "jsonParseError": "{{label}}: Ungültiges JSON — {{message}}"
   },
   "regex": {
     "title": "Regex Tester",

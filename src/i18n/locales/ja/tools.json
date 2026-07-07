@@ -211,7 +211,9 @@
     "compare": "比較",
     "split": "分割",
     "unified": "統合",
-    "identical": "テキストは同一です"
+    "identical": "テキストは同一です",
+    "jsonMode": "JSON 形式",
+    "jsonParseError": "{{label}}: JSON が無効です — {{message}}"
   },
   "regex": {
     "title": "正規表現テスター",

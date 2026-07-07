@@ -211,7 +211,9 @@
     "compare": "Сравнить",
     "split": "Разделённый",
     "unified": "Единый",
-    "identical": "Тексты идентичны"
+    "identical": "Тексты идентичны",
+    "jsonMode": "Формат JSON",
+    "jsonParseError": "{{label}}: неверный JSON — {{message}}"
   },
   "regex": {
     "title": "Тестер регулярных выражений",

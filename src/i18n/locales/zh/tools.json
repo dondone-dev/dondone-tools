@@ -211,7 +211,9 @@
     "compare": "对比",
     "split": "分栏",
     "unified": "统一",
-    "identical": "两段文本完全相同"
+    "identical": "两段文本完全相同",
+    "jsonMode": "JSON 格式化",
+    "jsonParseError": "{{label}}：JSON 无效 — {{message}}"
   },
   "regex": {
     "title": "正则测试",

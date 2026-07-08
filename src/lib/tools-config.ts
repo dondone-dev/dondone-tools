@@ -372,6 +372,14 @@ export const TOOLS: ToolConfig[] = [
     icon: BookOpen,
     category: 'Text',
   },
+  {
+    id: 'markdown-to-html',
+    title: 'Markdown to HTML',
+    descriptionKey: 'markdown-to-html.description',
+    href: '/text/markdown-to-html',
+    icon: FileCode,
+    category: 'Text',
+  },
   // {
   //   id: 'bg-remove',
   //   title: 'Background Remover',

@@ -39,6 +39,7 @@ export const TOOL_ROUTES = [
   '/image/ocr',
   '/image/compress',
   '/text/wordbook',
+  '/text/markdown-to-html',
   // '/image/bg-remove', // disabled: WASM inference unstable across devices
 ] as const
 

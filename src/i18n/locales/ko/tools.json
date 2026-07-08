@@ -772,6 +772,23 @@
       "cs3": "컴퓨터 영어 III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown → HTML",
+    "description": "Markdown을 테마, 코드 하이라이팅, 커스텀 CSS를 지원하는 아름다운 HTML로 변환합니다.",
+    "inputPlaceholder": "여기에 Markdown을 붙여넣거나 입력하세요...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "미니멀",
+    "themePaper": "페이퍼",
+    "customCss": "커스텀 CSS",
+    "customCssPlaceholder": "테마 스타일을 덮어쓸 커스텀 CSS를 추가하세요...",
+    "viewSplit": "분할",
+    "viewPreview": "미리보기",
+    "copyHtml": "HTML 복사",
+    "downloadHtml": ".html 다운로드",
+    "copied": "복사됨!",
+    "emptyPreview": "왼쪽에 Markdown을 입력하면 미리보기가 표시됩니다."
+  },
   "restaurant-breakeven": {
     "title": "요식업 손익분기점 계산기",
     "description": "임대료, 인건비, 식재료 원가율 등 운영 조건을 입력해 손익분기 매출액, 월 순이익, 투자 회수 기간을 계산합니다. 모든 계산은 브라우저에서 로컬로 처리됩니다.",

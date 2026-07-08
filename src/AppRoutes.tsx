@@ -56,6 +56,7 @@ const RestaurantBreakevenPage = lazy(() => import('@/pages/RestaurantBreakevenPa
 const ImgCompressPage = lazy(() => import('@/pages/ImgCompressPage').then(m => ({ default: m.ImgCompressPage })))
 const WordbookPage = lazy(() => import('@/pages/WordbookPage').then(m => ({ default: m.WordbookPage })))
 const ChinaUserDetectorPage = lazy(() => import('@/pages/ChinaUserDetectorPage').then(m => ({ default: m.ChinaUserDetectorPage })))
+const MarkdownToHtmlPage = lazy(() => import('@/pages/MarkdownToHtmlPage'))
 
 function toolRoutes() {
   return (
@@ -98,6 +99,7 @@ function toolRoutes() {
       <Route path="image/ocr" element={<Suspense fallback={<ToolSkeleton />}><OcrPage /></Suspense>} />
       <Route path="image/compress" element={<Suspense fallback={<ToolSkeleton />}><ImgCompressPage /></Suspense>} />
       <Route path="text/wordbook" element={<Suspense fallback={<ToolSkeleton />}><WordbookPage /></Suspense>} />
+      <Route path="text/markdown-to-html" element={<Suspense fallback={<ToolSkeleton />}><MarkdownToHtmlPage /></Suspense>} />
       <Route path="image/bg-remove" element={<Suspense fallback={<ToolSkeleton />}><BgRemovePage /></Suspense>} />
       <Route path="finance/social-insurance" element={<Suspense fallback={<ToolSkeleton />}><PayrollCnPage /></Suspense>} />
       <Route path="finance/flexible-insurance" element={<Suspense fallback={<ToolSkeleton />}><FlexibleInsurancePage /></Suspense>} />

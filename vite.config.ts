@@ -40,6 +40,7 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     include: ['src/**/*.test.ts'],
+    css: { include: [/\.css/] },
     server: {
       deps: {
         inline: ['hash-wasm'],

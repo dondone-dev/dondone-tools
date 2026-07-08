@@ -772,6 +772,23 @@
       "cs3": "Inglês para Computação III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown para HTML",
+    "description": "Converta Markdown em HTML estilizado com temas, destaque de código e CSS personalizado.",
+    "inputPlaceholder": "Cole ou digite Markdown aqui...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "Minimal",
+    "themePaper": "Papel",
+    "customCss": "CSS personalizado",
+    "customCssPlaceholder": "Adicione CSS personalizado para substituir os estilos do tema...",
+    "viewSplit": "Dividido",
+    "viewPreview": "Pré-visualização",
+    "copyHtml": "Copiar HTML",
+    "downloadHtml": "Baixar .html",
+    "copied": "Copiado!",
+    "emptyPreview": "Digite Markdown à esquerda para ver a pré-visualização aqui."
+  },
   "restaurant-breakeven": {
     "title": "Calculadora de ponto de equilíbrio para restaurantes",
     "description": "Estime a receita de equilíbrio, o lucro líquido mensal e o prazo de retorno do seu restaurante a partir do aluguel, mão de obra, custo de alimentos e outras despesas. Todo o cálculo é feito localmente.",

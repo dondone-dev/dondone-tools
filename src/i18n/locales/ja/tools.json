@@ -772,6 +772,23 @@
       "cs3": "コンピュータ英語 III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown → HTML",
+    "description": "Markdownをテーマ付きの美しいHTMLに変換。コードハイライトとカスタムCSS対応。",
+    "inputPlaceholder": "ここにMarkdownを貼り付けまたは入力...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "ミニマル",
+    "themePaper": "ペーパー",
+    "customCss": "カスタムCSS",
+    "customCssPlaceholder": "テーマスタイルを上書きするカスタムCSSを追加...",
+    "viewSplit": "分割",
+    "viewPreview": "プレビュー",
+    "copyHtml": "HTMLをコピー",
+    "downloadHtml": ".htmlをダウンロード",
+    "copied": "コピーしました！",
+    "emptyPreview": "左側にMarkdownを入力するとプレビューが表示されます。"
+  },
   "restaurant-breakeven": {
     "title": "飲食店 損益分岐点計算機",
     "description": "家賃、人件費、食材原価率などの経営条件を入力し、損益分岐点となる売上高、月次純利益、投資回収期間を試算します。計算はすべてローカルで行われます。",

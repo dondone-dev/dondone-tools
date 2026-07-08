@@ -772,6 +772,23 @@
       "cs3": "计算机常用英语（下）"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown 转 HTML",
+    "description": "将 Markdown 转换为精美的 HTML，支持多种主题、代码高亮和自定义 CSS。",
+    "inputPlaceholder": "在此粘贴或输入 Markdown...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "极简",
+    "themePaper": "论文风",
+    "customCss": "自定义 CSS",
+    "customCssPlaceholder": "添加自定义 CSS 覆盖主题样式...",
+    "viewSplit": "分栏",
+    "viewPreview": "预览",
+    "copyHtml": "复制 HTML",
+    "downloadHtml": "下载 .html",
+    "copied": "已复制！",
+    "emptyPreview": "在左侧输入 Markdown 即可预览效果。"
+  },
   "restaurant-breakeven": {
     "title": "餐饮盈亏计算器",
     "description": "输入房租、人工、食材成本率等经营假设，估算保本营业额、月度净利润与投资回收期。全部计算在本地完成。",

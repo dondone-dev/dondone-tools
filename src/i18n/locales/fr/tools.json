@@ -772,6 +772,23 @@
       "cs3": "Anglais informatique III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown vers HTML",
+    "description": "Convertissez du Markdown en HTML élégant avec thèmes, coloration syntaxique et CSS personnalisé.",
+    "inputPlaceholder": "Collez ou tapez du Markdown ici...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "Minimal",
+    "themePaper": "Papier",
+    "customCss": "CSS personnalisé",
+    "customCssPlaceholder": "Ajoutez du CSS personnalisé pour modifier le thème...",
+    "viewSplit": "Partagé",
+    "viewPreview": "Aperçu",
+    "copyHtml": "Copier HTML",
+    "downloadHtml": "Télécharger .html",
+    "copied": "Copié !",
+    "emptyPreview": "Saisissez du Markdown à gauche pour voir l'aperçu ici."
+  },
   "restaurant-breakeven": {
     "title": "Calculateur de seuil de rentabilité — Restaurant",
     "description": "Estimez le chiffre d'affaires au seuil de rentabilité, le bénéfice mensuel net et le délai de récupération de votre restaurant à partir du loyer, de la main-d'œuvre, du coût des matières premières et d'autres charges. Tous les calculs s'effectuent localement.",

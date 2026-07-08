@@ -772,6 +772,23 @@
       "cs3": "Компьютерный английский III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown в HTML",
+    "description": "Конвертируйте Markdown в красиво оформленный HTML с темами, подсветкой кода и пользовательским CSS.",
+    "inputPlaceholder": "Вставьте или введите Markdown здесь...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "Минимал",
+    "themePaper": "Бумага",
+    "customCss": "Свой CSS",
+    "customCssPlaceholder": "Добавьте пользовательский CSS для переопределения стилей темы...",
+    "viewSplit": "Разделить",
+    "viewPreview": "Просмотр",
+    "copyHtml": "Копировать HTML",
+    "downloadHtml": "Скачать .html",
+    "copied": "Скопировано!",
+    "emptyPreview": "Введите Markdown слева, чтобы увидеть предпросмотр здесь."
+  },
   "restaurant-breakeven": {
     "title": "Калькулятор точки безубыточности для ресторана",
     "description": "Оцените выручку безубыточности, месячную чистую прибыль и срок окупаемости ресторана на основе аренды, зарплат, себестоимости продуктов и других расходов. Все расчёты выполняются локально.",

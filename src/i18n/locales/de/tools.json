@@ -772,6 +772,23 @@
       "cs3": "Englisch für Informatik III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown zu HTML",
+    "description": "Konvertieren Sie Markdown in schön gestaltetes HTML mit Themes, Code-Hervorhebung und benutzerdefiniertem CSS.",
+    "inputPlaceholder": "Markdown hier einfügen oder eingeben...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "Minimal",
+    "themePaper": "Papier",
+    "customCss": "Eigenes CSS",
+    "customCssPlaceholder": "Benutzerdefiniertes CSS hinzufügen, um Theme-Stile zu überschreiben...",
+    "viewSplit": "Geteilt",
+    "viewPreview": "Vorschau",
+    "copyHtml": "HTML kopieren",
+    "downloadHtml": ".html herunterladen",
+    "copied": "Kopiert!",
+    "emptyPreview": "Geben Sie links Markdown ein, um hier die Vorschau zu sehen."
+  },
   "restaurant-breakeven": {
     "title": "Rentabilitätsrechner für Restaurants",
     "description": "Schätzen Sie den Break-even-Umsatz, den monatlichen Nettogewinn und die Amortisationsdauer Ihres Restaurants anhand von Miete, Personalkosten, Wareneinsatz und weiteren Ausgaben. Alle Berechnungen erfolgen lokal.",

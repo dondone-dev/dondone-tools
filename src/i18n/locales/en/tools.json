@@ -772,6 +772,23 @@
       "cs3": "Computer English III"
     }
   },
+  "markdown-to-html": {
+    "title": "Markdown to HTML",
+    "description": "Convert Markdown to beautifully styled HTML with themes, code highlighting, and custom CSS support.",
+    "inputPlaceholder": "Paste or type Markdown here...",
+    "themeGithub": "GitHub",
+    "themeNotion": "Notion",
+    "themeMinimal": "Minimal",
+    "themePaper": "Paper",
+    "customCss": "Custom CSS",
+    "customCssPlaceholder": "Add custom CSS to override theme styles...",
+    "viewSplit": "Split",
+    "viewPreview": "Preview",
+    "copyHtml": "Copy HTML",
+    "downloadHtml": "Download .html",
+    "copied": "Copied!",
+    "emptyPreview": "Enter Markdown on the left to see the preview here."
+  },
   "restaurant-breakeven": {
     "title": "Restaurant Break-even Calculator",
     "description": "Estimate your restaurant's break-even revenue, monthly profit, and payback period from rent, labor, food cost, and other expenses. All computation runs locally.",

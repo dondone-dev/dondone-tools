@@ -94,7 +94,7 @@ function detectLocale(route: string): LocaleCode {
 
 function routeToOutputPath(route: string): string {
   if (route === '/') return join(distDir, 'index.html')
-  return join(distDir, route.slice(1), 'index.html')
+  return join(distDir, `${route.slice(1)}.html`)
 }
 
 const template = readFileSync(join(distDir, 'index.html'), 'utf-8')

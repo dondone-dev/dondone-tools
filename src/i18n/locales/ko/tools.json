@@ -905,5 +905,20 @@
       "font": "글꼴",
       "network": "네트워크 도달성"
     }
+  },
+  "cpu-benchmark": {
+    "title": "브라우저 CPU 벤치마크", "description": "고정되고 검증 가능한 정수 작업으로 현재 브라우저의 WebAssembly 단일 스레드 지속 성능을 측정합니다.",
+    "durationTitle": "테스트 시간", "durationDescription": "더 긴 테스트는 단기 변동을 줄이고 지속 성능을 보여 줍니다.", "localOnly": "이 브라우저에서만 실행",
+    "duration": { "quick": "10초", "standard": "30초", "stable": "1분", "stress": "5분" }, "durationHint": { "quick": "빠른 추정", "standard": "권장 균형", "stable": "변동 감소", "stress": "열 지속성" },
+    "recommended": "권장", "stressWarning": "CPU 코어 하나를 5분 동안 사용하므로 발열과 배터리 사용량이 늘 수 있습니다.",
+    "singleThread": "단일 스레드", "singleThreadHint": "전용 Worker가 측정 작업을 분리합니다.", "wasm": "WASM 베이스라인", "wasmHint": "지원되는 모든 브라우저가 동일한 비 SIMD 바이너리를 실행합니다.", "private": "로컬 개인정보 보호", "privateHint": "결과와 기기 정보는 이 페이지를 벗어나지 않습니다.",
+    "preflight": "비교 가능한 결과를 위해 전원을 연결하고 절전 모드와 고부하 앱을 끈 뒤 이 탭을 표시하세요.", "start": "벤치마크 시작", "stop": "테스트 중지",
+    "phase": { "loading": "벤치마크 로드 중", "validating": "작업 검증 중", "warming": "워밍업 중", "countdown": "{{seconds}}초 후 시작", "running": "벤치마크 실행 중" }, "phaseHint": { "loading": "전용 Worker와 WebAssembly 모듈을 준비합니다.", "validating": "고정 자체 테스트 체크섬을 비교합니다.", "warming": "측정 전에 WebAssembly 실행을 최적화합니다.", "countdown": "이 탭을 표시하고 다른 고부하 작업을 피하세요." },
+    "notice": { "cancelled": { "title": "테스트 중지됨", "body": "중지된 테스트는 점수를 생성하지 않습니다." }, "invalid": { "title": "유효하지 않은 결과", "background": "테스트 중 페이지가 백그라운드로 이동했습니다. 탭을 표시한 채 다시 실행하세요.", "checksum": "작업 체크섬이 일치하지 않아 점수가 생성되지 않았습니다." }, "error": { "title": "벤치마크 사용 불가", "body": "Worker 또는 WebAssembly가 완료되지 않았습니다. 새로고침 후 다시 시도하세요.", "unsupported": "이 브라우저는 필요한 Worker 또는 WebAssembly 기능을 지원하지 않습니다." } },
+    "estimatedScore": "예상 점수", "remaining": "남은 시간", "timeProgress": "시간 진행률", "completedUnits": "완료 작업 단위", "currentRate": "현재 속도", "unitsPerSecond": "단위/초", "checksum": "체크섬", "validation": "검증", "passed": "통과", "liveSummary": "{{seconds}}초 경과, {{units}}단위 완료, 예상 점수 {{score}}.",
+    "resultVerified": "작업 검증 완료", "finalScore": "단일 스레드 점수", "rating": { "label": "성능 등급", "basic": "기본", "good": "양호", "excellent": "우수", "exceptional": "탁월", "scope": "등급은 CPU-WASM v1 Baseline에만 적용됩니다." }, "copyResult": "결과 복사", "copied": "복사됨", "testAgain": "다시 테스트", "averageRate": "평균 속도", "peakRate": "최고 속도", "endingRate": "마지막 속도", "sustained": "지속 성능", "stability": "안정성", "variation": "변동", "effectiveTime": "유효 시간",
+    "chartTitle": "시간별 성능", "chartSummary": "속도가 {{start}}에서 {{end}}단위/초로 변했습니다.", "chartWaiting": "추세를 그릴 샘플을 기다리는 중입니다.", "rate": "속도",
+    "environmentTitle": "브라우저 환경", "browser": "브라우저", "operatingSystem": "운영 체제", "logicalProcessors": "논리 프로세서", "simdSupport": "WASM SIMD 지원", "crossOriginIsolated": "교차 출처 격리", "version": "테스트 버전", "yes": "예", "no": "아니요", "unknown": "알 수 없음",
+    "disclaimer": "이 점수는 현재 기기, 브라우저, 전원, 스케줄링 및 발열 조건의 WebAssembly 단일 스레드 지속 성능을 나타내며 공식 CPU 등급이 아닙니다."
   }
 }

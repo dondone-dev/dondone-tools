@@ -905,5 +905,20 @@
       "font": "Fontes",
       "network": "Acessibilidade de rede"
     }
+  },
+  "cpu-benchmark": {
+    "title": "Benchmark de CPU do navegador", "description": "Mede o desempenho sustentado de WebAssembly em uma única thread com uma carga inteira fixa e verificável.",
+    "durationTitle": "Duração do teste", "durationDescription": "Testes mais longos reduzem variações breves e mostram o desempenho sustentado.", "localOnly": "Executado totalmente neste navegador",
+    "duration": { "quick": "10 segundos", "standard": "30 segundos", "stable": "1 minuto", "stress": "5 minutos" }, "durationHint": { "quick": "Estimativa rápida", "standard": "Equilíbrio recomendado", "stable": "Menor variação", "stress": "Resistência térmica" },
+    "recommended": "Recomendado", "stressWarning": "O teste ocupa um núcleo por cinco minutos e pode aumentar o calor e o consumo de bateria.",
+    "singleThread": "Thread única", "singleThreadHint": "Um Worker dedicado isola a carga medida.", "wasm": "WASM baseline", "wasmHint": "Todo navegador compatível executa o mesmo binário sem SIMD.", "private": "Privado por padrão", "privateHint": "Nenhum resultado ou dado do dispositivo sai desta página.",
+    "preflight": "Para resultados comparáveis, conecte a energia, desative a economia, feche aplicativos pesados e mantenha esta aba visível.", "start": "Iniciar benchmark", "stop": "Parar teste",
+    "phase": { "loading": "Carregando benchmark", "validating": "Validando carga", "warming": "Aquecendo", "countdown": "Início em {{seconds}}", "running": "Benchmark em andamento" }, "phaseHint": { "loading": "Preparando o Worker e o módulo WebAssembly.", "validating": "Comparando o checksum fixo de autoteste.", "warming": "Otimizando o WebAssembly antes da medição.", "countdown": "Mantenha esta aba visível e evite outras tarefas pesadas." },
+    "notice": { "cancelled": { "title": "Teste interrompido", "body": "Testes interrompidos não geram pontuação." }, "invalid": { "title": "Resultado inválido", "background": "A página foi para segundo plano. Execute novamente mantendo esta aba visível.", "checksum": "O checksum não correspondeu e nenhuma pontuação foi gerada." }, "error": { "title": "Benchmark indisponível", "body": "O Worker ou WebAssembly não concluiu. Recarregue a página e tente novamente.", "unsupported": "Este navegador não oferece Worker ou WebAssembly necessários." } },
+    "estimatedScore": "Pontuação estimada", "remaining": "Restante", "timeProgress": "Progresso", "completedUnits": "Unidades concluídas", "currentRate": "Velocidade atual", "unitsPerSecond": "unidades/s", "checksum": "Checksum", "validation": "Validação", "passed": "Aprovada", "liveSummary": "{{seconds}} segundos, {{units}} unidades, pontuação estimada {{score}}.",
+    "resultVerified": "Carga verificada", "finalScore": "Pontuação de thread única", "rating": { "label": "Nível de desempenho", "basic": "Básico", "good": "Bom", "excellent": "Excelente", "exceptional": "Excepcional", "scope": "O nível aplica-se apenas ao CPU-WASM v1 Baseline." }, "copyResult": "Copiar resultado", "copied": "Copiado", "testAgain": "Testar novamente", "averageRate": "Velocidade média", "peakRate": "Velocidade máxima", "endingRate": "Velocidade final", "sustained": "Desempenho sustentado", "stability": "Estabilidade", "variation": "Variação", "effectiveTime": "Tempo efetivo",
+    "chartTitle": "Desempenho ao longo do tempo", "chartSummary": "A velocidade mudou de {{start}} para {{end}} unidades/s.", "chartWaiting": "Aguardando amostras suficientes para mostrar a tendência.", "rate": "Velocidade",
+    "environmentTitle": "Ambiente do navegador", "browser": "Navegador", "operatingSystem": "Sistema operacional", "logicalProcessors": "Processadores lógicos", "simdSupport": "WASM SIMD compatível", "crossOriginIsolated": "Isolamento entre origens", "version": "Versão do teste", "yes": "Sim", "no": "Não", "unknown": "Desconhecido",
+    "disclaimer": "Esta pontuação representa o cálculo sustentado de WebAssembly em uma thread nas condições atuais de dispositivo, navegador, energia, agendamento e temperatura. Não é uma avaliação oficial da CPU."
   }
 }

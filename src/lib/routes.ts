@@ -6,6 +6,7 @@ export const TOOL_ROUTES = [
   '/hash/sha3',
   '/hash/blake',
   '/hash/xxhash3',
+  '/performance/cpu-benchmark',
   '/encoding/base64',
   '/encoding/base64-image',
   '/encoding/base58',

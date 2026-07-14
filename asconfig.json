@@ -1,0 +1,15 @@
+{
+  "targets": {
+    "release": {
+      "outFile": "src/lib/tools/cpu-benchmark-workload.wasm",
+      "optimizeLevel": 3,
+      "shrinkLevel": 0,
+      "converge": false,
+      "noAssert": true
+    }
+  },
+  "options": {
+    "runtime": "stub",
+    "exportRuntime": false
+  }
+}

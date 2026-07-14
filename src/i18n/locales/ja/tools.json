@@ -905,5 +905,24 @@
       "font": "フォント",
       "network": "ネットワーク到達性"
     }
+  },
+  "cpu-benchmark": {
+    "title": "ブラウザ CPU ベンチマーク",
+    "description": "固定された検証可能な整数ワークロードで、現在のブラウザの WebAssembly シングルスレッド持続性能を測定します。",
+    "durationTitle": "テスト時間", "durationDescription": "長時間の実行ほど一時的な変動を抑え、持続性能を確認できます。", "localOnly": "このブラウザ内だけで実行",
+    "duration": { "quick": "10 秒", "standard": "30 秒", "stable": "1 分", "stress": "5 分" },
+    "durationHint": { "quick": "簡易測定", "standard": "推奨バランス", "stable": "変動を低減", "stress": "熱持続性" },
+    "recommended": "推奨", "stressWarning": "CPU 1 コアを 5 分間使用するため、発熱やバッテリー消費が増える場合があります。",
+    "singleThread": "シングルスレッド", "singleThreadHint": "専用 Worker で測定対象を分離します。", "wasm": "WASM ベースライン", "wasmHint": "対応ブラウザはすべて同じ非 SIMD バイナリを実行します。", "private": "プライバシー保護", "privateHint": "結果や端末情報はページ外へ送信されません。",
+    "preflight": "比較可能な結果のため、電源接続、省電力モードの解除、高負荷アプリの終了、このタブの表示を推奨します。", "start": "ベンチマーク開始", "stop": "テスト停止",
+    "phase": { "loading": "ベンチマークを読み込み中", "validating": "ワークロードを検証中", "warming": "ウォームアップ中", "countdown": "{{seconds}} 秒後に開始", "running": "ベンチマーク実行中" },
+    "phaseHint": { "loading": "専用 Worker と WebAssembly モジュールを準備しています。", "validating": "固定セルフテストのチェックサムを比較しています。", "warming": "計測前に WebAssembly の実行を最適化しています。", "countdown": "このタブを表示したまま、高負荷処理を避けてください。" },
+    "notice": { "cancelled": { "title": "テストを停止しました", "body": "停止したテストはスコアを生成しません。" }, "invalid": { "title": "結果は無効です", "background": "テスト中にページがバックグラウンドになりました。タブを表示したまま再実行してください。", "checksum": "チェックサムが一致しないためスコアを生成しませんでした。" }, "error": { "title": "ベンチマークを利用できません", "body": "Worker または WebAssembly を完了できませんでした。再読み込みしてお試しください。", "unsupported": "このブラウザは必要な Worker または WebAssembly 機能に対応していません。" } },
+    "estimatedScore": "推定スコア", "remaining": "残り時間", "timeProgress": "時間の進捗", "completedUnits": "完了ユニット", "currentRate": "現在速度", "unitsPerSecond": "ユニット/秒", "checksum": "チェックサム", "validation": "検証", "passed": "合格", "liveSummary": "{{seconds}} 秒経過、{{units}} ユニット完了、推定スコア {{score}}。",
+    "resultVerified": "ワークロード検証済み", "finalScore": "シングルスレッドスコア", "rating": { "label": "性能評価", "basic": "基本", "good": "良好", "excellent": "優秀", "exceptional": "卓越", "scope": "評価は CPU-WASM v1 Baseline にのみ適用されます。" }, "copyResult": "結果をコピー", "copied": "コピー済み", "testAgain": "再テスト",
+    "averageRate": "平均速度", "peakRate": "ピーク速度", "endingRate": "終盤速度", "sustained": "持続性能", "stability": "安定性", "variation": "変動", "effectiveTime": "有効時間",
+    "chartTitle": "時間別パフォーマンス", "chartSummary": "速度は {{start}} から {{end}} ユニット/秒に変化しました。", "chartWaiting": "傾向を描くためのサンプルを待っています。", "rate": "速度",
+    "environmentTitle": "ブラウザ環境", "browser": "ブラウザ", "operatingSystem": "OS", "logicalProcessors": "論理プロセッサ", "simdSupport": "WASM SIMD 対応", "crossOriginIsolated": "クロスオリジン分離", "version": "テスト版", "yes": "はい", "no": "いいえ", "unknown": "不明",
+    "disclaimer": "このスコアは現在の端末、ブラウザ、電源、スケジューリング、温度条件での WebAssembly シングルスレッド持続性能を示し、CPU の公式評価ではありません。"
   }
 }

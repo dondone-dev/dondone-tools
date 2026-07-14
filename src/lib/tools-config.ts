@@ -49,7 +49,7 @@ export interface ToolConfig {
   category: ToolCategory
 }
 
-export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Encoding' | 'Text' | 'Random' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File' | 'Finance'
+export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Performance' | 'Encoding' | 'Text' | 'Random' | 'Fun' | 'BP Authentication' | 'Design' | 'SQL' | 'Image' | 'File' | 'Finance'
 
 export const TOOLS: ToolConfig[] = [
   {
@@ -107,6 +107,14 @@ export const TOOLS: ToolConfig[] = [
     href: '/hash/xxhash3',
     icon: Cpu,
     category: 'Hash',
+  },
+  {
+    id: 'cpu-benchmark',
+    title: 'Browser CPU Benchmark',
+    descriptionKey: 'cpu-benchmark.description',
+    href: '/performance/cpu-benchmark',
+    icon: Cpu,
+    category: 'Performance',
   },
   {
     id: 'base64',
@@ -390,7 +398,7 @@ export const TOOLS: ToolConfig[] = [
   // },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Design', 'Image', 'File', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Performance', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Design', 'Image', 'File', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

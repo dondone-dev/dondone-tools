@@ -57,6 +57,7 @@ const ImgCompressPage = lazy(() => import('@/pages/ImgCompressPage').then(m => (
 const WordbookPage = lazy(() => import('@/pages/WordbookPage').then(m => ({ default: m.WordbookPage })))
 const ChinaUserDetectorPage = lazy(() => import('@/pages/ChinaUserDetectorPage').then(m => ({ default: m.ChinaUserDetectorPage })))
 const MarkdownToHtmlPage = lazy(() => import('@/pages/MarkdownToHtmlPage'))
+const CpuBenchmarkPage = lazy(() => import('@/pages/CpuBenchmarkPage').then(m => ({ default: m.CpuBenchmarkPage })))
 
 function toolRoutes() {
   return (
@@ -67,6 +68,7 @@ function toolRoutes() {
       <Route path="hash/sha3" element={<Sha3Page />} />
       <Route path="hash/blake" element={<BlakePage />} />
       <Route path="hash/xxhash3" element={<Xxhash3Page />} />
+      <Route path="performance/cpu-benchmark" element={<Suspense fallback={<ToolSkeleton />}><CpuBenchmarkPage /></Suspense>} />
       <Route path="encoding/base64" element={<Base64Page />} />
       <Route path="encoding/base64-image" element={<Base64ImagePage />} />
       <Route path="encoding/base58" element={<Base58Page />} />

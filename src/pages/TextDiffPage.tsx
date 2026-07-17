@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import type { RefObject, UIEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { ToolLayout } from '@/components/layout/ToolLayout'
@@ -41,7 +42,7 @@ const INDICATOR_W = 'w-1'
 function SplitCell({ side }: { side: SplitRow['left'] }) {
   if (!side) {
     return (
-      <div className={cn('flex', LINE_H)}>
+      <div className={cn('flex border-b border-border/40 last:border-b-0', LINE_H)}>
         <div className={cn(INDICATOR_W, 'shrink-0')} />
         <div className={cn(LINE_NO_W, 'shrink-0 bg-muted/20 border-r border-border/40')} />
         <div className="flex-1 bg-muted/10" />
@@ -50,38 +51,72 @@ function SplitCell({ side }: { side: SplitRow['left'] }) {
   }
   const { bg, lnBg, indicator } = typeStyle(side.type)
   return (
-    <div className={cn('flex', LINE_H, bg)}>
+    <div className={cn('flex border-b border-border/40 last:border-b-0', LINE_H, bg)}>
       <div className={cn(INDICATOR_W, 'shrink-0', indicator)} />
       <div className={cn(LINE_NO_W, 'shrink-0 select-none text-right pr-2 text-muted-foreground text-xs leading-[1.375rem] border-r border-border/40', lnBg)}>
         {side.lineNo}
       </div>
-      <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-x-auto">
+      <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre">
         <Tokens tokens={side.tokens} type={side.type} />
       </div>
     </div>
   )
 }
 
-function SplitView({ rows }: { rows: SplitRow[] }) {
+function SplitColumn({
+  rows,
+  side,
+  scrollRef,
+  onScroll,
+  bordered,
+}: {
+  rows: SplitRow[]
+  side: 'left' | 'right'
+  scrollRef: RefObject<HTMLDivElement | null>
+  onScroll: (e: UIEvent<HTMLDivElement>) => void
+  bordered?: boolean
+}) {
   return (
-    <div className="border border-border rounded-md overflow-hidden font-mono">
+    <div
+      ref={scrollRef}
+      onScroll={onScroll}
+      className={cn('flex-1 min-w-0 overflow-x-auto', bordered && 'border-r border-border')}
+    >
       {rows.map((row, i) => (
-        <div key={i} className="flex border-b border-border/40 last:border-b-0">
-          <div className="flex-1 min-w-0 border-r border-border">
-            <SplitCell side={row.left} />
-          </div>
-          <div className="flex-1 min-w-0">
-            <SplitCell side={row.right} />
-          </div>
-        </div>
+        <SplitCell key={i} side={side === 'left' ? row.left : row.right} />
       ))}
+    </div>
+  )
+}
+
+function SplitView({ rows }: { rows: SplitRow[] }) {
+  const leftRef = useRef<HTMLDivElement>(null)
+  const rightRef = useRef<HTMLDivElement>(null)
+  const isSyncingRef = useRef(false)
+
+  function syncScroll(source: 'left' | 'right') {
+    return (e: UIEvent<HTMLDivElement>) => {
+      if (isSyncingRef.current) return
+      const target = source === 'left' ? rightRef.current : leftRef.current
+      if (target) {
+        isSyncingRef.current = true
+        target.scrollLeft = e.currentTarget.scrollLeft
+        isSyncingRef.current = false
+      }
+    }
+  }
+
+  return (
+    <div className="flex border border-border rounded-md overflow-hidden font-mono">
+      <SplitColumn rows={rows} side="left" scrollRef={leftRef} onScroll={syncScroll('left')} bordered />
+      <SplitColumn rows={rows} side="right" scrollRef={rightRef} onScroll={syncScroll('right')} />
     </div>
   )
 }
 
 function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
   return (
-    <div className="border border-border rounded-md overflow-hidden font-mono">
+    <div className="border border-border rounded-md overflow-x-auto font-mono">
       {lines.map((line, i) => {
         const { bg, lnBg, indicator } = typeStyle(line.type)
         const prefix = line.type === 'removed' ? '-' : line.type === 'added' ? '+' : ' '
@@ -99,7 +134,7 @@ function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
             <div className={cn('w-5 shrink-0 select-none text-center text-xs leading-[1.375rem]', prefixColor)}>
               {prefix}
             </div>
-            <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-x-auto">
+            <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre">
               <Tokens tokens={line.tokens} type={line.type} />
             </div>
           </div>

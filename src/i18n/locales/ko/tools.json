@@ -213,7 +213,9 @@
     "unified": "통합",
     "identical": "두 텍스트가 동일합니다",
     "jsonMode": "JSON 형식",
-    "jsonParseError": "{{label}}: 잘못된 JSON — {{message}}"
+    "jsonParseError": "{{label}}: 잘못된 JSON — {{message}}",
+    "copyPatch": "패치 복사",
+    "downloadPatch": "패치 다운로드"
   },
   "regex": {
     "title": "정규식 테스터",

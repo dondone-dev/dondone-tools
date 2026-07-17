@@ -1,4 +1,4 @@
-import { diffLines, diffWords } from 'diff'
+import { diffLines, diffWords, createTwoFilesPatch, FILE_HEADERS_ONLY } from 'diff'
 import { formatJson } from './json-format'
 
 export type ChangeType = 'added' | 'removed' | 'unchanged'
@@ -31,6 +31,8 @@ export interface DiffResult {
   unified: UnifiedLine[]
   addedCount: number
   removedCount: number
+  oldText: string
+  newText: string
 }
 
 function splitLines(text: string): string[] {
@@ -147,7 +149,15 @@ export function computeDiff(original: string, modified: string): DiffResult {
     i++
   }
 
-  return { split, unified, addedCount, removedCount }
+  return { split, unified, addedCount, removedCount, oldText: a, newText: b }
+}
+
+export function createUnifiedDiffPatch(oldText: string, newText: string): string {
+  const hunks = createTwoFilesPatch('a/original', 'b/modified', oldText, newText, undefined, undefined, {
+    context: 3,
+    headerOptions: FILE_HEADERS_ONLY,
+  })
+  return `diff --git a/original b/modified\n${hunks}`
 }
 
 export type JsonDiffSide = 'original' | 'modified'

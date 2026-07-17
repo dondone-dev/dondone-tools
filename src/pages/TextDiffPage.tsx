@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Check, Copy, Download } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-import { computeDiff, computeJsonDiff, JsonDiffParseError, type ChangeType, type DiffResult, type JsonDiffSide, type SplitRow, type Token, type UnifiedLine } from '@/lib/tools/text-diff'
+import { useClipboard } from '@/hooks/useClipboard'
+import { computeDiff, computeJsonDiff, createUnifiedDiffPatch, JsonDiffParseError, type ChangeType, type DiffResult, type JsonDiffSide, type SplitRow, type Token, type UnifiedLine } from '@/lib/tools/text-diff'
 
 type ViewMode = 'split' | 'unified'
 
@@ -114,6 +116,23 @@ export function TextDiffPage() {
   const [mode, setMode] = useState<ViewMode>('split')
   const [jsonMode, setJsonMode] = useState(false)
   const [parseError, setParseError] = useState<{ side: JsonDiffSide; message: string } | null>(null)
+  const { copiedText, copy } = useClipboard()
+
+  const patchText = useMemo(
+    () => (result ? createUnifiedDiffPatch(result.oldText, result.newText) : ''),
+    [result],
+  )
+
+  function handleDownloadPatch() {
+    if (!patchText) return
+    const blob = new Blob([patchText], { type: 'text/x-patch' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'diff.patch'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
 
   function handleCompare() {
     setParseError(null)
@@ -201,13 +220,25 @@ export function TextDiffPage() {
                 )}
               </div>
               {!identical && (
-                <div className="flex gap-1">
-                  <Button size="sm" variant={mode === 'split' ? 'secondary' : 'ghost'} className="h-7 text-xs px-2" onClick={() => setMode('split')}>
-                    {t('text-diff.split')}
-                  </Button>
-                  <Button size="sm" variant={mode === 'unified' ? 'secondary' : 'ghost'} className="h-7 text-xs px-2" onClick={() => setMode('unified')}>
-                    {t('text-diff.unified')}
-                  </Button>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <Button size="sm" variant={mode === 'split' ? 'secondary' : 'ghost'} className="h-7 text-xs px-2" onClick={() => setMode('split')}>
+                      {t('text-diff.split')}
+                    </Button>
+                    <Button size="sm" variant={mode === 'unified' ? 'secondary' : 'ghost'} className="h-7 text-xs px-2" onClick={() => setMode('unified')}>
+                      {t('text-diff.unified')}
+                    </Button>
+                  </div>
+                  <div className="flex gap-1 pl-2 border-l border-border">
+                    <Button size="sm" variant="outline" className="h-7 text-xs px-2.5 gap-1" onClick={() => copy(patchText)}>
+                      {copiedText === patchText ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                      {copiedText === patchText ? t('ui.copied', { ns: 'common' }) : t('text-diff.copyPatch')}
+                    </Button>
+                    <Button size="sm" variant="outline" className="h-7 text-xs px-2.5 gap-1" onClick={handleDownloadPatch}>
+                      <Download className="h-3.5 w-3.5" />
+                      {t('text-diff.downloadPatch')}
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>

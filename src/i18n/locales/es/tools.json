@@ -213,7 +213,9 @@
     "unified": "Unificado",
     "identical": "Los textos son idénticos",
     "jsonMode": "Formato JSON",
-    "jsonParseError": "{{label}}: JSON no válido — {{message}}"
+    "jsonParseError": "{{label}}: JSON no válido — {{message}}",
+    "copyPatch": "Copiar patch",
+    "downloadPatch": "Descargar patch"
   },
   "regex": {
     "title": "Tester de Regex",

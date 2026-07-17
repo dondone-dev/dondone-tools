@@ -213,7 +213,9 @@
     "unified": "統合",
     "identical": "テキストは同一です",
     "jsonMode": "JSON 形式",
-    "jsonParseError": "{{label}}: JSON が無効です — {{message}}"
+    "jsonParseError": "{{label}}: JSON が無効です — {{message}}",
+    "copyPatch": "パッチをコピー",
+    "downloadPatch": "パッチをダウンロード"
   },
   "regex": {
     "title": "正規表現テスター",

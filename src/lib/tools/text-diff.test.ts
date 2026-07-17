@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { computeDiff, computeJsonDiff, JsonDiffParseError } from './text-diff'
+import { computeDiff, computeJsonDiff, createUnifiedDiffPatch, JsonDiffParseError } from './text-diff'
 
 describe('computeDiff', () => {
   it('does not produce phantom diffs when only trailing newline differs', () => {
@@ -49,5 +49,24 @@ describe('computeJsonDiff', () => {
     } catch (e) {
       expect((e as JsonDiffParseError).side).toBe('modified')
     }
+  })
+})
+
+describe('createUnifiedDiffPatch', () => {
+  it('produces a git-style unified diff with file headers and a hunk', () => {
+    const patch = createUnifiedDiffPatch('a\nb\nc\n', 'a\nb2\nc\n')
+    expect(patch).toContain('diff --git a/original b/modified')
+    expect(patch).toContain('--- a/original')
+    expect(patch).toContain('+++ b/modified')
+    expect(patch).toMatch(/@@ -1,3 \+1,3 @@/)
+    expect(patch).toContain('-b')
+    expect(patch).toContain('+b2')
+  })
+
+  it('produces only file headers with no hunks for identical text', () => {
+    const patch = createUnifiedDiffPatch('a\nb\n', 'a\nb\n')
+    expect(patch).toContain('--- a/original')
+    expect(patch).toContain('+++ b/modified')
+    expect(patch).not.toContain('@@')
   })
 })

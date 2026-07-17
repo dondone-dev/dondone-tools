@@ -213,7 +213,9 @@
     "unified": "Единый",
     "identical": "Тексты идентичны",
     "jsonMode": "Формат JSON",
-    "jsonParseError": "{{label}}: неверный JSON — {{message}}"
+    "jsonParseError": "{{label}}: неверный JSON — {{message}}",
+    "copyPatch": "Копировать патч",
+    "downloadPatch": "Скачать патч"
   },
   "regex": {
     "title": "Тестер регулярных выражений",

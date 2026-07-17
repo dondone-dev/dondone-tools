@@ -55,7 +55,7 @@ function SplitCell({ side }: { side: SplitRow['left'] }) {
       <div className={cn(LINE_NO_W, 'shrink-0 select-none text-right pr-2 text-muted-foreground text-xs leading-[1.375rem] border-r border-border/40', lnBg)}>
         {side.lineNo}
       </div>
-      <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-hidden">
+      <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-x-auto">
         <Tokens tokens={side.tokens} type={side.type} />
       </div>
     </div>
@@ -99,7 +99,7 @@ function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
             <div className={cn('w-5 shrink-0 select-none text-center text-xs leading-[1.375rem]', prefixColor)}>
               {prefix}
             </div>
-            <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-hidden">
+            <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre overflow-x-auto">
               <Tokens tokens={line.tokens} type={line.type} />
             </div>
           </div>
@@ -147,7 +147,7 @@ export function TextDiffPage() {
               onChange={(e) => setOriginal(e.target.value)}
               placeholder={t('text-diff.originalPlaceholder')}
               rows={10}
-              className="font-mono text-sm resize-y"
+              className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
               spellCheck={false}
             />
             {parseError?.side === 'original' && (
@@ -163,7 +163,7 @@ export function TextDiffPage() {
               onChange={(e) => setModified(e.target.value)}
               placeholder={t('text-diff.modifiedPlaceholder')}
               rows={10}
-              className="font-mono text-sm resize-y"
+              className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
               spellCheck={false}
             />
             {parseError?.side === 'modified' && (

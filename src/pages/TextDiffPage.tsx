@@ -68,7 +68,7 @@ function SplitView({ rows }: { rows: SplitRow[] }) {
   return (
     <div className="border border-border rounded-md overflow-x-auto font-mono">
       {rows.map((row, i) => (
-        <div key={i} className="flex border-b border-border/40 last:border-b-0">
+        <div key={i} className="flex w-max min-w-full border-b border-border/40 last:border-b-0">
           <SplitCell side={row.left} />
           <div className="w-px shrink-0 bg-border" />
           <SplitCell side={row.right} />
@@ -87,7 +87,7 @@ function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
         const prefixColor = line.type === 'removed' ? 'text-red-500' : line.type === 'added' ? 'text-green-500' : 'text-muted-foreground'
 
         return (
-          <div key={i} className={cn('flex border-b border-border/40 last:border-b-0', LINE_H, bg)}>
+          <div key={i} className={cn('flex w-max min-w-full border-b border-border/40 last:border-b-0', LINE_H, bg)}>
             <div className={cn(INDICATOR_W, 'shrink-0', indicator)} />
             <div className={cn(LINE_NO_W, 'shrink-0 select-none text-right pr-2 text-muted-foreground text-xs leading-[1.375rem] border-r border-border/40', lnBg)}>
               {line.oldLineNo ?? ''}

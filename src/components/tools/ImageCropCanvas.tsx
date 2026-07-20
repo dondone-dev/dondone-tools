@@ -144,7 +144,7 @@ export function ImageCropCanvas({ imageUrl, naturalWidth, naturalHeight, rect, r
   const visibleHandles = ratio != null ? LOCKED_HANDLES : ALL_HANDLES
 
   return (
-    <div className="relative inline-block max-w-full select-none">
+    <div className="relative inline-block max-w-full overflow-hidden select-none">
       <img
         ref={imgRef}
         src={imageUrl}

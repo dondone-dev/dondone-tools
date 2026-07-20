@@ -759,20 +759,20 @@
     "errorFailed": "Falha na compressão. Tente novamente."
   },
   "img-crop": {
-    "title": "Recorte de imagens",
-    "description": "Recorte imagens JPEG, PNG e WebP localmente no navegador — livremente, com uma relação de aspecto fixa ou em um tamanho exato em pixels — e depois comprima e baixe. Nada sai do seu navegador.",
+    "title": "Recorte de Imagens",
+    "description": "Recorte imagens JPEG, PNG e WebP localmente — livremente, com uma proporção fixa ou em um tamanho exato de pixels — depois comprima e baixe. Nada sai do seu navegador.",
     "drop": "Solte uma imagem aqui ou clique para procurar",
     "dropHint": "Suporta JPEG, PNG, WebP · Máx. 20 MB",
-    "dragActive": "Solte para fazer upload",
+    "dragActive": "Solte para carregar",
     "modeFree": "Livre",
-    "modeAspect": "Relação de aspecto",
-    "modeFixed": "Tamanho fixo",
-    "customRatioPlaceholder": "Personalizado, ex. 5:7",
+    "modeAspect": "Proporção Fixa",
+    "modeFixed": "Tamanho Fixo",
+    "customRatioPlaceholder": "Personalizado, ex.: 5:7",
     "widthLabel": "Largura",
     "heightLabel": "Altura",
     "pixelsUnit": "px",
     "invalidSize": "Insira uma largura e altura válidas (números inteiros maiores que 0).",
-    "cropButton": "Recortar e exportar",
+    "cropButton": "Recortar e Exportar",
     "cropping": "Recortando…",
     "remove": "Remover imagem",
     "tabOriginal": "Original",
@@ -781,7 +781,7 @@
     "recrop": "Recortar novamente",
     "errorFormat": "Formato não suportado. Use um arquivo JPEG, PNG ou WebP.",
     "errorSize": "O arquivo excede o limite de 20 MB.",
-    "errorFailed": "Falha no recorte. Tente novamente."
+    "errorFailed": "Falha ao recortar. Tente novamente."
   },
   "wordbook": {
     "title": "Vocabulário",

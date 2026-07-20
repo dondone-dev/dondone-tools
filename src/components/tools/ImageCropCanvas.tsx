@@ -39,7 +39,12 @@ type DragState =
 export function ImageCropCanvas({ imageUrl, naturalWidth, naturalHeight, rect, ratio, onChange }: ImageCropCanvasProps) {
   const imgRef = useRef<HTMLImageElement>(null)
   const dragRef = useRef<DragState | null>(null)
+  const latestRef = useRef({ scale: 1, ratio, naturalWidth, naturalHeight, onChange })
   const [scale, setScale] = useState(1)
+
+  useEffect(() => {
+    latestRef.current = { scale, ratio, naturalWidth, naturalHeight, onChange }
+  })
 
   const measure = useCallback(() => {
     const el = imgRef.current
@@ -55,6 +60,7 @@ export function ImageCropCanvas({ imageUrl, naturalWidth, naturalHeight, rect, r
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
     const drag = dragRef.current
+    const { scale, ratio, naturalWidth, naturalHeight, onChange } = latestRef.current
     if (!drag || scale === 0) return
     const dx = (e.clientX - drag.startX) / scale
     const dy = (e.clientY - drag.startY) / scale
@@ -68,13 +74,20 @@ export function ImageCropCanvas({ imageUrl, naturalWidth, naturalHeight, rect, r
       next = resizeRect(drag.startRect, drag.handle, dx, dy)
     }
     onChange(clampRectToBounds(next, naturalWidth, naturalHeight))
-  }, [scale, ratio, naturalWidth, naturalHeight, onChange])
+  }, [])
 
   const handlePointerUp = useCallback(() => {
     dragRef.current = null
     window.removeEventListener('pointermove', handlePointerMove)
     window.removeEventListener('pointerup', handlePointerUp)
   }, [handlePointerMove])
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      window.removeEventListener('pointerup', handlePointerUp)
+    }
+  }, [handlePointerMove, handlePointerUp])
 
   function startDrag(e: ReactPointerEvent, drag: DragState) {
     e.preventDefault()

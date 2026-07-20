@@ -781,7 +781,9 @@
     "recrop": "다시 자르기",
     "errorFormat": "지원되지 않는 형식입니다. JPEG, PNG 또는 WebP 파일을 사용하세요.",
     "errorSize": "파일이 20 MB 한도를 초과합니다.",
-    "errorFailed": "자르기에 실패했습니다. 다시 시도하세요."
+    "errorFailed": "자르기에 실패했습니다. 다시 시도하세요.",
+    "moveHandle": "자르기 영역 이동",
+    "resizeHandle": "자르기 영역 크기 조정"
   },
   "wordbook": {
     "title": "단어장",

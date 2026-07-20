@@ -781,7 +781,9 @@
     "recrop": "Neu zuschneiden",
     "errorFormat": "Nicht unterstütztes Format. Bitte JPEG-, PNG- oder WebP-Datei verwenden.",
     "errorSize": "Datei überschreitet das 20-MB-Limit.",
-    "errorFailed": "Zuschneiden fehlgeschlagen. Bitte erneut versuchen."
+    "errorFailed": "Zuschneiden fehlgeschlagen. Bitte erneut versuchen.",
+    "moveHandle": "Zuschneidebereich verschieben",
+    "resizeHandle": "Zuschneidebereich anpassen"
   },
   "wordbook": {
     "title": "Vokabelheft",

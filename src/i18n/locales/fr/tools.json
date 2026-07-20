@@ -781,7 +781,9 @@
     "recrop": "Recadrer à nouveau",
     "errorFormat": "Format non pris en charge. Veuillez utiliser un fichier JPEG, PNG ou WebP.",
     "errorSize": "Le fichier dépasse la limite de 20 Mo.",
-    "errorFailed": "Échec du recadrage. Veuillez réessayer."
+    "errorFailed": "Échec du recadrage. Veuillez réessayer.",
+    "moveHandle": "Déplacer la zone de recadrage",
+    "resizeHandle": "Redimensionner la zone de recadrage"
   },
   "wordbook": {
     "title": "Vocabulaire",

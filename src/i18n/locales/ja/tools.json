@@ -781,7 +781,9 @@
     "recrop": "再度切り抜く",
     "errorFormat": "未対応の形式です。JPEG、PNG、または WebP ファイルを使用してください。",
     "errorSize": "ファイルが 20 MB を超えています。",
-    "errorFailed": "切り抜きに失敗しました。再試行してください。"
+    "errorFailed": "切り抜きに失敗しました。再試行してください。",
+    "moveHandle": "切り抜き範囲を移動",
+    "resizeHandle": "切り抜き範囲のサイズを変更"
   },
   "wordbook": {
     "title": "単語帳",

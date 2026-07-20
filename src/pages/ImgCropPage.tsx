@@ -92,6 +92,11 @@ export function ImgCropPage() {
 
   const validFixedSize = Number.isInteger(fixedWidth) && Number.isInteger(fixedHeight) && fixedWidth > 0 && fixedHeight > 0
 
+  const savings =
+    result && file
+      ? Math.round((1 - result.buffer.byteLength / file.size) * 100)
+      : null
+
   async function accept(f: File) {
     const fmt = detectFormat(f)
     if (!fmt) { setError(t('img-crop.errorFormat')); return }
@@ -433,7 +438,16 @@ export function ImgCropPage() {
               {naturalSize && <p className="text-[10px] text-muted-foreground">{naturalSize.w}×{naturalSize.h}</p>}
             </div>
             <div className="flex flex-col items-center justify-center px-4 py-3">
-              <p className="text-[10px] text-muted-foreground">—</p>
+              {savings != null ? (
+                <>
+                  <p className={cn('font-mono text-sm font-bold tabular-nums', savings >= 0 ? 'text-emerald-500' : 'text-destructive')}>
+                    {savings >= 0 ? `−${savings}%` : `+${Math.abs(savings)}%`}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">{savings >= 0 ? t('img-compress.saved') : t('img-compress.larger')}</p>
+                </>
+              ) : (
+                <p className="text-[10px] text-muted-foreground">—</p>
+              )}
             </div>
             <div className="px-4 py-3 text-right">
               <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">{t('img-crop.tabCropped')}</p>

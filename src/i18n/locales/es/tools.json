@@ -781,7 +781,9 @@
     "recrop": "Volver a recortar",
     "errorFormat": "Formato no compatible. Usa un archivo JPEG, PNG o WebP.",
     "errorSize": "El archivo supera el límite de 20 MB.",
-    "errorFailed": "Error al recortar. Inténtalo de nuevo."
+    "errorFailed": "Error al recortar. Inténtalo de nuevo.",
+    "moveHandle": "Mover el área de recorte",
+    "resizeHandle": "Redimensionar el área de recorte"
   },
   "wordbook": {
     "title": "Vocabulario",

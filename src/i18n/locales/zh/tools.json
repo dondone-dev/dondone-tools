@@ -781,7 +781,9 @@
     "recrop": "重新裁剪",
     "errorFormat": "不支持的格式，请上传 JPEG、PNG 或 WebP 文件。",
     "errorSize": "文件超过 20 MB 限制。",
-    "errorFailed": "裁剪失败，请重试。"
+    "errorFailed": "裁剪失败，请重试。",
+    "moveHandle": "移动裁剪区域",
+    "resizeHandle": "调整裁剪区域大小"
   },
   "wordbook": {
     "title": "词书",

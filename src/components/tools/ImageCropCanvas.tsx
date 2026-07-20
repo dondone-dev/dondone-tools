@@ -22,6 +22,11 @@ function arrowDelta(e: ReactKeyboardEvent): { dx: number; dy: number } | null {
   return null
 }
 
+function verticalDeltaToWidthDelta(handle: 'nw' | 'ne' | 'se' | 'sw', dy: number, ratio: number): number {
+  const sign = handle === 'se' || handle === 'nw' ? 1 : -1
+  return dy * ratio * sign
+}
+
 interface ImageCropCanvasProps {
   imageUrl: string
   naturalWidth: number
@@ -126,7 +131,12 @@ export function ImageCropCanvas({ imageUrl, naturalWidth, naturalHeight, rect, r
     e.stopPropagation()
     const next =
       ratio != null && (LOCKED_HANDLES as Handle[]).includes(handle)
-        ? resizeRectWithRatio(rect, handle as 'nw' | 'ne' | 'se' | 'sw', ratio, delta.dx !== 0 ? delta.dx : delta.dy)
+        ? resizeRectWithRatio(
+            rect,
+            handle as 'nw' | 'ne' | 'se' | 'sw',
+            ratio,
+            delta.dx !== 0 ? delta.dx : verticalDeltaToWidthDelta(handle as 'nw' | 'ne' | 'se' | 'sw', delta.dy, ratio),
+          )
         : resizeRect(rect, handle, delta.dx, delta.dy)
     onChange(clampRectToBounds(next, naturalWidth, naturalHeight))
   }

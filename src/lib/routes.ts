@@ -39,6 +39,7 @@ export const TOOL_ROUTES = [
   '/file/zip-inspector',
   '/image/ocr',
   '/image/compress',
+  '/image/crop',
   '/text/wordbook',
   '/text/markdown-to-html',
   // '/image/bg-remove', // disabled: WASM inference unstable across devices

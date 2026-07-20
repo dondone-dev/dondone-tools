@@ -32,6 +32,7 @@ import {
   Store,
   Shuffle,
   Minimize2,
+  Crop,
   BookOpen,
   UtensilsCrossed,
   Radar,
@@ -370,6 +371,14 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'img-compress.description',
     href: '/image/compress',
     icon: Minimize2,
+    category: 'Image',
+  },
+  {
+    id: 'img-crop',
+    title: 'Image Crop',
+    descriptionKey: 'img-crop.description',
+    href: '/image/crop',
+    icon: Crop,
     category: 'Image',
   },
   {

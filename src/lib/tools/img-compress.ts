@@ -91,13 +91,13 @@ export function preloadCodecs(): Promise<void[]> {
   return Promise.all([ensureJpeg(), ensurePng(), ensureWebp()])
 }
 
-export async function compressImage(
-  file: File,
+export async function encodeImageData(
+  data: ImageData,
+  width: number,
+  height: number,
   opts: CompressOptions,
 ): Promise<CompressResult> {
   const target: InputFormat = opts.outputFormat
-
-  const { data, width, height } = await fileToImageData(file)
 
   if (target === 'jpeg') {
     await ensureJpeg()
@@ -114,4 +114,12 @@ export async function compressImage(
   await ensureWebp()
   const buffer = await encodeWebp(data, { quality: opts.quality, lossless: opts.lossless ? 1 : 0 })
   return { buffer, format: 'webp', mimeType: 'image/webp', extension: 'webp', width, height }
+}
+
+export async function compressImage(
+  file: File,
+  opts: CompressOptions,
+): Promise<CompressResult> {
+  const { data, width, height } = await fileToImageData(file)
+  return encodeImageData(data, width, height, opts)
 }

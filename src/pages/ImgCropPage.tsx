@@ -97,24 +97,28 @@ export function ImgCropPage() {
     if (!fmt) { setError(t('img-crop.errorFormat')); return }
     if (f.size > MAX_BYTES) { setError(t('img-crop.errorSize')); return }
 
-    objectUrlsRef.current.forEach(URL.revokeObjectURL)
-    objectUrlsRef.current = []
-    bitmapRef.current?.close()
+    try {
+      const bitmap = await loadImageBitmap(f)
 
-    const bitmap = await loadImageBitmap(f)
-    bitmapRef.current = bitmap
+      objectUrlsRef.current.forEach(URL.revokeObjectURL)
+      objectUrlsRef.current = []
+      bitmapRef.current?.close()
+      bitmapRef.current = bitmap
 
-    setFile(f)
-    setInputFormat(fmt)
-    setOriginalUrl(makeObjectUrl(f))
-    setNaturalSize({ w: bitmap.width, h: bitmap.height })
-    setMode('free')
-    setRect(initialCropRect(bitmap.width, bitmap.height, null))
-    setResult(null)
-    setCroppedUrl(null)
-    setError(null)
-    setView('edit')
-    setOutputFormat(fmt)
+      setFile(f)
+      setInputFormat(fmt)
+      setOriginalUrl(makeObjectUrl(f))
+      setNaturalSize({ w: bitmap.width, h: bitmap.height })
+      setMode('free')
+      setRect(initialCropRect(bitmap.width, bitmap.height, null))
+      setResult(null)
+      setCroppedUrl(null)
+      setError(null)
+      setView('edit')
+      setOutputFormat(lossless && fmt === 'jpeg' ? 'png' : fmt)
+    } catch {
+      setError(t('img-crop.errorFormat'))
+    }
   }
 
   function handleFiles(list: FileList | null) {
@@ -179,6 +183,7 @@ export function ImgCropPage() {
       const fixedSize = mode === 'fixed' ? { width: fixedWidth, height: fixedHeight } : null
       const r = await cropAndEncode(bitmapRef.current, rect, mode, fixedSize, { outputFormat, quality, lossless })
       const blob = new Blob([r.buffer], { type: r.mimeType })
+      if (croppedUrl) URL.revokeObjectURL(croppedUrl)
       const url = makeObjectUrl(blob)
       setResult(r)
       setCroppedUrl(url)

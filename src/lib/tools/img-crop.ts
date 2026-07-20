@@ -1,3 +1,5 @@
+import { encodeImageData, type CompressOptions, type CompressResult } from './img-compress'
+
 export interface CropRect {
   x: number
   y: number
@@ -119,4 +121,43 @@ export function initialCropRect(imgWidth: number, imgHeight: number, ratio: numb
     imgWidth,
     imgHeight,
   )
+}
+
+export async function loadImageBitmap(file: File): Promise<ImageBitmap> {
+  return createImageBitmap(file)
+}
+
+export function extractCrop(bitmap: ImageBitmap, rect: CropRect): ImageData {
+  const width = Math.round(rect.width)
+  const height = Math.round(rect.height)
+  const canvas = new OffscreenCanvas(width, height)
+  const ctx = canvas.getContext('2d')!
+  ctx.drawImage(bitmap, rect.x, rect.y, rect.width, rect.height, 0, 0, width, height)
+  return ctx.getImageData(0, 0, width, height)
+}
+
+export function resizeImageData(data: ImageData, targetWidth: number, targetHeight: number): ImageData {
+  const src = new OffscreenCanvas(data.width, data.height)
+  src.getContext('2d')!.putImageData(data, 0, 0)
+
+  const dst = new OffscreenCanvas(targetWidth, targetHeight)
+  const dctx = dst.getContext('2d')!
+  dctx.drawImage(src, 0, 0, data.width, data.height, 0, 0, targetWidth, targetHeight)
+  return dctx.getImageData(0, 0, targetWidth, targetHeight)
+}
+
+export async function cropAndEncode(
+  bitmap: ImageBitmap,
+  rect: CropRect,
+  mode: CropMode,
+  fixedSize: { width: number; height: number } | null,
+  opts: CompressOptions,
+): Promise<CompressResult> {
+  const cropped = extractCrop(bitmap, rect)
+  const target = computeExportSize(rect, mode, fixedSize)
+  const finalData =
+    mode === 'fixed' && fixedSize && (target.width !== cropped.width || target.height !== cropped.height)
+      ? resizeImageData(cropped, target.width, target.height)
+      : cropped
+  return encodeImageData(finalData, target.width, target.height, opts)
 }

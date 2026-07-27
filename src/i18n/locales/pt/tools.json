@@ -199,7 +199,9 @@
     "format": "Formatar",
     "minify": "Minimizar",
     "outputPlaceholder": "O resultado aparecerá aqui...",
-    "unescape": "Desescapar e Formatar"
+    "unescape": "Desescapar e Formatar",
+    "pathPlaceholder": "Clique em uma chave ou valor abaixo para ver seu caminho",
+    "copyPath": "Copiar caminho"
   },
   "text-diff": {
     "title": "Text Diff",

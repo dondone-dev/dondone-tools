@@ -199,7 +199,9 @@
     "format": "Formatieren",
     "minify": "Minimieren",
     "outputPlaceholder": "Ausgabe erscheint hier...",
-    "unescape": "Deeskapen und Formatieren"
+    "unescape": "Deeskapen und Formatieren",
+    "pathPlaceholder": "Klicken Sie unten auf einen Key oder Value, um den Pfad anzuzeigen",
+    "copyPath": "Pfad kopieren"
   },
   "text-diff": {
     "title": "Text Diff",

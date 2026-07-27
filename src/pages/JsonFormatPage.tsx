@@ -6,20 +6,30 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
+import { JsonInteractiveOutput } from '@/components/tools/JsonInteractiveOutput'
 import { formatJson, minifyJson, unescapeAndFormatJson } from '@/lib/tools/json-format'
 
 export function JsonFormatPage() {
   const { t } = useTranslation('tools')
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
+  const [parsedValue, setParsedValue] = useState<unknown>(null)
+  const [pretty, setPretty] = useState(true)
   const [error, setError] = useState('')
+  const [selectedPath, setSelectedPath] = useState<string | null>(null)
   const { copiedText, copy } = useClipboard()
+  const { copiedText: copiedPath, copy: copyPath } = useClipboard()
 
-  function run(fn: (s: string) => string) {
+  function run(fn: (s: string) => string, isPretty: boolean) {
     setError('')
     setOutput('')
+    setParsedValue(null)
+    setSelectedPath(null)
     try {
-      setOutput(fn(input))
+      const result = fn(input)
+      setOutput(result)
+      setParsedValue(JSON.parse(result))
+      setPretty(isPretty)
     } catch (e) {
       setError((e as Error).message)
     }
@@ -33,18 +43,18 @@ export function JsonFormatPage() {
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('json-format.inputPlaceholder')}
           rows={10}
-          className="font-mono text-sm resize-y"
+          className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
           spellCheck={false}
         />
 
         <div className="flex gap-2">
-          <Button size="sm" onClick={() => run(formatJson)}>
+          <Button size="sm" onClick={() => run(formatJson, true)}>
             {t('json-format.format')}
           </Button>
-          <Button size="sm" variant="outline" onClick={() => run(minifyJson)}>
+          <Button size="sm" variant="outline" onClick={() => run(minifyJson, false)}>
             {t('json-format.minify')}
           </Button>
-          <Button size="sm" variant="outline" onClick={() => run(unescapeAndFormatJson)}>
+          <Button size="sm" variant="outline" onClick={() => run(unescapeAndFormatJson, true)}>
             {t('json-format.unescape')}
           </Button>
         </div>
@@ -69,12 +79,28 @@ export function JsonFormatPage() {
                 {copiedText === output ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
             </div>
-            <Textarea
-              value={output}
-              readOnly
-              rows={10}
-              className="font-mono text-sm resize-y bg-muted/50"
-              spellCheck={false}
+
+            <div className="flex items-center justify-between gap-2 rounded-md border border-input bg-muted/30 px-3 py-1.5">
+              <span className="font-mono text-xs truncate text-muted-foreground">
+                {selectedPath ?? t('json-format.pathPlaceholder')}
+              </span>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-6 px-2 text-xs gap-1 shrink-0"
+                disabled={!selectedPath}
+                onClick={() => selectedPath && copyPath(selectedPath)}
+              >
+                {copiedPath === selectedPath ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copiedPath === selectedPath ? t('ui.copied', { ns: 'common' }) : t('json-format.copyPath')}
+              </Button>
+            </div>
+
+            <JsonInteractiveOutput
+              value={parsedValue}
+              pretty={pretty}
+              selectedPath={selectedPath}
+              onSelectPath={setSelectedPath}
             />
           </div>
         )}

@@ -199,7 +199,9 @@
     "format": "格式化",
     "minify": "压缩为一行",
     "outputPlaceholder": "输出结果将显示在这里...",
-    "unescape": "去转义并格式化"
+    "unescape": "去转义并格式化",
+    "pathPlaceholder": "点击下方的 key 或 value 查看其路径",
+    "copyPath": "复制路径"
   },
   "text-diff": {
     "title": "Text Diff",

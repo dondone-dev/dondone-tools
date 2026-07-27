@@ -199,7 +199,9 @@
     "format": "서식 지정",
     "minify": "최소화",
     "outputPlaceholder": "출력 결과가 여기에 표시됩니다...",
-    "unescape": "이스케이프 해제 후 서식 지정"
+    "unescape": "이스케이프 해제 후 서식 지정",
+    "pathPlaceholder": "아래의 key 또는 value를 클릭하면 경로가 표시됩니다",
+    "copyPath": "경로 복사"
   },
   "text-diff": {
     "title": "Text Diff",

@@ -199,7 +199,9 @@
     "format": "Format",
     "minify": "Minify",
     "outputPlaceholder": "Output will appear here...",
-    "unescape": "Unescape & Format"
+    "unescape": "Unescape & Format",
+    "pathPlaceholder": "Click a key or value below to see its path",
+    "copyPath": "Copy path"
   },
   "text-diff": {
     "title": "Text Diff",

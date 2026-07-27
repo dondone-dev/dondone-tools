@@ -199,7 +199,9 @@
     "format": "整形",
     "minify": "圧縮",
     "outputPlaceholder": "出力結果がここに表示されます...",
-    "unescape": "アンエスケープして整形"
+    "unescape": "アンエスケープして整形",
+    "pathPlaceholder": "下の key または value をクリックしてパスを表示",
+    "copyPath": "パスをコピー"
   },
   "text-diff": {
     "title": "Text Diff",

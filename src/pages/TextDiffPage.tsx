@@ -43,21 +43,21 @@ const INDICATOR_W = 'w-1'
 function SplitCell({ side }: { side: SplitRow['left'] }) {
   if (!side) {
     return (
-      <div className={cn('flex flex-1', LINE_H)}>
+      <div className={cn('flex border-b border-border/40 last:border-b-0', LINE_H)}>
         <div className={cn(INDICATOR_W, 'shrink-0')} />
         <div className={cn(LINE_NO_W, 'shrink-0 bg-muted/20 border-r border-border/40')} />
-        <div className="flex-1 bg-muted/10" />
+        <div className="flex-1 min-w-0 bg-muted/10" />
       </div>
     )
   }
   const { bg, lnBg, indicator } = typeStyle(side.type)
   return (
-    <div className={cn('flex flex-1', LINE_H, bg)}>
+    <div className={cn('flex border-b border-border/40 last:border-b-0', LINE_H, bg)}>
       <div className={cn(INDICATOR_W, 'shrink-0', indicator)} />
       <div className={cn(LINE_NO_W, 'shrink-0 select-none text-right pr-2 text-muted-foreground text-xs leading-[1.375rem] border-r border-border/40', lnBg)}>
         {side.lineNo}
       </div>
-      <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre">
+      <div className="flex-1 min-w-0 px-2 text-xs leading-[1.375rem] whitespace-pre">
         <Tokens tokens={side.tokens} type={side.type} />
       </div>
     </div>
@@ -65,15 +65,22 @@ function SplitCell({ side }: { side: SplitRow['left'] }) {
 }
 
 function SplitView({ rows }: { rows: SplitRow[] }) {
+  // Each side scrolls horizontally on its own so a long line on one side can't
+  // shove that row's cells sideways and throw off vertical alignment with the
+  // other side (rows are kept in sync purely by having the same fixed row height).
   return (
-    <div className="border border-border rounded-md overflow-x-auto font-mono">
-      {rows.map((row, i) => (
-        <div key={i} className="flex w-max min-w-full border-b border-border/40 last:border-b-0">
-          <SplitCell side={row.left} />
-          <div className="w-px shrink-0 bg-border" />
-          <SplitCell side={row.right} />
-        </div>
-      ))}
+    <div className="flex border border-border rounded-md overflow-hidden font-mono">
+      <div className="flex-1 min-w-0 overflow-x-auto">
+        {rows.map((row, i) => (
+          <SplitCell key={i} side={row.left} />
+        ))}
+      </div>
+      <div className="w-px shrink-0 bg-border" />
+      <div className="flex-1 min-w-0 overflow-x-auto">
+        {rows.map((row, i) => (
+          <SplitCell key={i} side={row.right} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -87,7 +94,7 @@ function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
         const prefixColor = line.type === 'removed' ? 'text-red-500' : line.type === 'added' ? 'text-green-500' : 'text-muted-foreground'
 
         return (
-          <div key={i} className={cn('flex w-max min-w-full border-b border-border/40 last:border-b-0', LINE_H, bg)}>
+          <div key={i} className={cn('flex w-full border-b border-border/40 last:border-b-0', LINE_H, bg)}>
             <div className={cn(INDICATOR_W, 'shrink-0', indicator)} />
             <div className={cn(LINE_NO_W, 'shrink-0 select-none text-right pr-2 text-muted-foreground text-xs leading-[1.375rem] border-r border-border/40', lnBg)}>
               {line.oldLineNo ?? ''}
@@ -98,7 +105,7 @@ function UnifiedView({ lines }: { lines: UnifiedLine[] }) {
             <div className={cn('w-5 shrink-0 select-none text-center text-xs leading-[1.375rem]', prefixColor)}>
               {prefix}
             </div>
-            <div className="flex-1 px-2 text-xs leading-[1.375rem] whitespace-pre">
+            <div className="flex-1 min-w-0 px-2 text-xs leading-[1.375rem] whitespace-pre">
               <Tokens tokens={line.tokens} type={line.type} />
             </div>
           </div>

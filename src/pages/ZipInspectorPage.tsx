@@ -14,6 +14,7 @@ import {
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { ToolError, ToolStatus } from '@/components/tools/ToolFeedback'
 import {
   formatBytes,
   getVisibleEntries,
@@ -160,8 +161,8 @@ export function ZipInspectorPage() {
           <span className="text-xs text-muted-foreground shrink-0">{formatBytes(file.size)}</span>
           <Button
             variant="ghost"
-            size="sm"
-            className="h-6 w-6 p-0 text-muted-foreground hover:text-foreground"
+            size="icon-sm"
+            className="text-muted-foreground hover:text-foreground"
             onClick={clearFile}
             aria-label={t('zip-inspector.clear', { ns: 'tools' })}
           >
@@ -170,12 +171,7 @@ export function ZipInspectorPage() {
         </div>
       )}
 
-      {loading && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Loader2 className="h-4 w-4 animate-spin" />
-          <span>{t('zip-inspector.parsing', { ns: 'tools' })}</span>
-        </div>
-      )}
+      {loading && <ToolStatus icon={<Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" />} message={t('zip-inspector.parsing', { ns: 'tools' })} />}
 
       {warn && !loading && (
         <p className="flex items-center gap-2 text-sm text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-950/30 px-3 py-2 rounded-md">
@@ -184,9 +180,7 @@ export function ZipInspectorPage() {
         </p>
       )}
 
-      {error && (
-        <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>
-      )}
+      {error && <ToolError message={error} />}
 
       {result && !loading && (
         <>

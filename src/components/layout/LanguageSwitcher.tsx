@@ -21,7 +21,7 @@ export function LanguageSwitcher({ currentLocale, currentPath }: LanguageSwitche
 
   return (
     <Select value={currentLocale} onValueChange={handleChange}>
-      <SelectTrigger className="w-[110px] h-8 text-xs">
+      <SelectTrigger size="sm" className="w-[110px] text-xs">
         <SelectValue />
       </SelectTrigger>
       <SelectContent

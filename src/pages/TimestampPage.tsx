@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Copy, Check } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
 import { fromUnix, toUnix, isMilliseconds } from '@/lib/tools/timestamp'
 import { useClipboard } from '@/hooks/useClipboard'
+import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
 
 export function TimestampPage() {
   const { t } = useTranslation('tools')
@@ -67,7 +66,7 @@ export function TimestampPage() {
             <Button size="sm" onClick={handleFromUnix}>{t('timestamp.convert')}</Button>
           </div>
           {unixError && (
-            <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{unixError}</p>
+            <ToolError message={unixError} />
           )}
           {unixResult && (
             <div className="space-y-2 text-sm">
@@ -95,7 +94,7 @@ export function TimestampPage() {
             <Button size="sm" onClick={handleToUnix}>{t('timestamp.convert')}</Button>
           </div>
           {humanError && (
-            <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{humanError}</p>
+            <ToolError message={humanError} />
           )}
           {humanResult && (
             <div className="space-y-2 text-sm">
@@ -110,18 +109,5 @@ export function TimestampPage() {
 }
 
 function ResultRow({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
-  const { t } = useTranslation('common')
-  const isCopied = copiedText === value
-  return (
-    <div className="space-y-0.5">
-      <div className="flex items-center justify-between">
-        <Label className="text-xs text-muted-foreground">{label}</Label>
-        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {isCopied ? t('ui.copied') : t('ui.copy')}
-        </Button>
-      </div>
-      <span className="font-mono text-xs bg-muted/50 rounded px-2 py-1 select-all block">{value}</span>
-    </div>
-  )
+  return <ToolResultField label={label} value={value} copiedText={copiedText} onCopy={onCopy} />
 }

@@ -11,6 +11,7 @@ import {
   type BgRemoveBackend,
 } from '@/lib/tools/bg-remove'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 type Status = 'idle' | 'loading-model' | 'processing' | 'done' | 'error'
 
@@ -216,9 +217,7 @@ export function BgRemovePage() {
       {/* Error state */}
       {status === 'error' && (
         <div className="flex items-center gap-3">
-          <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md flex-1">
-            {error}
-          </p>
+          <ToolError message={error} className="flex-1" />
           <Button variant="outline" size="sm" onClick={handleRetry}>
             {t('bg-remove.retry', { ns: 'tools' })}
           </Button>

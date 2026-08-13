@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
 import { parseExif, type ParsedExif } from '@/lib/tools/exif'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 type SectionId = 'camera' | 'exposure' | 'datetime' | 'gps' | 'image'
 
@@ -130,9 +131,7 @@ export function ExifPage() {
         </div>
       )}
 
-      {error && (
-        <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>
-      )}
+      {error && <ToolError message={error} />}
 
       {result && result.sections.length > 0 && (
         <div className="space-y-3">
@@ -154,8 +153,8 @@ export function ExifPage() {
                       </span>
                       <Button
                         variant="ghost"
-                        size="sm"
-                        className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
+                        size="icon-sm"
+                        className="opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity"
                         onClick={() => copy(field.value)}
                         aria-label={isCopied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
                       >

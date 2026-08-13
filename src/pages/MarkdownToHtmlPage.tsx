@@ -141,11 +141,11 @@ export default function MarkdownToHtmlPage() {
 
         {showCustomCss && (
           <Textarea
+            variant="compact"
             value={customCss}
             onChange={(e) => setCustomCss(e.target.value)}
             placeholder={t('markdown-to-html.customCssPlaceholder')}
-            rows={4}
-            className="font-mono text-xs resize-y"
+            className="font-mono text-xs"
             spellCheck={false}
           />
         )}
@@ -153,11 +153,11 @@ export default function MarkdownToHtmlPage() {
         <div className={cn('grid grid-cols-1 gap-3', viewMode === 'split' && 'md:grid-cols-2')}>
           {viewMode === 'split' && (
             <Textarea
+              variant="editor"
               value={markdown}
               onChange={(e) => setMarkdown(e.target.value)}
               placeholder={t('markdown-to-html.inputPlaceholder')}
-              rows={20}
-              className="font-mono text-sm resize-y"
+              className="font-mono text-sm"
               spellCheck={false}
             />
           )}

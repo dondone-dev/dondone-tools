@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
 import { classifyQrCodeText, decodeImageData, type QrCodePayloadType } from '@/lib/tools/qrcode'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 interface DecodeResult {
   text: string
@@ -126,7 +127,7 @@ export function QrCodeDecodePage() {
                   </a>
                 </Button>
               )}
-              <Button variant="outline" size="sm" className="h-7 px-2 gap-1 text-xs" onClick={() => copy(result.text)}>
+              <Button variant="outline" size="sm" className="min-h-8 px-2 gap-1 text-xs" onClick={() => copy(result.text)}>
                 {copiedText === result.text ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
                 {copiedText === result.text ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
               </Button>
@@ -138,7 +139,7 @@ export function QrCodeDecodePage() {
         </div>
       )}
 
-      {error && <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>}
+      {error && <ToolError message={error} />}
     </ToolLayout>
   )
 }

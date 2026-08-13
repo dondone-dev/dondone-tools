@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Upload, Download } from 'lucide-react'
 import { generateQrCode, decodeImageData } from '@/lib/tools/qrcode'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 export function QrCodePage() {
   const { t } = useTranslation('tools')
@@ -100,7 +101,7 @@ export function QrCodePage() {
         </TabsContent>
       </Tabs>
 
-      {error && <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>}
+      {error && <ToolError message={error} />}
     </ToolLayout>
   )
 }

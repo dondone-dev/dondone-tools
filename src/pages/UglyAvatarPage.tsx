@@ -33,7 +33,7 @@ export function UglyAvatarPage() {
           <div className="flex items-center gap-2">
             <Label className="text-xs text-muted-foreground shrink-0">{t('ugly-avatar.background')}</Label>
             <Select value={background} onValueChange={setBackground}>
-              <SelectTrigger className="w-40 h-8 text-xs">
+              <SelectTrigger size="sm" className="w-40 text-xs">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

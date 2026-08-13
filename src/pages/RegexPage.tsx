@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 const FLAGS = ['g', 'i', 'm', 's'] as const
 type Flag = (typeof FLAGS)[number]
@@ -207,20 +208,16 @@ export function RegexPage() {
               </TooltipProvider>
             </div>
           </div>
-          {error && (
-            <p className="text-xs text-destructive bg-destructive/10 px-3 py-1.5 rounded-md font-mono">
-              {t('regex.invalidPattern')}: {error}
-            </p>
-          )}
+          {error && <ToolError message={`${t('regex.invalidPattern')}: ${error}`} className="text-xs font-mono" />}
 
         </div>
 
         <Textarea
+          variant="default"
           value={testInput}
           onChange={(e) => setTestInput(e.target.value)}
           placeholder={t('regex.testInputPlaceholder')}
-          rows={8}
-          className="font-mono text-sm resize-y"
+          className="font-mono text-sm"
           spellCheck={false}
         />
 

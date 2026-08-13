@@ -28,10 +28,11 @@ export function StringLengthPage() {
     <ToolLayout toolId="string-length" category="Text">
       <div className="space-y-4">
         <Textarea
+          variant="editor"
           placeholder={t('string-length.placeholder')}
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="font-mono text-sm min-h-[160px] resize-none"
+          className="font-mono text-sm"
         />
         {stats && (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

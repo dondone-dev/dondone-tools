@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useClipboard } from '@/hooks/useClipboard'
-import { Copy, Check } from 'lucide-react'
+import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
 import { encodeText, decodeText } from '@/lib/tools/base64'
 
 export function Base64Page() {
@@ -34,41 +33,24 @@ export function Base64Page() {
           <TabsTrigger value="decode" className="text-xs h-7">{t('base64.decode', { ns: 'tools' })}</TabsTrigger>
         </TabsList>
         <TabsContent value="encode" className="space-y-3 mt-3">
-          <Textarea placeholder={t('base64.encodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
+          <Textarea variant="compact" placeholder={t('base64.encodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm" />
           <Button onClick={handleEncode} size="sm">{t('base64.encode', { ns: 'tools' })}</Button>
         </TabsContent>
         <TabsContent value="decode" className="space-y-3 mt-3">
-          <Textarea placeholder={t('base64.decodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm min-h-[100px] resize-none" />
+          <Textarea variant="compact" placeholder={t('base64.decodePlaceholder', { ns: 'tools' })} value={input} onChange={(e) => setInput(e.target.value)} className="font-mono text-sm" />
           <Button onClick={handleDecode} size="sm">{t('base64.decode', { ns: 'tools' })}</Button>
         </TabsContent>
       </Tabs>
 
-      {error && <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>}
+      {error && <ToolError message={error} />}
 
       {result && (
         <div className="space-y-2">
-          {result.base64 && <ResultField label="Base64" value={result.base64} copiedText={copiedText} onCopy={copy} />}
-          {result.base64url && <ResultField label="Base64URL" value={result.base64url} copiedText={copiedText} onCopy={copy} />}
-          {result.text !== undefined && <ResultField label={t('base64.decodeResult', { ns: 'tools' })} value={result.text} copiedText={copiedText} onCopy={copy} />}
+          {result.base64 && <ToolResultField label="Base64" value={result.base64} copiedText={copiedText} onCopy={copy} />}
+          {result.base64url && <ToolResultField label="Base64URL" value={result.base64url} copiedText={copiedText} onCopy={copy} />}
+          {result.text !== undefined && <ToolResultField label={t('base64.decodeResult', { ns: 'tools' })} value={result.text} copiedText={copiedText} onCopy={copy} multiline />}
         </div>
       )}
     </ToolLayout>
-  )
-}
-
-function ResultField({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
-  const { t } = useTranslation()
-  const isCopied = copiedText === value
-  return (
-    <div className="space-y-1">
-      <div className="flex items-center justify-between">
-        <Label className="text-xs text-muted-foreground">{label}</Label>
-        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {isCopied ? t('ui.copied') : t('ui.copy')}
-        </Button>
-      </div>
-      <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all whitespace-pre-wrap">{value}</div>
-    </div>
   )
 }

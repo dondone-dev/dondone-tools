@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
-import { Copy, Check, RefreshCw } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
+import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
 import { generateJwtToken } from '@/lib/tools/bp-jwt'
 
 export function BpJwtPage() {
@@ -67,28 +68,10 @@ export function BpJwtPage() {
           </Button>
         </div>
 
-        {error && (
-          <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>
-        )}
+        {error && <ToolError message={error} />}
 
         {result && (
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <Label className="text-xs text-muted-foreground">JWT Token</Label>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="h-6 px-2 text-xs gap-1"
-                onClick={() => copy(result)}
-              >
-                {copiedText === result ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copiedText === result ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
-              </Button>
-            </div>
-            <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all leading-relaxed">
-              {result}
-            </div>
-          </div>
+          <ToolResultField label="JWT Token" value={result} copiedText={copiedText} onCopy={copy} />
         )}
       </div>
     </ToolLayout>

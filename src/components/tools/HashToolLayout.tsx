@@ -6,9 +6,10 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useClipboard } from '@/hooks/useClipboard'
-import { Upload, Copy, Check, Loader2, X } from 'lucide-react'
+import { Upload, Loader2, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { isAbortError } from '@/lib/tools/hashwasm-common'
+import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
 
 interface ResultRow {
   label: string
@@ -89,7 +90,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
         <div className="flex items-center gap-2">
           <Label className="text-sm text-muted-foreground shrink-0">{t('_hash.outputFormat')}</Label>
           <Select value={outputEncoding} onValueChange={(v) => setOutputEncoding(v as 'hex' | 'base64')}>
-            <SelectTrigger className="w-24 h-8 text-xs">
+            <SelectTrigger size="sm" className="w-24 text-xs">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -108,10 +109,11 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
 
         <TabsContent value="text" className="space-y-3 mt-3">
           <Textarea
+            variant="default"
             placeholder={t('_hash.textPlaceholder')}
             value={textInput}
             onChange={(e) => setTextInput(e.target.value)}
-            className="font-mono text-sm min-h-[120px] resize-none"
+            className="font-mono text-sm"
           />
           <Button onClick={handleTextDigest} disabled={loading} size="sm">
             {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" /> : null}
@@ -147,7 +149,7 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 <span>{t('_hash.computing', { progress })}</span>
-                <Button variant="ghost" size="sm" onClick={handleAbort} className="h-6 px-2 text-xs">
+                <Button variant="ghost" size="sm" onClick={handleAbort} className="min-h-8 px-2 text-xs">
                   <X className="h-3 w-3 mr-1" />{t('_hash.cancel')}
                 </Button>
               </div>
@@ -159,38 +161,19 @@ export function HashToolLayout({ resultRows, onDigestText, onDigestFile, singleR
         </TabsContent>
       </Tabs>
 
-      {error && (
-        <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>
-      )}
+      {error && <ToolError message={error} />}
 
       {result && (
         <div className="space-y-2">
           {singleResult ? (
-            <ResultField label={resultRows[0]?.label ?? 'Result'} value={singleValue ?? ''} copiedText={copiedText} onCopy={copy} />
+            <ToolResultField label={resultRows[0]?.label ?? ''} value={singleValue ?? ''} copiedText={copiedText} onCopy={copy} />
           ) : (
             resultRows.map((row) => (
-              <ResultField key={row.key} label={row.label} value={result[row.key] ?? ''} copiedText={copiedText} onCopy={copy} />
+              <ToolResultField key={row.key} label={row.label} value={result[row.key] ?? ''} copiedText={copiedText} onCopy={copy} />
             ))
           )}
         </div>
       )}
-    </div>
-  )
-}
-
-function ResultField({ label, value, copiedText, onCopy }: { label: string; value: string; copiedText: string | null; onCopy: (text: string) => void }) {
-  const { t } = useTranslation()
-  const isCopied = copiedText === value
-  return (
-    <div className="space-y-1">
-      <div className="flex items-center justify-between">
-        <Label className="text-xs text-muted-foreground">{label}</Label>
-        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
-          {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-          {isCopied ? t('ui.copied') : t('ui.copy')}
-        </Button>
-      </div>
-      <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all">{value}</div>
     </div>
   )
 }

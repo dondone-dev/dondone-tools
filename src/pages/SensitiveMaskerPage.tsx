@@ -83,7 +83,7 @@ export function SensitiveMaskerPage() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 px-2 text-xs gap-1"
+                className="min-h-8 px-2 text-xs gap-1"
                 onClick={() => inputRef.current?.click()}
               >
                 <Upload className="h-3 w-3" />
@@ -93,7 +93,7 @@ export function SensitiveMaskerPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-6 w-6 p-0"
+                  className="min-h-8 min-w-8 p-0"
                   onClick={() => setInput('')}
                   aria-label="Clear"
                 >
@@ -104,10 +104,11 @@ export function SensitiveMaskerPage() {
           </div>
           <div className="relative">
             <Textarea
+              variant="editor"
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder={t('sensitive-masker.inputPlaceholder', { ns: 'tools' })}
-              className="font-mono text-xs min-h-60 resize-y"
+              className="font-mono text-xs"
               onDragOver={e => { e.preventDefault(); setDragOver(true) }}
               onDragLeave={() => setDragOver(false)}
               onDrop={handleDrop}
@@ -135,7 +136,7 @@ export function SensitiveMaskerPage() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 px-2 text-xs gap-1"
+                className="min-h-8 px-2 text-xs gap-1"
                 onClick={() => copy(outputText)}
               >
                 {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
@@ -144,10 +145,11 @@ export function SensitiveMaskerPage() {
             )}
           </div>
           <Textarea
+            variant="editor"
             value={outputText}
             readOnly
             placeholder={t('sensitive-masker.outputPlaceholder', { ns: 'tools' })}
-            className="font-mono text-xs min-h-60 resize-y bg-muted/30"
+            className="font-mono text-xs bg-muted/30"
           />
         </div>
       </div>

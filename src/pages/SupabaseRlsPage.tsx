@@ -150,16 +150,16 @@ export function SupabaseRlsPage() {
         <section className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="text-xs text-muted-foreground">{t('supabase-rls.output')}</Label>
-            <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" disabled={!sql} onClick={() => copy(sql)}>
+            <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" disabled={!sql} onClick={() => copy(sql)}>
               {copiedText === sql ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
               {copiedText === sql ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
             </Button>
           </div>
           <Textarea
+            variant="editor"
             value={sql || t('supabase-rls.outputPlaceholder')}
             readOnly
-            rows={24}
-            className="font-mono text-xs resize-y bg-muted/50"
+            className="font-mono text-xs bg-muted/50"
             spellCheck={false}
           />
           <p className="text-xs text-muted-foreground">

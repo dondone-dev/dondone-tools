@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { decodeJwt, formatTimestamp, type JwtParts } from '@/lib/tools/jwt-decode'
 import { useClipboard } from '@/hooks/useClipboard'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 const TIME_FIELDS = ['exp', 'iat', 'nbf'] as const
 
@@ -31,22 +32,18 @@ export function JwtDecodePage() {
     <ToolLayout toolId="jwt-decode" category="Cryptography">
       <div className="space-y-3">
         <Textarea
+          variant="editor"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('jwt-decode.inputPlaceholder')}
-          rows={6}
-          className="font-mono text-sm resize-y"
+          className="font-mono text-sm"
           spellCheck={false}
         />
         <Button size="sm" onClick={handleDecode}>
           {t('jwt-decode.decode')}
         </Button>
 
-        {error && (
-          <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
-            {error}
-          </p>
-        )}
+        {error && <ToolError message={error} className="font-mono" />}
 
         {result && (
           <div className="space-y-2">
@@ -72,7 +69,7 @@ function JwtSection({ title, data, timeFields, copiedText, onCopy }: { title: st
       </summary>
       <div className="px-4 pb-3 pt-1 space-y-1">
         <div className="flex justify-end">
-          <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(json)}>
+          <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => onCopy(json)}>
             {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
             {isCopied ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
           </Button>
@@ -114,7 +111,7 @@ function SignatureSection({ title, value, note, copiedText, onCopy }: { title: s
       </summary>
       <div className="px-4 pb-3 pt-1 space-y-2">
         <div className="flex justify-end">
-          <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
+          <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
             {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
             {isCopied ? t('ui.copied') : t('ui.copy')}
           </Button>

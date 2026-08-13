@@ -17,7 +17,7 @@ export function BlakePage() {
       <div className="flex items-center gap-2 mb-4">
         <Label className="text-xs text-muted-foreground shrink-0">{t('blake.algorithm')}</Label>
         <Select value={algorithm} onValueChange={(v) => setAlgorithm(v as BlakeAlgorithm)}>
-          <SelectTrigger className="w-32 h-8 text-xs">
+          <SelectTrigger size="sm" className="w-32 text-xs">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>

@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useClipboard } from '@/hooks/useClipboard'
+import { ToolError } from '@/components/tools/ToolFeedback'
 import { JsonInteractiveOutput } from '@/components/tools/JsonInteractiveOutput'
 import { formatJson, minifyJson, unescapeAndFormatJson } from '@/lib/tools/json-format'
 
@@ -39,11 +40,11 @@ export function JsonFormatPage() {
     <ToolLayout toolId="json-format" category="Text">
       <div className="space-y-3">
         <Textarea
+          variant="editor"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder={t('json-format.inputPlaceholder')}
-          rows={10}
-          className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
+          className="font-mono text-sm"
           spellCheck={false}
         />
 
@@ -59,11 +60,7 @@ export function JsonFormatPage() {
           </Button>
         </div>
 
-        {error && (
-          <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
-            {error}
-          </p>
-        )}
+        {error && <ToolError message={error} className="font-mono" />}
 
         {output && (
           <div className="space-y-1">
@@ -72,7 +69,7 @@ export function JsonFormatPage() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 px-2 text-xs gap-1"
+                className="min-h-8 px-2 text-xs gap-1"
                 onClick={() => copy(output)}
               >
                 {copiedText === output ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
@@ -87,7 +84,7 @@ export function JsonFormatPage() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-6 px-2 text-xs gap-1 shrink-0"
+                className="min-h-8 px-2 text-xs gap-1 shrink-0"
                 disabled={!selectedPath}
                 onClick={() => selectedPath && copyPath(selectedPath)}
               >

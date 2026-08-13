@@ -143,7 +143,7 @@ function ResultRow({
     <div className="space-y-0.5">
       <div className="flex items-center justify-between">
         <Label className="text-xs text-muted-foreground">{label}</Label>
-        <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
+        <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
           {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
           {isCopied ? t('ui.copied') : t('ui.copy')}
         </Button>

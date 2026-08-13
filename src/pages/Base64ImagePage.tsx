@@ -10,6 +10,7 @@ import { Copy, Check, Upload, Download } from 'lucide-react'
 import { decodeImageInput, encodeImageBytes } from '@/lib/tools/base64-image'
 import { formatBytes } from '@/lib/tools/encoding-common'
 import { cn } from '@/lib/utils'
+import { ToolError } from '@/components/tools/ToolFeedback'
 
 export function Base64ImagePage() {
   const { t } = useTranslation(['tools', 'common'])
@@ -69,12 +70,12 @@ export function Base64ImagePage() {
         </TabsContent>
 
         <TabsContent value="b64-to-image" className="space-y-3 mt-3">
-          <Textarea placeholder={t('base64-image.b64Placeholder', { ns: 'tools' })} value={b64Input} onChange={(e) => setB64Input(e.target.value)} className="font-mono text-xs min-h-[100px] max-h-[200px] overflow-y-auto resize-none" />
+          <Textarea variant="compact" placeholder={t('base64-image.b64Placeholder', { ns: 'tools' })} value={b64Input} onChange={(e) => setB64Input(e.target.value)} className="font-mono text-xs" />
           <Button onClick={handleDecodeB64} size="sm">{t('base64-image.decode', { ns: 'tools' })}</Button>
         </TabsContent>
       </Tabs>
 
-      {error && <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>}
+      {error && <ToolError message={error} />}
 
       {result && (
         <div className="space-y-3">
@@ -83,7 +84,7 @@ export function Base64ImagePage() {
               <div className="flex items-center justify-between">
                 <Label className="text-xs text-muted-foreground">{t('base64-image.preview', { ns: 'tools' })}</Label>
                 {result.mode === 'decode' && (
-                  <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={handleDownload}>
+                  <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={handleDownload}>
                     <Download className="h-3 w-3" />
                     {t('base64-image.download', { ns: 'tools' })}
                   </Button>
@@ -104,7 +105,7 @@ export function Base64ImagePage() {
             <div className="space-y-1">
               <div className="flex items-center justify-between">
                 <Label className="text-xs text-muted-foreground">Base64</Label>
-                <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => copy(result.base64!)}>
+                <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => copy(result.base64!)}>
                   {copiedText === result.base64 ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
                   {copiedText === result.base64 ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
                 </Button>

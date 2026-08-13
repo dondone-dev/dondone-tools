@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Check, Copy, Loader2, Upload } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import { useClipboard } from '@/hooks/useClipboard'
+import { ToolError, ToolStatus } from '@/components/tools/ToolFeedback'
 import { recognizeImage, disposeOcr, isOcrStarted, getOcrBackend, OcrError } from '@/lib/tools/ocr'
 import { cn } from '@/lib/utils'
 
@@ -86,14 +88,10 @@ export function OcrPage() {
       />
 
       {isProcessing && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Loader2 className="h-4 w-4 animate-spin shrink-0" />
-          <span>
-            {status === 'loading'
-              ? t('ocr.loading_model', { ns: 'tools' })
-              : t('ocr.recognizing', { ns: 'tools' })}
-          </span>
-        </div>
+        <ToolStatus
+          icon={<Loader2 className="h-4 w-4 animate-spin shrink-0 motion-reduce:animate-none" />}
+          message={status === 'loading' ? t('ocr.loading_model', { ns: 'tools' }) : t('ocr.recognizing', { ns: 'tools' })}
+        />
       )}
 
       <div
@@ -128,22 +126,21 @@ export function OcrPage() {
         )}
       </div>
 
-      {error && (
-        <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>
-      )}
+      {error && <ToolError message={error} />}
 
       {result !== null && status === 'done' && (
         <div className="relative group">
-          <textarea
+          <Textarea
+            variant="editor"
             readOnly
             value={result}
             placeholder={t('ocr.result_placeholder', { ns: 'tools' })}
-            className="w-full min-h-36 p-3 pr-12 text-sm font-mono rounded-md border border-border bg-muted/30 resize-y focus:outline-none"
+            className="pr-12 text-sm font-mono bg-muted/30"
           />
           <Button
             variant="ghost"
-            size="sm"
-            className="absolute top-2 right-2 h-7 w-7 p-0"
+            size="icon-sm"
+            className="absolute top-2 right-2"
             onClick={() => copy(result)}
             aria-label={copiedText === result ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
           >

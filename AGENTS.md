@@ -95,6 +95,8 @@ Things to check with `/taste-skill`:
 
 Do not mark a UI task as done without running `/taste-skill` first.
 
+Project interaction baseline: read [`docs/design-system.md`](docs/design-system.md) and use the auto-discoverable `dondone-tools-ui-ux` Skill when adding or reviewing tool-page UI. Shared textarea variants, tool feedback primitives, named control sizes, and the page composition order are the default; page-local exceptions must be justified by the tool's semantics.
+
 ## Style
 
 - No comments unless the *why* is non-obvious

@@ -80,10 +80,10 @@ export function UuidPage() {
         {uuids.length > 0 && (
           <>
             <Textarea
+              variant="editor"
               readOnly
-              rows={10}
               value={uuids.join('\n')}
-              className="font-mono text-sm resize-y"
+              className="font-mono text-sm"
             />
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">

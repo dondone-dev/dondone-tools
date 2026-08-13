@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useClipboard } from '@/hooks/useClipboard'
-import { Copy, Check } from 'lucide-react'
+import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
 import { aesEncrypt, aesDecrypt, getDefaultAesOptions, type AesOptions } from '@/lib/tools/aes'
 
 export function AesPage() {
@@ -133,36 +133,31 @@ export function AesPage() {
           </TabsList>
           <TabsContent value="encrypt" className="space-y-3 mt-3">
             <Textarea
+              variant="default"
               placeholder={t('aes.plaintextPlaceholder', { ns: 'tools' })}
               value={options.input}
               onChange={(e) => update('input', e.target.value)}
-              className="font-mono text-sm min-h-[100px] resize-none"
+              className="font-mono text-sm"
             />
             <Button onClick={handleEncrypt} size="sm">{t('aes.encrypt', { ns: 'tools' })}</Button>
           </TabsContent>
           <TabsContent value="decrypt" className="space-y-3 mt-3">
             <Textarea
+              variant="default"
               placeholder={t('aes.ciphertextPlaceholder', { ns: 'tools' })}
               value={options.input}
               onChange={(e) => update('input', e.target.value)}
-              className="font-mono text-sm min-h-[100px] resize-none"
+              className="font-mono text-sm"
             />
             <Button onClick={handleDecrypt} size="sm">{t('aes.decrypt', { ns: 'tools' })}</Button>
           </TabsContent>
         </Tabs>
 
-        {error && <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">{error}</p>}
+        {error && <ToolError message={error} />}
 
         {result && (
           <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <Label className="text-xs text-muted-foreground">{t('ui.result', { ns: 'common' })}</Label>
-              <Button variant="ghost" size="sm" className="h-6 px-2 text-xs gap-1" onClick={() => copy(result)}>
-                {copiedText === result ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
-                {copiedText === result ? t('ui.copied', { ns: 'common' }) : t('ui.copy', { ns: 'common' })}
-              </Button>
-            </div>
-            <div className="font-mono text-xs bg-muted/50 rounded-md px-3 py-2 break-all select-all whitespace-pre-wrap">{result}</div>
+            <ToolResultField label={t('ui.result', { ns: 'common' })} value={result} copiedText={copiedText} onCopy={copy} multiline />
           </div>
         )}
       </div>

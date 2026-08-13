@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useClipboard } from '@/hooks/useClipboard'
+import { ToolError } from '@/components/tools/ToolFeedback'
 import { computeDiff, computeJsonDiff, createUnifiedDiffPatch, JsonDiffParseError, type ChangeType, type DiffResult, type JsonDiffSide, type SplitRow, type Token, type UnifiedLine } from '@/lib/tools/text-diff'
 
 type ViewMode = 'split' | 'unified'
@@ -166,33 +167,29 @@ export function TextDiffPage() {
           <div className="space-y-1.5">
             <Label className="text-xs text-muted-foreground">{t('text-diff.original')}</Label>
             <Textarea
+              variant="editor"
               value={original}
               onChange={(e) => setOriginal(e.target.value)}
               placeholder={t('text-diff.originalPlaceholder')}
-              rows={10}
-              className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
+              className="font-mono text-sm"
               spellCheck={false}
             />
             {parseError?.side === 'original' && (
-              <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
-                {t('text-diff.jsonParseError', { label: t('text-diff.original'), message: parseError.message })}
-              </p>
+              <ToolError message={t('text-diff.jsonParseError', { label: t('text-diff.original'), message: parseError.message })} className="font-mono" />
             )}
           </div>
           <div className="space-y-1.5">
             <Label className="text-xs text-muted-foreground">{t('text-diff.modified')}</Label>
             <Textarea
+              variant="editor"
               value={modified}
               onChange={(e) => setModified(e.target.value)}
               placeholder={t('text-diff.modifiedPlaceholder')}
-              rows={10}
-              className="font-mono text-sm resize-y max-h-64 overflow-y-auto"
+              className="font-mono text-sm"
               spellCheck={false}
             />
             {parseError?.side === 'modified' && (
-              <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md font-mono">
-                {t('text-diff.jsonParseError', { label: t('text-diff.modified'), message: parseError.message })}
-              </p>
+              <ToolError message={t('text-diff.jsonParseError', { label: t('text-diff.modified'), message: parseError.message })} className="font-mono" />
             )}
           </div>
         </div>

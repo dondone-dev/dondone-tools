@@ -5,7 +5,9 @@ import { ToolError, ToolStatus, ToolResultField } from '@/components/tools/ToolF
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
 import { Loader2 } from 'lucide-react'
+import { useClipboard } from '@/hooks/useClipboard'
 import {
   generateSshKeyPairInWorker,
   type SshAlgorithm,
@@ -34,7 +36,7 @@ export function SshKeygenPage() {
   const [status, setStatus] = useState<'idle' | 'generating' | 'error'>('idle')
   const [error, setError] = useState('')
   const [result, setResult] = useState<SshKeyPairResult | null>(null)
-  const [copiedText, setCopiedText] = useState<string | null>(null)
+  const { copiedText, copy } = useClipboard()
 
   useEffect(() => {
     let cancelled = false
@@ -49,6 +51,7 @@ export function SshKeygenPage() {
   }, [])
 
   async function handleGenerate() {
+    setResult(null)
     setStatus('generating')
     setError('')
     try {
@@ -66,12 +69,6 @@ export function SshKeygenPage() {
     }
   }
 
-  function copy(text: string) {
-    navigator.clipboard.writeText(text)
-    setCopiedText(text)
-    setTimeout(() => setCopiedText((current) => (current === text ? null : current)), 1500)
-  }
-
   function download(content: string, filename: string) {
     const blob = new Blob([content], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
@@ -82,16 +79,16 @@ export function SshKeygenPage() {
     URL.revokeObjectURL(url)
   }
 
-  const filenameBase = algorithm === 'ed25519' ? 'id_ed25519' : 'id_rsa'
+  const filenameBase = result?.publicKeyLine.startsWith('ssh-ed25519 ') ? 'id_ed25519' : 'id_rsa'
 
   return (
     <ToolLayout toolId="ssh-keygen" category="Cryptography">
       <div className="space-y-5">
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">{t('ssh-keygen.algorithm')}</label>
+            <Label htmlFor="ssh-keygen-algorithm">{t('ssh-keygen.algorithm')}</Label>
             <Select value={algorithm} onValueChange={(v) => setAlgorithm(v as SshAlgorithm)}>
-              <SelectTrigger className="text-sm">
+              <SelectTrigger id="ssh-keygen-algorithm" className="text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -108,9 +105,9 @@ export function SshKeygenPage() {
 
           {algorithm === 'rsa' && (
             <div className="space-y-1.5">
-              <label className="text-xs text-muted-foreground">{t('ssh-keygen.rsaKeySize')}</label>
+              <Label htmlFor="ssh-keygen-rsa-key-size">{t('ssh-keygen.rsaKeySize')}</Label>
               <Select value={String(rsaKeySize)} onValueChange={(v) => setRsaKeySize(Number(v) as RsaKeySize)}>
-                <SelectTrigger size="sm" className="text-sm">
+                <SelectTrigger id="ssh-keygen-rsa-key-size" size="sm" className="text-sm">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -127,8 +124,9 @@ export function SshKeygenPage() {
 
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">{t('ssh-keygen.comment')}</label>
+            <Label htmlFor="ssh-keygen-comment">{t('ssh-keygen.comment')}</Label>
             <Input
+              id="ssh-keygen-comment"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder={t('ssh-keygen.commentPlaceholder')}
@@ -136,8 +134,9 @@ export function SshKeygenPage() {
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">{t('ssh-keygen.passphrase')}</label>
+            <Label htmlFor="ssh-keygen-passphrase">{t('ssh-keygen.passphrase')}</Label>
             <Input
+              id="ssh-keygen-passphrase"
               type="password"
               value={passphrase}
               onChange={(e) => setPassphrase(e.target.value)}
@@ -205,7 +204,13 @@ export function SshKeygenPage() {
                 onCopy={copy}
               />
             </div>
-            <Button variant="ghost" size="sm" className="min-h-8" onClick={handleGenerate}>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="min-h-8"
+              onClick={handleGenerate}
+              disabled={status === 'generating'}
+            >
               {t('ssh-keygen.regenerate')}
             </Button>
           </div>

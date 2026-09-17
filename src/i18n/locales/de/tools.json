@@ -820,6 +820,28 @@
     "copied": "Kopiert!",
     "emptyPreview": "Geben Sie links Markdown ein, um hier die Vorschau zu sehen."
   },
+  "ssh-keygen": {
+    "title": "SSH-Schlüsselgenerator",
+    "description": "Erzeugen Sie ein SSH-Schlüsselpaar (Ed25519 oder RSA) vollständig in Ihrem Browser und im selben OpenSSH-Format wie ssh-keygen. Keine Daten verlassen Ihr Gerät.",
+    "algorithm": "Algorithmus",
+    "rsaKeySize": "RSA-Schlüssellänge",
+    "comment": "Kommentar",
+    "commentPlaceholder": "sie@beispiel.de",
+    "passphrase": "Passphrase",
+    "passphrasePlaceholder": "Leer lassen, um keine Passphrase zu verwenden",
+    "passphraseHint": "Eine leere Passphrase erzeugt einen unverschlüsselten privaten Schlüssel, wie bei ssh-keygen ohne -N.",
+    "generate": "Schlüsselpaar erzeugen",
+    "generating": "Wird erzeugt…",
+    "publicKey": "Öffentlicher Schlüssel",
+    "privateKey": "Privater Schlüssel",
+    "downloadPrivateKey": "Privaten Schlüssel herunterladen",
+    "downloadPublicKey": "Öffentlichen Schlüssel herunterladen",
+    "fingerprintSha256": "Fingerabdruck (SHA256)",
+    "fingerprintMd5": "Fingerabdruck (MD5, veraltet)",
+    "regenerate": "Weiteres Schlüsselpaar erzeugen",
+    "disclaimer": "Die Schlüssel werden vollständig in Ihrem Browser erzeugt und verbleiben dort; nichts wird hochgeladen. Falls diese Seite jemals in einem nicht vertrauenswürdigen Netzwerk geladen wurde, erzeugen Sie neue Schlüssel, statt sie wiederzuverwenden.",
+    "ed25519Unavailable": "Ed25519 wird von diesem Browser nicht unterstützt; RSA steht stattdessen zur Verfügung."
+  },
   "restaurant-breakeven": {
     "title": "Rentabilitätsrechner für Restaurants",
     "description": "Schätzen Sie den Break-even-Umsatz, den monatlichen Nettogewinn und die Amortisationsdauer Ihres Restaurants anhand von Miete, Personalkosten, Wareneinsatz und weiteren Ausgaben. Alle Berechnungen erfolgen lokal.",

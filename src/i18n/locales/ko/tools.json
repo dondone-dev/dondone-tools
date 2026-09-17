@@ -820,6 +820,28 @@
     "copied": "복사됨!",
     "emptyPreview": "왼쪽에 Markdown을 입력하면 미리보기가 표시됩니다."
   },
+  "ssh-keygen": {
+    "title": "SSH 키 생성기",
+    "description": "SSH 키 쌍(Ed25519 또는 RSA)을 브라우저에서 완전히 생성합니다. ssh-keygen이 만드는 것과 동일한 OpenSSH 형식이며, 어떤 데이터도 기기 밖으로 전송되지 않습니다.",
+    "algorithm": "알고리즘",
+    "rsaKeySize": "RSA 키 크기",
+    "comment": "주석",
+    "commentPlaceholder": "you@example.com",
+    "passphrase": "암호 구문",
+    "passphrasePlaceholder": "암호 구문을 사용하지 않으려면 비워 두세요",
+    "passphraseHint": "암호 구문을 비워 두면 ssh-keygen을 -N 없이 실행할 때와 같이 암호화되지 않은 개인 키가 생성됩니다.",
+    "generate": "키 쌍 생성",
+    "generating": "생성 중…",
+    "publicKey": "공개 키",
+    "privateKey": "개인 키",
+    "downloadPrivateKey": "개인 키 다운로드",
+    "downloadPublicKey": "공개 키 다운로드",
+    "fingerprintSha256": "지문(SHA256)",
+    "fingerprintMd5": "지문(MD5, 레거시)",
+    "regenerate": "다른 키 생성",
+    "disclaimer": "키는 브라우저에서만 생성되고 보관되며 어디에도 업로드되지 않습니다. 신뢰할 수 없는 네트워크에서 이 페이지를 불러온 적이 있다면 키를 재사용하지 말고 새로 생성하세요.",
+    "ed25519Unavailable": "이 브라우저는 Ed25519를 지원하지 않습니다. 대신 RSA를 사용할 수 있습니다."
+  },
   "restaurant-breakeven": {
     "title": "요식업 손익분기점 계산기",
     "description": "임대료, 인건비, 식재료 원가율 등 운영 조건을 입력해 손익분기 매출액, 월 순이익, 투자 회수 기간을 계산합니다. 모든 계산은 브라우저에서 로컬로 처리됩니다.",

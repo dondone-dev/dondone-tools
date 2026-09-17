@@ -820,6 +820,28 @@
     "copied": "Copié !",
     "emptyPreview": "Saisissez du Markdown à gauche pour voir l'aperçu ici."
   },
+  "ssh-keygen": {
+    "title": "Générateur de clés SSH",
+    "description": "Générez une paire de clés SSH (Ed25519 ou RSA) entièrement dans votre navigateur, au même format OpenSSH que celui produit par ssh-keygen. Aucune donnée ne quitte votre appareil.",
+    "algorithm": "Algorithme",
+    "rsaKeySize": "Taille de la clé RSA",
+    "comment": "Commentaire",
+    "commentPlaceholder": "vous@exemple.com",
+    "passphrase": "Phrase secrète",
+    "passphrasePlaceholder": "Laissez vide pour ne pas utiliser de phrase secrète",
+    "passphraseHint": "Une phrase secrète vide produit une clé privée non chiffrée, comme avec ssh-keygen sans l'option -N.",
+    "generate": "Générer la paire de clés",
+    "generating": "Génération…",
+    "publicKey": "Clé publique",
+    "privateKey": "Clé privée",
+    "downloadPrivateKey": "Télécharger la clé privée",
+    "downloadPublicKey": "Télécharger la clé publique",
+    "fingerprintSha256": "Empreinte (SHA256)",
+    "fingerprintMd5": "Empreinte (MD5, obsolète)",
+    "regenerate": "Générer une autre paire",
+    "disclaimer": "Les clés sont générées et conservées entièrement dans votre navigateur : rien n'est envoyé. Si cette page a été chargée sur un réseau non fiable, générez de nouvelles clés au lieu de les réutiliser.",
+    "ed25519Unavailable": "Ed25519 n'est pas pris en charge par ce navigateur ; RSA reste disponible."
+  },
   "restaurant-breakeven": {
     "title": "Calculateur de seuil de rentabilité — Restaurant",
     "description": "Estimez le chiffre d'affaires au seuil de rentabilité, le bénéfice mensuel net et le délai de récupération de votre restaurant à partir du loyer, de la main-d'œuvre, du coût des matières premières et d'autres charges. Tous les calculs s'effectuent localement.",

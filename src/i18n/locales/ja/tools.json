@@ -820,6 +820,28 @@
     "copied": "コピーしました！",
     "emptyPreview": "左側にMarkdownを入力するとプレビューが表示されます。"
   },
+  "ssh-keygen": {
+    "title": "SSH鍵生成ツール",
+    "description": "SSH鍵ペア（Ed25519またはRSA）をブラウザー内だけで生成します。形式はssh-keygenが生成するOpenSSH形式と同じで、データが端末外に送信されることはありません。",
+    "algorithm": "アルゴリズム",
+    "rsaKeySize": "RSA鍵長",
+    "comment": "コメント",
+    "commentPlaceholder": "you@example.com",
+    "passphrase": "パスフレーズ",
+    "passphrasePlaceholder": "パスフレーズを設定しない場合は空欄",
+    "passphraseHint": "空のパスフレーズでは、ssh-keygenを-Nなしで実行した場合と同様、暗号化されていない秘密鍵が生成されます。",
+    "generate": "鍵ペアを生成",
+    "generating": "生成中…",
+    "publicKey": "公開鍵",
+    "privateKey": "秘密鍵",
+    "downloadPrivateKey": "秘密鍵をダウンロード",
+    "downloadPublicKey": "公開鍵をダウンロード",
+    "fingerprintSha256": "フィンガープリント（SHA256）",
+    "fingerprintMd5": "フィンガープリント（MD5、旧形式）",
+    "regenerate": "別の鍵を生成",
+    "disclaimer": "鍵はブラウザー内だけで生成・保持され、アップロードされることはありません。信頼できないネットワークでこのページを読み込んだことがある場合は、鍵を再利用せず生成し直してください。",
+    "ed25519Unavailable": "このブラウザーはEd25519に対応していません。代わりにRSAを利用できます。"
+  },
   "restaurant-breakeven": {
     "title": "飲食店 損益分岐点計算機",
     "description": "家賃、人件費、食材原価率などの経営条件を入力し、損益分岐点となる売上高、月次純利益、投資回収期間を試算します。計算はすべてローカルで行われます。",

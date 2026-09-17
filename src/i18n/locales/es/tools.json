@@ -820,6 +820,28 @@
     "copied": "¡Copiado!",
     "emptyPreview": "Escribe Markdown a la izquierda para ver la vista previa aquí."
   },
+  "ssh-keygen": {
+    "title": "Generador de claves SSH",
+    "description": "Genera un par de claves SSH (Ed25519 o RSA) íntegramente en tu navegador, en el mismo formato OpenSSH que produce ssh-keygen. Ningún dato sale de tu dispositivo.",
+    "algorithm": "Algoritmo",
+    "rsaKeySize": "Tamaño de la clave RSA",
+    "comment": "Comentario",
+    "commentPlaceholder": "tu@ejemplo.com",
+    "passphrase": "Frase de contraseña",
+    "passphrasePlaceholder": "Déjalo vacío para no usar frase de contraseña",
+    "passphraseHint": "Una frase de contraseña vacía genera una clave privada sin cifrar, igual que ssh-keygen sin -N.",
+    "generate": "Generar par de claves",
+    "generating": "Generando…",
+    "publicKey": "Clave pública",
+    "privateKey": "Clave privada",
+    "downloadPrivateKey": "Descargar clave privada",
+    "downloadPublicKey": "Descargar clave pública",
+    "fingerprintSha256": "Huella digital (SHA256)",
+    "fingerprintMd5": "Huella digital (MD5, obsoleta)",
+    "regenerate": "Generar otro par",
+    "disclaimer": "Las claves se generan y permanecen íntegramente en tu navegador; no se sube nada. Si alguna vez cargaste esta página en una red no confiable, genera claves nuevas en lugar de reutilizarlas.",
+    "ed25519Unavailable": "Ed25519 no es compatible con este navegador; puedes usar RSA."
+  },
   "restaurant-breakeven": {
     "title": "Calculadora de punto de equilibrio para restaurantes",
     "description": "Estima los ingresos de equilibrio, la utilidad neta mensual y el período de recuperación de tu restaurante a partir del alquiler, la mano de obra, el costo de alimentos y otros gastos. Todo el cálculo se realiza localmente.",

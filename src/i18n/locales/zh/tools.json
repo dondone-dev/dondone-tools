@@ -820,6 +820,28 @@
     "copied": "已复制！",
     "emptyPreview": "在左侧输入 Markdown 即可预览效果。"
   },
+  "ssh-keygen": {
+    "title": "SSH 密钥生成器",
+    "description": "完全在浏览器中生成 SSH 密钥对（Ed25519 或 RSA），采用与 ssh-keygen 相同的 OpenSSH 格式。任何数据都不会离开您的设备。",
+    "algorithm": "算法",
+    "rsaKeySize": "RSA 密钥长度",
+    "comment": "注释",
+    "commentPlaceholder": "you@example.com",
+    "passphrase": "密码短语",
+    "passphrasePlaceholder": "留空表示不设置密码短语",
+    "passphraseHint": "空密码短语会生成未加密的私钥，效果与不带 -N 参数运行 ssh-keygen 相同。",
+    "generate": "生成密钥对",
+    "generating": "正在生成…",
+    "publicKey": "公钥",
+    "privateKey": "私钥",
+    "downloadPrivateKey": "下载私钥",
+    "downloadPublicKey": "下载公钥",
+    "fingerprintSha256": "指纹（SHA256）",
+    "fingerprintMd5": "指纹（MD5，旧版）",
+    "regenerate": "重新生成",
+    "disclaimer": "密钥完全在浏览器中生成并保留，不会上传任何内容。如果此页面曾在不可信网络中加载，请重新生成密钥，不要重复使用。",
+    "ed25519Unavailable": "当前浏览器不支持 Ed25519；可改用 RSA。"
+  },
   "restaurant-breakeven": {
     "title": "餐饮盈亏计算器",
     "description": "输入房租、人工、食材成本率等经营假设，估算保本营业额、月度净利润与投资回收期。全部计算在本地完成。",

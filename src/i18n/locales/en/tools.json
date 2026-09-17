@@ -820,6 +820,28 @@
     "copied": "Copied!",
     "emptyPreview": "Enter Markdown on the left to see the preview here."
   },
+  "ssh-keygen": {
+    "title": "SSH Key Generator",
+    "description": "Generate an SSH key pair (Ed25519 or RSA) entirely in your browser, in the same OpenSSH format ssh-keygen produces. Nothing leaves your device.",
+    "algorithm": "Algorithm",
+    "rsaKeySize": "RSA key size",
+    "comment": "Comment",
+    "commentPlaceholder": "you@example.com",
+    "passphrase": "Passphrase",
+    "passphrasePlaceholder": "Leave empty for no passphrase",
+    "passphraseHint": "An empty passphrase produces an unencrypted private key, matching ssh-keygen without -N.",
+    "generate": "Generate key pair",
+    "generating": "Generating…",
+    "publicKey": "Public key",
+    "privateKey": "Private key",
+    "downloadPrivateKey": "Download private key",
+    "downloadPublicKey": "Download public key",
+    "fingerprintSha256": "Fingerprint (SHA256)",
+    "fingerprintMd5": "Fingerprint (MD5, legacy)",
+    "regenerate": "Generate another",
+    "disclaimer": "Keys are generated and stay entirely in your browser — nothing is uploaded. Regenerate rather than reuse a key if this page was ever loaded on an untrusted network.",
+    "ed25519Unavailable": "Ed25519 isn't supported in this browser; RSA is available instead."
+  },
   "restaurant-breakeven": {
     "title": "Restaurant Break-even Calculator",
     "description": "Estimate your restaurant's break-even revenue, monthly profit, and payback period from rent, labor, food cost, and other expenses. All computation runs locally.",

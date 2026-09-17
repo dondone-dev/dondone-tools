@@ -820,6 +820,28 @@
     "copied": "Copiado!",
     "emptyPreview": "Digite Markdown à esquerda para ver a pré-visualização aqui."
   },
+  "ssh-keygen": {
+    "title": "Gerador de chaves SSH",
+    "description": "Gere um par de chaves SSH (Ed25519 ou RSA) inteiramente no seu navegador, no mesmo formato OpenSSH produzido pelo ssh-keygen. Nenhum dado sai do seu dispositivo.",
+    "algorithm": "Algoritmo",
+    "rsaKeySize": "Tamanho da chave RSA",
+    "comment": "Comentário",
+    "commentPlaceholder": "voce@exemplo.com",
+    "passphrase": "Frase secreta",
+    "passphrasePlaceholder": "Deixe em branco para não usar frase secreta",
+    "passphraseHint": "Uma frase secreta vazia gera uma chave privada não criptografada, assim como o ssh-keygen sem -N.",
+    "generate": "Gerar par de chaves",
+    "generating": "Gerando…",
+    "publicKey": "Chave pública",
+    "privateKey": "Chave privada",
+    "downloadPrivateKey": "Baixar chave privada",
+    "downloadPublicKey": "Baixar chave pública",
+    "fingerprintSha256": "Impressão digital (SHA256)",
+    "fingerprintMd5": "Impressão digital (MD5, obsoleta)",
+    "regenerate": "Gerar outro par",
+    "disclaimer": "As chaves são geradas e permanecem inteiramente no seu navegador; nada é enviado. Se esta página tiver sido carregada em uma rede não confiável, gere novas chaves em vez de reutilizá-las.",
+    "ed25519Unavailable": "Ed25519 não é compatível com este navegador; use RSA como alternativa."
+  },
   "restaurant-breakeven": {
     "title": "Calculadora de ponto de equilíbrio para restaurantes",
     "description": "Estime a receita de equilíbrio, o lucro líquido mensal e o prazo de retorno do seu restaurante a partir do aluguel, mão de obra, custo de alimentos e outras despesas. Todo o cálculo é feito localmente.",

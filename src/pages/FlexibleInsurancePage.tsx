@@ -225,7 +225,7 @@ function Results({
   return (
     <div className="space-y-4">
       {/* Hero: monthly total */}
-      <div className="rounded-xl border bg-muted/30 p-5">
+      <div className="rounded-xl border bg-muted/30 p-5 shadow-2xs">
         <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
           <div>
             <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
@@ -248,7 +248,7 @@ function Results({
       </div>
 
       {/* Pension */}
-      <div className="rounded-lg border p-4">
+      <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
         <div className="mb-3 flex items-center justify-between">
           <span className="flex items-center gap-2 text-sm font-medium">
             <PiggyBank className="h-4 w-4 text-muted-foreground" />
@@ -265,7 +265,7 @@ function Results({
 
       {/* Unemployment */}
       {result.unemployment && (
-        <div className="flex items-center justify-between rounded-lg border p-4">
+        <div className="flex items-center justify-between rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
           <span className="flex items-center gap-2 text-sm font-medium">
             <Umbrella className="h-4 w-4 text-muted-foreground" />
             {t('flexible-insurance.unemployment')}
@@ -276,7 +276,7 @@ function Results({
 
       {/* Medical */}
       {result.medical && (
-        <div className="rounded-lg border p-4">
+        <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
           <div className="mb-3 flex items-center justify-between">
             <span className="flex items-center gap-2 text-sm font-medium">
               <HeartPulse className="h-4 w-4 text-muted-foreground" />

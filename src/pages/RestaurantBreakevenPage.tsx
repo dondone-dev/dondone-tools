@@ -569,17 +569,6 @@ function CostDonut({
       <div className="relative h-40 w-40 shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Tooltip
-              formatter={(value: unknown, name: unknown) => [yuan(Number(value)), String(name)]}
-              contentStyle={{
-                backgroundColor: 'var(--popover)',
-                borderColor: 'var(--border)',
-                borderRadius: 'var(--radius-md)',
-                color: 'var(--popover-foreground)',
-                fontSize: 12,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              }}
-            />
             <Pie
               data={slices}
               dataKey="value"

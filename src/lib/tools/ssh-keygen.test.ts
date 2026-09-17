@@ -382,6 +382,7 @@ describe('generateSshKeyPair', () => {
     const parsed = parseOpenSshPrivateKey(result.privateKeyPem)
     expect(parsed.cipherName).toBe('none')
     expect(parsed.kdfName).toBe('none')
+    expect(parsed.privSectionRaw.length % 8).toBe(0)
     const section = parsePrivateSection(parsed.privSectionRaw)
     expect(section.checkint1).toBe(section.checkint2)
     expect(section.comment).toBe('e2e@example.com')
@@ -421,6 +422,7 @@ describe('generateSshKeyPair', () => {
         parsed.privSectionRaw as BufferSource,
       ),
     )
+    expect(decrypted.length % 16).toBe(0)
     const section = parsePrivateSection(decrypted)
     expect(section.checkint1).toBe(section.checkint2)
     expect(section.comment).toBe('enc-e2e@example.com')

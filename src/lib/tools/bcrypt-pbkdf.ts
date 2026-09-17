@@ -118,7 +118,7 @@ const BCRYPT_HASHSIZE = 32
 const BCRYPT_MAGIC = new TextEncoder().encode('OxychromaticBlowfishSwatDynamite')
 
 async function sha512(bytes: Uint8Array): Promise<Uint8Array> {
-  return new Uint8Array(await crypto.subtle.digest('SHA-512', bytes))
+  return new Uint8Array(await crypto.subtle.digest('SHA-512', bytes as BufferSource))
 }
 
 function bcryptHash(sha2pass: Uint8Array, sha2salt: Uint8Array): Uint8Array {
@@ -153,8 +153,8 @@ export async function bcryptPbkdf(
   rounds: number,
   keyLen: number,
 ): Promise<Uint8Array> {
-  if (rounds < 1) throw new Error('bcryptPbkdf: rounds must be >= 1')
-  if (password.length === 0 || salt.length === 0 || keyLen === 0) {
+  if (!Number.isInteger(rounds) || rounds < 1) throw new Error('bcryptPbkdf: rounds must be an integer >= 1')
+  if (password.length === 0 || salt.length === 0 || !Number.isInteger(keyLen) || keyLen === 0) {
     throw new Error('bcryptPbkdf: password, salt, and keyLen must be non-empty')
   }
   if (keyLen > BCRYPT_HASHSIZE * BCRYPT_HASHSIZE) {

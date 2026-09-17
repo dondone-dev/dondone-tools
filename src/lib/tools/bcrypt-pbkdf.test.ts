@@ -35,4 +35,11 @@ describe('bcryptPbkdf', () => {
     const salt = hexToBytes('00112233445566778899aabbccddeeff')
     await expect(bcryptPbkdf(new TextEncoder().encode('x'), salt, 0, 48)).rejects.toThrow()
   })
+
+  it('rejects NaN rounds or keyLen', async () => {
+    const salt = hexToBytes('00112233445566778899aabbccddeeff')
+    const pw = new TextEncoder().encode('x')
+    await expect(bcryptPbkdf(pw, salt, Number.NaN, 48)).rejects.toThrow()
+    await expect(bcryptPbkdf(pw, salt, 16, Number.NaN)).rejects.toThrow()
+  })
 })

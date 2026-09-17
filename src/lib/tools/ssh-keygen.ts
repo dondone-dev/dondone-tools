@@ -119,3 +119,60 @@ export function fingerprintMd5(pubBlob: Uint8Array): string {
   const hex = CryptoJS.MD5(bytesToWordArray(pubBlob)).toString()
   return hex.match(/.{2}/g)!.join(':')
 }
+
+// ---- unencrypted private-key section (Ed25519) ----
+
+/** Builds the `openssh-key-v1` private section for an Ed25519 key: two
+ * random checkints (OpenSSH detects a wrong passphrase by comparing these
+ * after decryption — they carry no other security purpose), the key type,
+ * public key, the 64-byte "private key" field (32-byte seed + 32-byte
+ * public key, per OpenSSH convention), and the comment. Caller pads the
+ * result with `padPrivateSection` before encrypting or embedding it. */
+export function buildEd25519PrivateSection(seed: Uint8Array, pub: Uint8Array, comment: string): Uint8Array {
+  const checkint = crypto.getRandomValues(new Uint8Array(4))
+  return concatBytes(
+    checkint,
+    checkint,
+    sshString(ED25519_KEY_TYPE),
+    sshString(pub),
+    sshString(concatBytes(seed, pub)),
+    sshString(new TextEncoder().encode(comment)),
+  )
+}
+
+/** Pads to the cipher's block size with the sequence 1,2,3,... — the
+ * `openssh-key-v1` spec's padding scheme, which also lets a decryptor
+ * sanity-check the padding after decrypting. */
+export function padPrivateSection(section: Uint8Array, blockSize: number): Uint8Array {
+  const padLen = (blockSize - (section.length % blockSize)) % blockSize
+  if (padLen === 0) return section
+  const padding = new Uint8Array(padLen)
+  for (let i = 0; i < padLen; i++) padding[i] = i + 1
+  return concatBytes(section, padding)
+}
+
+const OPENSSH_MAGIC = new TextEncoder().encode('openssh-key-v1\0')
+
+/** Assembles the full `openssh-key-v1` binary structure and wraps it as a
+ * PEM block, base64-encoded in 70-column lines (matching `ssh-keygen`'s
+ * own line width). */
+export function assembleOpenSshPrivateKeyPem(opts: {
+  cipherName: string
+  kdfName: string
+  kdfOptions: Uint8Array
+  pubBlob: Uint8Array
+  privSection: Uint8Array
+}): string {
+  const body = concatBytes(
+    OPENSSH_MAGIC,
+    sshString(new TextEncoder().encode(opts.cipherName)),
+    sshString(new TextEncoder().encode(opts.kdfName)),
+    sshString(opts.kdfOptions),
+    u32be(1),
+    sshString(opts.pubBlob),
+    sshString(opts.privSection),
+  )
+  const b64 = bytesToBase64(body)
+  const lines = b64.match(/.{1,70}/g) ?? []
+  return `-----BEGIN OPENSSH PRIVATE KEY-----\n${lines.join('\n')}\n-----END OPENSSH PRIVATE KEY-----\n`
+}

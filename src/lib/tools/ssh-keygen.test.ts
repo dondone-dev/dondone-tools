@@ -10,6 +10,9 @@ import {
   formatPublicKeyLine,
   fingerprintSha256,
   fingerprintMd5,
+  buildEd25519PrivateSection,
+  padPrivateSection,
+  assembleOpenSshPrivateKeyPem,
 } from './ssh-keygen'
 
 function bytesToHex(bytes: Uint8Array): string {
@@ -94,5 +97,112 @@ describe('public key line + fingerprints — verified against real `ssh-keygen` 
 
   it('fingerprintMd5 matches `ssh-keygen -l -E md5`', () => {
     expect(fingerprintMd5(pubBlob)).toBe('cb:3e:7c:70:3f:02:0e:c3:25:e6:c8:f3:9d:0c:d8:1d')
+  })
+})
+
+/** Test-only parser mirroring the encoder — NOT shipped in the product
+ * bundle. Parses just enough of `openssh-key-v1` to verify round-trip
+ * correctness of keys this tool built. */
+function parseOpenSshPrivateKey(pem: string) {
+  const b64 = pem
+    .split('\n')
+    .filter((l) => l && !l.startsWith('-----'))
+    .join('')
+  const buf = new Uint8Array(Buffer.from(b64, 'base64'))
+  let off = 15 // "openssh-key-v1" (14 bytes) + trailing \0
+  function readU32(): number {
+    const v = new DataView(buf.buffer, buf.byteOffset + off, 4).getUint32(0, false)
+    off += 4
+    return v
+  }
+  function readStr(): Uint8Array {
+    const len = readU32()
+    const s = buf.subarray(off, off + len)
+    off += len
+    return s
+  }
+  const cipherName = new TextDecoder().decode(readStr())
+  const kdfName = new TextDecoder().decode(readStr())
+  const kdfOptions = readStr()
+  const numKeys = readU32()
+  const pubBlob = readStr()
+  const privSectionRaw = readStr()
+  return { cipherName, kdfName, kdfOptions, numKeys, pubBlob, privSectionRaw }
+}
+
+/** Parses a decrypted (plaintext) private section: two checkints, key type,
+ * public key, private key material, comment, and padding. */
+function parsePrivateSection(bytes: Uint8Array) {
+  let p = 0
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+  const checkint1 = view.getUint32(p, false)
+  p += 4
+  const checkint2 = view.getUint32(p, false)
+  p += 4
+  function readStr(): Uint8Array {
+    const len = new DataView(bytes.buffer, bytes.byteOffset + p, 4).getUint32(0, false)
+    p += 4
+    const s = bytes.subarray(p, p + len)
+    p += len
+    return s
+  }
+  const keyType = new TextDecoder().decode(readStr())
+  const pub = readStr()
+  const priv = readStr()
+  const comment = new TextDecoder().decode(readStr())
+  const padding = bytes.subarray(p)
+  return { checkint1, checkint2, keyType, pub, priv, comment, padding }
+}
+
+describe('Ed25519 unencrypted PEM assembly', () => {
+  it('round-trips: the tool can parse its own output back to matching fields', async () => {
+    const { seed, pub } = await generateEd25519KeyMaterial()
+    const comment = 'roundtrip@example.com'
+    const pubBlob = buildEd25519PublicKeyBlob(pub)
+    let priv = buildEd25519PrivateSection(seed, pub, comment)
+    priv = padPrivateSection(priv, 8) // "none" cipher block size
+    const pem = assembleOpenSshPrivateKeyPem({
+      cipherName: 'none',
+      kdfName: 'none',
+      kdfOptions: new Uint8Array(0),
+      pubBlob,
+      privSection: priv,
+    })
+
+    expect(pem.startsWith('-----BEGIN OPENSSH PRIVATE KEY-----\n')).toBe(true)
+    expect(pem.endsWith('-----END OPENSSH PRIVATE KEY-----\n')).toBe(true)
+
+    const parsed = parseOpenSshPrivateKey(pem)
+    expect(parsed.cipherName).toBe('none')
+    expect(parsed.kdfName).toBe('none')
+    expect(parsed.kdfOptions.length).toBe(0)
+    expect(parsed.numKeys).toBe(1)
+    expect(Array.from(parsed.pubBlob)).toEqual(Array.from(pubBlob))
+
+    const section = parsePrivateSection(parsed.privSectionRaw)
+    expect(section.checkint1).toBe(section.checkint2)
+    expect(section.keyType).toBe('ssh-ed25519')
+    expect(Array.from(section.pub)).toEqual(Array.from(pub))
+    expect(section.priv.length).toBe(64) // 32-byte seed + 32-byte pub
+    expect(Array.from(section.priv.subarray(0, 32))).toEqual(Array.from(seed))
+    expect(Array.from(section.priv.subarray(32))).toEqual(Array.from(pub))
+    expect(section.comment).toBe(comment)
+    expect(Array.from(section.padding)).toEqual(
+      Array.from({ length: section.padding.length }, (_, i) => i + 1),
+    )
+  })
+
+  it('padPrivateSection pads to the exact block size with 1,2,3,... bytes', () => {
+    const section = new Uint8Array(13) // arbitrary length not a multiple of 16
+    const padded = padPrivateSection(section, 16)
+    expect(padded.length % 16).toBe(0)
+    const added = padded.length - 13
+    expect(Array.from(padded.subarray(13))).toEqual(Array.from({ length: added }, (_, i) => i + 1))
+  })
+
+  it('padPrivateSection adds no padding when already block-aligned', () => {
+    const section = new Uint8Array(16)
+    const padded = padPrivateSection(section, 8)
+    expect(padded.length).toBe(16)
   })
 })

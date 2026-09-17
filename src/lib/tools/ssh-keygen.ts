@@ -329,3 +329,42 @@ export async function generateSshKeyPair(options: GenerateOptions): Promise<SshK
     fingerprintMd5: fingerprintMd5(pubBlob),
   }
 }
+
+// ---- worker client (singleton, following bg-remove.ts's pattern) ----
+
+let _worker: Worker | null = null
+let _nextId = 0
+const _pending = new Map<number, { resolve: (r: SshKeyPairResult) => void; reject: (err: Error) => void }>()
+
+function getWorker(): Worker {
+  if (_worker) return _worker
+  _worker = new Worker(new URL('./ssh-keygen.worker.ts', import.meta.url), { type: 'module' })
+  _worker.onmessage = (event: MessageEvent) => {
+    const msg = event.data as
+      | { type: 'result'; id: number; result: SshKeyPairResult }
+      | { type: 'error'; id: number; message: string }
+    const entry = _pending.get(msg.id)
+    if (!entry) return
+    _pending.delete(msg.id)
+    if (msg.type === 'result') entry.resolve(msg.result)
+    else entry.reject(new Error(msg.message))
+  }
+  _worker.onerror = (err) => {
+    for (const entry of _pending.values()) entry.reject(new Error(err.message))
+    _pending.clear()
+    _worker?.terminate()
+    _worker = null
+  }
+  return _worker
+}
+
+/** Runs `generateSshKeyPair` in a Web Worker so the (deliberately slow)
+ * `bcrypt_pbkdf` passphrase derivation never blocks the UI thread. */
+export function generateSshKeyPairInWorker(options: GenerateOptions): Promise<SshKeyPairResult> {
+  const id = _nextId++
+  const worker = getWorker()
+  return new Promise((resolve, reject) => {
+    _pending.set(id, { resolve, reject })
+    worker.postMessage({ type: 'generate', id, options })
+  })
+}

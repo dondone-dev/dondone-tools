@@ -70,7 +70,7 @@ export function SshKeygenPage() {
   }
 
   function download(content: string, filename: string) {
-    const blob = new Blob([content], { type: 'text/plain' })
+    const blob = new Blob([content], { type: 'application/octet-stream' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url

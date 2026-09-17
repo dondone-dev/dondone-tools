@@ -107,7 +107,7 @@ export function PayrollCnPage() {
     <ToolLayout toolId="payroll-cn" category="Finance">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr] items-start">
         {/* ---------- Inputs ---------- */}
-        <div className="space-y-5 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-1">
+        <div className="space-y-5 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:p-1.5">
           <Field label={t('payroll-cn.city')}>
             <Select value={cityId} onValueChange={selectCity}>
               <SelectTrigger className="text-sm">

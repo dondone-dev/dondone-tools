@@ -16,10 +16,12 @@ import {
   ReferenceDot,
   ReferenceLine,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts'
 import { computeMonthlyRevenueFromFlow, computeRestaurantBreakeven } from '@/lib/tools/restaurant-breakeven'
+import { cn } from '@/lib/utils'
 
 type RevenueMode = 'direct' | 'flow'
 type T = ReturnType<typeof useTranslation>['t']
@@ -381,11 +383,42 @@ function CvpChart({
   const rawMax = Math.max(Number.isFinite(breakeven) ? breakeven : 0, revenue, 1) * 1.35
   const xMax = Math.ceil(rawMax / 10000) * 10000 || 10000
 
-  const data = [
-    { x: 0, fixed: totalFixed, total: totalFixed, revenueLine: 0 },
-    { x: xMax, fixed: totalFixed, total: totalFixed + variableRatio * xMax, revenueLine: xMax },
-  ]
+  // Generate smooth distribution points for interactive hover inspection
+  const steps = 30
+  const stepSize = xMax / steps
+  const pointsMap = new Map<number, { x: number; fixed: number; total: number; revenueLine: number }>()
 
+  for (let i = 0; i <= steps; i++) {
+    const x = Math.round(i * stepSize)
+    pointsMap.set(x, {
+      x,
+      fixed: totalFixed,
+      total: Math.round(totalFixed + variableRatio * x),
+      revenueLine: x,
+    })
+  }
+
+  if (Number.isFinite(breakeven) && breakeven > 0 && breakeven <= xMax) {
+    const bx = Math.round(breakeven)
+    pointsMap.set(bx, {
+      x: bx,
+      fixed: totalFixed,
+      total: Math.round(totalFixed + variableRatio * bx),
+      revenueLine: bx,
+    })
+  }
+
+  if (revenue > 0 && revenue <= xMax) {
+    const rx = Math.round(revenue)
+    pointsMap.set(rx, {
+      x: rx,
+      fixed: totalFixed,
+      total: Math.round(totalFixed + variableRatio * rx),
+      revenueLine: rx,
+    })
+  }
+
+  const data = Array.from(pointsMap.values()).sort((a, b) => a.x - b.x)
   const currentCost = totalFixed + variableRatio * revenue
 
   return (
@@ -412,6 +445,27 @@ function CvpChart({
           }}
         />
         <YAxis type="number" domain={[0, xMax]} hide />
+        <Tooltip
+          formatter={(value: unknown, name: unknown) => {
+            const num = Number(value)
+            const label =
+              name === 'revenueLine'
+                ? t('restaurant-breakeven.legendRevenue')
+                : name === 'total'
+                  ? t('restaurant-breakeven.legendTotal')
+                  : t('restaurant-breakeven.legendFixed')
+            return [yuan(num), label]
+          }}
+          labelFormatter={(val: unknown) => `${t('restaurant-breakeven.revenueDirect')}: ${yuan(Number(val))}`}
+          contentStyle={{
+            backgroundColor: 'var(--popover)',
+            borderColor: 'var(--border)',
+            borderRadius: 'var(--radius-md)',
+            color: 'var(--popover-foreground)',
+            fontSize: 12,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+          }}
+        />
         <Line type="linear" dataKey="fixed" stroke={NEUTRAL} strokeWidth={2} strokeDasharray="4 3" dot={false} isAnimationActive={false} />
         <Line type="linear" dataKey="total" stroke={BRAND} strokeWidth={2.5} dot={false} isAnimationActive={false} />
         <Line type="linear" dataKey="revenueLine" stroke={GOOD} strokeWidth={2.5} dot={false} isAnimationActive={false} />
@@ -455,6 +509,7 @@ function CvpChart({
   )
 }
 
+
 function Legend({ color, label }: { color: string; label: string }) {
   return (
     <span className="flex items-center gap-1.5">
@@ -488,6 +543,8 @@ function CostDonut({
   varExtraCost: number
   t: T
 }) {
+  const [hoveredKey, setHoveredKey] = useState<string | null>(null)
+
   const slices: DonutSlice[] = [
     { key: 'food', value: foodCost, color: '#f59e0b', label: t('restaurant-breakeven.foodCost') },
     { key: 'rent', value: rent, color: '#6366f1', label: t('restaurant-breakeven.rent') },
@@ -498,33 +555,81 @@ function CostDonut({
   ].filter((s) => s.value > 0)
 
   const total = slices.reduce((sum, s) => sum + s.value, 0)
+  const hoveredSlice = slices.find((s) => s.key === hoveredKey)
 
   return (
     <div className="flex flex-wrap items-center gap-6">
       <div className="relative h-40 w-40 shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={slices} dataKey="value" nameKey="label" innerRadius="62%" outerRadius="92%" paddingAngle={1.5} stroke="none" isAnimationActive={false}>
+            <Tooltip
+              formatter={(value: unknown, name: unknown) => [yuan(Number(value)), String(name)]}
+              contentStyle={{
+                backgroundColor: 'var(--popover)',
+                borderColor: 'var(--border)',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--popover-foreground)',
+                fontSize: 12,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              }}
+            />
+            <Pie
+              data={slices}
+              dataKey="value"
+              nameKey="label"
+              innerRadius="62%"
+              outerRadius="92%"
+              paddingAngle={1.5}
+              stroke="none"
+              isAnimationActive={false}
+              onMouseEnter={(_, index) => setHoveredKey(slices[index]?.key ?? null)}
+              onMouseLeave={() => setHoveredKey(null)}
+            >
               {slices.map((s) => (
-                <Cell key={s.key} fill={s.color} />
+                <Cell
+                  key={s.key}
+                  fill={s.color}
+                  opacity={hoveredKey ? (hoveredKey === s.key ? 1 : 0.45) : 1}
+                  className="transition-opacity duration-150 cursor-pointer"
+                />
               ))}
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-[10px] text-muted-foreground">{t('restaurant-breakeven.donutCenterLabel')}</span>
-          <span className="text-sm font-bold tabular-nums">{yuan(total)}</span>
+        <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center px-1">
+          <span className="text-[10px] text-muted-foreground truncate max-w-[96px]">
+            {hoveredSlice ? hoveredSlice.label : t('restaurant-breakeven.donutCenterLabel')}
+          </span>
+          <span className="text-sm font-bold tabular-nums">
+            {yuan(hoveredSlice ? hoveredSlice.value : total)}
+          </span>
+          <span className="text-[10px] text-muted-foreground tabular-nums">
+            {hoveredSlice && total > 0 ? pctFmt(hoveredSlice.value / total) : total > 0 ? '100%' : '—'}
+          </span>
         </div>
       </div>
-      <div className="min-w-[220px] flex-1 space-y-2">
-        {slices.map((s) => (
-          <div key={s.key} className="flex items-center gap-2 text-sm">
-            <span className="h-2.5 w-2.5 shrink-0 rounded-[3px]" style={{ backgroundColor: s.color }} />
-            <span className="flex-1 truncate text-muted-foreground">{s.label}</span>
-            <span className="font-semibold tabular-nums">{yuan(s.value)}</span>
-            <span className="w-12 text-right text-xs tabular-nums text-muted-foreground">{total > 0 ? pctFmt(s.value / total) : '—'}</span>
-          </div>
-        ))}
+      <div className="min-w-[220px] flex-1 space-y-1">
+        {slices.map((s) => {
+          const isHovered = hoveredKey === s.key
+          return (
+            <div
+              key={s.key}
+              onMouseEnter={() => setHoveredKey(s.key)}
+              onMouseLeave={() => setHoveredKey(null)}
+              className={cn(
+                'flex items-center gap-2 text-sm rounded-md px-2 py-1 transition-colors cursor-pointer',
+                isHovered ? 'bg-muted' : 'hover:bg-muted/50'
+              )}
+            >
+              <span className="h-2.5 w-2.5 shrink-0 rounded-sm" style={{ backgroundColor: s.color }} />
+              <span className="flex-1 truncate text-muted-foreground">{s.label}</span>
+              <span className="font-semibold tabular-nums">{yuan(s.value)}</span>
+              <span className="w-12 text-right text-xs tabular-nums text-muted-foreground">
+                {total > 0 ? pctFmt(s.value / total) : '—'}
+              </span>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

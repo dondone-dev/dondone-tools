@@ -9,6 +9,7 @@ import {
   Line,
   LineChart,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts'
@@ -163,6 +164,18 @@ function TrendChart({
             tickFormatter={(yr: number) => String(yr)}
           />
           <YAxis hide domain={[yMin, yMax]} />
+          <Tooltip
+            formatter={(value: unknown) => [value != null ? yuan(Number(value)) : '—', t('beijing-getihu.legendSocial')]}
+            labelFormatter={(label: unknown) => t('beijing-getihu.yearLabel', { year: Number(label) })}
+            contentStyle={{
+              backgroundColor: 'var(--popover)',
+              borderColor: 'var(--border)',
+              borderRadius: 'var(--radius-md)',
+              color: 'var(--popover-foreground)',
+              fontSize: 12,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            }}
+          />
           <Line
             type="monotone"
             dataKey="value"
@@ -170,8 +183,8 @@ function TrendChart({
             strokeWidth={2}
             connectNulls={false}
             isAnimationActive={false}
-            dot={{ r: 3, fill: CHART_COLOR, strokeWidth: 0 }}
-            activeDot={{ r: 5 }}
+            dot={{ r: 3.5, fill: CHART_COLOR, stroke: 'var(--card)', strokeWidth: 1.5 }}
+            activeDot={{ r: 5.5, stroke: 'var(--card)', strokeWidth: 2 }}
           >
             <LabelList dataKey="label" position="top" offset={10} className="fill-foreground" fontSize={10} />
           </Line>

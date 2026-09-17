@@ -105,9 +105,9 @@ export function PayrollCnPage() {
 
   return (
     <ToolLayout toolId="payroll-cn" category="Finance">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr] items-start">
         {/* ---------- Inputs ---------- */}
-        <div className="space-y-5">
+        <div className="space-y-5 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-1">
           <Field label={t('payroll-cn.city')}>
             <Select value={cityId} onValueChange={selectCity}>
               <SelectTrigger className="text-sm">
@@ -236,22 +236,32 @@ export function PayrollCnPage() {
             {customBase && (
               <div className="grid grid-cols-2 gap-3">
                 <Field label={t('payroll-cn.siBase')}>
-                  <Input
-                    value={siBaseRaw}
-                    onChange={(e) => setSiBaseRaw(e.target.value.replace(/[^\d.]/g, ''))}
-                    inputMode="decimal"
-                    placeholder={String(city.siBaseMin)}
-                    className="font-mono text-sm tabular-nums"
-                  />
+                  <div className="relative">
+                    <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                      ¥
+                    </span>
+                    <Input
+                      value={siBaseRaw}
+                      onChange={(e) => setSiBaseRaw(e.target.value.replace(/[^\d.]/g, ''))}
+                      inputMode="decimal"
+                      placeholder={String(city.siBaseMin)}
+                      className="pl-7 font-mono text-sm tabular-nums"
+                    />
+                  </div>
                 </Field>
                 <Field label={t('payroll-cn.hfBase')}>
-                  <Input
-                    value={hfBaseRaw}
-                    onChange={(e) => setHfBaseRaw(e.target.value.replace(/[^\d.]/g, ''))}
-                    inputMode="decimal"
-                    placeholder={String(city.hfBaseMin)}
-                    className="font-mono text-sm tabular-nums"
-                  />
+                  <div className="relative">
+                    <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                      ¥
+                    </span>
+                    <Input
+                      value={hfBaseRaw}
+                      onChange={(e) => setHfBaseRaw(e.target.value.replace(/[^\d.]/g, ''))}
+                      inputMode="decimal"
+                      placeholder={String(city.hfBaseMin)}
+                      className="pl-7 font-mono text-sm tabular-nums"
+                    />
+                  </div>
                 </Field>
               </div>
             )}

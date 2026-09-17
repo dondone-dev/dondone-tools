@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
 interface ToolCardProps {
-  title: string
+  toolId: string
   descriptionKey: string
   href: string
   icon: LucideIcon
@@ -14,7 +14,7 @@ interface ToolCardProps {
   className?: string
 }
 
-export function ToolCard({ title, descriptionKey, href, icon: Icon, category, isFavorite, className }: ToolCardProps) {
+export function ToolCard({ toolId, descriptionKey, href, icon: Icon, category, isFavorite, className }: ToolCardProps) {
   const { t } = useTranslation(['tools', 'common'])
 
   return (
@@ -40,7 +40,7 @@ export function ToolCard({ title, descriptionKey, href, icon: Icon, category, is
       </div>
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
-          {title}
+          {t(`${toolId}.title`, { ns: 'tools' })}
         </h3>
         <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/50 shrink-0 mt-0.5 group-hover:text-muted-foreground transition-colors" />
       </div>

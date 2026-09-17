@@ -134,7 +134,7 @@ export function getSeoMetadata(pathname: string, locale: LocaleCode): SeoMetadat
 
   if (tool) {
     const entry = TOOLS_BY_LOCALE[locale][tool.id] ?? {}
-    const toolTitle = entry.seoTitle ?? entry.title ?? tool.title
+    const toolTitle = entry.seoTitle ?? entry.title ?? tool.id
     title = `${toolTitle} | ${SITE_NAME}`
     description = entry.seoDescription ?? entry.description ?? ''
   } else {
@@ -242,7 +242,7 @@ export function getJsonLd(pathname: string, locale: LocaleCode): JsonLdSchema[] 
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: SITE_NAME, item: HOSTNAME + '/' },
       { '@type': 'ListItem', position: 2, name: tool.category },
-      { '@type': 'ListItem', position: 3, name: tool.title, item: seo.canonicalUrl },
+      { '@type': 'ListItem', position: 3, name: seo.title.replace(` | ${SITE_NAME}`, ''), item: seo.canonicalUrl },
     ],
   }
 

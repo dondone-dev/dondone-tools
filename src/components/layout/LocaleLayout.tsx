@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useNavigate, useParams, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import i18n from '@/i18n'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
@@ -13,6 +14,7 @@ interface LocaleLayoutProps {
 }
 
 export function LocaleLayout({ locale: propLocale }: LocaleLayoutProps) {
+  const { t } = useTranslation(['tools', 'common'])
   const { locale: paramLocale } = useParams()
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -32,8 +34,13 @@ export function LocaleLayout({ locale: propLocale }: LocaleLayoutProps) {
   }, [locale])
 
   const toolPath = getPathWithoutLocale(pathname, locale)
-  const tool = TOOLS.find((t) => t.href === toolPath)
-  const breadcrumbs = tool ? [{ label: tool.category }, { label: tool.title }] : undefined
+  const tool = TOOLS.find((entry) => entry.href === toolPath)
+  const breadcrumbs = tool
+    ? [
+        { label: t(`categories.${tool.category}`, { ns: 'common' }) },
+        { label: t(`${tool.id}.title`, { ns: 'tools' }) },
+      ]
+    : undefined
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

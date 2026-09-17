@@ -35,7 +35,7 @@ export function Home() {
         const desc = t(tool.descriptionKey, { ns: 'tools' }).toLowerCase()
         const category = t(`categories.${tool.category}`, { ns: 'common' }).toLowerCase()
         return (
-          tool.title.toLowerCase().includes(trimmed) ||
+          t(`${tool.id}.title`, { ns: 'tools' }).toLowerCase().includes(trimmed) ||
           desc.includes(trimmed) ||
           category.includes(trimmed)
         )
@@ -76,7 +76,7 @@ export function Home() {
             {filteredTools.map((tool) => (
               <ToolCard
                 key={tool.id}
-                title={tool.title}
+                toolId={tool.id}
                 descriptionKey={tool.descriptionKey}
                 href={localeHref(locale, tool.href)}
                 icon={tool.icon}
@@ -104,7 +104,7 @@ export function Home() {
                 {favoriteTools.map((tool) => (
                   <ToolCard
                     key={tool.id}
-                    title={tool.title}
+                    toolId={tool.id}
                     descriptionKey={tool.descriptionKey}
                     href={localeHref(locale, tool.href)}
                     icon={tool.icon}
@@ -130,7 +130,7 @@ export function Home() {
                   {tools.map((tool) => (
                     <ToolCard
                       key={tool.id}
-                      title={tool.title}
+                      toolId={tool.id}
                       descriptionKey={tool.descriptionKey}
                       href={localeHref(locale, tool.href)}
                       icon={tool.icon}

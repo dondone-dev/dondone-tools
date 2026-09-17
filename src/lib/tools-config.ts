@@ -43,7 +43,6 @@ import { type ToolRoute } from '@/lib/routes'
 
 export interface ToolConfig {
   id: string
-  title: string
   descriptionKey: string
   href: ToolRoute
   icon: LucideIcon
@@ -55,7 +54,6 @@ export type ToolCategory = 'Cryptography' | 'Security' | 'Hash' | 'Performance' 
 export const TOOLS: ToolConfig[] = [
   {
     id: 'aes',
-    title: 'AES',
     descriptionKey: 'aes.description',
     href: '/crypto/aes',
     icon: Lock,
@@ -63,7 +61,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'jwt-decode',
-    title: 'JWT Decoder',
     descriptionKey: 'jwt-decode.description',
     href: '/crypto/jwt',
     icon: KeySquare,
@@ -71,7 +68,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'md5',
-    title: 'MD5',
     descriptionKey: 'md5.description',
     href: '/hash/md5',
     icon: Hash,
@@ -79,7 +75,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'sha2',
-    title: 'SHA-2',
     descriptionKey: 'sha2.description',
     href: '/hash/sha2',
     icon: Binary,
@@ -87,7 +82,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'sha3',
-    title: 'SHA-3',
     descriptionKey: 'sha3.description',
     href: '/hash/sha3',
     icon: Layers,
@@ -95,7 +89,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'blake',
-    title: 'BLAKE',
     descriptionKey: 'blake.description',
     href: '/hash/blake',
     icon: Zap,
@@ -103,7 +96,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'xxhash3',
-    title: 'xxHash3',
     descriptionKey: 'xxhash3.description',
     href: '/hash/xxhash3',
     icon: Cpu,
@@ -111,7 +103,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'cpu-benchmark',
-    title: 'Browser CPU Benchmark',
     descriptionKey: 'cpu-benchmark.description',
     href: '/performance/cpu-benchmark',
     icon: Cpu,
@@ -119,7 +110,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'base64',
-    title: 'Base64',
     descriptionKey: 'base64.description',
     href: '/encoding/base64',
     icon: FileCode,
@@ -127,7 +117,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'base64-image',
-    title: 'Base64 Image',
     descriptionKey: 'base64-image.description',
     href: '/encoding/base64-image',
     icon: FileCode,
@@ -135,7 +124,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'base58',
-    title: 'Base58',
     descriptionKey: 'base58.description',
     href: '/encoding/base58',
     icon: FileCode,
@@ -143,7 +131,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'qrcode',
-    title: 'QR Code',
     descriptionKey: 'qrcode.description',
     href: '/encoding/qrcode',
     icon: QrCode,
@@ -151,7 +138,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'qrcode-decode',
-    title: 'QR Code Decoder',
     descriptionKey: 'qrcode-decode.description',
     href: '/encoding/qrcode-decode',
     icon: QrCode,
@@ -159,7 +145,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'url-encode',
-    title: 'URL Encode',
     descriptionKey: 'url-encode.description',
     href: '/encoding/url',
     icon: Link,
@@ -167,7 +152,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'text-diff',
-    title: 'Text Diff',
     descriptionKey: 'text-diff.description',
     href: '/text/diff',
     icon: ArrowLeftRight,
@@ -175,7 +159,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'json-format',
-    title: 'JSON Format',
     descriptionKey: 'json-format.description',
     href: '/text/json-format',
     icon: Braces,
@@ -183,7 +166,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'string-length',
-    title: 'String Length',
     descriptionKey: 'string-length.description',
     href: '/text/string-length',
     icon: Type,
@@ -191,7 +173,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'timestamp',
-    title: 'Timestamp',
     descriptionKey: 'timestamp.description',
     href: '/text/timestamp',
     icon: Clock,
@@ -199,7 +180,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'regex',
-    title: 'Regex Tester',
     descriptionKey: 'regex.description',
     href: '/text/regex',
     icon: Regex,
@@ -207,7 +187,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'id-card',
-    title: 'China ID Card',
     descriptionKey: 'id-card.description',
     href: '/text/id-card',
     icon: IdCard,
@@ -215,7 +194,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'name-risk',
-    title: 'Name Risk Screener',
     descriptionKey: 'name-risk.description',
     href: '/text/name-risk',
     icon: Baby,
@@ -223,7 +201,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'payroll-cn',
-    title: 'China Payroll Calculator',
     descriptionKey: 'payroll-cn.description',
     href: '/finance/social-insurance',
     icon: Wallet,
@@ -231,7 +208,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'flexible-insurance',
-    title: 'Flexible Employment Insurance',
     descriptionKey: 'flexible-insurance.description',
     href: '/finance/flexible-insurance',
     icon: Briefcase,
@@ -239,7 +215,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'beijing-getihu',
-    title: 'Beijing Sole Proprietor Social Insurance Minimum',
     descriptionKey: 'beijing-getihu.description',
     href: '/finance/beijing-getihu',
     icon: Store,
@@ -247,7 +222,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'restaurant-breakeven',
-    title: 'Restaurant Break-even Calculator',
     descriptionKey: 'restaurant-breakeven.description',
     href: '/finance/restaurant-breakeven',
     icon: UtensilsCrossed,
@@ -255,7 +229,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'password-strength',
-    title: 'Password Strength',
     descriptionKey: 'password-strength.description',
     href: '/security/password-strength',
     icon: ShieldCheck,
@@ -263,7 +236,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'sensitive-masker',
-    title: 'Sensitive Data Masker',
     descriptionKey: 'sensitive-masker.description',
     href: '/security/sensitive-masker',
     icon: EyeOff,
@@ -271,7 +243,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'china-user-detector',
-    title: 'China Environment Detector',
     descriptionKey: 'china-user-detector.description',
     href: '/security/china-user-detector',
     icon: Radar,
@@ -279,7 +250,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'supabase-rls',
-    title: 'Supabase RLS',
     descriptionKey: 'supabase-rls.description',
     href: '/sql/supabase-rls',
     icon: DatabaseZap,
@@ -287,7 +257,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'color',
-    title: 'Color Picker',
     descriptionKey: 'color.description',
     href: '/design/color',
     icon: Palette,
@@ -295,7 +264,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'uuid',
-    title: 'UUID Generator',
     descriptionKey: 'uuid.description',
     href: '/random/uuid',
     icon: Fingerprint,
@@ -303,7 +271,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'random-string',
-    title: 'Random String',
     descriptionKey: 'random-string.description',
     href: '/random/string',
     icon: Shuffle,
@@ -311,7 +278,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'ugly-avatar',
-    title: 'Ugly Avatar',
     descriptionKey: 'ugly-avatar.description',
     href: '/random/ugly-avatar',
     icon: Smile,
@@ -319,7 +285,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'bp-jwt',
-    title: 'Server JWT Token',
     descriptionKey: 'bp-jwt.description',
     href: '/bp/jwt',
     icon: KeyRound,
@@ -327,7 +292,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'bp-sign',
-    title: 'Client Sign',
     descriptionKey: 'bp-sign.description',
     href: '/bp/sign',
     icon: ShieldCheck,
@@ -335,7 +299,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'zip-inspector',
-    title: 'ZIP Inspector',
     descriptionKey: 'zip-inspector.description',
     href: '/file/zip-inspector',
     icon: FileArchive,
@@ -343,7 +306,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'exif',
-    title: 'EXIF Reader',
     descriptionKey: 'exif.description',
     href: '/image/exif',
     icon: Camera,
@@ -351,7 +313,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'heic',
-    title: 'HEIC Converter',
     descriptionKey: 'heic.description',
     href: '/image/heic',
     icon: FileImage,
@@ -359,7 +320,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'ocr',
-    title: 'OCR',
     descriptionKey: 'ocr.description',
     href: '/image/ocr',
     icon: ScanText,
@@ -367,7 +327,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'img-compress',
-    title: 'Image Compressor',
     descriptionKey: 'img-compress.description',
     href: '/image/compress',
     icon: Minimize2,
@@ -375,7 +334,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'img-crop',
-    title: 'Image Crop',
     descriptionKey: 'img-crop.description',
     href: '/image/crop',
     icon: Crop,
@@ -383,7 +341,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'wordbook',
-    title: 'Wordbook',
     descriptionKey: 'wordbook.description',
     href: '/text/wordbook',
     icon: BookOpen,
@@ -391,7 +348,6 @@ export const TOOLS: ToolConfig[] = [
   },
   {
     id: 'markdown-to-html',
-    title: 'Markdown to HTML',
     descriptionKey: 'markdown-to-html.description',
     href: '/text/markdown-to-html',
     icon: FileCode,
@@ -399,7 +355,6 @@ export const TOOLS: ToolConfig[] = [
   },
   // {
   //   id: 'bg-remove',
-  //   title: 'Background Remover',
   //   descriptionKey: 'bg-remove.description',
   //   href: '/image/bg-remove',
   //   icon: Scissors,

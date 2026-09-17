@@ -369,3 +369,109 @@ describe.each([2048, 3072, 4096] as const)('RSA %i-bit key material', (modulusLe
     expect(new TextDecoder().decode(readStr())).toBe(comment)
   })
 })
+
+import { generateSshKeyPair } from './ssh-keygen'
+
+describe('generateSshKeyPair', () => {
+  it('ed25519, no passphrase: round-trips through the test parser', async () => {
+    const result = await generateSshKeyPair({ algorithm: 'ed25519', comment: 'e2e@example.com', passphrase: '' })
+    expect(result.publicKeyLine).toMatch(/^ssh-ed25519 [A-Za-z0-9+/=]+ e2e@example\.com$/)
+    expect(result.fingerprintSha256).toMatch(/^SHA256:[A-Za-z0-9+/]+$/)
+    expect(result.fingerprintMd5).toMatch(/^([0-9a-f]{2}:){15}[0-9a-f]{2}$/)
+
+    const parsed = parseOpenSshPrivateKey(result.privateKeyPem)
+    expect(parsed.cipherName).toBe('none')
+    expect(parsed.kdfName).toBe('none')
+    const section = parsePrivateSection(parsed.privSectionRaw)
+    expect(section.checkint1).toBe(section.checkint2)
+    expect(section.comment).toBe('e2e@example.com')
+
+    const rebuiltPubBlob = buildEd25519PublicKeyBlob(section.pub)
+    expect(formatPublicKeyLine(rebuiltPubBlob, 'e2e@example.com')).toBe(result.publicKeyLine)
+  })
+
+  it('ed25519, with passphrase: the encrypted PEM decrypts back to matching fields', async () => {
+    const result = await generateSshKeyPair({
+      algorithm: 'ed25519',
+      comment: 'enc-e2e@example.com',
+      passphrase: 'super-secret',
+    })
+    const parsed = parseOpenSshPrivateKey(result.privateKeyPem)
+    expect(parsed.cipherName).toBe('aes256-ctr')
+    expect(parsed.kdfName).toBe('bcrypt')
+
+    let kp = 0
+    function readKdfStr(): Uint8Array {
+      const len = new DataView(parsed.kdfOptions.buffer, parsed.kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+      kp += 4
+      const s = parsed.kdfOptions.subarray(kp, kp + len)
+      kp += len
+      return s
+    }
+    const salt = readKdfStr()
+    const rounds = new DataView(parsed.kdfOptions.buffer, parsed.kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+
+    const { bcryptPbkdf } = await import('./bcrypt-pbkdf')
+    const derived = await bcryptPbkdf(new TextEncoder().encode('super-secret'), salt, rounds, 48)
+    const aesKey = await crypto.subtle.importKey('raw', derived.slice(0, 32), { name: 'AES-CTR' }, false, ['decrypt'])
+    const decrypted = new Uint8Array(
+      await crypto.subtle.decrypt(
+        { name: 'AES-CTR', counter: derived.slice(32, 48), length: 128 },
+        aesKey,
+        parsed.privSectionRaw as BufferSource,
+      ),
+    )
+    const section = parsePrivateSection(decrypted)
+    expect(section.checkint1).toBe(section.checkint2)
+    expect(section.comment).toBe('enc-e2e@example.com')
+  })
+
+  it('rsa, no passphrase: round-trips through the test parser', async () => {
+    const result = await generateSshKeyPair({
+      algorithm: 'rsa',
+      rsaKeySize: 2048,
+      comment: 'rsa-e2e@example.com',
+      passphrase: '',
+    })
+    expect(result.publicKeyLine).toMatch(/^ssh-rsa [A-Za-z0-9+/=]+ rsa-e2e@example\.com$/)
+    const parsed = parseOpenSshPrivateKey(result.privateKeyPem)
+
+    // RSA's private section has a different field layout than Ed25519's —
+    // keytype, then six mpint fields (n, e, d, iqmp, p, q), then comment —
+    // so it needs its own parser rather than reusing parsePrivateSection.
+    const bytes = parsed.privSectionRaw
+    let p = 0
+    const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+    const checkint1 = view.getUint32(p, false)
+    p += 4
+    const checkint2 = view.getUint32(p, false)
+    p += 4
+    function readStr(): Uint8Array {
+      const len = new DataView(bytes.buffer, bytes.byteOffset + p, 4).getUint32(0, false)
+      p += 4
+      const s = bytes.subarray(p, p + len)
+      p += len
+      return s
+    }
+    expect(checkint1).toBe(checkint2)
+    expect(new TextDecoder().decode(readStr())).toBe('ssh-rsa')
+    readStr() // n
+    readStr() // e
+    readStr() // d
+    readStr() // iqmp
+    readStr() // p
+    readStr() // q
+    expect(new TextDecoder().decode(readStr())).toBe('rsa-e2e@example.com')
+  })
+
+  it('empty comment produces a public key line with no trailing space', async () => {
+    const result = await generateSshKeyPair({ algorithm: 'ed25519', comment: '', passphrase: '' })
+    expect(result.publicKeyLine.endsWith(' ')).toBe(false)
+  })
+
+  it('rejects rsa without a rsaKeySize', async () => {
+    await expect(
+      generateSshKeyPair({ algorithm: 'rsa', comment: '', passphrase: '' } as never),
+    ).rejects.toThrow()
+  })
+})

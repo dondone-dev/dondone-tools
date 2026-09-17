@@ -258,3 +258,74 @@ export function buildRsaPrivateSection(material: RsaKeyMaterial, comment: string
     sshString(new TextEncoder().encode(comment)),
   )
 }
+
+// ---- top-level API ----
+
+export type SshAlgorithm = 'ed25519' | 'rsa'
+export type RsaKeySize = 2048 | 3072 | 4096
+
+export interface GenerateOptions {
+  algorithm: SshAlgorithm
+  /** Required when algorithm === 'rsa'; ignored otherwise. */
+  rsaKeySize?: RsaKeySize
+  /** May be empty. */
+  comment: string
+  /** Empty string = unencrypted private key. */
+  passphrase: string
+}
+
+export interface SshKeyPairResult {
+  privateKeyPem: string
+  publicKeyLine: string
+  fingerprintSha256: string
+  fingerprintMd5: string
+}
+
+export async function generateSshKeyPair(options: GenerateOptions): Promise<SshKeyPairResult> {
+  let pubBlob: Uint8Array
+  let privSection: Uint8Array
+
+  if (options.algorithm === 'ed25519') {
+    const { seed, pub } = await generateEd25519KeyMaterial()
+    pubBlob = buildEd25519PublicKeyBlob(pub)
+    privSection = buildEd25519PrivateSection(seed, pub, options.comment)
+  } else if (options.algorithm === 'rsa') {
+    if (!options.rsaKeySize) throw new Error('generateSshKeyPair: rsaKeySize is required for algorithm "rsa"')
+    const material = await generateRsaKeyMaterial(options.rsaKeySize)
+    pubBlob = buildRsaPublicKeyBlob(material)
+    privSection = buildRsaPrivateSection(material, options.comment)
+  } else {
+    throw new Error(`generateSshKeyPair: unsupported algorithm "${options.algorithm}"`)
+  }
+
+  let privateKeyPem: string
+  if (options.passphrase) {
+    const blockSize = 16 // aes256-ctr
+    const padded = padPrivateSection(privSection, blockSize)
+    const { ciphertext, kdfOptions } = await encryptPrivateSection(padded, options.passphrase)
+    privateKeyPem = assembleOpenSshPrivateKeyPem({
+      cipherName: 'aes256-ctr',
+      kdfName: 'bcrypt',
+      kdfOptions,
+      pubBlob,
+      privSection: ciphertext,
+    })
+  } else {
+    const blockSize = 8 // "none" cipher
+    const padded = padPrivateSection(privSection, blockSize)
+    privateKeyPem = assembleOpenSshPrivateKeyPem({
+      cipherName: 'none',
+      kdfName: 'none',
+      kdfOptions: new Uint8Array(0),
+      pubBlob,
+      privSection: padded,
+    })
+  }
+
+  return {
+    privateKeyPem,
+    publicKeyLine: formatPublicKeyLine(pubBlob, options.comment),
+    fingerprintSha256: await fingerprintSha256(pubBlob),
+    fingerprintMd5: fingerprintMd5(pubBlob),
+  }
+}

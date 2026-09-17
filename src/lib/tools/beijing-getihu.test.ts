@@ -6,6 +6,7 @@ const y2022 = BEIJING_YEARS.find((y) => y.year === 2022)!
 const y2023 = BEIJING_YEARS.find((y) => y.year === 2023)!
 const y2024 = BEIJING_YEARS.find((y) => y.year === 2024)!
 const y2025 = BEIJING_YEARS.find((y) => y.year === 2025)!
+const y2026 = BEIJING_YEARS.find((y) => y.year === 2026)!
 
 function find(rows: BillRow[], insurance: string, side: string | null) {
   return rows.find((r) => r.insurance === insurance && r.side === side)!
@@ -59,5 +60,19 @@ describe('computeBeijingGetihu — verified against official levy bills', () => 
     expect(find(rows, 'medicalLarge', 'employee').amount).toBeCloseTo(3.0, 2)
     expect(find(rows, 'injury', null).amount).toBeCloseTo(27.28, 2)
     expect(socialTotal).toBeCloseTo(2540.42, 2)
+  })
+
+  it('2026: floor 7270 (per the Aug 2026 official notice) → total 2707.44', () => {
+    const { rows, socialTotal } = computeBeijingGetihu(y2026)
+    expect(find(rows, 'pension', 'employer').amount).toBeCloseTo(1163.2, 2)
+    expect(find(rows, 'pension', 'employee').amount).toBeCloseTo(581.6, 2)
+    expect(find(rows, 'unemployment', 'employer').amount).toBeCloseTo(36.35, 2)
+    expect(find(rows, 'unemployment', 'employee').amount).toBeCloseTo(36.35, 2)
+    expect(find(rows, 'medicalBasic', 'employer').amount).toBeCloseTo(639.76, 2)
+    expect(find(rows, 'medicalBasic', 'employee').amount).toBeCloseTo(145.4, 2)
+    expect(find(rows, 'medicalLarge', 'employer').amount).toBeCloseTo(72.7, 2)
+    expect(find(rows, 'medicalLarge', 'employee').amount).toBeCloseTo(3.0, 2)
+    expect(find(rows, 'injury', null).amount).toBeCloseTo(29.08, 2)
+    expect(socialTotal).toBeCloseTo(2707.44, 2)
   })
 })

@@ -8,7 +8,8 @@
 // The result mirrors the official tax levy bill (征收明细), which lists each
 // 征收品目 separately and rounds each line on its own. Verified against real
 // bills / official figures: 2021 ¥1,996.92 (floor 5360), 2022 ¥2,186.28 (5869),
-// 2023 ¥2,356.27 (6326), 2024 ¥2,540.42 (6821), 2025 ¥2,667.27 (7162).
+// 2023 ¥2,356.27 (6326), 2024 ¥2,540.42 (6821), 2025 ¥2,667.27 (7162),
+// 2026 ¥2,707.44 (7270).
 //
 // NOTE: the work-injury (工伤) rate is industry-dependent (0.2%–1.9%). This tool
 // uses 0.4%, matching the reference 个体工商户 bills; some published examples use
@@ -19,7 +20,7 @@
 
 export interface BeijingYear {
   year: number
-  /** False when the year's official figures are not yet published (e.g. 2026). */
+  /** False when the year's official figures are not yet published. */
   available: boolean
   /** Social-insurance monthly base floor (下限). */
   siBaseMin: number
@@ -27,8 +28,8 @@ export interface BeijingYear {
 
 /**
  * Official Beijing social-insurance base floors (each from that year's July
- * notice): 2021 ¥5,360, 2022 ¥5,869, 2023 ¥6,326, 2024 ¥6,821, 2025 ¥7,162.
- * 2026 is not yet published.
+ * notice): 2021 ¥5,360, 2022 ¥5,869, 2023 ¥6,326, 2024 ¥6,821, 2025 ¥7,162,
+ * 2026 ¥7,270.
  */
 export const BEIJING_YEARS: BeijingYear[] = [
   { year: 2021, available: true, siBaseMin: 5360 },
@@ -36,7 +37,7 @@ export const BEIJING_YEARS: BeijingYear[] = [
   { year: 2023, available: true, siBaseMin: 6326 },
   { year: 2024, available: true, siBaseMin: 6821 },
   { year: 2025, available: true, siBaseMin: 7162 },
-  { year: 2026, available: false, siBaseMin: 0 },
+  { year: 2026, available: true, siBaseMin: 7270 },
 ]
 
 export type CategoryKey = 'pension' | 'unemployment' | 'medical' | 'injury'

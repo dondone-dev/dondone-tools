@@ -16,6 +16,7 @@ import {
   Clock,
   Link,
   KeySquare,
+  Terminal,
   Palette,
   Regex,
   IdCard,
@@ -64,6 +65,13 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'jwt-decode.description',
     href: '/crypto/jwt',
     icon: KeySquare,
+    category: 'Cryptography',
+  },
+  {
+    id: 'ssh-keygen',
+    descriptionKey: 'ssh-keygen.description',
+    href: '/crypto/ssh-keygen',
+    icon: Terminal,
     category: 'Cryptography',
   },
   {

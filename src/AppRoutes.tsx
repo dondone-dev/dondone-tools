@@ -36,6 +36,7 @@ import { BpSignPage } from '@/pages/BpSignPage'
 import { TimestampPage } from '@/pages/TimestampPage'
 import { UrlEncodePage } from '@/pages/UrlEncodePage'
 import { JwtDecodePage } from '@/pages/JwtDecodePage'
+import { SshKeygenPage } from '@/pages/SshKeygenPage'
 import { ColorPage } from '@/pages/ColorPage'
 import { RegexPage } from '@/pages/RegexPage'
 import { UuidPage } from '@/pages/UuidPage'
@@ -86,6 +87,7 @@ function toolRoutes() {
       <Route path="text/timestamp" element={<TimestampPage />} />
       <Route path="encoding/url" element={<UrlEncodePage />} />
       <Route path="crypto/jwt" element={<JwtDecodePage />} />
+      <Route path="crypto/ssh-keygen" element={<SshKeygenPage />} />
       <Route path="design/color" element={<ColorPage />} />
       <Route path="text/regex" element={<RegexPage />} />
       <Route path="text/id-card" element={<Suspense fallback={<ToolSkeleton />}><IdCardPage /></Suspense>} />

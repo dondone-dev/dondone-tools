@@ -109,7 +109,9 @@ function parseOpenSshPrivateKey(pem: string) {
     .filter((l) => l && !l.startsWith('-----'))
     .join('')
   const buf = new Uint8Array(Buffer.from(b64, 'base64'))
-  let off = 15 // "openssh-key-v1" (14 bytes) + trailing \0
+  const magic = new TextDecoder().decode(buf.subarray(0, 15))
+  expect(magic).toBe('openssh-key-v1\u0000')
+  let off = 15
   function readU32(): number {
     const v = new DataView(buf.buffer, buf.byteOffset + off, 4).getUint32(0, false)
     off += 4

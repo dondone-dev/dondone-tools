@@ -300,7 +300,7 @@ function Results({
   return (
     <div className="space-y-4">
       {/* Hero: take-home */}
-      <div className="rounded-xl border bg-muted/30 p-5">
+      <div className="rounded-xl border bg-muted/30 p-5 shadow-2xs">
         <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
           <div>
             <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
@@ -328,7 +328,7 @@ function Results({
       </div>
 
       {/* Tax */}
-      <div className="rounded-lg border p-4">
+      <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-2 text-sm font-medium">
             <Receipt className="h-4 w-4 text-muted-foreground" />
@@ -432,7 +432,7 @@ function ContributionCard({
 }) {
   const rows = showEmployerOnly ? EMPLOYER_ROWS : EMPLOYEE_ROWS
   return (
-    <div className="rounded-lg border p-4">
+    <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
       <div className="mb-3 flex items-center justify-between">
         <span className="text-sm font-medium">{title}</span>
         <span className="text-base font-semibold tabular-nums">{yuan(data.total)}</span>

@@ -252,7 +252,7 @@ export function RestaurantBreakevenPage() {
 
           {result.totalUpfrontInvestment > 0 && <PaybackRow result={result} t={t} />}
 
-          <div className="rounded-lg border p-4">
+          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
             <div className="mb-3 flex items-center gap-2 text-sm font-medium">
               <TrendingUp className="h-4 w-4 text-muted-foreground" />
               {t('restaurant-breakeven.cvpTitle')}
@@ -265,7 +265,7 @@ export function RestaurantBreakevenPage() {
             </div>
           </div>
 
-          <div className="rounded-lg border p-4">
+          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
             <div className="mb-3 flex items-center gap-2 text-sm font-medium">
               <ChartPie className="h-4 w-4 text-muted-foreground" />
               {t('restaurant-breakeven.costStructureTitle')}
@@ -273,7 +273,7 @@ export function RestaurantBreakevenPage() {
             <CostDonut rent={n(rent)} labor={n(labor)} utilities={n(utilities)} fixedOther={n(fixedOther)} foodCost={result.foodCost} varExtraCost={result.varExtraCost} t={t} />
           </div>
 
-          <div className="rounded-lg border p-4">
+          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
             <div className="mb-3 flex items-center gap-2 text-sm font-medium">
               <Receipt className="h-4 w-4 text-muted-foreground" />
               {t('restaurant-breakeven.tableTitle')}
@@ -318,11 +318,20 @@ function StatGrid({
 }
 
 function StatTile({ label, value, sub, valueClassName }: { label: string; value: string; sub: string; valueClassName?: string }) {
+  const isNegative = value.startsWith('-')
+  const cleanValue = isNegative ? value.slice(1) : value
+  const hasYuan = cleanValue.startsWith('¥')
+  const numPart = hasYuan ? cleanValue.slice(1) : cleanValue
+
   return (
-    <div className="rounded-lg border bg-card p-3.5">
+    <div className="rounded-xl border bg-card p-4 transition-all duration-150 hover:border-foreground/20 hover:shadow-xs">
       <div className="text-xs text-muted-foreground">{label}</div>
-      <div className={`mt-1 text-xl font-semibold tabular-nums tracking-tight ${valueClassName ?? ''}`}>{value}</div>
-      <div className="mt-0.5 text-[11px] text-muted-foreground">{sub}</div>
+      <div className={cn('mt-1.5 text-xl font-semibold tabular-nums tracking-tight inline-flex items-baseline', valueClassName)}>
+        {isNegative && <span>-</span>}
+        {hasYuan && <span className="text-xs font-normal opacity-70 mr-0.5">¥</span>}
+        <span>{numPart}</span>
+      </div>
+      <div className="mt-1 text-[11px] text-muted-foreground leading-tight">{sub}</div>
     </div>
   )
 }
@@ -351,9 +360,8 @@ function PaybackRow({
       months = t('restaurant-breakeven.paybackMonthsValue', { months: raw.toFixed(1) })
     }
   }
-
   return (
-    <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 rounded-lg border bg-muted/30 px-4 py-3 text-sm">
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 rounded-xl border bg-muted/30 px-4 py-3.5 text-sm">
       <span className="flex items-baseline gap-1.5">
         <span className="text-xs text-muted-foreground">{t('restaurant-breakeven.paybackInvestLabel')}</span>
         <span className="font-semibold tabular-nums">{yuan(result.totalUpfrontInvestment)}</span>
@@ -691,7 +699,7 @@ function PlTable({
 
 function PlRow({ cat, item, amount }: { cat: string; item: string; amount: number }) {
   return (
-    <tr className="border-b last:border-b-0">
+    <tr className="border-b last:border-b-0 hover:bg-muted/40 transition-colors">
       <td className="px-4 py-2 text-xs text-muted-foreground">{cat}</td>
       <td className="px-4 py-2">{item}</td>
       <td className={`px-4 py-2 text-right tabular-nums ${amount < 0 ? 'text-muted-foreground' : ''}`}>{signedYuan(amount)}</td>

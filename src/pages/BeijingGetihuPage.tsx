@@ -41,7 +41,7 @@ export function BeijingGetihuPage() {
   return (
     <ToolLayout toolId="beijing-getihu" category="Finance">
       {/* 1. Trend chart (five insurances) */}
-      <section className="rounded-lg border p-4">
+      <section className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
         <div className="mb-3 flex items-center gap-2 text-sm font-medium">
           <TrendingUp className="h-4 w-4 text-muted-foreground" />
           {t('beijing-getihu.trend')}
@@ -91,7 +91,7 @@ function BillTable({
   t: ReturnType<typeof useTranslation>['t']
 }) {
   return (
-    <div className="overflow-x-auto rounded-lg border">
+    <div className="overflow-x-auto rounded-xl border border-border/60 shadow-2xs">
       <table className="w-full min-w-[480px] border-collapse text-sm">
         <thead>
           <tr className="border-b bg-muted/50 text-left text-xs text-muted-foreground">
@@ -102,7 +102,7 @@ function BillTable({
         </thead>
         <tbody>
           {result.rows.map((row, i) => (
-            <tr key={i} className="border-b last:border-b-0">
+            <tr key={i} className="border-b last:border-b-0 hover:bg-muted/40 transition-colors">
               <td className="px-4 py-2 text-muted-foreground">{t(`beijing-getihu.cat.${row.category}`)}</td>
               <td className="px-4 py-2">{itemLabel(t, row)}</td>
               <td className="px-4 py-2 text-right tabular-nums">{yuan(row.amount)}</td>

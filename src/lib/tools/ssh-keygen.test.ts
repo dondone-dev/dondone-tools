@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { bcryptPbkdf } from './bcrypt-pbkdf'
 import {
   u32be,
   sshString,
@@ -13,6 +14,7 @@ import {
   buildEd25519PrivateSection,
   padPrivateSection,
   assembleOpenSshPrivateKeyPem,
+  encryptPrivateSection,
 } from './ssh-keygen'
 
 function bytesToHex(bytes: Uint8Array): string {
@@ -206,5 +208,112 @@ describe('Ed25519 unencrypted PEM assembly', () => {
     const section = new Uint8Array(16)
     const padded = padPrivateSection(section, 8)
     expect(padded.length).toBe(16)
+  })
+})
+
+describe('encryptPrivateSection', () => {
+  it('derives key+IV that decrypts a real ssh-keygen-encrypted fixture correctly', async () => {
+    // A real `ssh-keygen -t ed25519 -N hunter2` output, embedded verbatim.
+    const REAL_ENCRYPTED_PEM = `-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABB8fgTRJX
+Md+chqvKmvhthDAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIBG1s5dRSMeajhkO
+LQthgOwbP7FN801XuTDnW0uVtAVQAAAAoD1dS00DmSCkF/NBg0mhorkV40FdpyW8vXqVQ0
+uMDv+ZVEfssPBYTKghF1+4uE2+foiNpnN53vJbxZ8IRwEnOXncCaAsXsxDWHSA19YuoYlH
+G/HR5okCD5HbXzLC6fQ3HZQbJS8Q1BRiF0u/LdrRysPeZ1Y4Ic7qIsYtPetAiB8yPW5sRm
+WV+UDjbthu6jHDwwX2wWHhijUHYLTY0ZdSgRI=
+-----END OPENSSH PRIVATE KEY-----
+`
+    const REAL_PUB_LINE = 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBG1s5dRSMeajhkOLQthgOwbP7FN801XuTDnW0uVtAVQ test@example.com'
+
+    const b64 = REAL_ENCRYPTED_PEM.split('\n')
+      .filter((l) => l && !l.startsWith('-----'))
+      .join('')
+    const buf = new Uint8Array(Buffer.from(b64, 'base64'))
+    let off = 15
+    function readU32(): number {
+      const v = new DataView(buf.buffer, buf.byteOffset + off, 4).getUint32(0, false)
+      off += 4
+      return v
+    }
+    function readStr(): Uint8Array {
+      const len = readU32()
+      const s = buf.subarray(off, off + len)
+      off += len
+      return s
+    }
+    readStr() // cipher
+    readStr() // kdf
+    const kdfOptions = readStr()
+    readU32() // numkeys
+    readStr() // pubBlob (unused here — checked via REAL_PUB_LINE below)
+    const encrypted = readStr()
+
+    let kp = 0
+    function readKdfStr(): Uint8Array {
+      const len = new DataView(kdfOptions.buffer, kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+      kp += 4
+      const s = kdfOptions.subarray(kp, kp + len)
+      kp += len
+      return s
+    }
+    const salt = readKdfStr()
+    const rounds = new DataView(kdfOptions.buffer, kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+    const derived = await bcryptPbkdf(new TextEncoder().encode('hunter2'), salt, rounds, 48)
+    const aesKey = await crypto.subtle.importKey('raw', derived.slice(0, 32), { name: 'AES-CTR' }, false, ['decrypt'])
+    const decrypted = new Uint8Array(
+      await crypto.subtle.decrypt({ name: 'AES-CTR', counter: derived.slice(32, 48), length: 128 }, aesKey, encrypted as BufferSource),
+    )
+
+    const view = new DataView(decrypted.buffer, decrypted.byteOffset, decrypted.byteLength)
+    const checkint1 = view.getUint32(0, false)
+    const checkint2 = view.getUint32(4, false)
+    expect(checkint1).toBe(checkint2)
+
+    let p = 8
+    function readSectionStr(): Uint8Array {
+      const len = new DataView(decrypted.buffer, decrypted.byteOffset + p, 4).getUint32(0, false)
+      p += 4
+      const s = decrypted.subarray(p, p + len)
+      p += len
+      return s
+    }
+    expect(new TextDecoder().decode(readSectionStr())).toBe('ssh-ed25519')
+    const recoveredPub = readSectionStr()
+    const recoveredPubBlob = buildEd25519PublicKeyBlob(recoveredPub)
+    expect(formatPublicKeyLine(recoveredPubBlob, 'test@example.com')).toBe(REAL_PUB_LINE)
+  })
+
+  it('own-encrypt round-trips: WebCrypto AES-CTR decrypts what encryptPrivateSection produced', async () => {
+    const { seed, pub } = await generateEd25519KeyMaterial()
+    const comment = 'enc-roundtrip@example.com'
+    let priv = buildEd25519PrivateSection(seed, pub, comment)
+    priv = padPrivateSection(priv, 16) // aes256-ctr block size
+
+    const { ciphertext, kdfOptions } = await encryptPrivateSection(priv, 'correct-horse-battery')
+    expect(ciphertext.length).toBe(priv.length)
+
+    let kp = 0
+    function readKdfStr(): Uint8Array {
+      const len = new DataView(kdfOptions.buffer, kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+      kp += 4
+      const s = kdfOptions.subarray(kp, kp + len)
+      kp += len
+      return s
+    }
+    const salt = readKdfStr()
+    expect(salt.length).toBe(16)
+    const rounds = new DataView(kdfOptions.buffer, kdfOptions.byteOffset + kp, 4).getUint32(0, false)
+    expect(rounds).toBe(16)
+
+    const derived = await bcryptPbkdf(new TextEncoder().encode('correct-horse-battery'), salt, rounds, 48)
+    const aesKey = await crypto.subtle.importKey('raw', derived.slice(0, 32), { name: 'AES-CTR' }, false, ['decrypt'])
+    const decrypted = new Uint8Array(
+      await crypto.subtle.decrypt(
+        { name: 'AES-CTR', counter: derived.slice(32, 48), length: 128 },
+        aesKey,
+        ciphertext as BufferSource,
+      ),
+    )
+    expect(Array.from(decrypted)).toEqual(Array.from(priv))
   })
 })

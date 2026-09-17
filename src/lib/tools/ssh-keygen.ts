@@ -11,6 +11,7 @@
 // decrypted successfully by the code here (Task 6).
 
 import CryptoJS from 'crypto-js'
+import { bcryptPbkdf } from './bcrypt-pbkdf'
 
 // ---- byte helpers ----
 
@@ -175,4 +176,26 @@ export function assembleOpenSshPrivateKeyPem(opts: {
   const b64 = bytesToBase64(body)
   const lines = b64.match(/.{1,70}/g) ?? []
   return `-----BEGIN OPENSSH PRIVATE KEY-----\n${lines.join('\n')}\n-----END OPENSSH PRIVATE KEY-----\n`
+}
+
+// ---- passphrase encryption ----
+
+/** Encrypts a padded private section with `aes256-ctr`, deriving the key
+ * and IV via `bcrypt_pbkdf` from a random 16-byte salt — the same
+ * parameters (`rounds = 16`) `ssh-keygen` itself uses. Returns the
+ * ciphertext and the `kdfoptions` blob to embed in the PEM. */
+export async function encryptPrivateSection(
+  privSection: Uint8Array,
+  passphrase: string,
+): Promise<{ ciphertext: Uint8Array; kdfOptions: Uint8Array }> {
+  const salt = crypto.getRandomValues(new Uint8Array(16))
+  const rounds = 16
+  const derived = await bcryptPbkdf(new TextEncoder().encode(passphrase), salt, rounds, 48)
+  const aesKey = await crypto.subtle.importKey('raw', derived.slice(0, 32), { name: 'AES-CTR' }, false, ['encrypt'])
+  const iv = derived.slice(32, 48)
+  const ciphertext = new Uint8Array(
+    await crypto.subtle.encrypt({ name: 'AES-CTR', counter: iv, length: 128 }, aesKey, privSection as BufferSource),
+  )
+  const kdfOptions = concatBytes(sshString(salt), u32be(rounds))
+  return { ciphertext, kdfOptions }
 }

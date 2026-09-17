@@ -15,6 +15,10 @@ import {
   padPrivateSection,
   assembleOpenSshPrivateKeyPem,
   encryptPrivateSection,
+  generateRsaKeyMaterial,
+  buildRsaPublicKeyBlob,
+  buildRsaPrivateSection,
+  generateSshKeyPair,
 } from './ssh-keygen'
 
 function bytesToHex(bytes: Uint8Array): string {
@@ -102,10 +106,19 @@ describe('public key line + fingerprints — verified against real `ssh-keygen` 
   })
 })
 
+interface ParsedOpenSshPrivateKey {
+  cipherName: string
+  kdfName: string
+  kdfOptions: Uint8Array
+  numKeys: number
+  pubBlob: Uint8Array
+  privSectionRaw: Uint8Array
+}
+
 /** Test-only parser mirroring the encoder — NOT shipped in the product
  * bundle. Parses just enough of `openssh-key-v1` to verify round-trip
  * correctness of keys this tool built. */
-function parseOpenSshPrivateKey(pem: string) {
+function parseOpenSshPrivateKey(pem: string): ParsedOpenSshPrivateKey {
   const b64 = pem
     .split('\n')
     .filter((l) => l && !l.startsWith('-----'))
@@ -318,7 +331,6 @@ WV+UDjbthu6jHDwwX2wWHhijUHYLTY0ZdSgRI=
   })
 })
 
-import { generateRsaKeyMaterial, buildRsaPublicKeyBlob, buildRsaPrivateSection } from './ssh-keygen'
 
 describe.each([2048, 3072, 4096] as const)('RSA %i-bit key material', (modulusLength) => {
   it('produces an n of the expected byte length and a standard e', async () => {
@@ -370,7 +382,61 @@ describe.each([2048, 3072, 4096] as const)('RSA %i-bit key material', (modulusLe
   })
 })
 
-import { generateSshKeyPair } from './ssh-keygen'
+
+async function decryptGeneratedPrivateSection(
+  parsed: ParsedOpenSshPrivateKey,
+  passphrase: string,
+): Promise<Uint8Array> {
+  let kp = 0
+  const saltLength = new DataView(
+    parsed.kdfOptions.buffer,
+    parsed.kdfOptions.byteOffset,
+    4,
+  ).getUint32(0, false)
+  kp += 4
+  const salt = parsed.kdfOptions.subarray(kp, kp + saltLength)
+  kp += saltLength
+  const rounds = new DataView(
+    parsed.kdfOptions.buffer,
+    parsed.kdfOptions.byteOffset + kp,
+    4,
+  ).getUint32(0, false)
+  const derived = await bcryptPbkdf(new TextEncoder().encode(passphrase), salt, rounds, 48)
+  const aesKey = await crypto.subtle.importKey(
+    'raw',
+    derived.slice(0, 32),
+    { name: 'AES-CTR' },
+    false,
+    ['decrypt'],
+  )
+  return new Uint8Array(
+    await crypto.subtle.decrypt(
+      { name: 'AES-CTR', counter: derived.slice(32, 48), length: 128 },
+      aesKey,
+      parsed.privSectionRaw as BufferSource,
+    ),
+  )
+}
+
+function parseRsaPrivateSection(bytes: Uint8Array) {
+  let p = 0
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+  const checkint1 = view.getUint32(p, false)
+  p += 4
+  const checkint2 = view.getUint32(p, false)
+  p += 4
+  function readStr(): Uint8Array {
+    const len = new DataView(bytes.buffer, bytes.byteOffset + p, 4).getUint32(0, false)
+    p += 4
+    const value = bytes.subarray(p, p + len)
+    p += len
+    return value
+  }
+  const keyType = new TextDecoder().decode(readStr())
+  for (let i = 0; i < 6; i++) readStr()
+  const comment = new TextDecoder().decode(readStr())
+  return { checkint1, checkint2, keyType, comment, padding: bytes.subarray(p) }
+}
 
 describe('generateSshKeyPair', () => {
   it('ed25519, no passphrase: round-trips through the test parser', async () => {
@@ -401,31 +467,14 @@ describe('generateSshKeyPair', () => {
     expect(parsed.cipherName).toBe('aes256-ctr')
     expect(parsed.kdfName).toBe('bcrypt')
 
-    let kp = 0
-    function readKdfStr(): Uint8Array {
-      const len = new DataView(parsed.kdfOptions.buffer, parsed.kdfOptions.byteOffset + kp, 4).getUint32(0, false)
-      kp += 4
-      const s = parsed.kdfOptions.subarray(kp, kp + len)
-      kp += len
-      return s
-    }
-    const salt = readKdfStr()
-    const rounds = new DataView(parsed.kdfOptions.buffer, parsed.kdfOptions.byteOffset + kp, 4).getUint32(0, false)
-
-    const { bcryptPbkdf } = await import('./bcrypt-pbkdf')
-    const derived = await bcryptPbkdf(new TextEncoder().encode('super-secret'), salt, rounds, 48)
-    const aesKey = await crypto.subtle.importKey('raw', derived.slice(0, 32), { name: 'AES-CTR' }, false, ['decrypt'])
-    const decrypted = new Uint8Array(
-      await crypto.subtle.decrypt(
-        { name: 'AES-CTR', counter: derived.slice(32, 48), length: 128 },
-        aesKey,
-        parsed.privSectionRaw as BufferSource,
-      ),
-    )
+    const decrypted = await decryptGeneratedPrivateSection(parsed, 'super-secret')
     expect(decrypted.length % 16).toBe(0)
     const section = parsePrivateSection(decrypted)
     expect(section.checkint1).toBe(section.checkint2)
     expect(section.comment).toBe('enc-e2e@example.com')
+    expect(Array.from(section.padding)).toEqual(
+      Array.from({ length: section.padding.length }, (_, i) => i + 1),
+    )
   })
 
   it('rsa, no passphrase: round-trips through the test parser', async () => {
@@ -464,6 +513,28 @@ describe('generateSshKeyPair', () => {
     readStr() // p
     readStr() // q
     expect(new TextDecoder().decode(readStr())).toBe('rsa-e2e@example.com')
+  })
+
+  it('rsa, with passphrase: the encrypted PEM decrypts back to matching fields', async () => {
+    const result = await generateSshKeyPair({
+      algorithm: 'rsa',
+      rsaKeySize: 2048,
+      comment: 'rsa-enc-e2e@example.com',
+      passphrase: 'super-secret',
+    })
+    const parsed = parseOpenSshPrivateKey(result.privateKeyPem)
+    expect(parsed.cipherName).toBe('aes256-ctr')
+    expect(parsed.kdfName).toBe('bcrypt')
+
+    const decrypted = await decryptGeneratedPrivateSection(parsed, 'super-secret')
+    expect(decrypted.length % 16).toBe(0)
+    const section = parseRsaPrivateSection(decrypted)
+    expect(section.checkint1).toBe(section.checkint2)
+    expect(section.keyType).toBe('ssh-rsa')
+    expect(section.comment).toBe('rsa-enc-e2e@example.com')
+    expect(Array.from(section.padding)).toEqual(
+      Array.from({ length: section.padding.length }, (_, i) => i + 1),
+    )
   })
 
   it('empty comment produces a public key line with no trailing space', async () => {

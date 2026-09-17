@@ -828,6 +828,8 @@
     "comment": "Comment",
     "commentPlaceholder": "you@example.com",
     "passphrase": "Passphrase",
+    "passphraseConfirm": "Confirm passphrase",
+    "passphraseMismatch": "Passphrases do not match",
     "passphrasePlaceholder": "Leave empty for no passphrase",
     "passphraseHint": "An empty passphrase produces an unencrypted private key, matching ssh-keygen without -N.",
     "generate": "Generate key pair",

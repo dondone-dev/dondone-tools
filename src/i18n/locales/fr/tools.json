@@ -828,6 +828,8 @@
     "comment": "Commentaire",
     "commentPlaceholder": "vous@exemple.com",
     "passphrase": "Phrase secrète",
+    "passphraseConfirm": "Confirmer la phrase secrète",
+    "passphraseMismatch": "Les phrases secrètes ne correspondent pas",
     "passphrasePlaceholder": "Laissez vide pour ne pas utiliser de phrase secrète",
     "passphraseHint": "Une phrase secrète vide produit une clé privée non chiffrée, comme avec ssh-keygen sans l'option -N.",
     "generate": "Générer la paire de clés",

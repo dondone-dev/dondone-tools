@@ -828,6 +828,8 @@
     "comment": "Comentario",
     "commentPlaceholder": "tu@ejemplo.com",
     "passphrase": "Frase de contraseña",
+    "passphraseConfirm": "Confirmar frase de contraseña",
+    "passphraseMismatch": "Las frases de contraseña no coinciden",
     "passphrasePlaceholder": "Déjalo vacío para no usar frase de contraseña",
     "passphraseHint": "Una frase de contraseña vacía genera una clave privada sin cifrar, igual que ssh-keygen sin -N.",
     "generate": "Generar par de claves",

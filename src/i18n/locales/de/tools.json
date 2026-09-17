@@ -828,6 +828,8 @@
     "comment": "Kommentar",
     "commentPlaceholder": "sie@beispiel.de",
     "passphrase": "Passphrase",
+    "passphraseConfirm": "Passphrase bestätigen",
+    "passphraseMismatch": "Die Passphrasen stimmen nicht überein",
     "passphrasePlaceholder": "Leer lassen, um keine Passphrase zu verwenden",
     "passphraseHint": "Eine leere Passphrase erzeugt einen unverschlüsselten privaten Schlüssel, wie bei ssh-keygen ohne -N.",
     "generate": "Schlüsselpaar erzeugen",

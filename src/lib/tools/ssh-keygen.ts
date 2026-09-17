@@ -5,10 +5,10 @@
 // wire format and the single-line public-key format are hand-encoded per
 // OpenSSH's PROTOCOL.key spec.
 //
-// Every encoder here is verified against real `ssh-keygen`-produced keys —
-// see ssh-keygen.test.ts: a key built here is parsed successfully by the
-// real `ssh-keygen -y` binary, and a key built by the real binary is
-// decrypted successfully by the code here (Task 6).
+// Automated coverage combines self-consistency round trips with decryption
+// of a real `ssh-keygen` encrypted fixture; see ssh-keygen.test.ts. Full
+// `ssh-keygen -y` interoperability has also been verified manually and is
+// exercised when that binary is available by ssh-keygen.openssh-interop.test.ts.
 
 import CryptoJS from 'crypto-js'
 import { bcryptPbkdf } from './bcrypt-pbkdf'

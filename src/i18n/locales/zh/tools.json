@@ -828,6 +828,8 @@
     "comment": "注释",
     "commentPlaceholder": "you@example.com",
     "passphrase": "密码短语",
+    "passphraseConfirm": "确认密码短语",
+    "passphraseMismatch": "两次输入的密码短语不一致",
     "passphrasePlaceholder": "留空表示不设置密码短语",
     "passphraseHint": "空密码短语会生成未加密的私钥，效果与不带 -N 参数运行 ssh-keygen 相同。",
     "generate": "生成密钥对",

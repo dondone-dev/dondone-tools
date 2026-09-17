@@ -828,6 +828,8 @@
     "comment": "Комментарий",
     "commentPlaceholder": "you@example.com",
     "passphrase": "Парольная фраза",
+    "passphraseConfirm": "Подтвердите парольную фразу",
+    "passphraseMismatch": "Парольные фразы не совпадают",
     "passphrasePlaceholder": "Оставьте пустым, чтобы не использовать парольную фразу",
     "passphraseHint": "Пустая парольная фраза создаёт незашифрованный закрытый ключ, как при запуске ssh-keygen без -N.",
     "generate": "Создать пару ключей",

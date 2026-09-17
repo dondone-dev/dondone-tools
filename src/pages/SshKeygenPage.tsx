@@ -33,10 +33,12 @@ export function SshKeygenPage() {
   const [rsaKeySize, setRsaKeySize] = useState<RsaKeySize>(3072)
   const [comment, setComment] = useState('')
   const [passphrase, setPassphrase] = useState('')
+  const [passphraseConfirm, setPassphraseConfirm] = useState('')
   const [status, setStatus] = useState<'idle' | 'generating' | 'error'>('idle')
   const [error, setError] = useState('')
   const [result, setResult] = useState<SshKeyPairResult | null>(null)
   const { copiedText, copy } = useClipboard()
+  const passphraseMismatch = passphrase !== '' && passphrase !== passphraseConfirm
 
   useEffect(() => {
     let cancelled = false
@@ -51,6 +53,7 @@ export function SshKeygenPage() {
   }, [])
 
   async function handleGenerate() {
+    if (passphraseMismatch) return
     setResult(null)
     setStatus('generating')
     setError('')
@@ -139,15 +142,37 @@ export function SshKeygenPage() {
               id="ssh-keygen-passphrase"
               type="password"
               value={passphrase}
-              onChange={(e) => setPassphrase(e.target.value)}
+              onChange={(e) => {
+                setPassphrase(e.target.value)
+                if (!e.target.value) setPassphraseConfirm('')
+              }}
               placeholder={t('ssh-keygen.passphrasePlaceholder')}
               className="text-sm"
             />
             <p className="text-xs text-muted-foreground">{t('ssh-keygen.passphraseHint')}</p>
           </div>
+          {passphrase && (
+            <div className="space-y-1.5">
+              <Label htmlFor="ssh-keygen-passphrase-confirm">{t('ssh-keygen.passphraseConfirm')}</Label>
+              <Input
+                id="ssh-keygen-passphrase-confirm"
+                type="password"
+                value={passphraseConfirm}
+                onChange={(e) => setPassphraseConfirm(e.target.value)}
+                aria-invalid={passphraseMismatch}
+                aria-describedby={passphraseMismatch ? 'ssh-keygen-passphrase-mismatch' : undefined}
+                className="text-sm"
+              />
+              {passphraseMismatch && (
+                <p id="ssh-keygen-passphrase-mismatch" className="text-xs text-destructive" role="alert">
+                  {t('ssh-keygen.passphraseMismatch')}
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
-        <Button onClick={handleGenerate} disabled={status === 'generating'} className="min-h-9">
+        <Button onClick={handleGenerate} disabled={status === 'generating' || passphraseMismatch} className="min-h-9">
           {status === 'generating' && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {status === 'generating' ? t('ssh-keygen.generating') : t('ssh-keygen.generate')}
         </Button>
@@ -209,7 +234,7 @@ export function SshKeygenPage() {
               size="sm"
               className="min-h-8"
               onClick={handleGenerate}
-              disabled={status === 'generating'}
+              disabled={status === 'generating' || passphraseMismatch}
             >
               {t('ssh-keygen.regenerate')}
             </Button>

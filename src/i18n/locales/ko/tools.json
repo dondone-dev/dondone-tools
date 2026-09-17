@@ -828,6 +828,8 @@
     "comment": "주석",
     "commentPlaceholder": "you@example.com",
     "passphrase": "암호 구문",
+    "passphraseConfirm": "암호 구문 확인",
+    "passphraseMismatch": "암호 구문이 일치하지 않습니다",
     "passphrasePlaceholder": "암호 구문을 사용하지 않으려면 비워 두세요",
     "passphraseHint": "암호 구문을 비워 두면 ssh-keygen을 -N 없이 실행할 때와 같이 암호화되지 않은 개인 키가 생성됩니다.",
     "generate": "키 쌍 생성",

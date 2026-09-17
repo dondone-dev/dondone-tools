@@ -3,6 +3,7 @@ import { Search, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { ToolCard } from '@/components/layout/ToolCard'
 import { TOOLS, CATEGORIES, getToolsByCategory } from '@/lib/tools-config'
+import { searchTools } from '@/lib/tool-search-index'
 import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
 import { LOCALES, DEFAULT_LOCALE, type LocaleCode } from '@/i18n/config'
@@ -29,18 +30,7 @@ export function Home() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  const trimmed = query.trim().toLowerCase()
-  const filteredTools = trimmed
-    ? TOOLS.filter((tool) => {
-        const desc = t(tool.descriptionKey, { ns: 'tools' }).toLowerCase()
-        const category = t(`categories.${tool.category}`, { ns: 'common' }).toLowerCase()
-        return (
-          t(`${tool.id}.title`, { ns: 'tools' }).toLowerCase().includes(trimmed) ||
-          desc.includes(trimmed) ||
-          category.includes(trimmed)
-        )
-      })
-    : null
+  const filteredTools = query.trim() ? searchTools(query) : null
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">

@@ -341,24 +341,31 @@ describe.each([2048, 3072, 4096] as const)('RSA %i-bit key material', (modulusLe
     const material = await generateRsaKeyMaterial(modulusLength)
     const comment = 'rsa-test@example.com'
     const section = buildRsaPrivateSection(material, comment)
-    let p = 8 // skip two checkints
+    let ptr = 8 // skip two checkints
     function readStr(): Uint8Array {
-      const len = new DataView(section.buffer, section.byteOffset + p, 4).getUint32(0, false)
-      p += 4
-      const s = section.subarray(p, p + len)
-      p += len
+      const len = new DataView(section.buffer, section.byteOffset + ptr, 4).getUint32(0, false)
+      ptr += 4
+      const s = section.subarray(ptr, ptr + len)
+      ptr += len
       return s
     }
+    function stripMpintSignByte(field: Uint8Array, original: Uint8Array): Uint8Array {
+      if (field.length === original.length + 1 && field[0] === 0) return field.subarray(1)
+      return field
+    }
     expect(new TextDecoder().decode(readStr())).toBe('ssh-rsa')
-    readStr() // n (mpint form, length may differ from material.n by the sign byte)
-    readStr() // e
-    readStr() // d
+    const nField = readStr()
+    const eField = readStr()
+    const dField = readStr()
     const iqmpField = readStr()
     const pField = readStr()
     const qField = readStr()
-    expect(pField.length).toBeGreaterThan(0)
-    expect(qField.length).toBeGreaterThan(0)
-    expect(iqmpField.length).toBeGreaterThan(0)
+    expect(Array.from(stripMpintSignByte(nField, material.n))).toEqual(Array.from(material.n))
+    expect(Array.from(stripMpintSignByte(eField, material.e))).toEqual(Array.from(material.e))
+    expect(Array.from(stripMpintSignByte(dField, material.d))).toEqual(Array.from(material.d))
+    expect(Array.from(stripMpintSignByte(iqmpField, material.iqmp))).toEqual(Array.from(material.iqmp))
+    expect(Array.from(stripMpintSignByte(pField, material.p))).toEqual(Array.from(material.p))
+    expect(Array.from(stripMpintSignByte(qField, material.q))).toEqual(Array.from(material.q))
     expect(new TextDecoder().decode(readStr())).toBe(comment)
   })
 })

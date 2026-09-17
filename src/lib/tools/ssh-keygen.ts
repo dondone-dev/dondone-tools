@@ -199,3 +199,62 @@ export async function encryptPrivateSection(
   const kdfOptions = concatBytes(sshString(salt), u32be(rounds))
   return { ciphertext, kdfOptions }
 }
+
+// ---- RSA ----
+
+const RSA_KEY_TYPE = new TextEncoder().encode('ssh-rsa')
+
+export interface RsaKeyMaterial {
+  n: Uint8Array
+  e: Uint8Array
+  d: Uint8Array
+  p: Uint8Array
+  q: Uint8Array
+  /** q^-1 mod p — OpenSSH calls this field `iqmp`; Web Crypto's JWK export
+   * calls it `qi`. Same value. */
+  iqmp: Uint8Array
+}
+
+/** Generates an RSA key pair via Web Crypto and extracts the CRT parameters
+ * needed for the OpenSSH wire format from its JWK export. `hash` is
+ * required by the `RSASSA-PKCS1-v1_5` algorithm identifier but unused —
+ * this key is never used to sign or verify with Web Crypto; it's only a
+ * vehicle for standards-compliant RSA key generation. */
+export async function generateRsaKeyMaterial(modulusLength: 2048 | 3072 | 4096): Promise<RsaKeyMaterial> {
+  const keyPair = await crypto.subtle.generateKey(
+    { name: 'RSASSA-PKCS1-v1_5', modulusLength, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' },
+    true,
+    ['sign', 'verify'],
+  )
+  const jwk = await crypto.subtle.exportKey('jwk', keyPair.privateKey)
+  return {
+    n: base64urlToBytes(jwk.n!),
+    e: base64urlToBytes(jwk.e!),
+    d: base64urlToBytes(jwk.d!),
+    p: base64urlToBytes(jwk.p!),
+    q: base64urlToBytes(jwk.q!),
+    iqmp: base64urlToBytes(jwk.qi!),
+  }
+}
+
+export function buildRsaPublicKeyBlob(material: Pick<RsaKeyMaterial, 'n' | 'e'>): Uint8Array {
+  return concatBytes(sshString(RSA_KEY_TYPE), mpint(material.e), mpint(material.n))
+}
+
+/** OpenSSH's RSA private-key field order is n, e, d, iqmp, p, q — note this
+ * differs from PKCS8/JWK's own field order. */
+export function buildRsaPrivateSection(material: RsaKeyMaterial, comment: string): Uint8Array {
+  const checkint = crypto.getRandomValues(new Uint8Array(4))
+  return concatBytes(
+    checkint,
+    checkint,
+    sshString(RSA_KEY_TYPE),
+    mpint(material.n),
+    mpint(material.e),
+    mpint(material.d),
+    mpint(material.iqmp),
+    mpint(material.p),
+    mpint(material.q),
+    sshString(new TextEncoder().encode(comment)),
+  )
+}

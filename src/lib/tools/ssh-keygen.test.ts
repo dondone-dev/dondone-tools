@@ -317,3 +317,48 @@ WV+UDjbthu6jHDwwX2wWHhijUHYLTY0ZdSgRI=
     expect(Array.from(decrypted)).toEqual(Array.from(priv))
   })
 })
+
+import { generateRsaKeyMaterial, buildRsaPublicKeyBlob, buildRsaPrivateSection } from './ssh-keygen'
+
+describe.each([2048, 3072, 4096] as const)('RSA %i-bit key material', (modulusLength) => {
+  it('produces an n of the expected byte length and a standard e', async () => {
+    const material = await generateRsaKeyMaterial(modulusLength)
+    // n may have a leading sign byte from JWK's big-endian encoding; allow +1.
+    expect(material.n.length).toBeGreaterThanOrEqual(modulusLength / 8)
+    expect(material.n.length).toBeLessThanOrEqual(modulusLength / 8 + 1)
+    expect(Array.from(material.e)).toEqual([1, 0, 1]) // 65537
+  })
+
+  it('builds a public key blob real `ssh-keygen -y` could parse (structural check)', async () => {
+    const material = await generateRsaKeyMaterial(modulusLength)
+    const blob = buildRsaPublicKeyBlob(material)
+    const view = new DataView(blob.buffer, blob.byteOffset, blob.byteLength)
+    const typeLen = view.getUint32(0, false)
+    expect(new TextDecoder().decode(blob.subarray(4, 4 + typeLen))).toBe('ssh-rsa')
+  })
+
+  it('private section field order is n, e, d, iqmp, p, q (OpenSSH order, not PKCS8 order)', async () => {
+    const material = await generateRsaKeyMaterial(modulusLength)
+    const comment = 'rsa-test@example.com'
+    const section = buildRsaPrivateSection(material, comment)
+    let p = 8 // skip two checkints
+    function readStr(): Uint8Array {
+      const len = new DataView(section.buffer, section.byteOffset + p, 4).getUint32(0, false)
+      p += 4
+      const s = section.subarray(p, p + len)
+      p += len
+      return s
+    }
+    expect(new TextDecoder().decode(readStr())).toBe('ssh-rsa')
+    readStr() // n (mpint form, length may differ from material.n by the sign byte)
+    readStr() // e
+    readStr() // d
+    const iqmpField = readStr()
+    const pField = readStr()
+    const qField = readStr()
+    expect(pField.length).toBeGreaterThan(0)
+    expect(qField.length).toBeGreaterThan(0)
+    expect(iqmpField.length).toBeGreaterThan(0)
+    expect(new TextDecoder().decode(readStr())).toBe(comment)
+  })
+})

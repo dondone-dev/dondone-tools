@@ -5,7 +5,8 @@ import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { useClipboard } from '@/hooks/useClipboard'
 import { JsonInteractiveOutput } from '@/components/tools/JsonInteractiveOutput'
-import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
+import { Textarea } from '@/components/ui/textarea'
+import { TextToolLayout } from '@/components/tools/TextToolLayout'
 import { formatJson, minifyJson, unescapeAndFormatJson } from '@/lib/tools/json-format'
 
 export function JsonFormatPage() {
@@ -52,10 +53,13 @@ export function JsonFormatPage() {
         inputValue={input}
         onClearInput={handleClear}
         inputContent={
-          <TextToolTextarea
+          <Textarea
+            variant="editor"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t('json-format.inputPlaceholder', { ns: 'tools' })}
+            className="font-mono text-sm"
+            spellCheck={false}
           />
         }
         inputActions={
@@ -80,12 +84,12 @@ export function JsonFormatPage() {
             <Button
               type="button"
               variant="ghost"
-              size="sm"
-              className="h-6 px-1.5 text-xs gap-1 max-w-[180px] truncate"
+              size="xs"
+              className="max-w-[180px] truncate"
               onClick={() => copyPath(selectedPath)}
               title={selectedPath}
             >
-              {isPathCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+              {isPathCopied ? <Check /> : <Copy />}
               <span className="font-mono text-[11px] truncate">{selectedPath}</span>
             </Button>
           ) : null

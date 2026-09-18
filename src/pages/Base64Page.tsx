@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useClipboard } from '@/hooks/useClipboard'
 import { ToolResultField } from '@/components/tools/ToolFeedback'
-import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
+import { Textarea } from '@/components/ui/textarea'
+import { TextToolLayout } from '@/components/tools/TextToolLayout'
 import { encodeText, decodeText } from '@/lib/tools/base64'
 
 type Mode = 'encode' | 'decode'
@@ -40,7 +41,6 @@ export function Base64Page() {
     setError('')
   }
 
-  const primaryResultText = result?.base64 ?? result?.text ?? ''
   const hasOutput = Boolean(result && (result.base64 || result.base64url || result.text !== undefined))
 
   return (
@@ -58,10 +58,12 @@ export function Base64Page() {
         inputValue={input}
         onClearInput={handleClear}
         inputContent={
-          <TextToolTextarea
+          <Textarea
+            variant="compact"
             placeholder={t(mode === 'encode' ? 'base64.encodePlaceholder' : 'base64.decodePlaceholder', { ns: 'tools' })}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            className="font-mono text-sm"
           />
         }
         inputActions={
@@ -71,8 +73,6 @@ export function Base64Page() {
         }
         outputLabel={t('ui.result', { ns: 'common' })}
         hasOutput={hasOutput}
-        onCopyOutput={primaryResultText ? () => copy(primaryResultText) : undefined}
-        isOutputCopied={copiedText === primaryResultText && Boolean(primaryResultText)}
         outputContent={
           <div className="p-3 space-y-3">
             {result?.base64 && <ToolResultField label="Base64" value={result.base64} copiedText={copiedText} onCopy={copy} multiline />}

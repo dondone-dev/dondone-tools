@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { decodeJwt, formatTimestamp, type JwtParts } from '@/lib/tools/jwt-decode'
 import { useClipboard } from '@/hooks/useClipboard'
-import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
+import { Textarea } from '@/components/ui/textarea'
+import { TextToolLayout } from '@/components/tools/TextToolLayout'
 
 const TIME_FIELDS = ['exp', 'iat', 'nbf'] as const
 
@@ -47,10 +48,13 @@ export function JwtDecodePage() {
         inputValue={input}
         onClearInput={handleClear}
         inputContent={
-          <TextToolTextarea
+          <Textarea
+            variant="editor"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t('jwt-decode.inputPlaceholder', { ns: 'tools' })}
+            className="font-mono text-sm"
+            spellCheck={false}
           />
         }
         inputActions={

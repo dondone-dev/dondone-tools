@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Button } from '@/components/ui/button'
 import { useClipboard } from '@/hooks/useClipboard'
-import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
+import { Textarea } from '@/components/ui/textarea'
+import { TextToolLayout } from '@/components/tools/TextToolLayout'
 import { encodeUrl, decodeUrl } from '@/lib/tools/url-encode'
 
 export function UrlEncodePage() {
@@ -36,10 +37,13 @@ export function UrlEncodePage() {
         inputValue={input}
         onClearInput={handleClear}
         inputContent={
-          <TextToolTextarea
+          <Textarea
+            variant="default"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t('url-encode.inputPlaceholder', { ns: 'tools' })}
+            className="font-mono text-sm"
+            spellCheck={false}
           />
         }
         inputActions={

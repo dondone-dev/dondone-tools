@@ -443,7 +443,7 @@ export function ImgCropPage() {
                   <p className={cn('font-mono text-sm font-bold tabular-nums', savings >= 0 ? 'text-emerald-500' : 'text-destructive')}>
                     {savings >= 0 ? `−${savings}%` : `+${Math.abs(savings)}%`}
                   </p>
-                  <p className="text-[10px] text-muted-foreground">{savings >= 0 ? t('img-compress.saved') : t('img-compress.larger')}</p>
+                  <p className="text-[10px] text-muted-foreground">{savings >= 0 ? t('img-crop.saved') : t('img-crop.larger')}</p>
                 </>
               ) : (
                 <p className="text-[10px] text-muted-foreground">—</p>

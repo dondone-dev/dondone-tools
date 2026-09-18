@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { detectFormat, formatBytes, buildOutputFilename, resolveOutputFormat, makeUniqueFilename, createZipBundle } from './img-compress'
+import { detectFormat, formatBytes, buildOutputFilename, resolveOutputFormat, makeUniqueFilename, createZipBundle, MAX_IMAGES, MAX_FILE_BYTES, MAX_TOTAL_BYTES } from './img-compress'
 
 describe('detectFormat', () => {
   it('detects format by MIME type', () => {
@@ -120,5 +120,14 @@ describe('createZipBundle', () => {
     ]
     const zipBlob = await createZipBundle(files)
     expect(zipBlob.size).toBeGreaterThan(0)
+  })
+})
+
+describe('limits', () => {
+  it('defines valid batch and size boundaries', () => {
+    expect(MAX_IMAGES).toBe(30)
+    expect(MAX_FILE_BYTES).toBe(20 * 1024 * 1024)
+    expect(MAX_TOTAL_BYTES).toBe(100 * 1024 * 1024)
+    expect(MAX_TOTAL_BYTES).toBeGreaterThan(MAX_FILE_BYTES)
   })
 })

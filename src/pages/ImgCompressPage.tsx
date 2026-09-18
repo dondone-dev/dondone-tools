@@ -14,6 +14,7 @@ import {
   preloadCodecs,
   MAX_FILE_BYTES,
   MAX_IMAGES,
+  MAX_TOTAL_BYTES,
   type CompressResult,
   type InputFormat,
   type OutputFormat,
@@ -39,7 +40,7 @@ export function ImgCompressPage() {
   const objectUrlsRef = useRef<string[]>([])
   const processingIdsRef = useRef<Set<string>>(new Set())
   const itemsRef = useRef<BatchItem[]>([])
-  const scheduleNextJobsRef = useRef<(opts: { format: OutputFormat; qual: number; loss: boolean }) => void>(() => {})
+  const scheduleNextJobsRef = useRef<() => void>(() => {})
 
   const [items, setItems] = useState<BatchItem[]>([])
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('auto')
@@ -48,6 +49,11 @@ export function ImgCompressPage() {
   const [zipping, setZipping] = useState(false)
   const [dragOver, setDragOver] = useState(false)
   const [bannerError, setBannerError] = useState<string | null>(null)
+
+  const optionsRef = useRef({ outputFormat, quality, lossless })
+  useEffect(() => {
+    optionsRef.current = { outputFormat, quality, lossless }
+  }, [outputFormat, quality, lossless])
 
   // Keep itemsRef in sync with state for queue scheduler
   useEffect(() => {
@@ -68,61 +74,59 @@ export function ImgCompressPage() {
     return url
   }
 
-  const scheduleNextJobs = useCallback(
-    (opts: { format: OutputFormat; qual: number; loss: boolean }) => {
-      const currentItems = itemsRef.current
-      const processing = processingIdsRef.current
+  const scheduleNextJobs = useCallback(() => {
+    const currentItems = itemsRef.current
+    const processing = processingIdsRef.current
+    const opts = optionsRef.current
 
-      while (processing.size < CONCURRENCY) {
-        const nextItem = currentItems.find(
-          (it) => it.status === 'pending' && !processing.has(it.id)
-        )
-        if (!nextItem) break
+    while (processing.size < CONCURRENCY) {
+      const nextItem = currentItems.find(
+        (it) => it.status === 'pending' && !processing.has(it.id)
+      )
+      if (!nextItem) break
 
-        const targetId = nextItem.id
-        processing.add(targetId)
+      const targetId = nextItem.id
+      processing.add(targetId)
 
-        setItems((prev) =>
-          prev.map((it) => (it.id === targetId ? { ...it, status: 'processing' } : it))
-        )
+      setItems((prev) =>
+        prev.map((it) => (it.id === targetId ? { ...it, status: 'processing' } : it))
+      )
 
-        compressImage(nextItem.file, {
-          outputFormat: opts.format,
-          quality: opts.qual,
-          lossless: opts.loss,
+      compressImage(nextItem.file, {
+        outputFormat: opts.outputFormat,
+        quality: opts.quality,
+        lossless: opts.lossless,
+      })
+        .then((result) => {
+          const blob = new Blob([result.buffer], { type: result.mimeType })
+          const compressedUrl = makeObjectUrl(blob)
+          setItems((prev) =>
+            prev.map((it) =>
+              it.id === targetId
+                ? { ...it, status: 'done', result, compressedUrl }
+                : it
+            )
+          )
         })
-          .then((result) => {
-            const blob = new Blob([result.buffer], { type: result.mimeType })
-            const compressedUrl = makeObjectUrl(blob)
-            setItems((prev) =>
-              prev.map((it) =>
-                it.id === targetId
-                  ? { ...it, status: 'done', result, compressedUrl }
-                  : it
-              )
+        .catch(() => {
+          setItems((prev) =>
+            prev.map((it) =>
+              it.id === targetId
+                ? { ...it, status: 'error', errorMessage: t('img-compress.errorFailed') }
+                : it
             )
-          })
-          .catch(() => {
-            setItems((prev) =>
-              prev.map((it) =>
-                it.id === targetId
-                  ? { ...it, status: 'error', errorMessage: t('img-compress.errorFailed') }
-                  : it
-              )
-            )
-          })
-          .finally(() => {
-            processing.delete(targetId)
-            scheduleNextJobsRef.current(opts)
-          })
-      }
-    },
-    [t]
-  )
+          )
+        })
+        .finally(() => {
+          processing.delete(targetId)
+          scheduleNextJobsRef.current()
+        })
+    }
+  }, [t])
+
   useEffect(() => {
     scheduleNextJobsRef.current = scheduleNextJobs
   }, [scheduleNextJobs])
-
 
   const addFiles = useCallback(
     (fileList: FileList | File[]) => {
@@ -131,6 +135,7 @@ export function ImgCompressPage() {
       if (rawFiles.length === 0) return
 
       const currentItems = itemsRef.current
+      const currentTotalBytes = currentItems.reduce((acc, it) => acc + it.file.size, 0)
       const availableSlots = MAX_IMAGES - currentItems.length
 
       if (availableSlots <= 0) {
@@ -144,7 +149,26 @@ export function ImgCompressPage() {
         setBannerError(t('img-compress.errorLimit'))
       }
 
-      const newItems: BatchItem[] = filesToAdd.map((file) => {
+      let accumulatedBytes = currentTotalBytes
+      const acceptedFiles: File[] = []
+      let hitTotalLimit = false
+
+      for (const file of filesToAdd) {
+        if (accumulatedBytes + file.size > MAX_TOTAL_BYTES) {
+          hitTotalLimit = true
+          continue
+        }
+        accumulatedBytes += file.size
+        acceptedFiles.push(file)
+      }
+
+      if (hitTotalLimit) {
+        setBannerError(t('img-compress.errorTotalSize', { max: formatBytes(MAX_TOTAL_BYTES) }))
+      }
+
+      if (acceptedFiles.length === 0) return
+
+      const newItems: BatchItem[] = acceptedFiles.map((file) => {
         const fmt = detectFormat(file)
         const id = `${file.name}-${file.size}-${Math.random().toString(36).slice(2, 9)}`
         const previewUrl = makeObjectUrl(file)
@@ -184,12 +208,11 @@ export function ImgCompressPage() {
       itemsRef.current = updated
       setItems(updated)
 
-      // Start queue processing with current options
       setTimeout(() => {
-        scheduleNextJobs({ format: outputFormat, qual: quality, loss: lossless })
+        scheduleNextJobsRef.current()
       }, 0)
     },
-    [outputFormat, quality, lossless, scheduleNextJobs, t]
+    [t]
   )
 
   function handleDrop(e: React.DragEvent) {
@@ -225,7 +248,7 @@ export function ImgCompressPage() {
     itemsRef.current = reset
     setItems(reset)
     setTimeout(() => {
-      scheduleNextJobs({ format: outputFormat, qual: quality, loss: lossless })
+      scheduleNextJobsRef.current()
     }, 0)
   }
 
@@ -298,8 +321,10 @@ export function ImgCompressPage() {
     0
   )
   const savedBytes = originalBytesOfDone - compressedBytesOfDone
+  const absSavedBytes = Math.abs(savedBytes)
   const savingsPercent =
     originalBytesOfDone > 0 ? Math.round((savedBytes / originalBytesOfDone) * 100) : 0
+  const absSavingsPercent = Math.abs(savingsPercent)
 
   return (
     <ToolLayout toolId="img-compress" category="Image">
@@ -402,11 +427,23 @@ export function ImgCompressPage() {
                         {formatBytes(compressedBytesOfDone)}
                       </span>
                       {' · '}
-                      <span className="font-semibold text-emerald-600 dark:text-emerald-400 tabular-nums">
-                        {t('img-compress.batchSaved', {
-                          saved: formatBytes(Math.max(0, savedBytes)),
-                          percent: savingsPercent,
-                        })}
+                      <span
+                        className={cn(
+                          'font-semibold tabular-nums',
+                          savedBytes >= 0
+                            ? 'text-emerald-600 dark:text-emerald-400'
+                            : 'text-amber-600 dark:text-amber-400'
+                        )}
+                      >
+                        {savedBytes >= 0
+                          ? t('img-compress.batchSaved', {
+                              saved: formatBytes(savedBytes),
+                              percent: absSavingsPercent,
+                            })
+                          : t('img-compress.batchLarger', {
+                              size: formatBytes(absSavedBytes),
+                              percent: absSavingsPercent,
+                            })}
                       </span>
                     </p>
                   )}

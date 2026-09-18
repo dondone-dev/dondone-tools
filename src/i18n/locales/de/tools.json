@@ -621,6 +621,7 @@
     "fundRate": "Wohnungsfonds-Satz",
     "deductions": "Besondere Zusatzabzüge",
     "perMonth": "Mon.",
+    "deductionsOptional": "Optional",
     "childEducation": "Kinderbildung / Betreuung",
     "childEducationHint": "¥2.000 pro Kind und Monat",
     "childrenNone": "Keine",

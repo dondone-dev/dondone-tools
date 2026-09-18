@@ -621,6 +621,7 @@
     "fundRate": "Ставка жилищного фонда",
     "deductions": "Специальные дополнительные вычеты",
     "perMonth": "мес",
+    "deductionsOptional": "Необязательно",
     "childEducation": "Образование детей / уход",
     "childEducationHint": "¥2 000 на ребёнка в месяц",
     "childrenNone": "Нет",

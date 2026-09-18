@@ -621,6 +621,7 @@
     "fundRate": "Tasa del fondo de vivienda",
     "deductions": "Deducciones adicionales especiales",
     "perMonth": "mes",
+    "deductionsOptional": "Opcional",
     "childEducation": "Educación de hijos / cuidado infantil",
     "childEducationHint": "¥2.000 por hijo y mes",
     "childrenNone": "Ninguno",

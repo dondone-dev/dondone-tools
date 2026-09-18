@@ -621,6 +621,7 @@
     "fundRate": "Housing fund rate",
     "deductions": "Special additional deductions",
     "perMonth": "mo",
+    "deductionsOptional": "Optional",
     "childEducation": "Children education / childcare",
     "childEducationHint": "¥2,000 per child per month",
     "childrenNone": "None",

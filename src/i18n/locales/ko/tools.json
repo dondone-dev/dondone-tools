@@ -621,6 +621,7 @@
     "fundRate": "주택공적금 비율",
     "deductions": "특별 부가 공제",
     "perMonth": "월",
+    "deductionsOptional": "선택 사항",
     "childEducation": "자녀 교육 / 영유아 보육",
     "childEducationHint": "자녀 1인당 월 ¥2,000",
     "childrenNone": "없음",

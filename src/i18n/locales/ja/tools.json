@@ -621,6 +621,7 @@
     "fundRate": "住宅積立金率",
     "deductions": "特別付加控除",
     "perMonth": "月",
+    "deductionsOptional": "任意",
     "childEducation": "子女教育 / 乳幼児養育",
     "childEducationHint": "子ども1人につき月 ¥2,000",
     "childrenNone": "なし",

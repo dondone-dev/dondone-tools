@@ -162,7 +162,7 @@ export function PayrollCnPage() {
               <div className="flex items-center gap-1.5">
                 <span>{t('payroll-cn.deductions')}</span>
                 <span className="text-[11px] font-normal text-muted-foreground">
-                  ({specialDeduction > 0 ? `−${yuan(specialDeduction)}/${t('payroll-cn.perMonth')}` : '可选'})
+                  ({specialDeduction > 0 ? `−${yuan(specialDeduction)}/${t('payroll-cn.perMonth')}` : t('payroll-cn.deductionsOptional')})
                 </span>
               </div>
               <div className="flex items-center gap-2">

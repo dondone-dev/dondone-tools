@@ -621,6 +621,7 @@
     "fundRate": "Taux du fonds de logement",
     "deductions": "Déductions additionnelles spéciales",
     "perMonth": "mois",
+    "deductionsOptional": "Facultatif",
     "childEducation": "Éducation des enfants / garde",
     "childEducationHint": "¥2 000 par enfant et par mois",
     "childrenNone": "Aucun",

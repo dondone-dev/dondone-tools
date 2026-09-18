@@ -621,6 +621,7 @@
     "fundRate": "Taxa do fundo habitacional",
     "deductions": "Deduções adicionais especiais",
     "perMonth": "mês",
+    "deductionsOptional": "Opcional",
     "childEducation": "Educação dos filhos / creche",
     "childEducationHint": "¥2.000 por filho por mês",
     "childrenNone": "Nenhum",

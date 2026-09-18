@@ -621,6 +621,7 @@
     "fundRate": "公积金缴存比例",
     "deductions": "专项附加扣除",
     "perMonth": "月",
+    "deductionsOptional": "可选",
     "childEducation": "子女教育 / 婴幼儿照护",
     "childEducationHint": "每个子女每月 ¥2,000",
     "childrenNone": "无",

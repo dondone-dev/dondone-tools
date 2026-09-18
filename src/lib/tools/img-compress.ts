@@ -8,8 +8,14 @@ import { init as initJpegImpl, default as encodeJpeg } from '@jsquash/jpeg/encod
 import { init as initPngImpl, default as encodePng } from '@jsquash/png/encode'
 import { init as initWebpImpl, default as encodeWebp } from '@jsquash/webp/encode'
 
+import { zip } from 'fflate'
+
 export type InputFormat = 'jpeg' | 'png' | 'webp'
-export type OutputFormat = 'jpeg' | 'png' | 'webp'
+export type OutputFormat = 'jpeg' | 'png' | 'webp' | 'auto'
+
+export const MAX_IMAGES = 30
+export const MAX_FILE_BYTES = 20 * 1024 * 1024 // 20 MB per file
+export const MAX_TOTAL_BYTES = 100 * 1024 * 1024 // 100 MB total
 
 export interface CompressOptions {
   outputFormat: OutputFormat
@@ -48,6 +54,56 @@ export function buildOutputFilename(originalName: string, ext: string): string {
   return originalName.replace(/\.[^.]+$/, '') + '.' + ext
 }
 
+export function resolveOutputFormat(
+  inputFormat: InputFormat,
+  outputFormat: OutputFormat,
+  lossless: boolean,
+): InputFormat {
+  if (outputFormat === 'auto') {
+    if (lossless && inputFormat === 'jpeg') return 'png'
+    return inputFormat
+  }
+  return outputFormat
+}
+
+export function makeUniqueFilename(filename: string, existingNames: Set<string>): string {
+  if (!existingNames.has(filename)) {
+    existingNames.add(filename)
+    return filename
+  }
+  const dotIdx = filename.lastIndexOf('.')
+  const base = dotIdx !== -1 ? filename.slice(0, dotIdx) : filename
+  const ext = dotIdx !== -1 ? filename.slice(dotIdx) : ''
+  let counter = 1
+  while (existingNames.has(`${base}_${counter}${ext}`)) {
+    counter++
+  }
+  const uniqueName = `${base}_${counter}${ext}`
+  existingNames.add(uniqueName)
+  return uniqueName
+}
+export function createZipBundle(
+  files: Array<{ name: string; buffer: ArrayBuffer }>,
+): Promise<Blob> {
+  const { promise, resolve, reject } = Promise.withResolvers<Blob>()
+  const usedNames = new Set<string>()
+  const zippable: Record<string, Uint8Array> = {}
+
+  for (const file of files) {
+    const uniqueName = makeUniqueFilename(file.name, usedNames)
+    zippable[uniqueName] = new Uint8Array(file.buffer)
+  }
+
+  zip(zippable, (err, data) => {
+    if (err) {
+      reject(err)
+    } else {
+      resolve(new Blob([data], { type: 'application/zip' }))
+    }
+  })
+
+  return promise
+}
 async function fileToImageData(file: File): Promise<{ data: ImageData; width: number; height: number }> {
   const bitmap = await createImageBitmap(file)
   const { width, height } = bitmap
@@ -96,8 +152,9 @@ export async function encodeImageData(
   width: number,
   height: number,
   opts: CompressOptions,
+  inputFormat?: InputFormat,
 ): Promise<CompressResult> {
-  const target: InputFormat = opts.outputFormat
+  const target: InputFormat = resolveOutputFormat(inputFormat ?? 'jpeg', opts.outputFormat, opts.lossless)
 
   if (target === 'jpeg') {
     await ensureJpeg()
@@ -120,6 +177,7 @@ export async function compressImage(
   file: File,
   opts: CompressOptions,
 ): Promise<CompressResult> {
+  const inputFormat = detectFormat(file) ?? 'jpeg'
   const { data, width, height } = await fileToImageData(file)
-  return encodeImageData(data, width, height, opts)
+  return encodeImageData(data, width, height, opts, inputFormat)
 }

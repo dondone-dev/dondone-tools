@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { detectFormat, formatBytes, buildOutputFilename } from './img-compress'
+import { detectFormat, formatBytes, buildOutputFilename, resolveOutputFormat, makeUniqueFilename, createZipBundle } from './img-compress'
 
 describe('detectFormat', () => {
   it('detects format by MIME type', () => {
@@ -57,5 +57,68 @@ describe('buildOutputFilename', () => {
 
   it('appends extension when original has none', () => {
     expect(buildOutputFilename('noext', 'jpg')).toBe('noext.jpg')
+  })
+})
+
+describe('resolveOutputFormat', () => {
+  it('returns explicit output format when not auto', () => {
+    expect(resolveOutputFormat('jpeg', 'webp', false)).toBe('webp')
+    expect(resolveOutputFormat('png', 'jpeg', false)).toBe('jpeg')
+    expect(resolveOutputFormat('webp', 'png', false)).toBe('png')
+  })
+
+  it('preserves input format when auto', () => {
+    expect(resolveOutputFormat('jpeg', 'auto', false)).toBe('jpeg')
+    expect(resolveOutputFormat('png', 'auto', false)).toBe('png')
+    expect(resolveOutputFormat('webp', 'auto', false)).toBe('webp')
+  })
+
+  it('converts jpeg to png when auto and lossless', () => {
+    expect(resolveOutputFormat('jpeg', 'auto', true)).toBe('png')
+    expect(resolveOutputFormat('png', 'auto', true)).toBe('png')
+    expect(resolveOutputFormat('webp', 'auto', true)).toBe('webp')
+  })
+})
+
+describe('makeUniqueFilename', () => {
+  it('returns original filename if not seen before', () => {
+    const seen = new Set<string>()
+    expect(makeUniqueFilename('photo.jpg', seen)).toBe('photo.jpg')
+    expect(seen.has('photo.jpg')).toBe(true)
+  })
+
+  it('appends incrementing index on duplicate filenames', () => {
+    const seen = new Set<string>()
+    expect(makeUniqueFilename('photo.jpg', seen)).toBe('photo.jpg')
+    expect(makeUniqueFilename('photo.jpg', seen)).toBe('photo_1.jpg')
+    expect(makeUniqueFilename('photo.jpg', seen)).toBe('photo_2.jpg')
+  })
+
+  it('handles filenames without extensions', () => {
+    const seen = new Set<string>()
+    expect(makeUniqueFilename('image', seen)).toBe('image')
+    expect(makeUniqueFilename('image', seen)).toBe('image_1')
+  })
+})
+
+describe('createZipBundle', () => {
+  it('creates a non-empty zip blob from files', async () => {
+    const files = [
+      { name: 'test1.txt', buffer: new TextEncoder().encode('hello').buffer },
+      { name: 'test2.txt', buffer: new TextEncoder().encode('world').buffer },
+    ]
+    const zipBlob = await createZipBundle(files)
+    expect(zipBlob).toBeInstanceOf(Blob)
+    expect(zipBlob.type).toBe('application/zip')
+    expect(zipBlob.size).toBeGreaterThan(0)
+  })
+
+  it('handles duplicate file names gracefully', async () => {
+    const files = [
+      { name: 'img.jpg', buffer: new Uint8Array([1, 2, 3]).buffer },
+      { name: 'img.jpg', buffer: new Uint8Array([4, 5, 6]).buffer },
+    ]
+    const zipBlob = await createZipBundle(files)
+    expect(zipBlob.size).toBeGreaterThan(0)
   })
 })

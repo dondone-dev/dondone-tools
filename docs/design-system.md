@@ -13,6 +13,7 @@ For tools that take text input and generate text or structured output (e.g., JSO
 - **Mobile stacked view (`grid-cols-1`)**: gracefully stacks input and output vertically on narrow viewports.
 - **Input column**: incorporates live character/line count statistics and a clear (`Trash2`) button. Always pass the shared `Textarea` component with an appropriate semantic `variant` (`editor`, `default`, or `compact`).
 - **Output column**: includes output label, copy button (using named `size="xs"`), and a stable empty-state placeholder when no output is yet generated.
+
 ## Control baseline
 
 - `Input`: use the default single-line height; do not add arbitrary `h-*` classes.

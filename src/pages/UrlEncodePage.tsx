@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
-import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { useClipboard } from '@/hooks/useClipboard'
-import { ToolError, ToolResultField } from '@/components/tools/ToolFeedback'
+import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
 import { encodeUrl, decodeUrl } from '@/lib/tools/url-encode'
 
 export function UrlEncodePage() {
@@ -24,40 +23,48 @@ export function UrlEncodePage() {
     }
   }
 
+  function handleClear() {
+    setInput('')
+    setOutput('')
+    setError('')
+  }
+
   return (
     <ToolLayout toolId="url-encode" category="Encoding">
-      <div className="space-y-3">
-        <Textarea
-          variant="default"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={t('url-encode.inputPlaceholder', { ns: 'tools' })}
-          className="font-mono text-sm"
-          spellCheck={false}
-        />
-
-        <div className="flex gap-2">
-          <Button size="sm" onClick={() => run(encodeUrl)}>
-            {t('url-encode.encode', { ns: 'tools' })}
-          </Button>
-          <Button size="sm" variant="outline" onClick={() => run(decodeUrl)}>
-            {t('url-encode.decode', { ns: 'tools' })}
-          </Button>
-        </div>
-
-        {error && <ToolError message={error} className="font-mono" />}
-
-        {output && (
-          <ToolResultField
-            label={t('url-encode.outputPlaceholder', { ns: 'tools' })}
-            value={output}
-            copiedText={copiedText}
-            onCopy={copy}
-            multiline
-            className="text-sm"
+      <TextToolLayout
+        inputLabel={t('url-encode.title', { ns: 'tools', defaultValue: 'URL / Text' })}
+        inputValue={input}
+        onClearInput={handleClear}
+        inputContent={
+          <TextToolTextarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={t('url-encode.inputPlaceholder', { ns: 'tools' })}
           />
-        )}
-      </div>
+        }
+        inputActions={
+          <>
+            <Button size="sm" onClick={() => run(encodeUrl)}>
+              {t('url-encode.encode', { ns: 'tools' })}
+            </Button>
+            <Button size="sm" variant="outline" onClick={() => run(decodeUrl)}>
+              {t('url-encode.decode', { ns: 'tools' })}
+            </Button>
+          </>
+        }
+        outputLabel={t('ui.result', { ns: 'common' })}
+        hasOutput={Boolean(output)}
+        onCopyOutput={() => copy(output)}
+        isOutputCopied={copiedText === output && Boolean(output)}
+        outputContent={
+          <div className="p-3">
+            <div className="select-all break-all font-mono text-xs leading-relaxed whitespace-pre-wrap">
+              {output}
+            </div>
+          </div>
+        }
+        error={error}
+      />
     </ToolLayout>
   )
 }

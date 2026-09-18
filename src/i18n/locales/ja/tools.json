@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}}（{{side}}）",
     "totalLower": "金額合計（小文字）",
-    "totalUpper": "金額合計（大字）"
+    "totalUpper": "金額合計（大字）",
+    "monthlyLevyTotal": "月額納付合計",
+    "diffFromPrior": "前年比"
   },
   "img-compress": {
     "title": "画像圧縮",

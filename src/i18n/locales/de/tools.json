@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}} ({{side}})",
     "totalLower": "Summe (Ziffern)",
-    "totalUpper": "Summe (in Worten)"
+    "totalUpper": "Summe (in Worten)",
+    "monthlyLevyTotal": "Monatlicher Gesamtbetrag",
+    "diffFromPrior": "ggü. Vorjahr"
   },
   "img-compress": {
     "title": "Bildkompressor",

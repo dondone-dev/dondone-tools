@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}}（{{side}}）",
     "totalLower": "금액 합계(숫자)",
-    "totalUpper": "금액 합계(한자)"
+    "totalUpper": "금액 합계(한자)",
+    "monthlyLevyTotal": "월 납부 합계",
+    "diffFromPrior": "전년 대비"
   },
   "img-compress": {
     "title": "이미지 압축기",

@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}} ({{side}})",
     "totalLower": "Итого (цифрами)",
-    "totalUpper": "Итого (прописью)"
+    "totalUpper": "Итого (прописью)",
+    "monthlyLevyTotal": "Итого в месяц",
+    "diffFromPrior": "по сравнению с прошлым годом"
   },
   "img-compress": {
     "title": "Сжатие изображений",

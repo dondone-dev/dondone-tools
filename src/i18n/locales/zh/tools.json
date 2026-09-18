@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}}（{{side}}）",
     "totalLower": "金额合计（小写）",
-    "totalUpper": "金额合计（大写）"
+    "totalUpper": "金额合计（大写）",
+    "monthlyLevyTotal": "月缴费合计",
+    "diffFromPrior": "较上年"
   },
   "img-compress": {
     "title": "图片压缩",

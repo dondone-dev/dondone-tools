@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}} ({{side}})",
     "totalLower": "Total (figures)",
-    "totalUpper": "Total (in words)"
+    "totalUpper": "Total (in words)",
+    "monthlyLevyTotal": "Monthly Total",
+    "diffFromPrior": "vs prior year"
   },
   "img-compress": {
     "title": "Image Compressor",

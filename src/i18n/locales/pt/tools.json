@@ -728,7 +728,9 @@
     },
     "itemFmt": "{{name}} ({{side}})",
     "totalLower": "Total (algarismos)",
-    "totalUpper": "Total (por extenso)"
+    "totalUpper": "Total (por extenso)",
+    "monthlyLevyTotal": "Total mensal",
+    "diffFromPrior": "em relação ao ano anterior"
   },
   "img-compress": {
     "title": "Compressor de Imagens",

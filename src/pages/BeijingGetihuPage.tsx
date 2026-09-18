@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TrendingUp, Info } from 'lucide-react'
+import { TrendingUp, Info, Building2 } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
@@ -37,7 +38,8 @@ export function BeijingGetihuPage() {
   const year = BEIJING_YEARS.find((y) => String(y.year) === yearValue) ?? AVAILABLE_YEARS[0]
   const result = useMemo(() => computeBeijingGetihu(year), [year])
   const trend = useMemo(() => AVAILABLE_YEARS.map((y) => computeBeijingGetihu(y)), [])
-
+  const prevYear = BEIJING_YEARS.find((y) => y.year === year.year - 1 && y.available)
+  const prevYearResult = useMemo(() => (prevYear ? computeBeijingGetihu(prevYear) : null), [prevYear])
   return (
     <ToolLayout toolId="beijing-getihu" category="Finance">
       {/* 1. Trend chart (five insurances) */}
@@ -63,9 +65,31 @@ export function BeijingGetihuPage() {
         </Tabs>
       </div>
 
+      {/* 2.5 Hero Summary for selected year */}
+      <div className="rounded-xl border bg-muted/30 p-6 shadow-2xs">
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+              <Building2 className="h-4 w-4" />
+              <span>{t('beijing-getihu.yearLabel', { year: year.year })} · {t('beijing-getihu.monthlyLevyTotal')}</span>
+            </div>
+            <div className="mt-2 text-4xl font-bold tabular-nums tracking-tight text-emerald-600 dark:text-emerald-400">
+              {yuan(result.socialTotal)}
+            </div>
+          </div>
+          {prevYearResult && (
+            <div className="text-right text-xs">
+              <span className="text-muted-foreground">{t('beijing-getihu.diffFromPrior')}: </span>
+              <span className={cn('font-mono font-semibold tabular-nums', result.socialTotal >= prevYearResult.socialTotal ? 'text-rose-600 dark:text-rose-400' : 'text-emerald-600 dark:text-emerald-400')}>
+                {result.socialTotal >= prevYearResult.socialTotal ? '+' : ''}{yuan(result.socialTotal - prevYearResult.socialTotal)}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* 3. Official-style levy bill */}
       <BillTable result={result} t={t} />
-
       <div className="rounded-lg border bg-muted/30 p-3 text-xs leading-relaxed text-muted-foreground">
         <p className="flex items-start gap-1.5">
           <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
@@ -95,29 +119,29 @@ function BillTable({
       <table className="w-full min-w-[480px] border-collapse text-sm">
         <thead>
           <tr className="border-b bg-muted/50 text-left text-xs text-muted-foreground">
-            <th className="px-4 py-2.5 font-medium">{t('beijing-getihu.col.category')}</th>
-            <th className="px-4 py-2.5 font-medium">{t('beijing-getihu.col.item')}</th>
-            <th className="px-4 py-2.5 text-right font-medium">{t('beijing-getihu.col.amount')}</th>
+            <th className="px-4 py-3 font-medium">{t('beijing-getihu.col.category')}</th>
+            <th className="px-4 py-3 font-medium">{t('beijing-getihu.col.item')}</th>
+            <th className="px-4 py-3 text-right font-medium">{t('beijing-getihu.col.amount')}</th>
           </tr>
         </thead>
         <tbody>
           {result.rows.map((row, i) => (
             <tr key={i} className="border-b last:border-b-0 hover:bg-muted/40 transition-colors">
-              <td className="px-4 py-2 text-muted-foreground">{t(`beijing-getihu.cat.${row.category}`)}</td>
-              <td className="px-4 py-2">{itemLabel(t, row)}</td>
-              <td className="px-4 py-2 text-right tabular-nums">{yuan(row.amount)}</td>
+              <td className="px-4 py-3 text-muted-foreground">{t(`beijing-getihu.cat.${row.category}`)}</td>
+              <td className="px-4 py-3">{itemLabel(t, row)}</td>
+              <td className="px-4 py-3 text-right tabular-nums">{yuan(row.amount)}</td>
             </tr>
           ))}
         </tbody>
         <tfoot>
           <tr className="border-t-2 bg-muted/30 font-medium">
-            <td className="px-4 py-2.5" colSpan={2}>
+            <td className="px-4 py-3" colSpan={2}>
               {t('beijing-getihu.totalLower')}
             </td>
-            <td className="px-4 py-2.5 text-right tabular-nums">{yuan(result.socialTotal)}</td>
+            <td className="px-4 py-3 text-right tabular-nums">{yuan(result.socialTotal)}</td>
           </tr>
           <tr className="bg-muted/30">
-            <td className="px-4 pb-2.5 text-xs text-muted-foreground" colSpan={3}>
+            <td className="px-4 pb-3 text-xs text-muted-foreground" colSpan={3}>
               {t('beijing-getihu.totalUpper')}：{toChineseCurrency(result.socialTotal)}
             </td>
           </tr>

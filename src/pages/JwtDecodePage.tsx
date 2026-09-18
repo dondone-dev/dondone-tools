@@ -1,18 +1,17 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Copy, Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
-import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { decodeJwt, formatTimestamp, type JwtParts } from '@/lib/tools/jwt-decode'
 import { useClipboard } from '@/hooks/useClipboard'
-import { ToolError } from '@/components/tools/ToolFeedback'
+import { TextToolLayout, TextToolTextarea } from '@/components/tools/TextToolLayout'
 
 const TIME_FIELDS = ['exp', 'iat', 'nbf'] as const
 
 export function JwtDecodePage() {
-  const { t } = useTranslation('tools')
+  const { t } = useTranslation(['tools', 'common'])
   const [input, setInput] = useState('')
   const [result, setResult] = useState<JwtParts | null>(null)
   const [error, setError] = useState('')
@@ -28,31 +27,52 @@ export function JwtDecodePage() {
     }
   }
 
+  function handleClear() {
+    setInput('')
+    setResult(null)
+    setError('')
+  }
+
+  const fullDecodedJson = useMemo(() => {
+    if (!result) return ''
+    return JSON.stringify({ header: result.header, payload: result.payload }, null, 2)
+  }, [result])
+
+  const isAllCopied = copiedText === fullDecodedJson && Boolean(fullDecodedJson)
+
   return (
     <ToolLayout toolId="jwt-decode" category="Cryptography">
-      <div className="space-y-3">
-        <Textarea
-          variant="editor"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={t('jwt-decode.inputPlaceholder')}
-          className="font-mono text-sm"
-          spellCheck={false}
-        />
-        <Button size="sm" onClick={handleDecode}>
-          {t('jwt-decode.decode')}
-        </Button>
-
-        {error && <ToolError message={error} className="font-mono" />}
-
-        {result && (
-          <div className="space-y-2">
-            <JwtSection title={t('jwt-decode.header')} data={result.header} copiedText={copiedText} onCopy={copy} />
-            <JwtSection title={t('jwt-decode.payload')} data={result.payload} timeFields copiedText={copiedText} onCopy={copy} />
-            <SignatureSection title={t('jwt-decode.signature')} value={result.signature} note={t('jwt-decode.noVerification')} copiedText={copiedText} onCopy={copy} />
-          </div>
-        )}
-      </div>
+      <TextToolLayout
+        inputLabel={t('jwt-decode.title', { ns: 'tools', defaultValue: 'JWT Token' })}
+        inputValue={input}
+        onClearInput={handleClear}
+        inputContent={
+          <TextToolTextarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={t('jwt-decode.inputPlaceholder', { ns: 'tools' })}
+          />
+        }
+        inputActions={
+          <Button size="sm" onClick={handleDecode}>
+            {t('jwt-decode.decode', { ns: 'tools' })}
+          </Button>
+        }
+        outputLabel={t('ui.result', { ns: 'common' })}
+        hasOutput={Boolean(result)}
+        onCopyOutput={fullDecodedJson ? () => copy(fullDecodedJson) : undefined}
+        isOutputCopied={isAllCopied}
+        outputContent={
+          result ? (
+            <div className="p-3 space-y-3">
+              <JwtSection title={t('jwt-decode.header', { ns: 'tools' })} data={result.header} copiedText={copiedText} onCopy={copy} />
+              <JwtSection title={t('jwt-decode.payload', { ns: 'tools' })} data={result.payload} timeFields copiedText={copiedText} onCopy={copy} />
+              <SignatureSection title={t('jwt-decode.signature', { ns: 'tools' })} value={result.signature} note={t('jwt-decode.noVerification', { ns: 'tools' })} copiedText={copiedText} onCopy={copy} />
+            </div>
+          ) : null
+        }
+        error={error}
+      />
     </ToolLayout>
   )
 }
@@ -63,11 +83,11 @@ function JwtSection({ title, data, timeFields, copiedText, onCopy }: { title: st
   const isCopied = copiedText === json
 
   return (
-    <details open className="border rounded-lg">
-      <summary className="px-4 py-2 text-sm font-medium cursor-pointer select-none hover:bg-muted/50 rounded-lg">
+    <details open className="border border-border/80 rounded-xl overflow-hidden bg-card/50">
+      <summary className="px-3.5 py-2 text-xs font-semibold cursor-pointer select-none hover:bg-muted/50 transition-colors">
         {title}
       </summary>
-      <div className="px-4 pb-3 pt-1 space-y-1">
+      <div className="px-3.5 pb-3 pt-1 space-y-1">
         <div className="flex justify-end">
           <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => onCopy(json)}>
             {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
@@ -105,11 +125,11 @@ function SignatureSection({ title, value, note, copiedText, onCopy }: { title: s
   const { t } = useTranslation('common')
   const isCopied = copiedText === value
   return (
-    <details open className="border rounded-lg">
-      <summary className="px-4 py-2 text-sm font-medium cursor-pointer select-none hover:bg-muted/50 rounded-lg">
+    <details open className="border border-border/80 rounded-xl overflow-hidden bg-card/50">
+      <summary className="px-3.5 py-2 text-xs font-semibold cursor-pointer select-none hover:bg-muted/50 transition-colors">
         {title}
       </summary>
-      <div className="px-4 pb-3 pt-1 space-y-2">
+      <div className="px-3.5 pb-3 pt-1 space-y-2">
         <div className="flex justify-end">
           <Button variant="ghost" size="sm" className="min-h-8 px-2 text-xs gap-1" onClick={() => onCopy(value)}>
             {isCopied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}

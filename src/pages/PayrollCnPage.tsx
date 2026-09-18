@@ -1,11 +1,10 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Wallet, Building2, Receipt, ShieldCheck, Info } from 'lucide-react'
+import { Wallet, Building2, Receipt, ShieldCheck, Info, ChevronDown } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Separator } from '@/components/ui/separator'
 import {
   Select,
   SelectContent,
@@ -55,7 +54,7 @@ export function PayrollCnPage() {
   const [continuingEdu, setContinuingEdu] = useState(false)
   const [housing, setHousing] = useState<'none' | 'loan' | 'rent1' | 'rent2' | 'rent3'>('none')
   const [elderly, setElderly] = useState<'none' | 'only' | 'shared'>('none')
-
+  const [showDeductions, setShowDeductions] = useState(false)
   // Advanced: custom contribution base
   const [customBase, setCustomBase] = useState(false)
   const [siBaseRaw, setSiBaseRaw] = useState('')
@@ -107,7 +106,7 @@ export function PayrollCnPage() {
     <ToolLayout toolId="payroll-cn" category="Finance">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr] items-start">
         {/* ---------- Inputs ---------- */}
-        <div className="space-y-5 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:p-1.5">
+        <div className="space-y-6 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:p-1.5">
           <Field label={t('payroll-cn.city')}>
             <Select value={cityId} onValueChange={selectCity}>
               <SelectTrigger className="text-sm">
@@ -153,70 +152,83 @@ export function PayrollCnPage() {
             </Select>
           </Field>
 
-          <Separator />
+          {/* Collapsible Special additional deductions */}
+          <div className="rounded-xl border border-border/70 bg-card/60 overflow-hidden transition-all">
+            <button
+              type="button"
+              onClick={() => setShowDeductions(!showDeductions)}
+              className="w-full px-3.5 py-2.5 flex items-center justify-between text-xs font-semibold hover:bg-muted/40 transition-colors text-left"
+            >
+              <div className="flex items-center gap-1.5">
+                <span>{t('payroll-cn.deductions')}</span>
+                <span className="text-[11px] font-normal text-muted-foreground">
+                  ({specialDeduction > 0 ? `−${yuan(specialDeduction)}/${t('payroll-cn.perMonth')}` : '可选'})
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono tabular-nums text-muted-foreground">
+                  {specialDeduction > 0 ? `−${yuan(specialDeduction)}` : '—'}
+                </span>
+                <ChevronDown className={cn('h-3.5 w-3.5 text-muted-foreground transition-transform', showDeductions && 'rotate-180')} />
+              </div>
+            </button>
 
-          {/* Special additional deductions */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <Label className="text-xs font-medium">{t('payroll-cn.deductions')}</Label>
-              <span className="text-xs tabular-nums text-muted-foreground">
-                {yuan(specialDeduction)}/{t('payroll-cn.perMonth')}
-              </span>
-            </div>
+            {showDeductions && (
+              <div className="p-3.5 pt-1 border-t border-border/40 space-y-3 bg-muted/10">
+                <Field label={t('payroll-cn.childEducation')} hint={t('payroll-cn.childEducationHint')}>
+                  <Select value={String(children)} onValueChange={(v) => setChildren(Number(v))}>
+                    <SelectTrigger className="text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {[0, 1, 2, 3, 4].map((n) => (
+                        <SelectItem key={n} value={String(n)}>
+                          {n === 0 ? t('payroll-cn.childrenNone') : String(n)}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Field>
 
-            <Field label={t('payroll-cn.childEducation')} hint={t('payroll-cn.childEducationHint')}>
-              <Select value={String(children)} onValueChange={(v) => setChildren(Number(v))}>
-                <SelectTrigger className="text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {[0, 1, 2, 3, 4].map((n) => (
-                    <SelectItem key={n} value={String(n)}>
-                      {n === 0 ? t('payroll-cn.childrenNone') : String(n)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </Field>
+                <Field label={t('payroll-cn.housing')}>
+                  <Select value={housing} onValueChange={(v) => setHousing(v as typeof housing)}>
+                    <SelectTrigger className="text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">{t('payroll-cn.housingNone')}</SelectItem>
+                      <SelectItem value="loan">{t('payroll-cn.housingLoan')}</SelectItem>
+                      <SelectItem value="rent1">{t('payroll-cn.rent1')}</SelectItem>
+                      <SelectItem value="rent2">{t('payroll-cn.rent2')}</SelectItem>
+                      <SelectItem value="rent3">{t('payroll-cn.rent3')}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
 
-            <Field label={t('payroll-cn.housing')}>
-              <Select value={housing} onValueChange={(v) => setHousing(v as typeof housing)}>
-                <SelectTrigger className="text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="none">{t('payroll-cn.housingNone')}</SelectItem>
-                  <SelectItem value="loan">{t('payroll-cn.housingLoan')}</SelectItem>
-                  <SelectItem value="rent1">{t('payroll-cn.rent1')}</SelectItem>
-                  <SelectItem value="rent2">{t('payroll-cn.rent2')}</SelectItem>
-                  <SelectItem value="rent3">{t('payroll-cn.rent3')}</SelectItem>
-                </SelectContent>
-              </Select>
-            </Field>
+                <Field label={t('payroll-cn.elderly')}>
+                  <Select value={elderly} onValueChange={(v) => setElderly(v as typeof elderly)}>
+                    <SelectTrigger className="text-sm">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="none">{t('payroll-cn.elderlyNone')}</SelectItem>
+                      <SelectItem value="only">{t('payroll-cn.elderlyOnly')}</SelectItem>
+                      <SelectItem value="shared">{t('payroll-cn.elderlyShared')}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </Field>
 
-            <Field label={t('payroll-cn.elderly')}>
-              <Select value={elderly} onValueChange={(v) => setElderly(v as typeof elderly)}>
-                <SelectTrigger className="text-sm">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="none">{t('payroll-cn.elderlyNone')}</SelectItem>
-                  <SelectItem value="only">{t('payroll-cn.elderlyOnly')}</SelectItem>
-                  <SelectItem value="shared">{t('payroll-cn.elderlyShared')}</SelectItem>
-                </SelectContent>
-              </Select>
-            </Field>
-
-            <label className="flex cursor-pointer items-center gap-2">
-              <Checkbox
-                checked={continuingEdu}
-                onCheckedChange={(c) => setContinuingEdu(c === true)}
-              />
-              <span className="text-sm">{t('payroll-cn.continuingEdu')}</span>
-            </label>
+                <label className="flex cursor-pointer items-center gap-2 pt-0.5">
+                  <Checkbox
+                    checked={continuingEdu}
+                    onCheckedChange={(c) => setContinuingEdu(c === true)}
+                  />
+                  <span className="text-xs">{t('payroll-cn.continuingEdu')}</span>
+                </label>
+              </div>
+            )}
           </div>
 
-          <Separator />
 
           {/* Advanced: custom base */}
           <div className="space-y-3">
@@ -300,14 +312,14 @@ function Results({
   return (
     <div className="space-y-4">
       {/* Hero: take-home */}
-      <div className="rounded-xl border bg-muted/30 p-5 shadow-2xs">
-        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+      <div className="rounded-xl border bg-muted/30 p-6 shadow-2xs">
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Wallet className="h-3.5 w-3.5" />
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <Wallet className="h-4 w-4" />
               {t('payroll-cn.netSalary')}
             </div>
-            <div className="mt-1 text-3xl font-semibold tabular-nums tracking-tight text-emerald-600 dark:text-emerald-400">
+            <div className="mt-2 text-4xl font-bold tabular-nums tracking-tight text-emerald-600 dark:text-emerald-400">
               {yuan(result.netSalary)}
             </div>
           </div>
@@ -379,18 +391,18 @@ function CompositionBar({
     { key: 'tax', value: result.tax.monthlyAvg, className: 'bg-amber-500' },
   ]
   return (
-    <div className="mt-4 space-y-2">
-      <div className="flex h-2.5 overflow-hidden rounded-full">
+    <div className="mt-5 space-y-2.5">
+      <div className="flex h-3 p-0.5 overflow-hidden rounded-full bg-muted/60 gap-0.5">
         {segments.map((s) => (
           <div
             key={s.key}
-            className={s.className}
+            className={cn(s.className, 'rounded-full')}
             style={{ width: `${(s.value / gross) * 100}%` }}
             title={`${t(`payroll-cn.seg.${s.key}`)}: ${yuan(s.value)}`}
           />
         ))}
       </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+      <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
         {segments.map((s) => (
           <span key={s.key} className="flex items-center gap-1.5">
             <span className={cn('h-2 w-2 rounded-full', s.className)} />
@@ -437,11 +449,11 @@ function ContributionCard({
         <span className="text-sm font-medium">{title}</span>
         <span className="text-base font-semibold tabular-nums">{yuan(data.total)}</span>
       </div>
-      <dl className="space-y-1.5">
+      <dl className="space-y-0.5">
         {rows.map((key) => (
-          <div key={key} className="flex items-center justify-between text-sm">
+          <div key={key} className="flex items-center justify-between text-xs py-1.5 border-b border-border/40 last:border-b-0">
             <dt className="text-muted-foreground">{t(`payroll-cn.item.${key}`)}</dt>
-            <dd className="tabular-nums">{yuan(data[key])}</dd>
+            <dd className="font-mono font-medium tabular-nums">{yuan(data[key])}</dd>
           </div>
         ))}
       </dl>

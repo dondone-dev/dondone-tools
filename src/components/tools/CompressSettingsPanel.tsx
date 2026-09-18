@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import type { InputFormat, OutputFormat } from '@/lib/tools/img-compress'
 
 interface CompressSettingsPanelProps {
-  inputFormat: InputFormat | null
+  inputFormat?: InputFormat | null
   outputFormat: OutputFormat
   quality: number
   lossless: boolean
@@ -26,7 +26,6 @@ function isFormatDisabled(fmt: OutputFormat, lossless: boolean): boolean {
 }
 
 export function CompressSettingsPanel({
-  inputFormat,
   outputFormat,
   quality,
   lossless,
@@ -37,6 +36,7 @@ export function CompressSettingsPanel({
   const { t } = useTranslation('tools')
 
   const formats: { id: OutputFormat; label: string; sub: string; tag: 'lossy' | 'lossless' | 'both' }[] = [
+    { id: 'auto', label: t('img-compress.codecAuto'), sub: t('img-compress.codecAutoSub'), tag: 'both' },
     { id: 'jpeg', label: 'JPEG', sub: t('img-compress.codecJpeg'), tag: 'lossy' },
     { id: 'png', label: 'PNG', sub: t('img-compress.codecPng'), tag: 'lossless' },
     { id: 'webp', label: 'WebP', sub: t('img-compress.codecWebp'), tag: lossless ? 'lossless' : 'both' },
@@ -53,7 +53,7 @@ export function CompressSettingsPanel({
     both: t('img-compress.tagBoth'),
   }
 
-  const qualityVisible = inputFormat != null && showQualitySlider(outputFormat, lossless)
+  const qualityVisible = showQualitySlider(outputFormat, lossless)
 
   return (
     <>

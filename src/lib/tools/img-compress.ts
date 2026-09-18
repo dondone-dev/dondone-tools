@@ -85,24 +85,23 @@ export function makeUniqueFilename(filename: string, existingNames: Set<string>)
 export function createZipBundle(
   files: Array<{ name: string; buffer: ArrayBuffer }>,
 ): Promise<Blob> {
-  const { promise, resolve, reject } = Promise.withResolvers<Blob>()
-  const usedNames = new Set<string>()
-  const zippable: Record<string, Uint8Array> = {}
+  return new Promise<Blob>((resolve, reject) => {
+    const usedNames = new Set<string>()
+    const zippable: Record<string, Uint8Array> = {}
 
-  for (const file of files) {
-    const uniqueName = makeUniqueFilename(file.name, usedNames)
-    zippable[uniqueName] = new Uint8Array(file.buffer)
-  }
-
-  zip(zippable, (err, data) => {
-    if (err) {
-      reject(err)
-    } else {
-      resolve(new Blob([data], { type: 'application/zip' }))
+    for (const file of files) {
+      const uniqueName = makeUniqueFilename(file.name, usedNames)
+      zippable[uniqueName] = new Uint8Array(file.buffer)
     }
-  })
 
-  return promise
+    zip(zippable, (err, data) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(new Blob([data], { type: 'application/zip' }))
+      }
+    })
+  })
 }
 async function fileToImageData(file: File): Promise<{ data: ImageData; width: number; height: number }> {
   const bitmap = await createImageBitmap(file)

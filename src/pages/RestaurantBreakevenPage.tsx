@@ -1,11 +1,10 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { TrendingUp, ChartPie, Receipt, Info, ShieldCheck } from 'lucide-react'
+import { TrendingUp, ChartPie, Receipt, Info, ShieldCheck, ChevronDown } from 'lucide-react'
 import { ToolLayout } from '@/components/layout/ToolLayout'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Separator } from '@/components/ui/separator'
 import {
   CartesianGrid,
   Cell,
@@ -64,8 +63,8 @@ export function RestaurantBreakevenPage() {
   const [equipment, setEquipment] = useState('80000')
   const [deposits, setDeposits] = useState('30000')
   const [startupOther, setStartupOther] = useState('10000')
-
-  // Monthly fixed costs
+  const [showUpfront, setShowUpfront] = useState(false)
+  const [analysisTab, setAnalysisTab] = useState<'cvp' | 'cost' | 'table'>('cvp')
   const [rent, setRent] = useState('25000')
   const [labor, setLabor] = useState('40000')
   const [utilities, setUtilities] = useState('6000')
@@ -126,35 +125,8 @@ export function RestaurantBreakevenPage() {
     <ToolLayout toolId="restaurant-breakeven" category="Finance">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,360px)_1fr] items-start">
         {/* ---------- Inputs ---------- */}
-        <div className="space-y-5 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:p-1.5">
-          <div>
-            <div className="flex items-baseline gap-1.5 text-sm font-semibold">
-              <span>{t('restaurant-breakeven.upfrontTitle')}</span>
-              <span className="text-xs font-normal text-muted-foreground">{t('restaurant-breakeven.upfrontHint')}</span>
-            </div>
-            <div className="mt-2.5 grid grid-cols-2 gap-3">
-              <Field label={t('restaurant-breakeven.transferFee')}>
-                <BaseInput value={transferFee} onChange={setTransferFee} />
-              </Field>
-              <Field label={t('restaurant-breakeven.renovation')}>
-                <BaseInput value={renovation} onChange={setRenovation} />
-              </Field>
-              <Field label={t('restaurant-breakeven.equipment')}>
-                <BaseInput value={equipment} onChange={setEquipment} />
-              </Field>
-              <Field label={t('restaurant-breakeven.deposits')}>
-                <BaseInput value={deposits} onChange={setDeposits} />
-              </Field>
-              <div className="col-span-2">
-                <Field label={t('restaurant-breakeven.startupOther')}>
-                  <BaseInput value={startupOther} onChange={setStartupOther} />
-                </Field>
-              </div>
-            </div>
-          </div>
-
-          <Separator />
-
+        <div className="space-y-6 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:p-1.5">
+          {/* 1. Monthly Fixed Costs */}
           <div>
             <div className="flex items-baseline justify-between text-sm font-semibold">
               <span>{t('restaurant-breakeven.fixedTitle')}</span>
@@ -178,8 +150,7 @@ export function RestaurantBreakevenPage() {
             </div>
           </div>
 
-          <Separator />
-
+          {/* 2. Variable Cost Rates */}
           <div>
             <div className="flex items-baseline justify-between text-sm font-semibold">
               <span>{t('restaurant-breakeven.variableTitle')}</span>
@@ -203,8 +174,7 @@ export function RestaurantBreakevenPage() {
             </div>
           </div>
 
-          <Separator />
-
+          {/* 3. Revenue Assumptions */}
           <div className="space-y-2.5">
             <div className="text-sm font-semibold">{t('restaurant-breakeven.revenueTitle')}</div>
             <Tabs value={revenueMode} onValueChange={(v) => setRevenueMode(v as RevenueMode)}>
@@ -240,6 +210,53 @@ export function RestaurantBreakevenPage() {
             )}
           </div>
 
+          {/* 4. Collapsible Upfront Investment */}
+          <div className="rounded-xl border border-border/70 bg-card/60 overflow-hidden transition-all">
+            <button
+              type="button"
+              onClick={() => setShowUpfront(!showUpfront)}
+              className="w-full px-3.5 py-2.5 flex items-center justify-between text-xs font-semibold hover:bg-muted/40 transition-colors text-left"
+            >
+              <div className="flex items-center gap-1.5">
+                <span>{t('restaurant-breakeven.upfrontTitle')}</span>
+                <span className="text-[11px] font-normal text-muted-foreground">
+                  ({t('restaurant-breakeven.upfrontHint')})
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono tabular-nums text-muted-foreground">
+                  {result.totalUpfrontInvestment > 0 ? yuan(result.totalUpfrontInvestment) : '—'}
+                </span>
+                <ChevronDown className={cn('h-3.5 w-3.5 text-muted-foreground transition-transform', showUpfront && 'rotate-180')} />
+              </div>
+            </button>
+
+            {showUpfront && (
+              <div className="p-3.5 pt-1 border-t border-border/40 space-y-2.5 bg-muted/10">
+                <div className="grid grid-cols-2 gap-2.5">
+                  <Field label={t('restaurant-breakeven.transferFee')}>
+                    <BaseInput value={transferFee} onChange={setTransferFee} />
+                  </Field>
+                  <Field label={t('restaurant-breakeven.renovation')}>
+                    <BaseInput value={renovation} onChange={setRenovation} />
+                  </Field>
+                  <Field label={t('restaurant-breakeven.equipment')}>
+                    <BaseInput value={equipment} onChange={setEquipment} />
+                  </Field>
+                  <Field label={t('restaurant-breakeven.deposits')}>
+                    <BaseInput value={deposits} onChange={setDeposits} />
+                  </Field>
+                  <div className="col-span-2">
+                    <Field label={t('restaurant-breakeven.startupOther')}>
+                      <BaseInput value={startupOther} onChange={setStartupOther} />
+                    </Field>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+
           <p className="flex items-start gap-1.5 text-xs text-muted-foreground">
             <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" />
             {t('restaurant-breakeven.privacy')}
@@ -252,33 +269,47 @@ export function RestaurantBreakevenPage() {
 
           {result.totalUpfrontInvestment > 0 && <PaybackRow result={result} t={t} />}
 
-          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
-            <div className="mb-3 flex items-center gap-2 text-sm font-medium">
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-              {t('restaurant-breakeven.cvpTitle')}
+          {/* Tabbed Analysis Container */}
+          <div className="rounded-xl border bg-card shadow-2xs overflow-hidden">
+            <div className="border-b px-4 py-2.5 flex items-center justify-between gap-3 bg-muted/20">
+              <Tabs value={analysisTab} onValueChange={(v) => setAnalysisTab(v as typeof analysisTab)}>
+                <TabsList className="h-8">
+                  <TabsTrigger value="cvp" className="text-xs h-7 gap-1.5">
+                    <TrendingUp className="h-3.5 w-3.5" />
+                    <span>{t('restaurant-breakeven.cvpTitle')}</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="cost" className="text-xs h-7 gap-1.5">
+                    <ChartPie className="h-3.5 w-3.5" />
+                    <span>{t('restaurant-breakeven.costStructureTitle')}</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="table" className="text-xs h-7 gap-1.5">
+                    <Receipt className="h-3.5 w-3.5" />
+                    <span>{t('restaurant-breakeven.tableTitle')}</span>
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
             </div>
-            <CvpChart totalFixed={result.totalFixed} variableRatio={result.variableRatio} breakeven={result.breakevenRevenue} revenue={result.revenue} t={t} />
-            <div className="mt-1 flex flex-wrap gap-4 text-xs text-muted-foreground">
-              <Legend color={NEUTRAL} label={t('restaurant-breakeven.legendFixed')} />
-              <Legend color={BRAND} label={t('restaurant-breakeven.legendTotal')} />
-              <Legend color={GOOD} label={t('restaurant-breakeven.legendRevenue')} />
-            </div>
-          </div>
 
-          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
-            <div className="mb-3 flex items-center gap-2 text-sm font-medium">
-              <ChartPie className="h-4 w-4 text-muted-foreground" />
-              {t('restaurant-breakeven.costStructureTitle')}
-            </div>
-            <CostDonut rent={n(rent)} labor={n(labor)} utilities={n(utilities)} fixedOther={n(fixedOther)} foodCost={result.foodCost} varExtraCost={result.varExtraCost} t={t} />
-          </div>
+            <div className="p-4 sm:p-5">
+              {analysisTab === 'cvp' && (
+                <div>
+                  <CvpChart totalFixed={result.totalFixed} variableRatio={result.variableRatio} breakeven={result.breakevenRevenue} revenue={result.revenue} t={t} />
+                  <div className="mt-2 flex flex-wrap gap-4 text-xs text-muted-foreground">
+                    <Legend color={NEUTRAL} label={t('restaurant-breakeven.legendFixed')} />
+                    <Legend color={BRAND} label={t('restaurant-breakeven.legendTotal')} />
+                    <Legend color={GOOD} label={t('restaurant-breakeven.legendRevenue')} />
+                  </div>
+                </div>
+              )}
 
-          <div className="rounded-xl border bg-card p-4 sm:p-5 shadow-2xs">
-            <div className="mb-3 flex items-center gap-2 text-sm font-medium">
-              <Receipt className="h-4 w-4 text-muted-foreground" />
-              {t('restaurant-breakeven.tableTitle')}
+              {analysisTab === 'cost' && (
+                <CostDonut rent={n(rent)} labor={n(labor)} utilities={n(utilities)} fixedOther={n(fixedOther)} foodCost={result.foodCost} varExtraCost={result.varExtraCost} t={t} />
+              )}
+
+              {analysisTab === 'table' && (
+                <PlTable result={result} rent={n(rent)} labor={n(labor)} utilities={n(utilities)} fixedOther={n(fixedOther)} t={t} />
+              )}
             </div>
-            <PlTable result={result} rent={n(rent)} labor={n(labor)} utilities={n(utilities)} fixedOther={n(fixedOther)} t={t} />
           </div>
         </div>
       </div>

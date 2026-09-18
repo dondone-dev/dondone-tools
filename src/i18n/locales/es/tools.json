@@ -426,7 +426,7 @@
   },
   "heic": {
     "title": "Convertidor HEIC",
-    "description": "Convierte imágenes HEIC/HEIF a JPEG, PNG o Bitmap. Soporta múltiples archivos y descarga ZIP. Todo el procesamiento se realiza localmente.",
+    "description": "Convierte imágenes HEIC/HEIF a JPEG, PNG, WebP o Bitmap. Soporta múltiples archivos y descarga ZIP. Todo el procesamiento se realiza localmente.",
     "dropFiles": "Suelta archivos HEIC / HEIF o haz clic para seleccionar",
     "multipleHint": "Soporta múltiples archivos",
     "outputFormat": "Formato de salida",
@@ -440,7 +440,8 @@
     "done": "Listo",
     "notHeic": "No es un archivo HEIC/HEIF",
     "conversionFailed": "Error en la conversión",
-    "filesCount": "{{count}} archivo(s)"
+    "filesCount": "{{count}} archivo(s)",
+    "webpUnsupported": "Tu navegador no admite la codificación WebP"
   },
   "zip-inspector": {
     "title": "Inspector ZIP",

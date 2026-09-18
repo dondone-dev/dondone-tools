@@ -1,4 +1,4 @@
-export type HeicOutputFormat = 'jpeg' | 'png' | 'bmp'
+export type HeicOutputFormat = 'jpeg' | 'png' | 'bmp' | 'webp'
 
 export interface HeicFormatConfig {
   id: HeicOutputFormat
@@ -11,6 +11,7 @@ export interface HeicFormatConfig {
 export const HEIC_FORMATS: HeicFormatConfig[] = [
   { id: 'jpeg', label: 'JPEG', mime: 'image/jpeg', ext: 'jpg', supportsQuality: true },
   { id: 'png',  label: 'PNG',  mime: 'image/png',  ext: 'png', supportsQuality: false },
+  { id: 'webp', label: 'WebP', mime: 'image/webp', ext: 'webp', supportsQuality: true },
   { id: 'bmp',  label: 'Bitmap', mime: 'image/bmp', ext: 'bmp', supportsQuality: false },
 ]
 
@@ -58,4 +59,21 @@ export function encodeBmp(data: Uint8ClampedArray, width: number, height: number
   }
 
   return new Blob([buf], { type: 'image/bmp' })
+}
+
+// Real feature detection instead of UA sniffing: Safari added canvas.toBlob
+// webp encoding in Safari 14, but unsupported browsers silently fall back to
+// PNG rather than erroring, so a probe is the only reliable signal.
+let webpSupportPromise: Promise<boolean> | undefined
+
+export function detectWebpEncodingSupport(): Promise<boolean> {
+  if (!webpSupportPromise) {
+    webpSupportPromise = new Promise<boolean>((resolve) => {
+      const canvas = document.createElement('canvas')
+      canvas.width = 1
+      canvas.height = 1
+      canvas.toBlob((blob) => resolve(blob?.type === 'image/webp'), 'image/webp')
+    })
+  }
+  return webpSupportPromise
 }

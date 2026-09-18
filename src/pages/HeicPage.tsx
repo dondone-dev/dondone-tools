@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider'
 import { formatBytes } from '@/lib/tools/encoding-common'
 import {
   buildOutputFilename,
+  detectWebpEncodingSupport,
   encodeBmp,
   getFormatConfig,
   HEIC_FORMATS,
@@ -42,6 +43,7 @@ export function HeicPage() {
   const [format, setFormat] = useState<HeicOutputFormat>('jpeg')
   const [quality, setQuality] = useState(DEFAULT_QUALITY)
   const [items, setItems] = useState<FileItem[]>([])
+  const [webpSupported, setWebpSupported] = useState(true)
 
   const formatRef = useRef(format)
   const qualityRef = useRef(quality)
@@ -53,6 +55,11 @@ export function HeicPage() {
 
   useEffect(() => { formatRef.current = format }, [format])
   useEffect(() => { qualityRef.current = quality }, [quality])
+  useEffect(() => {
+    let cancelled = false
+    detectWebpEncodingSupport().then(supported => { if (!cancelled) setWebpSupported(supported) })
+    return () => { cancelled = true }
+  }, [])
 
   useEffect(() => {
     return () => { objectUrlsRef.current.forEach(URL.revokeObjectURL) }
@@ -259,20 +266,27 @@ export function HeicPage() {
         <div className="space-y-1.5">
           <Label className="text-xs text-muted-foreground">{t('heic.outputFormat', { ns: 'tools' })}</Label>
           <div className="flex gap-1">
-            {HEIC_FORMATS.map(f => (
-              <button
-                key={f.id}
-                onClick={() => handleFormatChange(f.id)}
-                className={cn(
-                  'px-3 py-1 rounded-md text-xs font-medium border transition-colors',
-                  format === f.id
-                    ? 'bg-foreground text-background border-foreground'
-                    : 'bg-transparent text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground'
-                )}
-              >
-                {f.label}
-              </button>
-            ))}
+            {HEIC_FORMATS.map(f => {
+              const disabled = f.id === 'webp' && !webpSupported
+              return (
+                <button
+                  key={f.id}
+                  disabled={disabled}
+                  onClick={() => { if (!disabled) handleFormatChange(f.id) }}
+                  title={disabled ? t('heic.webpUnsupported', { ns: 'tools' }) : undefined}
+                  className={cn(
+                    'px-3 py-1 rounded-md text-xs font-medium border transition-colors',
+                    disabled
+                      ? 'bg-transparent text-muted-foreground/40 border-border cursor-not-allowed'
+                      : format === f.id
+                        ? 'bg-foreground text-background border-foreground'
+                        : 'bg-transparent text-muted-foreground border-border hover:border-foreground/40 hover:text-foreground'
+                  )}
+                >
+                  {f.label}
+                </button>
+              )
+            })}
           </div>
         </div>
 

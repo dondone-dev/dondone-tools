@@ -18,6 +18,10 @@ describe('buildOutputFilename', () => {
     expect(buildOutputFilename('shot.heic', 'bmp')).toBe('shot.bmp')
   })
 
+  it('uses .webp extension for webp', () => {
+    expect(buildOutputFilename('shot.heic', 'webp')).toBe('shot.webp')
+  })
+
   it('uses .png extension for png', () => {
     expect(buildOutputFilename('IMG_0042.HEIF', 'png')).toBe('IMG_0042.png')
   })
@@ -45,6 +49,13 @@ describe('getFormatConfig', () => {
     const cfg = getFormatConfig('bmp')
     expect(cfg.mime).toBe('image/bmp')
     expect(cfg.supportsQuality).toBe(false)
+  })
+
+  it('returns correct config for webp', () => {
+    const cfg = getFormatConfig('webp')
+    expect(cfg.mime).toBe('image/webp')
+    expect(cfg.ext).toBe('webp')
+    expect(cfg.supportsQuality).toBe(true)
   })
 
   it('throws for unknown format', () => {
@@ -82,13 +93,12 @@ describe('encodeBmp', () => {
 })
 
 describe('HEIC_FORMATS', () => {
-  it('has exactly 3 formats', () => {
-    expect(HEIC_FORMATS).toHaveLength(3)
+  it('has exactly 4 formats', () => {
+    expect(HEIC_FORMATS).toHaveLength(4)
   })
 
-  it('only jpeg supports quality', () => {
+  it('jpeg and webp support quality', () => {
     const withQuality = HEIC_FORMATS.filter(f => f.supportsQuality)
-    expect(withQuality).toHaveLength(1)
-    expect(withQuality[0].id).toBe('jpeg')
+    expect(withQuality.map(f => f.id).sort()).toEqual(['jpeg', 'webp'])
   })
 })

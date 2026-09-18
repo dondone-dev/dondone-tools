@@ -426,7 +426,7 @@
   },
   "heic": {
     "title": "HEIC 변환기",
-    "description": "HEIC/HEIF 이미지를 JPEG, PNG 또는 Bitmap으로 변환합니다. 여러 파일 및 ZIP 일괄 다운로드 지원. 모든 처리는 로컬에서 실행됩니다.",
+    "description": "HEIC/HEIF 이미지를 JPEG, PNG, WebP 또는 Bitmap으로 변환합니다. 여러 파일 및 ZIP 일괄 다운로드 지원. 모든 처리는 로컬에서 실행됩니다.",
     "dropFiles": "HEIC / HEIF 파일을 드래그하거나 클릭하여 선택",
     "multipleHint": "여러 파일 지원",
     "outputFormat": "출력 형식",
@@ -440,7 +440,8 @@
     "done": "완료",
     "notHeic": "HEIC/HEIF 파일이 아닙니다",
     "conversionFailed": "변환 실패",
-    "filesCount": "{{count}}개 파일"
+    "filesCount": "{{count}}개 파일",
+    "webpUnsupported": "브라우저가 WebP 인코딩을 지원하지 않습니다"
   },
   "zip-inspector": {
     "title": "ZIP 검사기",

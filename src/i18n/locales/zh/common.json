@@ -29,9 +29,14 @@
   },
   "ui": {
     "result": "结果",
-    "copy": "Copy",
-    "copied": "Copied",
+    "copy": "复制",
+    "copied": "已复制",
     "addFavorite": "添加到收藏",
-    "removeFavorite": "取消收藏"
+    "removeFavorite": "取消收藏",
+    "clear": "清空",
+    "input": "输入",
+    "output": "输出",
+    "emptyOutput": "结果将显示在此处",
+    "stats": "{{chars}} 字符 · {{lines}} 行"
   }
 }

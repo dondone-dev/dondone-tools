@@ -32,6 +32,11 @@
     "copy": "Copy",
     "copied": "Copied",
     "addFavorite": "Zu Favoriten hinzufügen",
-    "removeFavorite": "Aus Favoriten entfernen"
+    "removeFavorite": "Aus Favoriten entfernen",
+    "clear": "Löschen",
+    "input": "Eingabe",
+    "output": "Ausgabe",
+    "emptyOutput": "Das Ergebnis wird hier angezeigt",
+    "stats": "{{chars}} Zeichen · {{lines}} Zeilen"
   }
 }

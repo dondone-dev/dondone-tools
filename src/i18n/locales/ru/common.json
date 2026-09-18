@@ -32,6 +32,11 @@
     "copy": "Copy",
     "copied": "Copied",
     "addFavorite": "Добавить в избранное",
-    "removeFavorite": "Удалить из избранного"
+    "removeFavorite": "Удалить из избранного",
+    "clear": "Очистить",
+    "input": "Ввод",
+    "output": "Вывод",
+    "emptyOutput": "Результат появится здесь",
+    "stats": "{{chars}} симв. · {{lines}} строк"
   }
 }

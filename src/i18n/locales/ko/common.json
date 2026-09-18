@@ -32,6 +32,11 @@
     "copy": "Copy",
     "copied": "Copied",
     "addFavorite": "즐겨찾기에 추가",
-    "removeFavorite": "즐겨찾기에서 제거"
+    "removeFavorite": "즐겨찾기에서 제거",
+    "clear": "지우기",
+    "input": "입력",
+    "output": "출력",
+    "emptyOutput": "결과가 여기에 표시됩니다",
+    "stats": "{{chars}}자 · {{lines}}줄"
   }
 }

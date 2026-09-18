@@ -3,9 +3,9 @@
 import mozjpegEncWasmUrl from '@jsquash/jpeg/codec/enc/mozjpeg_enc.wasm?url'
 import webpEncWasmUrl from '@jsquash/webp/codec/enc/webp_enc.wasm?url'
 import webpEncSimdWasmUrl from '@jsquash/webp/codec/enc/webp_enc_simd.wasm?url'
-import pngWasmUrl from '@jsquash/png/codec/pkg/squoosh_png_bg.wasm?url'
+import oxipngWasmUrl from '@jsquash/oxipng/codec/pkg/squoosh_oxipng_bg.wasm?url'
 import { init as initJpegImpl, default as encodeJpeg } from '@jsquash/jpeg/encode'
-import { init as initPngImpl, default as encodePng } from '@jsquash/png/encode'
+import { init as initOxipngImpl, default as optimisePng } from '@jsquash/oxipng/optimise'
 import { init as initWebpImpl, default as encodeWebp } from '@jsquash/webp/encode'
 
 import { zip } from 'fflate'
@@ -127,7 +127,7 @@ function ensureJpeg(): Promise<void> {
 
 function ensurePng(): Promise<void> {
   if (!pngReady) {
-    pngReady = initPngImpl(pngWasmUrl).then(() => undefined)
+    pngReady = initOxipngImpl(oxipngWasmUrl).then(() => undefined)
   }
   return pngReady
 }
@@ -163,7 +163,7 @@ export async function encodeImageData(
 
   if (target === 'png') {
     await ensurePng()
-    const buffer = await encodePng(data)
+    const buffer = await optimisePng(data, { level: 3 })
     return { buffer, format: 'png', mimeType: 'image/png', extension: 'png', width, height }
   }
 
@@ -178,5 +178,15 @@ export async function compressImage(
 ): Promise<CompressResult> {
   const inputFormat = detectFormat(file) ?? 'jpeg'
   const { data, width, height } = await fileToImageData(file)
-  return encodeImageData(data, width, height, opts, inputFormat)
+  const result = await encodeImageData(data, width, height, opts, inputFormat)
+
+  // Re-encoding an already-optimized image (e.g. an indexed-palette PNG) can grow
+  // the file. When the target format matches the input format the user only asked
+  // to compress, not convert, so keep the original bytes instead of shipping
+  // something bigger.
+  if (result.format === inputFormat && result.buffer.byteLength >= file.size) {
+    return { ...result, buffer: await file.arrayBuffer() }
+  }
+
+  return result
 }

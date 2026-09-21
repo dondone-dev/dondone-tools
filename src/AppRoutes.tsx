@@ -44,6 +44,8 @@ import { RandomStringPage } from '@/pages/RandomStringPage'
 import { SupabaseRlsPage } from '@/pages/SupabaseRlsPage'
 import { ExifPage } from '@/pages/ExifPage'
 import { SensitiveMaskerPage } from '@/pages/SensitiveMaskerPage'
+import { CoordinatesPage } from '@/pages/CoordinatesPage'
+import { BirthplaceSimulatorPage } from '@/pages/BirthplaceSimulatorPage'
 const IdCardPage = lazy(() => import('@/pages/IdCardPage').then(m => ({ default: m.IdCardPage })))
 const NameRiskPage = lazy(() => import('@/pages/NameRiskPage').then(m => ({ default: m.NameRiskPage })))
 const HeicPage = lazy(() => import('@/pages/HeicPage').then(m => ({ default: m.HeicPage })))
@@ -92,6 +94,8 @@ function toolRoutes() {
       <Route path="text/regex" element={<RegexPage />} />
       <Route path="text/id-card" element={<Suspense fallback={<ToolSkeleton />}><IdCardPage /></Suspense>} />
       <Route path="text/name-risk" element={<Suspense fallback={<ToolSkeleton />}><NameRiskPage /></Suspense>} />
+      <Route path="text/coordinates" element={<CoordinatesPage />} />
+      <Route path="fun/birthplace-simulator" element={<BirthplaceSimulatorPage />} />
       <Route path="random/uuid" element={<UuidPage />} />
       <Route path="random/string" element={<RandomStringPage />} />
       <Route path="fun/uuid" element={<UuidPage />} />

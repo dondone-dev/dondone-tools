@@ -37,6 +37,7 @@ import {
   BookOpen,
   UtensilsCrossed,
   Radar,
+  MapPin,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -208,6 +209,13 @@ export const TOOLS: ToolConfig[] = [
     category: 'Text',
   },
   {
+    id: 'coordinates',
+    descriptionKey: 'coordinates.description',
+    href: '/text/coordinates',
+    icon: MapPin,
+    category: 'Text',
+  },
+  {
     id: 'payroll-cn',
     descriptionKey: 'payroll-cn.description',
     href: '/finance/social-insurance',
@@ -292,6 +300,13 @@ export const TOOLS: ToolConfig[] = [
     category: 'Random',
   },
   {
+    id: 'birthplace-simulator',
+    descriptionKey: 'birthSimulator.description',
+    href: '/fun/birthplace-simulator',
+    icon: Baby,
+    category: 'Fun',
+  },
+  {
     id: 'bp-jwt',
     descriptionKey: 'bp-jwt.description',
     href: '/bp/jwt',
@@ -370,7 +385,7 @@ export const TOOLS: ToolConfig[] = [
   // },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Performance', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Design', 'Image', 'File', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Performance', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Fun', 'Design', 'Image', 'File', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

@@ -1045,5 +1045,37 @@
     "no": "No",
     "unknown": "Unknown",
     "disclaimer": "This score represents WebAssembly single-thread sustained computation in the current device, browser, power, scheduling, and thermal conditions. It is not an official CPU rating."
+  },
+  "birthSimulator": {
+    "title": "Birthplace Simulator",
+    "description": "See where your birth coordinates land based on global birth data.",
+    "subtitle": "A playful simulation based on annual global births",
+    "start": "Simulate my birth",
+    "retry": "Try again",
+    "resultLabel": "Your birthplace coordinates",
+    "flagAlt": "{{country}} flag",
+    "yearLine": "Data year: {{year}} · UN data",
+    "loading": "Calculating global birth weights…",
+    "error": "Birth data is temporarily unavailable.",
+    "birthProbability": "Birth probability",
+    "birthCount": "Annual births",
+    "birthRate": "Birth rate",
+    "perBirths": "About 1 in every {{count}} newborns is born here",
+    "tagline": "This time, life begins here.",
+    "details": "About this simulation",
+    "method": "The result is weighted by annual live births, not by the number of countries. Birth rate is shown for context only.",
+    "source": "Source: United Nations World Population Prospects 2024; birth-rate reference: World Bank.",
+    "disclaimer": "For entertainment and data literacy only. It does not predict personal fate.",
+    "regions": {
+      "Africa": "Africa",
+      "Americas": "Americas",
+      "Asia": "Asia",
+      "Europe": "Europe",
+      "Oceania": "Oceania"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "Birthplace Simulator",
+    "description": "See where your birth coordinates land based on global birth data."
   }
 }

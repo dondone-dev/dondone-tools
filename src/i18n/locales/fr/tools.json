@@ -988,5 +988,37 @@
     "chartTitle": "Performance dans le temps", "chartSummary": "La vitesse est passée de {{start}} à {{end}} unités/s.", "chartWaiting": "En attente de suffisamment d’échantillons.", "rate": "Vitesse",
     "environmentTitle": "Environnement du navigateur", "browser": "Navigateur", "operatingSystem": "Système d’exploitation", "logicalProcessors": "Processeurs logiques", "simdSupport": "WASM SIMD pris en charge", "crossOriginIsolated": "Isolation interorigine", "version": "Version du test", "yes": "Oui", "no": "Non", "unknown": "Inconnu",
     "disclaimer": "Ce score représente le calcul WebAssembly monothread soutenu dans les conditions actuelles d’appareil, navigateur, alimentation, planification et température. Ce n’est pas une note CPU officielle."
+  },
+  "birthSimulator": {
+    "title": "Simulateur de lieu de naissance",
+    "description": "Découvrez où vos coordonnées de naissance pourraient tomber selon les naissances mondiales.",
+    "subtitle": "Une simulation basée sur les naissances annuelles dans le monde",
+    "start": "Simuler ma naissance",
+    "retry": "Réessayer",
+    "resultLabel": "Vos coordonnées de naissance",
+    "flagAlt": "Drapeau de {{country}}",
+    "yearLine": "Année des données : {{year}} · Données de l’ONU",
+    "loading": "Calcul des poids de naissance mondiaux…",
+    "error": "Les données de naissance sont temporairement indisponibles.",
+    "birthProbability": "Probabilité de naissance",
+    "birthCount": "Naissances annuelles",
+    "birthRate": "Taux de natalité",
+    "perBirths": "Environ 1 nouveau-né sur {{count}} naît ici",
+    "tagline": "Cette fois, la vie commence ici.",
+    "details": "À propos de la simulation",
+    "method": "Le tirage est pondéré par le nombre annuel de naissances. Le taux de natalité est indicatif.",
+    "source": "Source : Nations Unies, World Population Prospects 2024 ; taux de natalité : Banque mondiale.",
+    "disclaimer": "Pour le divertissement et la compréhension des données uniquement.",
+    "regions": {
+      "Africa": "Afrique",
+      "Americas": "Amériques",
+      "Asia": "Asie",
+      "Europe": "Europe",
+      "Oceania": "Océanie"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "Simulateur de lieu de naissance",
+    "description": "Découvrez où vos coordonnées de naissance pourraient tomber selon les naissances mondiales."
   }
 }

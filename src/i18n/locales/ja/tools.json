@@ -992,5 +992,37 @@
     "chartTitle": "時間別パフォーマンス", "chartSummary": "速度は {{start}} から {{end}} ユニット/秒に変化しました。", "chartWaiting": "傾向を描くためのサンプルを待っています。", "rate": "速度",
     "environmentTitle": "ブラウザ環境", "browser": "ブラウザ", "operatingSystem": "OS", "logicalProcessors": "論理プロセッサ", "simdSupport": "WASM SIMD 対応", "crossOriginIsolated": "クロスオリジン分離", "version": "テスト版", "yes": "はい", "no": "いいえ", "unknown": "不明",
     "disclaimer": "このスコアは現在の端末、ブラウザ、電源、スケジューリング、温度条件での WebAssembly シングルスレッド持続性能を示し、CPU の公式評価ではありません。"
+  },
+  "birthSimulator": {
+    "title": "出生地シミュレーター",
+    "description": "世界の出生データから、あなたの出生地をシミュレーションします。",
+    "subtitle": "世界の年間出生データに基づく楽しいシミュレーション",
+    "start": "出生地を引く",
+    "retry": "もう一度",
+    "resultLabel": "あなたの出生地",
+    "flagAlt": "{{country}}の国旗",
+    "yearLine": "データ年：{{year}} · 国連データ",
+    "loading": "世界の出生確率を計算中…",
+    "error": "出生データを利用できません。",
+    "birthProbability": "出生確率",
+    "birthCount": "年間出生数",
+    "birthRate": "出生率",
+    "perBirths": "約 {{count}} 人に 1 人がここで生まれます",
+    "tagline": "今回は、ここから人生が始まります。",
+    "details": "このシミュレーションについて",
+    "method": "年間出生数を重みとして抽選しています。出生率は参考情報です。",
+    "source": "出典：国連 World Population Prospects 2024、出生率は世界銀行。",
+    "disclaimer": "娯楽とデータ理解のための機能で、運命を予測するものではありません。",
+    "regions": {
+      "Africa": "アフリカ",
+      "Americas": "アメリカ州",
+      "Asia": "アジア",
+      "Europe": "ヨーロッパ",
+      "Oceania": "オセアニア"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "出生地シミュレーター",
+    "description": "世界の出生データから、あなたの出生地をシミュレーションします。"
   }
 }

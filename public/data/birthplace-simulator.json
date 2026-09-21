@@ -1,0 +1,2355 @@
+{
+  "year": 2023,
+  "source": "UN World Population Prospects 2024; birth counts processed by Our World in Data; crude birth rate from World Bank SP.DYN.CBRT.IN",
+  "generatedAt": "2026-09-21",
+  "metadata": {
+    "birthsUnit": "live births",
+    "rateUnit": "births per 1,000 people",
+    "sources": [
+      "https://population.un.org/wpp/",
+      "https://ourworldindata.org/grapher/number-of-births-per-year.csv",
+      "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.CBRT.IN?date=2023&format=json&per_page=400"
+    ]
+  },
+  "countries": [
+    {
+      "code": "in",
+      "name": "India",
+      "region": "Asia",
+      "births": 23219488,
+      "birthRate": 16.146,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "in"
+    },
+    {
+      "code": "cn",
+      "name": "China",
+      "region": "Asia",
+      "births": 8899881,
+      "birthRate": 6.39,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cn"
+    },
+    {
+      "code": "ng",
+      "name": "Nigeria",
+      "region": "Africa",
+      "births": 7509758,
+      "birthRate": 32.954,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ng"
+    },
+    {
+      "code": "pk",
+      "name": "Pakistan",
+      "region": "Asia",
+      "births": 6882058,
+      "birthRate": 27.806,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pk"
+    },
+    {
+      "code": "id",
+      "name": "Indonesia",
+      "region": "Asia",
+      "births": 4482359,
+      "birthRate": 15.941,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "id"
+    },
+    {
+      "code": "cd",
+      "name": "Democratic Republic of the Congo",
+      "region": "Africa",
+      "births": 4369683,
+      "birthRate": 41.305,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cd"
+    },
+    {
+      "code": "et",
+      "name": "Ethiopia",
+      "region": "Africa",
+      "births": 4105685,
+      "birthRate": 31.903,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "et"
+    },
+    {
+      "code": "us",
+      "name": "United States of America",
+      "region": "Americas",
+      "births": 3657476,
+      "birthRate": 10.7,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "us"
+    },
+    {
+      "code": "bd",
+      "name": "Bangladesh",
+      "region": "Asia",
+      "births": 3489953,
+      "birthRate": 20.353,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bd"
+    },
+    {
+      "code": "br",
+      "name": "Brazil",
+      "region": "Americas",
+      "births": 2601670,
+      "birthRate": 12.322,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "br"
+    },
+    {
+      "code": "eg",
+      "name": "Egypt",
+      "region": "Africa",
+      "births": 2405717,
+      "birthRate": 21.004,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "eg"
+    },
+    {
+      "code": "tz",
+      "name": "United Republic of Tanzania",
+      "region": "Africa",
+      "births": 2346391,
+      "birthRate": 35.222,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tz"
+    },
+    {
+      "code": "mx",
+      "name": "Mexico",
+      "region": "Americas",
+      "births": 2037689,
+      "birthRate": 15.706,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mx"
+    },
+    {
+      "code": "ph",
+      "name": "Philippines",
+      "region": "Asia",
+      "births": 1840477,
+      "birthRate": 16.019,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ph"
+    },
+    {
+      "code": "ug",
+      "name": "Uganda",
+      "region": "Africa",
+      "births": 1712750,
+      "birthRate": 35.201,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ug"
+    },
+    {
+      "code": "sd",
+      "name": "Sudan",
+      "region": "Africa",
+      "births": 1682049,
+      "birthRate": 33.612,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sd"
+    },
+    {
+      "code": "ke",
+      "name": "Kenya",
+      "region": "Africa",
+      "births": 1499998,
+      "birthRate": 27.106,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ke"
+    },
+    {
+      "code": "af",
+      "name": "Afghanistan",
+      "region": "Asia",
+      "births": 1469029,
+      "birthRate": 35.437,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "af"
+    },
+    {
+      "code": "vn",
+      "name": "Viet Nam",
+      "region": "Asia",
+      "births": 1387961,
+      "birthRate": 13.831,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "vn"
+    },
+    {
+      "code": "ye",
+      "name": "Yemen",
+      "region": "Asia",
+      "births": 1386914,
+      "birthRate": 35.209,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ye"
+    },
+    {
+      "code": "ao",
+      "name": "Angola",
+      "region": "Africa",
+      "births": 1381370,
+      "birthRate": 37.588,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ao"
+    },
+    {
+      "code": "ru",
+      "name": "Russian Federation",
+      "region": "Europe",
+      "births": 1297207,
+      "birthRate": 8.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ru"
+    },
+    {
+      "code": "mz",
+      "name": "Mozambique",
+      "region": "Africa",
+      "births": 1260855,
+      "birthRate": 37.486,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mz"
+    },
+    {
+      "code": "za",
+      "name": "South Africa",
+      "region": "Africa",
+      "births": 1186793,
+      "birthRate": 18.775,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "za"
+    },
+    {
+      "code": "ir",
+      "name": "Iran (Islamic Republic of)",
+      "region": "Asia",
+      "births": 1173463,
+      "birthRate": 12.951,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ir"
+    },
+    {
+      "code": "iq",
+      "name": "Iraq",
+      "region": "Asia",
+      "births": 1159682,
+      "birthRate": 25.728,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "iq"
+    },
+    {
+      "code": "ne",
+      "name": "Niger",
+      "region": "Africa",
+      "births": 1095892,
+      "birthRate": 41.892,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ne"
+    },
+    {
+      "code": "tr",
+      "name": "Türkiye",
+      "region": "Asia",
+      "births": 1072014,
+      "birthRate": 11.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tr"
+    },
+    {
+      "code": "mg",
+      "name": "Madagascar",
+      "region": "Africa",
+      "births": 1001244,
+      "birthRate": 32.095,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mg"
+    },
+    {
+      "code": "ci",
+      "name": "Ivory Coast",
+      "region": "Africa",
+      "births": 997001,
+      "birthRate": 31.99,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ci"
+    },
+    {
+      "code": "cm",
+      "name": "Cameroon",
+      "region": "Africa",
+      "births": 957392,
+      "birthRate": 33.743,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cm"
+    },
+    {
+      "code": "ml",
+      "name": "Mali",
+      "region": "Africa",
+      "births": 951445,
+      "birthRate": 40.029,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ml"
+    },
+    {
+      "code": "uz",
+      "name": "Uzbekistan",
+      "region": "Asia",
+      "births": 943547,
+      "birthRate": 26.465,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "uz"
+    },
+    {
+      "code": "dz",
+      "name": "Algeria",
+      "region": "Africa",
+      "births": 905981,
+      "birthRate": 19.625,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "dz"
+    },
+    {
+      "code": "mm",
+      "name": "Myanmar",
+      "region": "Asia",
+      "births": 903822,
+      "birthRate": 16.696,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mm"
+    },
+    {
+      "code": "gh",
+      "name": "Ghana",
+      "region": "Africa",
+      "births": 888947,
+      "birthRate": 26.31,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gh"
+    },
+    {
+      "code": "td",
+      "name": "Chad",
+      "region": "Africa",
+      "births": 819054,
+      "birthRate": 42.396,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "td"
+    },
+    {
+      "code": "so",
+      "name": "Somalia",
+      "region": "Africa",
+      "births": 788763,
+      "birthRate": 42.964,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "so"
+    },
+    {
+      "code": "jp",
+      "name": "Japan",
+      "region": "Asia",
+      "births": 749884,
+      "birthRate": 6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "jp"
+    },
+    {
+      "code": "bf",
+      "name": "Burkina Faso",
+      "region": "Africa",
+      "births": 728612,
+      "birthRate": 31.643,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bf"
+    },
+    {
+      "code": "de",
+      "name": "Germany",
+      "region": "Europe",
+      "births": 719249,
+      "birthRate": 8.3,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "de"
+    },
+    {
+      "code": "co",
+      "name": "Colombia",
+      "region": "Americas",
+      "births": 705009,
+      "birthRate": 13.475,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "co"
+    },
+    {
+      "code": "gb",
+      "name": "United Kingdom of Great Britain and Northern Ireland",
+      "region": "Europe",
+      "births": 688388,
+      "birthRate": 10.023,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gb"
+    },
+    {
+      "code": "zm",
+      "name": "Zambia",
+      "region": "Africa",
+      "births": 685565,
+      "birthRate": 33.081,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "zm"
+    },
+    {
+      "code": "mw",
+      "name": "Malawi",
+      "region": "Africa",
+      "births": 662289,
+      "birthRate": 31.381,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mw"
+    },
+    {
+      "code": "fr",
+      "name": "France",
+      "region": "Europe",
+      "births": 638891,
+      "birthRate": 9.9,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fr"
+    },
+    {
+      "code": "ma",
+      "name": "Morocco",
+      "region": "Africa",
+      "births": 629832,
+      "birthRate": 16.701,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ma"
+    },
+    {
+      "code": "th",
+      "name": "Thailand",
+      "region": "Asia",
+      "births": 591200,
+      "birthRate": 8.245,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "th"
+    },
+    {
+      "code": "np",
+      "name": "Nepal",
+      "region": "Asia",
+      "births": 574297,
+      "birthRate": 19.34,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "np"
+    },
+    {
+      "code": "sa",
+      "name": "Saudi Arabia",
+      "region": "Asia",
+      "births": 546038,
+      "birthRate": 16.415,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sa"
+    },
+    {
+      "code": "pe",
+      "name": "Peru",
+      "region": "Americas",
+      "births": 539623,
+      "birthRate": 15.944,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pe"
+    },
+    {
+      "code": "sn",
+      "name": "Senegal",
+      "region": "Africa",
+      "births": 531890,
+      "birthRate": 29.423,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sn"
+    },
+    {
+      "code": "sy",
+      "name": "Syrian Arab Republic",
+      "region": "Asia",
+      "births": 521601,
+      "birthRate": 22.107,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sy"
+    },
+    {
+      "code": "ar",
+      "name": "Argentina",
+      "region": "Americas",
+      "births": 503823,
+      "birthRate": 11.064,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ar"
+    },
+    {
+      "code": "zw",
+      "name": "Zimbabwe",
+      "region": "Africa",
+      "births": 496917,
+      "birthRate": 30.41,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "zw"
+    },
+    {
+      "code": "gn",
+      "name": "Guinea",
+      "region": "Africa",
+      "births": 487595,
+      "birthRate": 33.848,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gn"
+    },
+    {
+      "code": "bj",
+      "name": "Benin",
+      "region": "Africa",
+      "births": 478062,
+      "birthRate": 33.879,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bj"
+    },
+    {
+      "code": "bi",
+      "name": "Burundi",
+      "region": "Africa",
+      "births": 460882,
+      "birthRate": 33.667,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bi"
+    },
+    {
+      "code": "my",
+      "name": "Malaysia",
+      "region": "Asia",
+      "births": 435989,
+      "birthRate": 12.412,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "my"
+    },
+    {
+      "code": "ve",
+      "name": "Venezuela (Bolivarian Republic of)",
+      "region": "Americas",
+      "births": 426984,
+      "birthRate": 15.087,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ve"
+    },
+    {
+      "code": "kz",
+      "name": "Kazakhstan",
+      "region": "Asia",
+      "births": 409417,
+      "birthRate": 20.138,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kz"
+    },
+    {
+      "code": "rw",
+      "name": "Rwanda",
+      "region": "Africa",
+      "births": 395578,
+      "birthRate": 28.348,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "rw"
+    },
+    {
+      "code": "it",
+      "name": "Italy",
+      "region": "Europe",
+      "births": 384627,
+      "birthRate": 6.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "it"
+    },
+    {
+      "code": "gt",
+      "name": "Guatemala",
+      "region": "Americas",
+      "births": 377167,
+      "birthRate": 20.809,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gt"
+    },
+    {
+      "code": "kh",
+      "name": "Cambodia",
+      "region": "Asia",
+      "births": 361586,
+      "birthRate": 20.752,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kh"
+    },
+    {
+      "code": "ca",
+      "name": "Canada",
+      "region": "Americas",
+      "births": 356745,
+      "birthRate": 8.8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ca"
+    },
+    {
+      "code": "kp",
+      "name": "Democratic People's Republic of Korea",
+      "region": "Asia",
+      "births": 342038,
+      "birthRate": 12.947,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kp"
+    },
+    {
+      "code": "es",
+      "name": "Spain",
+      "region": "Europe",
+      "births": 336821,
+      "birthRate": 6.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "es"
+    },
+    {
+      "code": "ss",
+      "name": "South Sudan",
+      "region": "Africa",
+      "births": 328308,
+      "birthRate": 28.59,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ss"
+    },
+    {
+      "code": "lk",
+      "name": "Sri Lanka",
+      "region": "Asia",
+      "births": 324102,
+      "birthRate": 11.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lk"
+    },
+    {
+      "code": "pl",
+      "name": "Poland",
+      "region": "Europe",
+      "births": 317916,
+      "birthRate": 7.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pl"
+    },
+    {
+      "code": "au",
+      "name": "Australia",
+      "region": "Oceania",
+      "births": 304340,
+      "birthRate": 10.8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "au"
+    },
+    {
+      "code": "tj",
+      "name": "Tajikistan",
+      "region": "Asia",
+      "births": 271420,
+      "birthRate": 26.124,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tj"
+    },
+    {
+      "code": "ec",
+      "name": "Ecuador",
+      "region": "Americas",
+      "births": 270300,
+      "birthRate": 15.033,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ec"
+    },
+    {
+      "code": "tg",
+      "name": "Togo",
+      "region": "Africa",
+      "births": 268455,
+      "birthRate": 32.643,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tg"
+    },
+    {
+      "code": "bo",
+      "name": "Bolivia (Plurinational State of)",
+      "region": "Americas",
+      "births": 260151,
+      "birthRate": 21.247,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bo"
+    },
+    {
+      "code": "sl",
+      "name": "Sierra Leone",
+      "region": "Africa",
+      "births": 258903,
+      "birthRate": 30.601,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sl"
+    },
+    {
+      "code": "ht",
+      "name": "Haiti",
+      "region": "Americas",
+      "births": 258348,
+      "birthRate": 22.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ht"
+    },
+    {
+      "code": "pg",
+      "name": "Papua New Guinea",
+      "region": "Oceania",
+      "births": 255331,
+      "birthRate": 24.576,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pg"
+    },
+    {
+      "code": "cf",
+      "name": "Central African Republic",
+      "region": "Africa",
+      "births": 238858,
+      "birthRate": 46.358,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cf"
+    },
+    {
+      "code": "kr",
+      "name": "Republic of Korea",
+      "region": "Asia",
+      "births": 236394,
+      "birthRate": 4.5,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kr"
+    },
+    {
+      "code": "jo",
+      "name": "Jordan",
+      "region": "Asia",
+      "births": 235776,
+      "birthRate": 20.611,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "jo"
+    },
+    {
+      "code": "hn",
+      "name": "Honduras",
+      "region": "Americas",
+      "births": 233793,
+      "birthRate": 21.963,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "hn"
+    },
+    {
+      "code": "ua",
+      "name": "Ukraine",
+      "region": "Europe",
+      "births": 212231,
+      "birthRate": 5.625,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ua"
+    },
+    {
+      "code": "do",
+      "name": "Dominican Republic",
+      "region": "Americas",
+      "births": 203183,
+      "birthRate": 17.931,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "do"
+    },
+    {
+      "code": "cg",
+      "name": "Congo",
+      "region": "Africa",
+      "births": 189365,
+      "birthRate": 30.627,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cg"
+    },
+    {
+      "code": "ro",
+      "name": "Romania",
+      "region": "Europe",
+      "births": 183623,
+      "birthRate": 8.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ro"
+    },
+    {
+      "code": "cl",
+      "name": "Chile",
+      "region": "Americas",
+      "births": 176196,
+      "birthRate": 8.963,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cl"
+    },
+    {
+      "code": "mr",
+      "name": "Mauritania",
+      "region": "Africa",
+      "births": 172885,
+      "birthRate": 34.423,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mr"
+    },
+    {
+      "code": "il",
+      "name": "Israel",
+      "region": "Asia",
+      "births": 172312,
+      "birthRate": 18.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "il"
+    },
+    {
+      "code": "lr",
+      "name": "Liberia",
+      "region": "Africa",
+      "births": 170065,
+      "birthRate": 30.96,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lr"
+    },
+    {
+      "code": "nl",
+      "name": "Netherlands",
+      "region": "Europe",
+      "births": 167842,
+      "birthRate": 9.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "nl"
+    },
+    {
+      "code": "tn",
+      "name": "Tunisia",
+      "region": "Africa",
+      "births": 167729,
+      "birthRate": 13.748,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tn"
+    },
+    {
+      "code": "la",
+      "name": "Lao People's Democratic Republic",
+      "region": "Asia",
+      "births": 163043,
+      "birthRate": 21.271,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "la"
+    },
+    {
+      "code": "tm",
+      "name": "Turkmenistan",
+      "region": "Asia",
+      "births": 160100,
+      "birthRate": 21.74,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tm"
+    },
+    {
+      "code": "kg",
+      "name": "Kyrgyzstan",
+      "region": "Asia",
+      "births": 150759,
+      "birthRate": 20.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kg"
+    },
+    {
+      "code": "ps",
+      "name": "State of Palestine",
+      "region": "Asia",
+      "births": 146384,
+      "birthRate": 27.062,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ps"
+    },
+    {
+      "code": "py",
+      "name": "Paraguay",
+      "region": "Americas",
+      "births": 136778,
+      "birthRate": 19.985,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "py"
+    },
+    {
+      "code": "tw",
+      "name": "Taiwan",
+      "region": "Asia",
+      "births": 132404,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tw"
+    },
+    {
+      "code": "ni",
+      "name": "Nicaragua",
+      "region": "Americas",
+      "births": 132214,
+      "birthRate": 19.376,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ni"
+    },
+    {
+      "code": "az",
+      "name": "Azerbaijan",
+      "region": "Asia",
+      "births": 125136,
+      "birthRate": 11.1,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "az"
+    },
+    {
+      "code": "ly",
+      "name": "Libya",
+      "region": "Africa",
+      "births": 124371,
+      "birthRate": 17.024,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ly"
+    },
+    {
+      "code": "ae",
+      "name": "United Arab Emirates",
+      "region": "Asia",
+      "births": 104015,
+      "birthRate": 9.774,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ae"
+    },
+    {
+      "code": "be",
+      "name": "Belgium",
+      "region": "Europe",
+      "births": 101686,
+      "birthRate": 9.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "be"
+    },
+    {
+      "code": "sv",
+      "name": "El Salvador",
+      "region": "Americas",
+      "births": 99428,
+      "birthRate": 15.758,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sv"
+    },
+    {
+      "code": "er",
+      "name": "Eritrea",
+      "region": "Africa",
+      "births": 99058,
+      "birthRate": 28.544,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "er"
+    },
+    {
+      "code": "se",
+      "name": "Sweden",
+      "region": "Europe",
+      "births": 97915,
+      "birthRate": 9.5,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "se"
+    },
+    {
+      "code": "cu",
+      "name": "Cuba",
+      "region": "Americas",
+      "births": 95938,
+      "birthRate": 8.706,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cu"
+    },
+    {
+      "code": "lb",
+      "name": "Lebanon",
+      "region": "Asia",
+      "births": 93205,
+      "birthRate": 16.144,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lb"
+    },
+    {
+      "code": "cz",
+      "name": "Czechia",
+      "region": "Europe",
+      "births": 91845,
+      "birthRate": 8.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cz"
+    },
+    {
+      "code": "pt",
+      "name": "Portugal",
+      "region": "Europe",
+      "births": 86646,
+      "birthRate": 8.1,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pt"
+    },
+    {
+      "code": "hu",
+      "name": "Hungary",
+      "region": "Europe",
+      "births": 85373,
+      "birthRate": 9.1,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "hu"
+    },
+    {
+      "code": "om",
+      "name": "Oman",
+      "region": "Asia",
+      "births": 85065,
+      "birthRate": 16.847,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "om"
+    },
+    {
+      "code": "ch",
+      "name": "Switzerland",
+      "region": "Europe",
+      "births": 83702,
+      "birthRate": 9,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ch"
+    },
+    {
+      "code": "gm",
+      "name": "Gambia",
+      "region": "Africa",
+      "births": 82092,
+      "birthRate": 30.429,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gm"
+    },
+    {
+      "code": "at",
+      "name": "Austria",
+      "region": "Europe",
+      "births": 77054,
+      "birthRate": 8.5,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "at"
+    },
+    {
+      "code": "na",
+      "name": "Namibia",
+      "region": "Africa",
+      "births": 76715,
+      "birthRate": 25.89,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "na"
+    },
+    {
+      "code": "gr",
+      "name": "Greece",
+      "region": "Europe",
+      "births": 73661,
+      "birthRate": 6.8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gr"
+    },
+    {
+      "code": "pa",
+      "name": "Panama",
+      "region": "Americas",
+      "births": 71469,
+      "birthRate": 16.029,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pa"
+    },
+    {
+      "code": "ga",
+      "name": "Gabon",
+      "region": "Africa",
+      "births": 68745,
+      "birthRate": 27.666,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ga"
+    },
+    {
+      "code": "by",
+      "name": "Belarus",
+      "region": "Europe",
+      "births": 65050,
+      "birthRate": 7.136,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "by"
+    },
+    {
+      "code": "mn",
+      "name": "Mongolia",
+      "region": "Asia",
+      "births": 65019,
+      "birthRate": 19,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mn"
+    },
+    {
+      "code": "gw",
+      "name": "Guinea-Bissau",
+      "region": "Africa",
+      "births": 64679,
+      "birthRate": 30.037,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gw"
+    },
+    {
+      "code": "bg",
+      "name": "Bulgaria",
+      "region": "Europe",
+      "births": 62645,
+      "birthRate": 8.9,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bg"
+    },
+    {
+      "code": "bw",
+      "name": "Botswana",
+      "region": "Africa",
+      "births": 61294,
+      "birthRate": 24.713,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bw"
+    },
+    {
+      "code": "rs",
+      "name": "Serbia",
+      "region": "Europe",
+      "births": 59840,
+      "birthRate": 9.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "rs"
+    },
+    {
+      "code": "nz",
+      "name": "New Zealand",
+      "region": "Oceania",
+      "births": 59236,
+      "birthRate": 10.95,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "nz"
+    },
+    {
+      "code": "dk",
+      "name": "Denmark",
+      "region": "Europe",
+      "births": 57810,
+      "birthRate": 9.7,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "dk"
+    },
+    {
+      "code": "ls",
+      "name": "Lesotho",
+      "region": "Africa",
+      "births": 55728,
+      "birthRate": 24.109,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ls"
+    },
+    {
+      "code": "gq",
+      "name": "Equatorial Guinea",
+      "region": "Africa",
+      "births": 54694,
+      "birthRate": 29.604,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gq"
+    },
+    {
+      "code": "ie",
+      "name": "Ireland",
+      "region": "Europe",
+      "births": 53268,
+      "birthRate": 10.3,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ie"
+    },
+    {
+      "code": "sk",
+      "name": "Slovakia",
+      "region": "Europe",
+      "births": 52271,
+      "birthRate": 9,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sk"
+    },
+    {
+      "code": "cr",
+      "name": "Costa Rica",
+      "region": "Americas",
+      "births": 51969,
+      "birthRate": 10.179,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cr"
+    },
+    {
+      "code": "no",
+      "name": "Norway",
+      "region": "Europe",
+      "births": 51545,
+      "birthRate": 9.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "no"
+    },
+    {
+      "code": "kw",
+      "name": "Kuwait",
+      "region": "Asia",
+      "births": 49342,
+      "birthRate": 10.3028486127809,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kw"
+    },
+    {
+      "code": "sg",
+      "name": "Singapore",
+      "region": "Asia",
+      "births": 47472,
+      "birthRate": 7.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sg"
+    },
+    {
+      "code": "ge",
+      "name": "Georgia",
+      "region": "Asia",
+      "births": 43765,
+      "birthRate": 11.494,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ge"
+    },
+    {
+      "code": "fi",
+      "name": "Finland",
+      "region": "Europe",
+      "births": 43556,
+      "birthRate": 7.8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fi"
+    },
+    {
+      "code": "hk",
+      "name": "China, Hong Kong Special Administrative Region",
+      "region": "Asia",
+      "births": 41294,
+      "birthRate": 4.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "hk"
+    },
+    {
+      "code": "am",
+      "name": "Armenia",
+      "region": "Asia",
+      "births": 34668,
+      "birthRate": 12.3,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "am"
+    },
+    {
+      "code": "uy",
+      "name": "Uruguay",
+      "region": "Americas",
+      "births": 33443,
+      "birthRate": 9.871,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "uy"
+    },
+    {
+      "code": "jm",
+      "name": "Jamaica",
+      "region": "Americas",
+      "births": 33007,
+      "birthRate": 11.623,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "jm"
+    },
+    {
+      "code": "md",
+      "name": "Republic of Moldova",
+      "region": "Europe",
+      "births": 32986,
+      "birthRate": 10.755,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "md"
+    },
+    {
+      "code": "hr",
+      "name": "Croatia",
+      "region": "Europe",
+      "births": 31446,
+      "birthRate": 8.3,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "hr"
+    },
+    {
+      "code": "tl",
+      "name": "Timor-Leste",
+      "region": "Asia",
+      "births": 30561,
+      "birthRate": 22.077,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tl"
+    },
+    {
+      "code": "sz",
+      "name": "Eswatini",
+      "region": "Africa",
+      "births": 29622,
+      "birthRate": 24.073,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sz"
+    },
+    {
+      "code": "qa",
+      "name": "Qatar",
+      "region": "Asia",
+      "births": 29516,
+      "birthRate": 9.908,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "qa"
+    },
+    {
+      "code": "al",
+      "name": "Albania",
+      "region": "Europe",
+      "births": 28803,
+      "birthRate": 10.244,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "al"
+    },
+    {
+      "code": "ba",
+      "name": "Bosnia and Herzegovina",
+      "region": "Europe",
+      "births": 24569,
+      "birthRate": 7.714,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ba"
+    },
+    {
+      "code": "km",
+      "name": "Comoros",
+      "region": "Africa",
+      "births": 24366,
+      "birthRate": 28.653,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "km"
+    },
+    {
+      "code": "dj",
+      "name": "Djibouti",
+      "region": "Africa",
+      "births": 23946,
+      "birthRate": 20.769,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "dj"
+    },
+    {
+      "code": "sb",
+      "name": "Solomon Islands",
+      "region": "Oceania",
+      "births": 21548,
+      "birthRate": 26.935,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sb"
+    },
+    {
+      "code": "lt",
+      "name": "Lithuania",
+      "region": "Europe",
+      "births": 21434,
+      "birthRate": 7.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lt"
+    },
+    {
+      "code": "bh",
+      "name": "Bahrain",
+      "region": "Asia",
+      "births": 19558,
+      "birthRate": 12.46,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bh"
+    },
+    {
+      "code": "pr",
+      "name": "Puerto Rico",
+      "region": "Americas",
+      "births": 18851,
+      "birthRate": 5.8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pr"
+    },
+    {
+      "code": "si",
+      "name": "Slovenia",
+      "region": "Europe",
+      "births": 17902,
+      "birthRate": 8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "si"
+    },
+    {
+      "code": "mk",
+      "name": "North Macedonia",
+      "region": "Europe",
+      "births": 16878,
+      "birthRate": 9.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mk"
+    },
+    {
+      "code": "gy",
+      "name": "Guyana",
+      "region": "Americas",
+      "births": 16764,
+      "birthRate": 20.287,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gy"
+    },
+    {
+      "code": "fj",
+      "name": "Fiji",
+      "region": "Oceania",
+      "births": 16631,
+      "birthRate": 17.996,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fj"
+    },
+    {
+      "code": "tt",
+      "name": "Trinidad and Tobago",
+      "region": "Americas",
+      "births": 16094,
+      "birthRate": 10.708,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tt"
+    },
+    {
+      "code": "cy",
+      "name": "Cyprus",
+      "region": "Asia",
+      "births": 14524,
+      "birthRate": 10.799,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cy"
+    },
+    {
+      "code": "lv",
+      "name": "Latvia",
+      "region": "Europe",
+      "births": 14250,
+      "birthRate": 7.7,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lv"
+    },
+    {
+      "code": "re",
+      "name": "Réunion",
+      "region": "Africa",
+      "births": 12003,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "re"
+    },
+    {
+      "code": "mu",
+      "name": "Mauritius",
+      "region": "Africa",
+      "births": 11804,
+      "birthRate": 10.3,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mu"
+    },
+    {
+      "code": "yt",
+      "name": "Mayotte",
+      "region": "Africa",
+      "births": 11186,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "yt"
+    },
+    {
+      "code": "ee",
+      "name": "Estonia",
+      "region": "Europe",
+      "births": 11036,
+      "birthRate": 8,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ee"
+    },
+    {
+      "code": "sr",
+      "name": "Suriname",
+      "region": "Americas",
+      "births": 10879,
+      "birthRate": 17.298,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sr"
+    },
+    {
+      "code": "bt",
+      "name": "Bhutan",
+      "region": "Asia",
+      "births": 9958,
+      "birthRate": 12.663,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bt"
+    },
+    {
+      "code": "vu",
+      "name": "Vanuatu",
+      "region": "Oceania",
+      "births": 8988,
+      "birthRate": 28.05,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "vu"
+    },
+    {
+      "code": "eh",
+      "name": "Western Sahara",
+      "region": "Africa",
+      "births": 8987,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "eh"
+    },
+    {
+      "code": "gf",
+      "name": "French Guiana",
+      "region": "Americas",
+      "births": 7707,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gf"
+    },
+    {
+      "code": "bz",
+      "name": "Belize",
+      "region": "Americas",
+      "births": 7410,
+      "birthRate": 18.025,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bz"
+    },
+    {
+      "code": "me",
+      "name": "Montenegro",
+      "region": "Europe",
+      "births": 6981,
+      "birthRate": 11.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "me"
+    },
+    {
+      "code": "lu",
+      "name": "Luxembourg",
+      "region": "Europe",
+      "births": 6946,
+      "birthRate": 9.5,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lu"
+    },
+    {
+      "code": "st",
+      "name": "Sao Tome and Principe",
+      "region": "Africa",
+      "births": 6507,
+      "birthRate": 28.185,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "st"
+    },
+    {
+      "code": "cv",
+      "name": "Cabo Verde",
+      "region": "Africa",
+      "births": 6440,
+      "birthRate": 12.33,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cv"
+    },
+    {
+      "code": "bn",
+      "name": "Brunei Darussalam",
+      "region": "Asia",
+      "births": 6237,
+      "birthRate": 13.59,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bn"
+    },
+    {
+      "code": "mv",
+      "name": "Maldives",
+      "region": "Asia",
+      "births": 5795,
+      "birthRate": 11.018,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mv"
+    },
+    {
+      "code": "ws",
+      "name": "Samoa",
+      "region": "Oceania",
+      "births": 5503,
+      "birthRate": 25.401,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ws"
+    },
+    {
+      "code": "mo",
+      "name": "China, Macao Special Administrative Region",
+      "region": "Asia",
+      "births": 4515,
+      "birthRate": 5.5,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mo"
+    },
+    {
+      "code": "is",
+      "name": "Iceland",
+      "region": "Europe",
+      "births": 4347,
+      "birthRate": 11.2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "is"
+    },
+    {
+      "code": "bs",
+      "name": "Bahamas",
+      "region": "Americas",
+      "births": 4335,
+      "birthRate": 10.852,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bs"
+    },
+    {
+      "code": "gp",
+      "name": "Guadeloupe",
+      "region": "Americas",
+      "births": 4233,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gp"
+    },
+    {
+      "code": "mt",
+      "name": "Malta",
+      "region": "Europe",
+      "births": 4213,
+      "birthRate": 8.1,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mt"
+    },
+    {
+      "code": "nc",
+      "name": "New Caledonia",
+      "region": "Oceania",
+      "births": 4134,
+      "birthRate": 14.262,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "nc"
+    },
+    {
+      "code": "mq",
+      "name": "Martinique",
+      "region": "Americas",
+      "births": 3728,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mq"
+    },
+    {
+      "code": "ki",
+      "name": "Kiribati",
+      "region": "Oceania",
+      "births": 3421,
+      "birthRate": 25.813,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ki"
+    },
+    {
+      "code": "bb",
+      "name": "Barbados",
+      "region": "Americas",
+      "births": 3155,
+      "birthRate": 11.173,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bb"
+    },
+    {
+      "code": "pf",
+      "name": "French Polynesia",
+      "region": "Oceania",
+      "births": 3066,
+      "birthRate": 10.907,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pf"
+    },
+    {
+      "code": "gu",
+      "name": "Guam",
+      "region": "Oceania",
+      "births": 2941,
+      "birthRate": 17.662,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gu"
+    },
+    {
+      "code": "fm",
+      "name": "Micronesia (Federated States of)",
+      "region": "Oceania",
+      "births": 2512,
+      "birthRate": 22.299,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fm"
+    },
+    {
+      "code": "to",
+      "name": "Tonga",
+      "region": "Oceania",
+      "births": 2418,
+      "birthRate": 23.117,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "to"
+    },
+    {
+      "code": "lc",
+      "name": "Saint Lucia",
+      "region": "Americas",
+      "births": 2019,
+      "birthRate": 11.262,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "lc"
+    },
+    {
+      "code": "sc",
+      "name": "Seychelles",
+      "region": "Africa",
+      "births": 1744,
+      "birthRate": 13,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sc"
+    },
+    {
+      "code": "cw",
+      "name": "Curaçao",
+      "region": "Americas",
+      "births": 1394,
+      "birthRate": 7.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "cw"
+    },
+    {
+      "code": "gd",
+      "name": "Grenada",
+      "region": "Americas",
+      "births": 1371,
+      "birthRate": 11.711,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gd"
+    },
+    {
+      "code": "vc",
+      "name": "Saint Vincent and the Grenadines",
+      "region": "Americas",
+      "births": 1232,
+      "birthRate": 12.158,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "vc"
+    },
+    {
+      "code": "ag",
+      "name": "Antigua and Barbuda",
+      "region": "Americas",
+      "births": 1106,
+      "birthRate": 11.848,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ag"
+    },
+    {
+      "code": "aw",
+      "name": "Aruba",
+      "region": "Americas",
+      "births": 1020,
+      "birthRate": 7.973,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "aw"
+    },
+    {
+      "code": "vi",
+      "name": "United States Virgin Islands",
+      "region": "Americas",
+      "births": 959,
+      "birthRate": 11.4,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "vi"
+    },
+    {
+      "code": "ky",
+      "name": "Cayman Islands",
+      "region": "Americas",
+      "births": 865,
+      "birthRate": 11.838,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ky"
+    },
+    {
+      "code": "je",
+      "name": "Jersey",
+      "region": "Europe",
+      "births": 853,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "je"
+    },
+    {
+      "code": "mh",
+      "name": "Marshall Islands",
+      "region": "Oceania",
+      "births": 821,
+      "birthRate": 21.137,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mh"
+    },
+    {
+      "code": "gl",
+      "name": "Greenland",
+      "region": "Americas",
+      "births": 789,
+      "birthRate": 12.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gl"
+    },
+    {
+      "code": "dm",
+      "name": "Dominica",
+      "region": "Americas",
+      "births": 738,
+      "birthRate": 11.09,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "dm"
+    },
+    {
+      "code": "as",
+      "name": "American Samoa",
+      "region": "Oceania",
+      "births": 731,
+      "birthRate": 15.388,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "as"
+    },
+    {
+      "code": "im",
+      "name": "Isle of Man",
+      "region": "Europe",
+      "births": 702,
+      "birthRate": 8.34,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "im"
+    },
+    {
+      "code": "fo",
+      "name": "Faroe Islands",
+      "region": "Europe",
+      "births": 690,
+      "birthRate": 10.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fo"
+    },
+    {
+      "code": "mp",
+      "name": "Northern Mariana Islands",
+      "region": "Oceania",
+      "births": 583,
+      "birthRate": 12.918,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mp"
+    },
+    {
+      "code": "ad",
+      "name": "Andorra",
+      "region": "Europe",
+      "births": 555,
+      "birthRate": 6.859,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ad"
+    },
+    {
+      "code": "kn",
+      "name": "Saint Kitts and Nevis",
+      "region": "Americas",
+      "births": 549,
+      "birthRate": 11.745,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "kn"
+    },
+    {
+      "code": "bm",
+      "name": "Bermuda",
+      "region": "Americas",
+      "births": 521,
+      "birthRate": 8.046,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bm"
+    },
+    {
+      "code": "gg",
+      "name": "Guernsey",
+      "region": "Europe",
+      "births": 521,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gg"
+    },
+    {
+      "code": "tc",
+      "name": "Turks and Caicos Islands",
+      "region": "Americas",
+      "births": 496,
+      "birthRate": 10.738,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tc"
+    },
+    {
+      "code": "mf",
+      "name": "Saint Martin (French Part)",
+      "region": "Americas",
+      "births": 470,
+      "birthRate": 17.069,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mf"
+    },
+    {
+      "code": "gi",
+      "name": "Gibraltar",
+      "region": "Europe",
+      "births": 464,
+      "birthRate": 12.07,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "gi"
+    },
+    {
+      "code": "sx",
+      "name": "Sint Maarten (Dutch part)",
+      "region": "Americas",
+      "births": 390,
+      "birthRate": 9.126,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sx"
+    },
+    {
+      "code": "li",
+      "name": "Liechtenstein",
+      "region": "Europe",
+      "births": 371,
+      "birthRate": 9.1,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "li"
+    },
+    {
+      "code": "mc",
+      "name": "Monaco",
+      "region": "Europe",
+      "births": 368,
+      "birthRate": 9.441,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "mc"
+    },
+    {
+      "code": "vg",
+      "name": "British Virgin Islands",
+      "region": "Americas",
+      "births": 325,
+      "birthRate": 8.332,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "vg"
+    },
+    {
+      "code": "nr",
+      "name": "Nauru",
+      "region": "Oceania",
+      "births": 303,
+      "birthRate": 25.505,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "nr"
+    },
+    {
+      "code": "bq",
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "region": "Americas",
+      "births": 280,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bq"
+    },
+    {
+      "code": "tv",
+      "name": "Tuvalu",
+      "region": "Oceania",
+      "births": 226,
+      "birthRate": 23.075,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tv"
+    },
+    {
+      "code": "sm",
+      "name": "San Marino",
+      "region": "Europe",
+      "births": 200,
+      "birthRate": 5.6,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sm"
+    },
+    {
+      "code": "pw",
+      "name": "Palau",
+      "region": "Oceania",
+      "births": 193,
+      "birthRate": 10.897,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pw"
+    },
+    {
+      "code": "ck",
+      "name": "Cook Islands",
+      "region": "Oceania",
+      "births": 178,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ck"
+    },
+    {
+      "code": "ai",
+      "name": "Anguilla",
+      "region": "Americas",
+      "births": 130,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ai"
+    },
+    {
+      "code": "wf",
+      "name": "Wallis and Futuna Islands",
+      "region": "Oceania",
+      "births": 98,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "wf"
+    },
+    {
+      "code": "bl",
+      "name": "Saint Barthélemy",
+      "region": "Americas",
+      "births": 53,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "bl"
+    },
+    {
+      "code": "tk",
+      "name": "Tokelau",
+      "region": "Oceania",
+      "births": 47,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "tk"
+    },
+    {
+      "code": "fk",
+      "name": "Falkland Islands",
+      "region": "Americas",
+      "births": 39,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "fk"
+    },
+    {
+      "code": "ms",
+      "name": "Montserrat",
+      "region": "Americas",
+      "births": 39,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "ms"
+    },
+    {
+      "code": "sh",
+      "name": "Saint Helena",
+      "region": "Africa",
+      "births": 39,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "sh"
+    },
+    {
+      "code": "pm",
+      "name": "Saint Pierre and Miquelon",
+      "region": "Americas",
+      "births": 30,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "pm"
+    },
+    {
+      "code": "nu",
+      "name": "Niue",
+      "region": "Oceania",
+      "births": 25,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "nu"
+    },
+    {
+      "code": "va",
+      "name": "Holy See",
+      "region": "Europe",
+      "births": 2,
+      "year": 2023,
+      "source": "UN WPP 2024",
+      "flagCode": "va"
+    }
+  ]
+}

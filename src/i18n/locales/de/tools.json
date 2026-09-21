@@ -988,5 +988,37 @@
     "chartTitle": "Leistung im Zeitverlauf", "chartSummary": "Die Rate änderte sich von {{start}} auf {{end}} Einheiten/s.", "chartWaiting": "Warte auf genügend Messwerte für den Verlauf.", "rate": "Rate",
     "environmentTitle": "Browser-Umgebung", "browser": "Browser", "operatingSystem": "Betriebssystem", "logicalProcessors": "Logische Prozessoren", "simdSupport": "WASM SIMD unterstützt", "crossOriginIsolated": "Cross-Origin-isoliert", "version": "Testversion", "yes": "Ja", "no": "Nein", "unknown": "Unbekannt",
     "disclaimer": "Diese Punktzahl zeigt die anhaltende WebAssembly-Einzelthreadleistung unter den aktuellen Geräte-, Browser-, Energie-, Scheduling- und Temperaturbedingungen. Sie ist keine offizielle CPU-Bewertung."
+  },
+  "birthSimulator": {
+    "title": "Geburtsort-Simulator",
+    "description": "Sieh anhand weltweiter Geburtsdaten, wo deine Geburtskoordinaten landen.",
+    "subtitle": "Eine spielerische Simulation auf Basis weltweiter Jahresgeburten",
+    "start": "Meine Geburt simulieren",
+    "retry": "Noch einmal",
+    "resultLabel": "Deine Geburtskoordinaten",
+    "flagAlt": "Flagge von {{country}}",
+    "yearLine": "Datenjahr: {{year}} · UN-Daten",
+    "loading": "Globale Geburtsgewichte werden berechnet…",
+    "error": "Geburtsdaten sind vorübergehend nicht verfügbar.",
+    "birthProbability": "Geburtswahrscheinlichkeit",
+    "birthCount": "Geburten pro Jahr",
+    "birthRate": "Geburtenrate",
+    "perBirths": "Etwa 1 von {{count}} Neugeborenen wird hier geboren",
+    "tagline": "Dieses Mal beginnt das Leben hier.",
+    "details": "Über diese Simulation",
+    "method": "Die Ziehung wird nach jährlichen Geburten gewichtet. Die Geburtenrate dient nur als Zusatzinformation.",
+    "source": "Quelle: UN World Population Prospects 2024; Geburtenrate: Weltbank.",
+    "disclaimer": "Nur zur Unterhaltung und Datenvermittlung, keine Vorhersage des persönlichen Schicksals.",
+    "regions": {
+      "Africa": "Afrika",
+      "Americas": "Amerika",
+      "Asia": "Asien",
+      "Europe": "Europa",
+      "Oceania": "Ozeanien"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "Geburtsort-Simulator",
+    "description": "Sieh anhand weltweiter Geburtsdaten, wo deine Geburtskoordinaten landen."
   }
 }

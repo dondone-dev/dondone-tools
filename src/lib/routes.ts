@@ -22,6 +22,7 @@ export const TOOL_ROUTES = [
   '/text/id-card',
   '/text/name-risk',
   '/security/password-strength',
+  '/fun/birthplace-simulator',
   '/finance/social-insurance',
   '/finance/flexible-insurance',
   '/finance/beijing-getihu',

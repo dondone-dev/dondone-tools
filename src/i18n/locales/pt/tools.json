@@ -988,5 +988,37 @@
     "chartTitle": "Desempenho ao longo do tempo", "chartSummary": "A velocidade mudou de {{start}} para {{end}} unidades/s.", "chartWaiting": "Aguardando amostras suficientes para mostrar a tendência.", "rate": "Velocidade",
     "environmentTitle": "Ambiente do navegador", "browser": "Navegador", "operatingSystem": "Sistema operacional", "logicalProcessors": "Processadores lógicos", "simdSupport": "WASM SIMD compatível", "crossOriginIsolated": "Isolamento entre origens", "version": "Versão do teste", "yes": "Sim", "no": "Não", "unknown": "Desconhecido",
     "disclaimer": "Esta pontuação representa o cálculo sustentado de WebAssembly em uma thread nas condições atuais de dispositivo, navegador, energia, agendamento e temperatura. Não é uma avaliação oficial da CPU."
+  },
+  "birthSimulator": {
+    "title": "Simulador de local de nascimento",
+    "description": "Veja onde suas coordenadas de nascimento cairiam com base nos nascimentos do mundo.",
+    "subtitle": "Uma simulação divertida baseada nos nascimentos anuais globais",
+    "start": "Simular meu nascimento",
+    "retry": "Tentar novamente",
+    "resultLabel": "Suas coordenadas de nascimento",
+    "flagAlt": "Bandeira de {{country}}",
+    "yearLine": "Ano dos dados: {{year}} · Dados da ONU",
+    "loading": "Calculando os pesos globais de nascimento…",
+    "error": "Os dados de nascimento estão temporariamente indisponíveis.",
+    "birthProbability": "Probabilidade de nascimento",
+    "birthCount": "Nascimentos anuais",
+    "birthRate": "Taxa de natalidade",
+    "perBirths": "Cerca de 1 em cada {{count}} recém-nascidos nasce aqui",
+    "tagline": "Desta vez, a vida começa aqui.",
+    "details": "Sobre esta simulação",
+    "method": "O resultado é ponderado pelos nascimentos anuais. A taxa de natalidade serve apenas como referência.",
+    "source": "Fonte: Nações Unidas, World Population Prospects 2024; taxa de natalidade: Banco Mundial.",
+    "disclaimer": "Apenas para entretenimento e compreensão de dados; não prevê seu destino.",
+    "regions": {
+      "Africa": "África",
+      "Americas": "Américas",
+      "Asia": "Ásia",
+      "Europe": "Europa",
+      "Oceania": "Oceania"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "Simulador de local de nascimento",
+    "description": "Veja onde suas coordenadas de nascimento cairiam com base nos nascimentos do mundo."
   }
 }

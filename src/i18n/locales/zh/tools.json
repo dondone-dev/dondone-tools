@@ -1045,5 +1045,37 @@
     "no": "否",
     "unknown": "未知",
     "disclaimer": "本分数表示当前设备、浏览器、功耗、系统调度和散热条件下的 WebAssembly 单线程持续计算性能，并非 CPU 官方评级。"
+  },
+  "birthSimulator": {
+    "title": "投胎模拟器",
+    "description": "根据全球出生数据，看看你的出生坐标会落在哪里。",
+    "subtitle": "基于全球年度出生数据的趣味模拟",
+    "start": "开始投胎",
+    "retry": "再投一次",
+    "resultLabel": "你的出生坐标",
+    "flagAlt": "{{country}}国旗",
+    "yearLine": "数据年份：{{year}} · 联合国数据",
+    "loading": "正在计算全球出生权重……",
+    "error": "出生数据暂时不可用。",
+    "birthProbability": "出生概率",
+    "birthCount": "年度出生数",
+    "birthRate": "出生率",
+    "perBirths": "约每 {{count}} 个新生儿，就有 1 个来自这里",
+    "tagline": "这一次，生命从这里开始。",
+    "details": "关于这次模拟",
+    "method": "结果按照年度出生人数加权，而不是按国家数量抽签。出生率仅作为辅助信息展示。",
+    "source": "数据来源：联合国《世界人口展望 2024》；出生率参考世界银行。",
+    "disclaimer": "仅供娱乐和理解人口数据，不代表个人命运。",
+    "regions": {
+      "Africa": "非洲",
+      "Americas": "美洲",
+      "Asia": "亚洲",
+      "Europe": "欧洲",
+      "Oceania": "大洋洲"
+    }
+  },
+  "birthplace-simulator": {
+    "title": "投胎模拟器",
+    "description": "根据全球出生数据，看看你的出生坐标会落在哪里。"
   }
 }

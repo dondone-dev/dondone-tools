@@ -292,6 +292,13 @@ export const TOOLS: ToolConfig[] = [
     category: 'Random',
   },
   {
+    id: 'birthplace-simulator',
+    descriptionKey: 'birthSimulator.description',
+    href: '/fun/birthplace-simulator',
+    icon: Baby,
+    category: 'Fun',
+  },
+  {
     id: 'bp-jwt',
     descriptionKey: 'bp-jwt.description',
     href: '/bp/jwt',
@@ -370,7 +377,7 @@ export const TOOLS: ToolConfig[] = [
   // },
 ]
 
-export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Performance', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Design', 'Image', 'File', 'BP Authentication']
+export const CATEGORIES: ToolCategory[] = ['Encoding', 'Hash', 'Performance', 'Cryptography', 'Text', 'SQL', 'Security', 'Finance', 'Random', 'Fun', 'Design', 'Image', 'File', 'BP Authentication']
 
 export function getToolsByCategory(category: ToolCategory): ToolConfig[] {
   return TOOLS.filter((t) => t.category === category)

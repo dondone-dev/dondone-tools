@@ -26,7 +26,7 @@
       "code": "cn",
       "name": "China",
       "region": "Asia",
-      "births": 8899881,
+      "births": 9078094,
       "birthRate": 6.39,
       "year": 2023,
       "source": "UN WPP 2024",
@@ -993,15 +993,6 @@
       "flagCode": "py"
     },
     {
-      "code": "tw",
-      "name": "Taiwan",
-      "region": "Asia",
-      "births": 132404,
-      "year": 2023,
-      "source": "UN WPP 2024",
-      "flagCode": "tw"
-    },
-    {
       "code": "ni",
       "name": "Nicaragua",
       "region": "Americas",
@@ -1390,16 +1381,6 @@
       "year": 2023,
       "source": "UN WPP 2024",
       "flagCode": "fi"
-    },
-    {
-      "code": "hk",
-      "name": "China, Hong Kong Special Administrative Region",
-      "region": "Asia",
-      "births": 41294,
-      "birthRate": 4.4,
-      "year": 2023,
-      "source": "UN WPP 2024",
-      "flagCode": "hk"
     },
     {
       "code": "am",
@@ -1796,16 +1777,6 @@
       "year": 2023,
       "source": "UN WPP 2024",
       "flagCode": "ws"
-    },
-    {
-      "code": "mo",
-      "name": "China, Macao Special Administrative Region",
-      "region": "Asia",
-      "births": 4515,
-      "birthRate": 5.5,
-      "year": 2023,
-      "source": "UN WPP 2024",
-      "flagCode": "mo"
     },
     {
       "code": "is",

@@ -1005,6 +1005,17 @@
     "birthRate": "Geburtenrate",
     "perBirths": "Etwa 1 von {{count}} Neugeborenen wird hier geboren",
     "tagline": "Dieses Mal beginnt das Leben hier.",
+    "shareResult": "Ergebnis kopieren",
+    "shareSuccess": "Kopiert",
+    "shareTemplate": "🎲 Geburtsort-Simulation: [{{country}}]\n🌍 Region: {{region}}\n✨ Seltenheit: {{rarity}}\n📊 Wahrscheinlichkeit: {{probability}} (ca. 1 von {{odds}} Geburten)\nAus dondone-tools Geburtsort-Simulator",
+    "historyTitle": "Verlauf",
+    "historyClear": "Löschen",
+    "rarity": {
+      "common": "Häufig · Hohe Bevölkerung",
+      "uncommon": "Mittel · Solide Bevölkerung",
+      "rare": "Selten · Geringe Bevölkerung",
+      "ultraRare": "SSR · Seltene Koordinaten"
+    },
     "details": "Über diese Simulation",
     "method": "Die Ziehung wird nach jährlichen Geburten gewichtet. Die Geburtenrate dient nur als Zusatzinformation.",
     "source": "Quelle: UN World Population Prospects 2024; Geburtenrate: Weltbank.",

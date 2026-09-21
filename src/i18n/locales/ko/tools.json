@@ -1005,6 +1005,17 @@
     "birthRate": "출생률",
     "perBirths": "신생아 약 {{count}}명 중 1명이 이곳에서 태어납니다",
     "tagline": "이번에는 이곳에서 삶이 시작됩니다.",
+    "shareResult": "결과 복사",
+    "shareSuccess": "복사됨",
+    "shareTemplate": "🎲 출생지 시뮬레이터 결과: [{{country}}]\n🌍 지역: {{region}}\n✨ 희귀도: {{rarity}}\n📊 출생 확률: {{probability}} (약 {{odds}}명 중 1명)\ndondone-tools 출생지 시뮬레이터",
+    "historyTitle": "시뮬레이션 기록",
+    "historyClear": "지우기",
+    "rarity": {
+      "common": "흔함 · 인구 대국",
+      "uncommon": "보통 · 안정적인 인구",
+      "rare": "희귀 · 적은 인구",
+      "ultraRare": "SSR · 희귀한 출생 좌표"
+    },
     "details": "시뮬레이션 안내",
     "method": "연간 출생 수를 가중치로 사용합니다. 출생률은 참고 정보입니다.",
     "source": "출처: UN World Population Prospects 2024, 출생률: 세계은행.",

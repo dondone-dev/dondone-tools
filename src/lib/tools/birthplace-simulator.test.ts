@@ -3,6 +3,7 @@ import {
   formatBirthCount,
   formatBirthOdds,
   formatBirthProbability,
+  getBirthRarity,
   pickBirthCountry,
   prepareBirthDistribution,
   type BirthDataset,
@@ -82,5 +83,17 @@ describe('formatting', () => {
 
   it('rejects non-positive odds probabilities', () => {
     expect(() => formatBirthOdds(0, 'en-US')).toThrow()
+  })
+})
+
+describe('getBirthRarity', () => {
+  it('classifies probability into rarity tiers', () => {
+    expect(getBirthRarity(0.17).tier).toBe('common')
+    expect(getBirthRarity(0.05).tier).toBe('common')
+    expect(getBirthRarity(0.02).tier).toBe('uncommon')
+    expect(getBirthRarity(0.01).tier).toBe('uncommon')
+    expect(getBirthRarity(0.005).tier).toBe('rare')
+    expect(getBirthRarity(0.001).tier).toBe('rare')
+    expect(getBirthRarity(0.0001).tier).toBe('ultra-rare')
   })
 })

@@ -1009,6 +1009,17 @@
     "birthRate": "出生率",
     "perBirths": "約 {{count}} 人に 1 人がここで生まれます",
     "tagline": "今回は、ここから人生が始まります。",
+    "shareResult": "結果をコピー",
+    "shareSuccess": "コピー完了",
+    "shareTemplate": "🎲 出生地シミュレーター結果：【{{country}}】\n🌍 地域：{{region}}\n✨ レア度：{{rarity}}\n📊 出生確率：{{probability}}（約 {{odds}} 人に 1 人）\ndondone-tools 出生地シミュレーターより",
+    "historyTitle": "履歴",
+    "historyClear": "クリア",
+    "rarity": {
+      "common": "頻出 · 人口大国",
+      "uncommon": "普通 · 安定した人口",
+      "rare": "レア · 少人口",
+      "ultraRare": "SSR · 希少な出生座標"
+    },
     "details": "このシミュレーションについて",
     "method": "年間出生数を重みとして抽選しています。出生率は参考情報です。",
     "source": "出典：国連 World Population Prospects 2024、出生率は世界銀行。",

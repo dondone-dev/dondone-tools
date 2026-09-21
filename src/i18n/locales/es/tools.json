@@ -1005,6 +1005,17 @@
     "birthRate": "Tasa de natalidad",
     "perBirths": "Aproximadamente 1 de cada {{count}} recién nacidos nace aquí",
     "tagline": "Esta vez, la vida comienza aquí.",
+    "shareResult": "Copiar resultado",
+    "shareSuccess": "Copiado",
+    "shareTemplate": "🎲 Resultado del simulador de lugar de nacimiento: [{{country}}]\n🌍 Región: {{region}}\n✨ Rareza: {{rarity}}\n📊 Probabilidad: {{probability}} (aprox. 1 de cada {{odds}} recién nacidos)\nDe dondone-tools Simulador de lugar de nacimiento",
+    "historyTitle": "Historial",
+    "historyClear": "Borrar",
+    "rarity": {
+      "common": "Común · Alta población",
+      "uncommon": "Moderado · Población estable",
+      "rare": "Raro · Poca población",
+      "ultraRare": "SSR · Coordenadas raras"
+    },
     "details": "Sobre esta simulación",
     "method": "El resultado se pondera por nacimientos anuales. La tasa de natalidad solo sirve como referencia.",
     "source": "Fuente: Naciones Unidas, World Population Prospects 2024; tasa de natalidad: Banco Mundial.",

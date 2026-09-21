@@ -20,6 +20,43 @@ export interface PreparedBirthCountry extends BirthCountry {
   probability: number
 }
 
+export type BirthRarityTier = 'common' | 'uncommon' | 'rare' | 'ultra-rare'
+
+export interface BirthRarityInfo {
+  tier: BirthRarityTier
+  badgeKey: string
+  badgeClass: string
+}
+
+export function getBirthRarity(probability: number): BirthRarityInfo {
+  if (probability >= 0.05) {
+    return {
+      tier: 'common',
+      badgeKey: 'birthSimulator.rarity.common',
+      badgeClass: 'border-slate-300/80 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-300',
+    }
+  }
+  if (probability >= 0.01) {
+    return {
+      tier: 'uncommon',
+      badgeKey: 'birthSimulator.rarity.uncommon',
+      badgeClass: 'border-blue-300/80 bg-blue-50 text-blue-700 dark:border-blue-800 dark:bg-blue-950/60 dark:text-blue-300',
+    }
+  }
+  if (probability >= 0.001) {
+    return {
+      tier: 'rare',
+      badgeKey: 'birthSimulator.rarity.rare',
+      badgeClass: 'border-purple-300/80 bg-purple-50 text-purple-700 dark:border-purple-800 dark:bg-purple-950/60 dark:text-purple-300',
+    }
+  }
+  return {
+    tier: 'ultra-rare',
+    badgeKey: 'birthSimulator.rarity.ultraRare',
+    badgeClass: 'border-amber-300/80 bg-amber-50 text-amber-700 dark:border-amber-700/80 dark:bg-amber-950/60 dark:text-amber-300',
+  }
+}
+
 export interface BirthDistribution {
   year: number
   source: string

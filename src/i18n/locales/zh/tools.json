@@ -1062,6 +1062,17 @@
     "birthRate": "出生率",
     "perBirths": "约每 {{count}} 个新生儿，就有 1 个来自这里",
     "tagline": "这一次，生命从这里开始。",
+    "shareResult": "复制结果",
+    "shareSuccess": "已复制",
+    "shareTemplate": "🎲 投胎模拟结果：【{{country}}】\n🌍 所在地区：{{region}}\n✨ 稀有度：{{rarity}}\n📊 出生概率：{{probability}}（约每 {{odds}} 人中有 1 人）\n来自 dondone-tools 投胎模拟器",
+    "historyTitle": "投胎足迹",
+    "historyClear": "清空",
+    "rarity": {
+      "common": "常见 · 人口大国",
+      "uncommon": "普通 · 发展平稳",
+      "rare": "稀有 · 人口较少",
+      "ultraRare": "SSR · 罕见坐标"
+    },
     "details": "关于这次模拟",
     "method": "结果按照年度出生人数加权，而不是按国家数量抽签。出生率仅作为辅助信息展示。",
     "source": "数据来源：联合国《世界人口展望 2024》；出生率参考世界银行。",

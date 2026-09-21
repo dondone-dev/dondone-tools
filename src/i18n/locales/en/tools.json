@@ -1062,6 +1062,17 @@
     "birthRate": "Birth rate",
     "perBirths": "About 1 in every {{count}} newborns is born here",
     "tagline": "This time, life begins here.",
+    "shareResult": "Copy result",
+    "shareSuccess": "Copied",
+    "shareTemplate": "🎲 Birthplace Simulator Result: [{{country}}]\n🌍 Region: {{region}}\n✨ Rarity: {{rarity}}\n📊 Probability: {{probability}} (approx. 1 in every {{odds}} births)\nFrom dondone-tools Birthplace Simulator",
+    "historyTitle": "Simulation history",
+    "historyClear": "Clear",
+    "rarity": {
+      "common": "Common · High Population",
+      "uncommon": "Moderate · Steady Population",
+      "rare": "Rare · Low Population",
+      "ultraRare": "SSR · Rare Coordinates"
+    },
     "details": "About this simulation",
     "method": "The result is weighted by annual live births, not by the number of countries. Birth rate is shown for context only.",
     "source": "Source: United Nations World Population Prospects 2024; birth-rate reference: World Bank.",

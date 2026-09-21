@@ -2,8 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Loader2, Orbit, RotateCcw, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { ToolLayout } from '@/components/layout/ToolLayout'
-import { ToolError, ToolStatus } from '@/components/tools/ToolFeedback'
+import { ToolError } from '@/components/tools/ToolFeedback'
 import { Button } from '@/components/ui/button'
+import { useConfettiBurst } from '@/hooks/useConfettiBurst'
 import {
   formatBirthCount,
   formatBirthOdds,
@@ -28,7 +29,11 @@ export function BirthplaceSimulatorPage() {
   const [drawing, setDrawing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [flagFailed, setFlagFailed] = useState(false)
+  const [drawToken, setDrawToken] = useState(0)
   const timerIds = useRef<number[]>([])
+  const sectionRef = useRef<HTMLElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const burstConfetti = useConfettiBurst(canvasRef, sectionRef)
 
   const locale = i18n.resolvedLanguage ?? i18n.language ?? 'en'
   const reducedMotion = useMemo(
@@ -84,17 +89,19 @@ export function BirthplaceSimulatorPage() {
     setError(null)
     setResult(null)
     setFlagFailed(false)
+    setDrawToken((token) => token + 1)
     setDrawing(true)
 
-    const reveal = () => {
+    const reveal = (celebrate: boolean) => {
       const finalCountry = pickBirthCountry(distribution)
       setPreview(finalCountry)
       setResult(finalCountry)
       setDrawing(false)
+      if (celebrate) burstConfetti()
     }
 
     if (reducedMotion) {
-      reveal()
+      reveal(false)
       return
     }
 
@@ -104,7 +111,7 @@ export function BirthplaceSimulatorPage() {
         setPreview(pickBirthCountry(distribution))
       }, index * DRAW_INTERVAL))
     }
-    timerIds.current.push(window.setTimeout(reveal, DRAW_DURATION))
+    timerIds.current.push(window.setTimeout(() => reveal(true), DRAW_DURATION))
   }
 
   const displayedCountry = preview ?? result
@@ -113,7 +120,10 @@ export function BirthplaceSimulatorPage() {
 
   return (
     <ToolLayout toolId="birthplace-simulator" category="Fun">
-      <section className="relative overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#07111f] px-5 py-10 text-center text-white shadow-xl shadow-cyan-950/10 sm:px-10 sm:py-14">
+      <section
+        ref={sectionRef}
+        className="relative overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#0c1a2e] px-5 py-10 text-center text-white shadow-[0_25px_70px_-30px_rgba(34,211,238,0.5),0_12px_40px_-20px_rgba(251,191,36,0.25)] sm:px-10 sm:py-14 dark:bg-[#07111f] dark:shadow-[0_25px_70px_-30px_rgba(34,211,238,0.25),0_12px_40px_-20px_rgba(251,191,36,0.12)]"
+      >
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-50">
           <div className="absolute left-[12%] top-[16%] h-1 w-1 rounded-full bg-cyan-200" />
           <div className="absolute right-[18%] top-[28%] h-1.5 w-1.5 rounded-full bg-amber-200" />
@@ -156,24 +166,43 @@ export function BirthplaceSimulatorPage() {
             </div>
           </div>
 
-          {drawing && <ToolStatus message={t('birthSimulator.loading', { ns: 'tools' })} icon={<Loader2 className="h-4 w-4 animate-spin" />} className="justify-center text-cyan-100/70" />}
+          <p role="status" className="min-h-4 text-xs text-cyan-100/70">
+            {drawing ? t('birthSimulator.loading', { ns: 'tools' }) : ''}
+          </p>
 
-          {!drawing && !result && (
-            <Button size="lg" onClick={startDraw} disabled={loading || Boolean(error)} className="min-w-44 bg-cyan-300 text-slate-950 hover:bg-cyan-200">
-              {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-              {t('birthSimulator.start', { ns: 'tools' })}
-            </Button>
-          )}
-
-          {!drawing && result && (
-            <Button size="lg" onClick={startDraw} className="min-w-44 bg-cyan-300 text-slate-950 hover:bg-cyan-200">
-              <RotateCcw className="mr-2 h-4 w-4" />
-              {t('birthSimulator.retry', { ns: 'tools' })}
-            </Button>
-          )}
+          <Button
+            size="lg"
+            onClick={startDraw}
+            disabled={loading || drawing || Boolean(error)}
+            className="relative min-w-44 overflow-hidden bg-cyan-300 text-slate-950 hover:bg-cyan-200 disabled:opacity-100"
+          >
+            {drawing && (
+              <span
+                key={drawToken}
+                aria-hidden="true"
+                className="absolute inset-0 origin-left bg-slate-950/20"
+                style={{ animation: `birth-sim-progress ${DRAW_DURATION}ms linear forwards` }}
+              />
+            )}
+            <span className="relative flex items-center gap-2">
+              {loading || drawing ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : result ? (
+                <RotateCcw className="h-4 w-4" />
+              ) : (
+                <Sparkles className="h-4 w-4" />
+              )}
+              {result ? t('birthSimulator.retry', { ns: 'tools' }) : t('birthSimulator.start', { ns: 'tools' })}
+            </span>
+          </Button>
 
           <p className="text-xs text-cyan-100/50">{t('birthSimulator.yearLine', { ns: 'tools', year: distribution?.year ?? 2023 })}</p>
         </div>
+        <canvas
+          ref={canvasRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-20 h-full w-full"
+        />
       </section>
 
       {error && <ToolError message={error} />}

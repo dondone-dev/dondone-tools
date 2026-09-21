@@ -48,6 +48,20 @@ describe('parseCoordinatePair', () => {
   it('accepts leading hemisphere letters', () => {
     expect(parseCoordinatePair('S 33.8688, E 151.2093')).toMatchObject({ lat: -33.8688, lng: 151.2093 })
   })
+  it('accepts space-separated leading hemisphere letters', () => {
+    expect(parseCoordinatePair('N39.9916 W116.3393')).toMatchObject({ lat: 39.9916, lng: -116.3393 })
+    expect(parseCoordinatePair('S33.8 E151.2')).toMatchObject({ lat: -33.8, lng: 151.2 })
+  })
+
+  it('preserves negative zero degrees in DMS and DDM', () => {
+    expect(parseCoordinatePair(`-0°30'0.0" 10.0`).lat).toBeCloseTo(-0.5)
+    expect(parseCoordinatePair(`-0°30' 10.0`).lat).toBeCloseTo(-0.5)
+  })
+
+  it('reports the latitude token format when coordinate order is reversed', () => {
+    expect(parseCoordinatePair(`116°20'21.3"E 39.9916N`).detectedFormat).toBe('decimal')
+  })
+
 
   it('rejects invalid minute and second values', () => {
     expect(() => parseCoordinatePair(`39°60'0"N 116°20'0"E`)).toThrow(/minutes and seconds/i)

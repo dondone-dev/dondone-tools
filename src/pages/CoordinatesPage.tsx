@@ -34,10 +34,11 @@ export function CoordinatesPage() {
     if (!parsed?.value) return null
     const source = { lng: parsed.value.lng, lat: parsed.value.lat }
     const target = convertDatum(source, fromDatum, toDatum)
+    const crossesWgsGcjBoundary = (fromDatum === 'WGS84') !== (toDatum === 'WGS84')
     return {
       lat: formatCoordinate(target.lat, 'lat', outputFormat),
       lng: formatCoordinate(target.lng, 'lng', outputFormat),
-      outOfChina: fromDatum !== toDatum && isOutOfChina(source),
+      outOfChina: crossesWgsGcjBoundary && isOutOfChina(source),
     }
   }, [parsed, fromDatum, toDatum, outputFormat])
 

@@ -14,9 +14,16 @@ interface Token {
 }
 
 // One coordinate token: an optional leading hemisphere, degrees, optional minutes/seconds, and an optional trailing hemisphere.
-const TOKEN_RE = /([NSEWnsew])?\s*(-?\d{1,3}(?:\.\d+)?)\s*°?\s*(?:(\d{1,2}(?:\.\d+)?)\s*['′]\s*(?:(\d{1,2}(?:\.\d+)?)\s*["″])?)?\s*([NSEWnsew])?/g
+const TOKEN_RE = /([NSEWnsew])?\s*(-?\d{1,3}(?:\.\d+)?)\s*°?\s*(?:(\d{1,2}(?:\.\d+)?)\s*['′]\s*(?:(\d{1,2}(?:\.\d+)?)\s*["″])?)?/y
 
-function parseToken(deg: number, min: number | undefined, sec: number | undefined, leadingHemi: string | undefined, trailingHemi: string | undefined): Token {
+function parseToken(
+  degreeText: string,
+  min: number | undefined,
+  sec: number | undefined,
+  leadingHemi: string | undefined,
+  trailingHemi: string | undefined,
+): Token {
+  const deg = Number(degreeText)
   if ((min !== undefined && min >= 60) || (sec !== undefined && sec >= 60)) {
     throw new Error('Minutes and seconds must be less than 60')
   }
@@ -25,7 +32,7 @@ function parseToken(deg: number, min: number | undefined, sec: number | undefine
   if (leading && trailing && leading !== trailing) {
     throw new Error('Leading and trailing hemispheres must match')
   }
-  const sign = deg < 0 ? -1 : 1
+  const sign = degreeText.trimStart().startsWith('-') ? -1 : 1
   const value = sign * (Math.abs(deg) + (min ?? 0) / 60 + (sec ?? 0) / 3600)
   const format: CoordinateFormat = sec !== undefined ? 'dms' : min !== undefined ? 'ddm' : 'decimal'
   return { value, hemi: leading ?? trailing, format }
@@ -33,16 +40,43 @@ function parseToken(deg: number, min: number | undefined, sec: number | undefine
 
 function tokenize(input: string): Token[] {
   const tokens: Token[] = []
-  for (const m of input.matchAll(TOKEN_RE)) {
-    const deg = Number(m[2])
-    if (Number.isNaN(deg)) continue
-    const min = m[3] !== undefined ? Number(m[3]) : undefined
-    const sec = m[4] !== undefined ? Number(m[4]) : undefined
-    tokens.push(parseToken(deg, min, sec, m[1], m[5]))
+  let offset = 0
+
+  while (offset < input.length) {
+    while (offset < input.length && /[\s,]/.test(input[offset])) offset++
+    if (offset >= input.length) break
+
+    TOKEN_RE.lastIndex = offset
+    const match = TOKEN_RE.exec(input)
+    if (!match || match.index !== offset) break
+
+    const leadingHemi = match[1]
+    const end = TOKEN_RE.lastIndex
+    const coreHadTrailingSpace = /\s$/.test(input.slice(offset, end))
+    let trailingHemi: string | undefined
+    let nextOffset = end
+    const suffix = input.slice(end).match(/^(\s*)([NSEWnsew])/)
+    if (suffix) {
+      const nextHemi = suffix[2].toUpperCase()
+      const hasLeading = Boolean(leadingHemi)
+      const adjacent = !coreHadTrailingSpace && suffix[1].length === 0
+      const nextAfterHemi = input.slice(end + suffix[0].length)
+      const nextIsCoordinate = /^\\s*(?:[-+]?\\d|[NSEWnsew])/.test(nextAfterHemi)
+      const currentAxis = nextHemi === 'N' || nextHemi === 'S' ? 'lat' : 'lng'
+      const nextTokenHemi = nextAfterHemi.match(/^\\s*([NSEWnsew])/)
+      const nextAxis = nextTokenHemi && (nextTokenHemi[1].toUpperCase() === 'N' || nextTokenHemi[1].toUpperCase() === 'S') ? 'lat' : 'lng'
+      if (adjacent || (!hasLeading && (!nextIsCoordinate || currentAxis !== nextAxis))) {
+        trailingHemi = nextHemi
+        nextOffset = end + suffix[0].length
+      }
+    }
+
+    tokens.push(parseToken(match[2], match[3] !== undefined ? Number(match[3]) : undefined, match[4] !== undefined ? Number(match[4]) : undefined, leadingHemi, trailingHemi))
+    offset = nextOffset
   }
+
   return tokens
 }
-
 
 /**
  * Parses a free-form pair of coordinates (lat + lng) from a single string.
@@ -72,7 +106,7 @@ export function parseCoordinatePair(input: string): ParsedCoordinate {
   if (Math.abs(lat) > 90) throw new Error('Latitude must be between -90 and 90')
   if (Math.abs(lng) > 180) throw new Error('Longitude must be between -180 and 180')
 
-  return { lat, lng, detectedFormat: a.format }
+  return { lat, lng, detectedFormat: latToken.format }
 }
 
 function splitDegrees(absValue: number, subPrecision: number): { deg: number; min: number; sec: number } {

@@ -1020,5 +1020,29 @@
   "birthplace-simulator": {
     "title": "출생지 시뮬레이터",
     "description": "세계 출생 데이터를 바탕으로 당신의 출생 좌표를 확인해 보세요."
+  },
+  "coordinates": {
+    "title": "좌표 변환기",
+    "description": "DMS(도분초), DDM(도분), 십진 좌표 간 변환과 WGS-84, GCJ-02, BD-09 지도 좌표계 간 변환을 지원합니다. 모든 계산은 로컬에서 실행되며 어디로도 전송되지 않습니다.",
+    "input": "좌표",
+    "placeholder": "예: 39°59'29.7\"N 116°20'21.3\"E 또는 39.9916, 116.3393",
+    "inputHint": "DMS(39°59'29.7\"N), DDM(39°59.495'N), 십진 좌표(39.9916)를 지원합니다. 위도와 경도는 공백 또는 쉼표로 구분하세요.",
+    "fromDatum": "원본 좌표계",
+    "toDatum": "목표 좌표계",
+    "outputFormat": "출력 형식",
+    "format": {
+      "decimal": "십진 좌표",
+      "dms": "DMS (° ' \")",
+      "ddm": "DDM (° ')"
+    },
+    "datum": {
+      "WGS84": "WGS-84 (GPS)",
+      "GCJ02": "GCJ-02 (AMap / Tencent 지도)",
+      "BD09": "BD-09 (바이두 지도)"
+    },
+    "lat": "위도",
+    "lng": "경도",
+    "combined": "위도, 경도",
+    "outOfChinaNotice": "이 지점은 중국 본토 범위 밖에 있어 WGS-84/GCJ-02 오프셋이 적용되지 않습니다."
   }
 }

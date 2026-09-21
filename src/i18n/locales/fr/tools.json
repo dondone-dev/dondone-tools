@@ -1020,5 +1020,29 @@
   "birthplace-simulator": {
     "title": "Simulateur de lieu de naissance",
     "description": "Découvrez où vos coordonnées de naissance pourraient tomber selon les naissances mondiales."
+  },
+  "coordinates": {
+    "title": "Convertisseur de coordonnées",
+    "description": "Convertissez des coordonnées entre les formats DMS, DDM et degrés décimaux, ainsi qu'entre les systèmes géodésiques WGS-84, GCJ-02 et BD-09. Tous les calculs s'exécutent localement, sans envoi de données.",
+    "input": "Coordonnée",
+    "placeholder": "ex. 39°59'29.7\"N 116°20'21.3\"E ou 39.9916, 116.3393",
+    "inputHint": "Accepte le DMS (39°59'29.7\"N), le DDM (39°59.495'N) ou les degrés décimaux (39.9916), séparés par un espace ou une virgule.",
+    "fromDatum": "Système source",
+    "toDatum": "Système cible",
+    "outputFormat": "Format de sortie",
+    "format": {
+      "decimal": "Degrés décimaux",
+      "dms": "DMS (° ' \")",
+      "ddm": "DDM (° ')"
+    },
+    "datum": {
+      "WGS84": "WGS-84 (GPS)",
+      "GCJ02": "GCJ-02 (AMap / Tencent Maps)",
+      "BD09": "BD-09 (Baidu Maps)"
+    },
+    "lat": "Latitude",
+    "lng": "Longitude",
+    "combined": "Lat, Lng",
+    "outOfChinaNotice": "Ce point est situé hors de Chine continentale — aucun décalage WGS-84/GCJ-02 n'est appliqué."
   }
 }

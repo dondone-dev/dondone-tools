@@ -21,7 +21,6 @@ export const TOOL_ROUTES = [
   '/text/regex',
   '/text/id-card',
   '/text/name-risk',
-  '/text/coordinates',
   '/security/password-strength',
   '/fun/birthplace-simulator',
   '/finance/social-insurance',

@@ -37,7 +37,6 @@ import {
   BookOpen,
   UtensilsCrossed,
   Radar,
-  MapPin,
   // Scissors, // bg-remove disabled
   type LucideIcon,
 } from 'lucide-react'
@@ -206,13 +205,6 @@ export const TOOLS: ToolConfig[] = [
     descriptionKey: 'name-risk.description',
     href: '/text/name-risk',
     icon: Baby,
-    category: 'Text',
-  },
-  {
-    id: 'coordinates',
-    descriptionKey: 'coordinates.description',
-    href: '/text/coordinates',
-    icon: MapPin,
     category: 'Text',
   },
   {

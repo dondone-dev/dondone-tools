@@ -4,9 +4,9 @@
 
 **Goal:** Add a local, weighted birthplace simulator using 2023 UN WPP birth estimates, flag SVGs, translated UI, and accessible result animation.
 
-**Architecture:** Keep all sampling, validation, and number formatting in a pure `src/lib/tools/birthplace-simulator.ts` module. Store the versioned 2023 dataset in `public/data/birthplace-simulator.json`; the page loads it once, then uses the pure distribution functions. Integrate one page through the existing route/config/i18n patterns and local `flag-icons` assets.
+**Architecture:** Keep all sampling, validation, and number formatting in a pure `src/lib/tools/birthplace-simulator.ts` module. Store the versioned 2023 dataset in `public/data/birthplace-simulator.json`; the page loads it once, then uses the pure distribution functions. Integrate one page through the existing route/config/i18n patterns and self-hosted SVG flag assets.
 
-**Tech Stack:** React 19, TypeScript, Vite, Vitest, Tailwind CSS, react-i18next, lucide-react, `flag-icons` SVG assets.
+**Tech Stack:** React 19, TypeScript, Vite, Vitest, Tailwind CSS, react-i18next, lucide-react, self-hosted `flag-icons` SVG assets.
 
 ## Global Constraints
 
@@ -90,7 +90,7 @@ export function formatBirthOdds(probability: number, locale: string): string
 ### Task 3: Add local flag assets and page UI
 
 **Files:**
-- Modify: `package.json`, `pnpm-lock.yaml`
+- Create: `public/flags/*.svg` and `public/flags/LICENSE`
 - Create: `src/pages/BirthplaceSimulatorPage.tsx`
 - Modify: `src/index.css` only if the existing theme needs one small scoped background utility; prefer page-local Tailwind classes.
 
@@ -98,13 +98,13 @@ export function formatBirthOdds(probability: number, locale: string): string
 - Page loads `/data/birthplace-simulator.json` once and passes the parsed dataset to `prepareBirthDistribution`.
 - Page renders the initial state, loading state, result state, and error state.
 
-- [ ] Add the existing maintained `flag-icons` package, import its CSS once in the page or global stylesheet, and render `<span className={\`fi fi-${flagCode}\`}>` with localized `aria-label`; do not use a runtime CDN.
+- [ ] Copy the MIT-licensed 4:3 SVG assets from `flag-icons` into `public/flags` with the license file, and render `/flags/${flagCode}.svg` with localized `aria-label`; do not add a runtime CDN or dependency.
 - [ ] Build a centered dark cosmic hero using existing layout primitives and named button sizes; keep the result card readable and avoid a complex map or 3D scene.
 - [ ] Implement the state machine: `idle → drawing → result`, plus `error`; disable the main button while drawing and reset through “再投一次”.
 - [ ] Use a short timer sequence for the country-name reveal, clear timers on unmount, and skip visual delay when `prefers-reduced-motion` is active.
 - [ ] Put the status in `role="status"`, the result heading/content in `aria-live="polite"`, and errors in the existing alert primitive.
 - [ ] Include only “start”, “retry”, and “data details” actions; do not add share or copy controls.
-- [ ] Commit the page and dependency as `feat(birthplace): add simulator interface`.
+- [ ] Commit the page and assets as `feat(birthplace): add simulator interface`.
 
 ### Task 4: Register route, tool, and translations
 
